@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/petmatch/static/css/main.acba9025.css",
+    "main.js": "/petmatch/static/js/main.ff85a429.js",
+    "static/js/787.cda612ba.chunk.js": "/petmatch/static/js/787.cda612ba.chunk.js",
+    "index.html": "/petmatch/index.html",
+    "main.acba9025.css.map": "/petmatch/static/css/main.acba9025.css.map",
+    "main.ff85a429.js.map": "/petmatch/static/js/main.ff85a429.js.map",
+    "787.cda612ba.chunk.js.map": "/petmatch/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.acba9025.css",
+    "static/js/main.ff85a429.js"
+  ]
+}
