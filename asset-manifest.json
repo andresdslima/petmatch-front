@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/petmatch/static/css/main.acba9025.css",
-    "main.js": "/petmatch/static/js/main.ff85a429.js",
-    "static/js/787.cda612ba.chunk.js": "/petmatch/static/js/787.cda612ba.chunk.js",
-    "index.html": "/petmatch/index.html",
-    "main.acba9025.css.map": "/petmatch/static/css/main.acba9025.css.map",
-    "main.ff85a429.js.map": "/petmatch/static/js/main.ff85a429.js.map",
-    "787.cda612ba.chunk.js.map": "/petmatch/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/petmatch-front/static/css/main.a8f9f261.css",
+    "main.js": "/petmatch-front/static/js/main.db013afe.js",
+    "static/js/787.cda612ba.chunk.js": "/petmatch-front/static/js/787.cda612ba.chunk.js",
+    "static/media/dogIcon.svg": "/petmatch-front/static/media/dogIcon.f549101e84671cc8929a3ceb324a8d83.svg",
+    "index.html": "/petmatch-front/index.html",
+    "main.a8f9f261.css.map": "/petmatch-front/static/css/main.a8f9f261.css.map",
+    "main.db013afe.js.map": "/petmatch-front/static/js/main.db013afe.js.map",
+    "787.cda612ba.chunk.js.map": "/petmatch-front/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.acba9025.css",
-    "static/js/main.ff85a429.js"
+    "static/css/main.a8f9f261.css",
+    "static/js/main.db013afe.js"
   ]
 }
