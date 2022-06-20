@@ -1,4 +1,4 @@
 # Projeto PetMatch
 
-- [Frontend](https://github.com/andresdslima/petmatch-front)
-- [Backend](https://github.com/jguigo/api-petmatch)
+- <a href="https://github.com/andresdslima/petmatch-front" target="_blank">Frontend</a>
+- <a href="https://github.com/jguigo/api-petmatch" target="_blank">Backend</a>
