@@ -1,6 +1,13 @@
-div {
-  &.App {
-    text-align: center;
-    color: red;
+body {
+  text-align: center;
+  background-color: #fdfdfd;
+  font-family: 'Inter', sans-serif;
+
+  h1 {
+    color: #f2323f;
+  }
+
+  img {
+    width: 20%;
   }
 }
