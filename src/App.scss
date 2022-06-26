@@ -1,13 +1,16 @@
-body {
-  text-align: center;
-  background-color: #fdfdfd;
-  font-family: 'Inter', sans-serif;
+html {
+  font-size: 16px;
 
-  h1 {
-    color: #f2323f;
-  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
 
-  img {
-    width: 20%;
+    body {
+      background-color: #fdfdfd;
+      min-height: 100vh;
+    }
   }
 }
