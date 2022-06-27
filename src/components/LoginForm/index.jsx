@@ -53,11 +53,16 @@ export default function LoginForm() {
 
 	return (
 		<Styled.SBackground>
+			<Styled.SHeader>
+				<img src={footprints} alt="Pegadas de animal" />
+			</Styled.SHeader>
+
 			<Styled.SContainer>
 				<Styled.SImage src={dog} alt="Cachorro" />
 
 				<Styled.SForm onSubmit={formik.handleSubmit}>
 					<img src={logo} alt="Logo da PetMatch" />
+
 					<Form.Label htmlFor="email">Email</Form.Label>
 					{formik.errors.email && <small>{formik.errors.email}</small>}
 					<Form.Group>

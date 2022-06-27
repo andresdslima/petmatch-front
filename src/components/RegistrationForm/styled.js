@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export const SBackground = styled.div`
 	background-color: #f76f34;
 	margin: 0;
-	padding-top: 5%;
 	width: 100vw;
 	height: 100vh;
 	max-width: 100%;
@@ -145,16 +144,39 @@ export const SLink = styled(Link)`
 `;
 
 export const SFooter = styled.footer`
-	width: 100vw;
+	background-color: #f76f34;
+	width: 100%;
 	display: flex;
 	justify-content: flex-end;
 
 	img {
-		width: 10%;
-		margin: 1vh 20% 0 0;
+		width: 8%;
+		margin: 1vh 10%;
 
 		@media only screen and (max-width: 500px) {
 			width: 15%;
+		}
+	}
+`;
+
+export const SHeader = styled.header`
+	background-color: #f76f34;
+	width: 100%;
+	padding-top: 3vh;
+	display: flex;
+	justify-content: flex-end;
+
+	img {
+		width: 8%;
+		margin: 1vh 30%;
+
+		@media only screen and (max-width: 500px) {
+			width: 15%;
+			margin: 1vh 70%;
+		}
+
+		@media only screen and (min-width: 1200px) {
+			margin: 1vh 50%;
 		}
 	}
 `;
