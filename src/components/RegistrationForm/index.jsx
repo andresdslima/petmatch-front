@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import dog from '../../assets/images/dog-login.png';
 import footprints from '../../assets/watermarks/patas.jpg';
 import * as Styled from './styled';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../services/mainAPI/users';
-import RegistrationStep1 from '../RegistrationStep1';
-import RegistrationStep2 from '../RegistrationStep2';
-import RegistrationStep3 from '../RegistrationStep3';
-import RegistrationStep4 from '../RegistrationStep4';
+import logo from '../../assets/logos/Logo-teste-2.svg';
 // import { signIn } from '../../store/users';
 
 const validationSchema = Yup.object({
@@ -21,15 +17,13 @@ const validationSchema = Yup.object({
 	confirmPassword: Yup.string()
 		.oneOf([Yup.ref('password'), null], 'Senhas não conferem')
 		.required('*'),
-	houseNumber: Yup.number().required('*'),
 });
 
 export default function RegistrationForm() {
 	const navigate = useNavigate();
 	// const dispatch = useDispatch();
-	const { register, errors, handleSubmit } = useForm();
-	const [step, setStep] = useState(4);
-	const [formValues, setFormValues] = useState({});
+	// useFormikContext()
+	// useContext()
 
 	const formik = useFormik({
 		initialValues: {
@@ -37,9 +31,6 @@ export default function RegistrationForm() {
 			email: '',
 			password: '',
 			confirmPassword: '',
-			houseNumber: undefined,
-			// permission: 1,
-			// userStatus: 1,
 			// age,
 			// district,
 			// about,
@@ -48,26 +39,23 @@ export default function RegistrationForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			console.log(values);
-			// const response = await createUser({
-			// 	name: values.name,
-			// 	email: values.email,
-			// 	username: values.username,
-			// 	password: values.password,
-			// 	apartment: values.apartment,
-			// 	admin: values.admin,
-			// });
-			const response = await createUser(values);
-			console.log(response);
+			const response = await createUser({
+				name: values.name,
+				email: values.email,
+				password: values.password,
+				userStatus: 1,
+				permission: 0,
+			});
 
-			if (response.status !== 201 || 200) {
-				alert('Erro ao cadastrar usuário');
-				return;
-			}
+			// if (response.status !== 201 || response.status !== 200) {
+			// 	console.log(response.status);
+			// 	alert('Erro ao cadastrar usuário');
+			// 	return;
+			// }
 
 			alert('Usuário cadastrado com sucesso!');
 			formik.handleReset();
-			navigate('/');
+			navigate('/login');
 		},
 	});
 
@@ -80,37 +68,71 @@ export default function RegistrationForm() {
 			<Styled.SContainer>
 				<Styled.SImage src={dog} alt="Cachorro" />
 
-				{step === 1 && (
-					<RegistrationStep1
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
-					/>
-				)}
+				<Styled.SForm onSubmit={formik.handleSubmit}>
+					<img src={logo} alt="Logo da PetMatch" />
 
-				{step === 2 && (
-					<RegistrationStep2
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
+					<Styled.SLabel alt="Insira seu nome completo" htmlFor="name">
+						Nome completo
+					</Styled.SLabel>
+					{formik.errors.name && <small>{formik.errors.name}</small>}
+					<Styled.SInput
+						type="text"
+						name="name"
+						id="name"
+						placeholder="Insira seu nome completo"
+						value={formik.values.name}
+						onChange={formik.handleChange}
 					/>
-				)}
 
-				{step === 3 && (
-					<RegistrationStep3
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
+					<Styled.SLabel alt="Insira seu melhor email" htmlFor="email">
+						Email
+					</Styled.SLabel>
+					{formik.errors.email && <small>{formik.errors.email}</small>}
+					<Styled.SInput
+						type="email"
+						name="email"
+						id="email"
+						placeholder="Insira seu melhor email"
+						value={formik.values.email}
+						onChange={formik.handleChange}
 					/>
-				)}
 
-				{step === 4 && (
-					<RegistrationStep4
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
+					<Styled.SLabel
+						alt="Insira uma senha com no mínimo 6 dígitos"
+						htmlFor="password"
+					>
+						Senha
+					</Styled.SLabel>
+					{formik.errors.password && <small>{formik.errors.password}</small>}
+					<Styled.SInput
+						type="password"
+						placeholder="Digite sua senha"
+						name="password"
+						id="password"
+						value={formik.values.password}
+						onChange={formik.handleChange}
 					/>
-				)}
+
+					<Styled.SLabel alt="Confirme sua senha" htmlFor="password">
+						Confirmar senha
+					</Styled.SLabel>
+					{formik.errors.confirmPassword && (
+						<small>{formik.errors.confirmPassword}</small>
+					)}
+					<Styled.SInput
+						type="password"
+						placeholder="Confirme sua senha"
+						name="confirmPassword"
+						id="confirmPassword"
+						value={formik.values.confirmPassword}
+						onChange={formik.handleChange}
+					/>
+
+					<Styled.SButton type="submit">Cadastrar-se</Styled.SButton>
+					<Styled.SLink exact to="/login">
+						Já possuo cadastro
+					</Styled.SLink>
+				</Styled.SForm>
 			</Styled.SContainer>
 
 			<Styled.SFooter>

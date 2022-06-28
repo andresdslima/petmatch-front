@@ -32,11 +32,10 @@ export default function LoginForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			console.log(values);
 			const response = await loginUser(values);
-			console.log(response); // SALVAR NO REDUX
-
-			if (!response.id || response.id === undefined) {
+			// SALVAR RESPOSTA NO REDUX
+			
+			if (!response.data) {
 				alert('Usuário ou senha inválidos!');
 				formik.handleReset();
 				return;
@@ -44,10 +43,9 @@ export default function LoginForm() {
 
 			// dispatch(loginUser({ token, permission: user.permission }));
 			api.defaults.headers.common['Authorization'] = `Bearer ${response.token}`;
-			console.log(values);
 			alert('Usuário logado!');
 			formik.handleReset();
-			navigate('/');
+			// navigate('/');
 		},
 	});
 
@@ -63,7 +61,9 @@ export default function LoginForm() {
 				<Styled.SForm onSubmit={formik.handleSubmit}>
 					<img src={logo} alt="Logo da PetMatch" />
 
-					<Form.Label htmlFor="email">Email</Form.Label>
+					<Styled.SLabel alt="Insira seu email" htmlFor="email">
+						Email
+					</Styled.SLabel>
 					{formik.errors.email && <small>{formik.errors.email}</small>}
 					<Form.Group>
 						<Styled.SInput
@@ -81,7 +81,9 @@ export default function LoginForm() {
 						/>
 					</Form.Group>
 
-					<Form.Label htmlFor="password">Senha</Form.Label>
+					<Styled.SLabel alt="Insira sua senha" htmlFor="password">
+						Senha
+					</Styled.SLabel>
 					{formik.errors.password && <small>{formik.errors.password}</small>}
 					<Form.Group>
 						<Styled.SInput
@@ -96,10 +98,10 @@ export default function LoginForm() {
 					</Form.Group>
 
 					<Styled.SButton type="submit">Entrar</Styled.SButton>
-					<Link to="/register">
+					<Link exact to="/register">
 						<Styled.SButton type="button">Cadastrar-se</Styled.SButton>
 					</Link>
-					<Styled.SLink to="/login">Esqueci minha senha</Styled.SLink>
+					<Styled.SLink exact to="/login">Esqueci minha senha</Styled.SLink>
 				</Styled.SForm>
 			</Styled.SContainer>
 

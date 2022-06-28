@@ -1,48 +1,41 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"nome": "Andre Lima",
-			"email": "andre@email.com",
-			"idade": 30,
-			"cpf": "00000000000",
-			"senha": "123123",
-			"contato": "11999999999",
-			"cep": "00000000",
-			"logradouro": "Rua dos Bobos",
-			"numero_logradouro": 33,
-			"complemento": "qlqr coisa",
-			"bairro": "Bairro dos Bobos",
-			"cidade": "Cidade dos Bobos",
-			"uf": "RN",
-			"userStatus": true,
-			"permissao": 1,
-			"descricao": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-			"createdAt": "2020-01-01 00:00:00",
-			"updatedAt": "2020-01-01 00:00:00"
-		}
-	],
-	"pets": [
-		{
-			"id": 1,
-			"nome": "Scooby",
-			"especie": "cachorro",
-			"idade": 1,
-			"sexo": "M",
-			"peso": 5,
-			"tamanho": 50,
-			"porte": 100,
-			"cor": "preta",
-			"raça": "pitbull",
-			"castrado": true,
-			"vacinado": true,
-			"chip": "CP1234",
-			"sobre": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-			"userID": 2,
-			"petStatus": true,
-			"userIDMatch": 0,
-			"createdAt": "2020-01-01T00:00:00.000Z",
-			"updatedAt": "2020-01-01T00:00:00.000Z"
-		}
-	]
+  "users": [
+    {
+      "nome": "Andre Lima",
+      "email": "andre@email.com",
+      "senha": "$2a$10$E2COGoxT5/SHaL.E/tf2cu7x3jDAlERkpDaQeG2/kkUC2NiwGDUJ6",
+      "userStatus": 1,
+      "permissao": 1,
+      "id": 1
+    },
+    {
+      "email": "aaa@aaa.com",
+      "password": "$2a$10$E2COGoxT5/SHaL.E/tf2cu7x3jDAlERkpDaQeG2/kkUC2NiwGDUJ6",
+      "name": "aaa",
+      "userStatus": 1,
+      "permission": 0,
+      "id": 2
+    }
+  ],
+  "pets": [
+    {
+      "id": 1,
+      "nome": "Scooby",
+      "especie": "cachorro",
+      "idade": 1,
+      "sexo": "M",
+      "peso": 5,
+      "tamanho": 50,
+      "porte": 100,
+      "cor": "preta",
+      "raça": "pitbull",
+      "castrado": true,
+      "vacinado": true,
+      "chip": "CP1234",
+      "sobre": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "userID": 2,
+      "petStatus": 1,
+      "userIDMatch": 0
+    }
+  ]
 }

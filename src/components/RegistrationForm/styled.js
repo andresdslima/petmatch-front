@@ -180,3 +180,7 @@ export const SHeader = styled.header`
 		}
 	}
 `;
+
+export const SLabel = styled(Form.Label)`
+	display: none;
+`;
