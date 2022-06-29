@@ -12,6 +12,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../services/mainAPI/users';
 import { api } from '../../services/mainAPI/config';
+import { signIn } from '../../store/modules/users';
 // import { signIn } from '../../store/users';
 
 const validationSchema = Yup.object({
@@ -21,7 +22,7 @@ const validationSchema = Yup.object({
 
 export default function LoginForm() {
 	const navigate = useNavigate();
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	const formik = useFormik({
 		initialValues: {
@@ -32,20 +33,29 @@ export default function LoginForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			const response = await loginUser(values);
+			const { accessToken, user } = await loginUser(values);
 			// SALVAR RESPOSTA NO REDUX
-			
-			if (!response.data) {
+
+			if (!user) {
 				alert('Usuário ou senha inválidos!');
 				formik.handleReset();
 				return;
 			}
 
-			// dispatch(loginUser({ token, permission: user.permission }));
-			api.defaults.headers.common['Authorization'] = `Bearer ${response.token}`;
 			alert('Usuário logado!');
 			formik.handleReset();
-			// navigate('/');
+
+			dispatch(
+				signIn({
+					accessToken,
+					userStatus: user.userStatus,
+					permission: user.permission,
+					id: user.id,
+				}),
+			);
+
+			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			navigate('/register');
 		},
 	});
 
@@ -101,7 +111,7 @@ export default function LoginForm() {
 					<Link exact to="/register">
 						<Styled.SButton type="button">Cadastrar-se</Styled.SButton>
 					</Link>
-					<Styled.SLink exact to="/login">Esqueci minha senha</Styled.SLink>
+					{/* <Styled.SLink exact to="/login">Esqueci minha senha</Styled.SLink> */}
 				</Styled.SForm>
 			</Styled.SContainer>
 

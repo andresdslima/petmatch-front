@@ -8,9 +8,9 @@ export const getUser = async id => {
 
 export const createUser = async user => {
 	try {
-		const { data, status } = await api.post('/users', user);
-		console.log({ data, status });
-		return { data, status };
+		const response = await api.post('/users', user);
+		console.log(response);
+		return response;
 	} catch (error) {
 		console.error(error);
 		alert('Erro ao cadastrar usuário');
@@ -32,9 +32,9 @@ export const updateUser = async (id, user) => {
 
 export const loginUser = async user => {
 	try {
-		const { data, status } = await api.post('/login', user);
-		console.log({ data, status });
-		return { data, status };
+		const response = await api.post('/login', user);
+		console.log(response);
+		return response.data;
 	} catch (error) {
 		console.error(error);
 		return { status: error.response.status };

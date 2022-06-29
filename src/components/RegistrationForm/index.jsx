@@ -8,10 +8,11 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../services/mainAPI/users';
 import logo from '../../assets/logos/Logo-teste-2.svg';
-// import { signIn } from '../../store/users';
+import { api } from '../../services/mainAPI/config';
+import { signIn } from '../../store/modules/users';
 
 const validationSchema = Yup.object({
-	name: Yup.string().required('*'),
+	name: Yup.string().min(10, 'Nome completo').required('*'),
 	email: Yup.string().email('Email inválido').required('*'),
 	password: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
 	confirmPassword: Yup.string()
@@ -21,7 +22,7 @@ const validationSchema = Yup.object({
 
 export default function RegistrationForm() {
 	const navigate = useNavigate();
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	// useFormikContext()
 	// useContext()
 
@@ -39,22 +40,38 @@ export default function RegistrationForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			const response = await createUser({
-				name: values.name,
-				email: values.email,
-				password: values.password,
+			// const response = await createUser({
+			// 	name: values.name,
+			// 	email: values.email,
+			// 	password: values.password,
+			// 	userStatus: 1,
+			// 	permission: 0,
+			// });
+			console.log(values);
+			const { accessToken, user, status } = await createUser({
+				...values,
 				userStatus: 1,
 				permission: 0,
 			});
 
-			// if (response.status !== 201 || response.status !== 200) {
-			// 	console.log(response.status);
-			// 	alert('Erro ao cadastrar usuário');
-			// 	return;
-			// }
+			if (status !== 201) {
+				alert('Erro aqui ao cadastrar usuário');
+				return;
+			}
 
 			alert('Usuário cadastrado com sucesso!');
 			formik.handleReset();
+
+			dispatch(
+				signIn({
+					accessToken,
+					userStatus: user.userStatus,
+					permission: user.permission,
+					id: user.id,
+				}),
+			);
+
+			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 			navigate('/login');
 		},
 	});
