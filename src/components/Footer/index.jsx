@@ -1,6 +1,6 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import Dog from '../../assets/images/DogVector.png';
-import Cat from '../../assets/images/CatVector.png';
+import Dog from '../../assets/images/DogVector.svg';
+import Cat from '../../assets/images/CatVector.svg';
 import * as S from './styled';
 
 const Footer = () => {

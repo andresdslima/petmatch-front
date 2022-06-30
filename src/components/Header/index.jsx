@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
-import Logo from '../../assets/images/Logo.png';
-import Signin from '../../assets/images/SiginVector.png';
+import Logo from '../../assets/images/Logo.svg';
+import Signin from '../../assets/images/SigninVector.svg';
 import * as S from './styled';
 import { useSelector } from 'react-redux';
 
@@ -9,7 +9,7 @@ const Header = () => {
   const isLogged = useSelector(state => state.usersSlice.isLogged);
   const location = useLocation();
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg mb-5">
       <Container>
         <Navbar.Brand href="#home" className="m-0 py-3">
           <S.LogoImage src={Logo} alt="PetMatch Logo" />
