@@ -8,9 +8,9 @@ export const getUser = async id => {
 
 export const createUser = async user => {
 	try {
-		const response = await api.post('/users', user);
-		console.log(response);
-		return response;
+		const { data, status } = await api.post('/users', user);
+		console.log({ data, status });
+		return { data, status };
 	} catch (error) {
 		console.error(error);
 		alert('Erro ao cadastrar usuário');

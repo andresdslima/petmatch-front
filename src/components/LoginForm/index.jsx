@@ -55,7 +55,7 @@ export default function LoginForm() {
 			);
 
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			navigate('/register');
+			navigate('/');
 		},
 	});
 

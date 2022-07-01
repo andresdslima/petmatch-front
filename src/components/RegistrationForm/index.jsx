@@ -40,21 +40,13 @@ export default function RegistrationForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			// const response = await createUser({
-			// 	name: values.name,
-			// 	email: values.email,
-			// 	password: values.password,
-			// 	userStatus: 1,
-			// 	permission: 0,
-			// });
-			console.log(values);
-			const { accessToken, user, status } = await createUser({
+			const response = await createUser({
 				...values,
 				userStatus: 1,
 				permission: 0,
 			});
 
-			if (status !== 201) {
+			if (response.status !== 201) {
 				alert('Erro aqui ao cadastrar usuário');
 				return;
 			}
@@ -64,15 +56,17 @@ export default function RegistrationForm() {
 
 			dispatch(
 				signIn({
-					accessToken,
-					userStatus: user.userStatus,
-					permission: user.permission,
-					id: user.id,
+					accessToken: response.data.accessToken,
+					userStatus: response.data.user.userStatus,
+					permission: response.data.user.permission,
+					id: response.data.user.id,
 				}),
 			);
 
-			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			navigate('/login');
+			api.defaults.headers.common[
+				'Authorization'
+			] = `Bearer ${response.data.accessToken}`;
+			navigate('/');
 		},
 	});
 
