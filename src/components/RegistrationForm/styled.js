@@ -120,7 +120,8 @@ export const SButton = styled(Button)`
 	opacity: 1;
 	color: #fdfdfd;
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		opacity: 0.8;
 		cursor: pointer;
 		background-color: ${props =>
@@ -137,7 +138,8 @@ export const SLink = styled(Link)`
 	font-style: normal;
 	text-decoration: none;
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		color: #0075ff;
 	}
 

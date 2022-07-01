@@ -119,7 +119,8 @@ export const SButton = styled(Button)`
 	text-align: center;
 	opacity: 1;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: ${props =>
 			props.type === 'submit' ? '#F76F34' : '#8D73E4'};
 		cursor: pointer;
@@ -136,7 +137,8 @@ export const SLink = styled(Link)`
 	text-align: center;
 	font-style: normal;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: #0075ff;
 	}
 
