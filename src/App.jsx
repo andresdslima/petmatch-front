@@ -1,14 +1,14 @@
-import dogIcon from "./assets/images/dogIcon.svg";
-import "./App.scss";
+import AppRoutes from './routes';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import './App.scss';
 
 function App() {
 	return (
-		<>
-			<h1>PetMatch</h1>
-			<img src={dogIcon} alt="Dog icon" />
-		</>
+		<Provider store={store}>
+			<AppRoutes />
+		</Provider>
 	);
 }
 
 export default App;
-// pq qnd dou npm start, vai p localhost:3000/petmatch???
