@@ -24,6 +24,15 @@
       "userStatus": 1,
       "permission": 0,
       "id": 3
+    },
+    {
+      "email": "thais@thais.com",
+      "password": "$2a$10$V/9MvtHsYuXWj1HifNE/lOheSkDJWLnkXg2t5IvondMlLCWwXDzfu",
+      "name": "thais cavalcante",
+      "confirmPassword": "123456",
+      "userStatus": 1,
+      "permission": 0,
+      "id": 4
     }
   ],
   "pets": [
