@@ -15,6 +15,15 @@
       "userStatus": 1,
       "permission": 0,
       "id": 2
+    },
+    {
+      "email": "abc@def.com",
+      "password": "$2a$10$z84r/52O/G4gSqrZiYH6s.uJZqkFYUdmtaa5tH1CxlACUxzjvJu2q",
+      "name": "andre lima",
+      "confirmPassword": "123123",
+      "userStatus": 1,
+      "permission": 0,
+      "id": 3
     }
   ],
   "pets": [

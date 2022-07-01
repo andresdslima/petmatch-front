@@ -5,7 +5,8 @@ import Register from './pages/Register';
 
 export default function AppRoutes() {
 	return (
-		<Router>
+		//  basename='/petmatch-front'
+		<Router basename='/petmatch-front'>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />

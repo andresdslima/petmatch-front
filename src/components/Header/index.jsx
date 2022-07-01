@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 const Header = () => {
   const isLogged = useSelector(state => state.usersSlice.isLogged);
   const location = useLocation();
+  
   return (
     <Navbar expand="lg mb-5">
       <Container>
@@ -17,27 +18,27 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <S.NavLinks>
-            <S.ButtonLink active={location.pathname} to="/">
+            <S.ButtonLink active={location.pathname} exact to="/">
               Home
             </S.ButtonLink>
-            <S.ButtonLink active={location.pathname} to="/blogs">
+            <S.ButtonLink active={location.pathname} exact to="/blogs">
               Blog
             </S.ButtonLink>
-            <S.ButtonLink active={location.pathname} to="/ongs">
+            <S.ButtonLink active={location.pathname} exact to="/ongs">
               ONG's
             </S.ButtonLink>
-            <S.ButtonLink active={location.pathname} to="/sobre">
+            <S.ButtonLink active={location.pathname} exact to="/sobre">
               Sobre
             </S.ButtonLink>
           </S.NavLinks>
           <Nav>
             {!isLogged ? (
-              <S.NavSignin active={location.pathname} to="/login">
+              <S.NavSignin active={location.pathname} exact to="/login">
                 <S.SigninIcon src={Signin} alt="Sign in" />
                 <S.SigninText>Entrar</S.SigninText>
               </S.NavSignin>
             ) : (
-              <S.NavUser active={location.pathname} to="#">
+              <S.NavUser active={location.pathname} exact to="#">
                 <S.UserIcon />
                 <S.UserName>Julia Souza</S.UserName>
                 <S.PlusSign>&#43;</S.PlusSign>

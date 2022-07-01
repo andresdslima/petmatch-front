@@ -117,12 +117,14 @@ export const SButton = styled(Button)`
 	line-height: 16px;
 	margin: 1vh 0;
 	text-align: center;
+	opacity: 1;
+	color: #fdfdfd;
 
-	&:hover {
-		background-color: ${props =>
-			props.type === 'submit' ? '#f98857' : '#8F93F9'};
+	&:hover, &:focus {
+		opacity: 0.8;
 		cursor: pointer;
-		color: #fdfdfd;
+		background-color: ${props =>
+			props.type === 'submit' ? '#F76F34' : '#8D73E4'};
 	}
 `;
 
@@ -133,8 +135,9 @@ export const SLink = styled(Link)`
 	line-height: 14px;
 	text-align: center;
 	font-style: normal;
+	text-decoration: none;
 
-	&:hover {
+	&:hover, &:focus {
 		color: #0075ff;
 	}
 

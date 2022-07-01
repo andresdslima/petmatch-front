@@ -97,7 +97,7 @@ export default function RegistrationStep1({
 			/>
 
 			<Styled.SButton type="submit">Continuar</Styled.SButton>
-			<Styled.SLink to="/login">Já possuo cadastro</Styled.SLink>
+			<Styled.SLink exact to="/login">Já possuo cadastro</Styled.SLink>
 		</Styled.SForm>
 	);
 }

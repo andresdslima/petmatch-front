@@ -117,12 +117,14 @@ export const SButton = styled(Button)`
 	line-height: 16px;
 	margin: 1vh 0;
 	text-align: center;
+	opacity: 1;
 
 	&:hover {
 		background-color: ${props =>
-			props.type === 'submit' ? '#f98857' : '#8F93F9'};
+			props.type === 'submit' ? '#F76F34' : '#8D73E4'};
 		cursor: pointer;
 		color: #fdfdfd;
+		opacity: 0.8;
 	}
 `;
 
