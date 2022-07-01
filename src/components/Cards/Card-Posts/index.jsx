@@ -1,11 +1,11 @@
 import { Button, Card } from "react-bootstrap"
-import PostImage from "../../../assets/images/DogPostCard.svg"
+
 import './styles.css'
 
-const CardPosts = () => {
+const CardPosts = ({ imageName }) => {
     return (
         <Card className="cardPost" >
-            <Card.Img variant="top" src={PostImage} />
+            <Card.Img variant="top" src={imageName} />
             <Card.Body>
                 <Card.Title className="postTitle">SOBRE PETS</Card.Title>
                 <Card.Text className='cardText'>
