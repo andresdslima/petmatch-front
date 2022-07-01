@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/petmatch-front/static/css/main.a8f9f261.css",
-    "main.js": "/petmatch-front/static/js/main.db013afe.js",
+    "main.css": "/petmatch-front/static/css/main.fa3f9500.css",
+    "main.js": "/petmatch-front/static/js/main.b0527357.js",
     "static/js/787.cda612ba.chunk.js": "/petmatch-front/static/js/787.cda612ba.chunk.js",
-    "static/media/dogIcon.svg": "/petmatch-front/static/media/dogIcon.f549101e84671cc8929a3ceb324a8d83.svg",
+    "static/media/dog-login.png": "/petmatch-front/static/media/dog-login.51c0ebefd215d8a45e04.png",
+    "static/media/twoDogs.png": "/petmatch-front/static/media/twoDogs.2b548cd16172192f866e.png",
+    "static/media/wrappedCat.png": "/petmatch-front/static/media/wrappedCat.3d4f1cd1559f9d1fa901.png",
+    "static/media/oneDog.png": "/petmatch-front/static/media/oneDog.821dd3085bf1fc78e25b.png",
+    "static/media/Logo-teste-2.svg": "/petmatch-front/static/media/Logo-teste-2.4e54067bd5b6012bebcedb487b017f63.svg",
+    "static/media/patas.jpg": "/petmatch-front/static/media/patas.2806efbba7b66555d78e.jpg",
+    "static/media/password-icon.svg": "/petmatch-front/static/media/password-icon.8d33c98ce535720ffd6ed724444fb1a9.svg",
     "index.html": "/petmatch-front/index.html",
-    "main.a8f9f261.css.map": "/petmatch-front/static/css/main.a8f9f261.css.map",
-    "main.db013afe.js.map": "/petmatch-front/static/js/main.db013afe.js.map",
+    "static/media/email-icon.svg": "/petmatch-front/static/media/email-icon.744550715c24ca3c65d8561e5ad8497c.svg",
+    "main.fa3f9500.css.map": "/petmatch-front/static/css/main.fa3f9500.css.map",
+    "main.b0527357.js.map": "/petmatch-front/static/js/main.b0527357.js.map",
     "787.cda612ba.chunk.js.map": "/petmatch-front/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8f9f261.css",
-    "static/js/main.db013afe.js"
+    "static/css/main.fa3f9500.css",
+    "static/js/main.b0527357.js"
   ]
 }
