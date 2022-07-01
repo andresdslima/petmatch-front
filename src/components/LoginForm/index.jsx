@@ -71,16 +71,16 @@ export default function LoginForm() {
 				<Styled.SForm onSubmit={formik.handleSubmit}>
 					<img src={logo} alt="Logo da PetMatch" />
 
-					<Styled.SLabel alt="Insira seu email" htmlFor="email">
+					<Styled.SLabel alt="Digite seu email" htmlFor="email">
 						Email
 					</Styled.SLabel>
 					{formik.errors.email && <small>{formik.errors.email}</small>}
-					<Form.Group>
+					<Styled.SGroup>
 						<Styled.SInput
 							type="email"
 							name="email"
 							id="email"
-							placeholder="Insira seu email"
+							placeholder="Digite seu email"
 							value={formik.values.email}
 							onChange={formik.handleChange}
 						/>
@@ -89,23 +89,23 @@ export default function LoginForm() {
 							src={emailIcon}
 							alt="Ícone de correspondência"
 						/>
-					</Form.Group>
+					</Styled.SGroup>
 
-					<Styled.SLabel alt="Insira sua senha" htmlFor="password">
+					<Styled.SLabel alt="Digite sua senha" htmlFor="password">
 						Senha
 					</Styled.SLabel>
 					{formik.errors.password && <small>{formik.errors.password}</small>}
-					<Form.Group>
+					<Styled.SGroup>
 						<Styled.SInput
 							type="password"
-							placeholder="Insira sua senha"
+							placeholder="Digite sua senha"
 							name="password"
 							id="password"
 							value={formik.values.password}
 							onChange={formik.handleChange}
 						/>
 						<img className="icon" src={passwordIcon} alt="Ícone de cadeado" />
-					</Form.Group>
+					</Styled.SGroup>
 
 					<Styled.SButton type="submit">Entrar</Styled.SButton>
 					<Link exact to="/register">

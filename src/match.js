@@ -51,5 +51,3 @@ const findMatch = (first, second) => {
 
 	return (count / Math.min(firstLength, secondLength)) * 100;
 };
-
-console.log(findMatch(a, b));

@@ -50,7 +50,6 @@ export default function RegistrationForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			console.log(values);
 			// const response = await createUser({
 			// 	name: values.name,
 			// 	email: values.email,
@@ -60,7 +59,6 @@ export default function RegistrationForm() {
 			// 	admin: values.admin,
 			// });
 			const response = await createUser(values);
-			console.log(response);
 
 			if (response.status !== 201 || 200) {
 				alert('Erro ao cadastrar usuário');

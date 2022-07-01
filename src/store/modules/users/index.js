@@ -3,9 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	isLogged: false,
 	accessToken: '',
-	userStatus: 1,
+	userStatus: 0,
 	permission: 0,
-	id: undefined,
+	id: 0,
 };
 
 const usersSlice = createSlice({

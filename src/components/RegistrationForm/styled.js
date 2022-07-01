@@ -37,12 +37,13 @@ export const SImage = styled.img`
 	width: 50%;
 	height: 100%;
 
-	@media only screen and (max-width: 500px) {
-		display: none;
-	}
-
+	
 	@media only screen and (min-width: 1200px) {
 		width: 40%;
+	}
+
+	@media only screen and (max-width: 500px) {
+		display: none;
 	}
 `;
 
@@ -59,21 +60,6 @@ export const SForm = styled(Form)`
 		padding: 0;
 		margin: 0;
 		font-weight: 600;
-	}
-
-	img {
-		width: 20%;
-
-		&.icon {
-			width: 7%;
-			margin-left: -20px;
-			position: relative;
-		}
-
-		@media only screen and (max-width: 500px) {
-			width: 30%;
-			margin-top: 2vh;
-		}
 	}
 
 	@media only screen and (min-width: 1200px) {
@@ -93,7 +79,7 @@ export const SInput = styled(Form.Control)`
 	margin: 0;
 	box-sizing: border-box;
 	position: relative;
-	/* margin-right: -50px; */
+	width: 50%;
 
 	&:hover {
 		border: 1px solid #f76f34;
@@ -101,7 +87,14 @@ export const SInput = styled(Form.Control)`
 
 	@media only screen and (max-width: 900px) {
 		font-size: 15px;
+		width: 60%;
 	}
+
+	@media only screen and (max-width: 500px) {
+		font-size: 15px;
+		width: 100%;
+	}
+
 `;
 
 export const SButton = styled(Button)`
@@ -175,13 +168,14 @@ export const SHeader = styled.header`
 		width: 8%;
 		margin: 1vh 30%;
 
+		
+		@media only screen and (min-width: 1200px) {
+			margin: 1vh 50%;
+		}
+
 		@media only screen and (max-width: 500px) {
 			width: 15%;
 			margin: 1vh 70%;
-		}
-
-		@media only screen and (min-width: 1200px) {
-			margin: 1vh 50%;
 		}
 	}
 `;
