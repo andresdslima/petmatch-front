@@ -72,13 +72,19 @@ export const SForm = styled(Form)`
 
 		@media only screen and (max-width: 500px) {
 			width: 30%;
-			margin-top: 2vh;
 		}
 	}
 
 	@media only screen and (min-width: 1200px) {
 		margin-right: 10%;
 	}
+`;
+
+export const SGroup = styled(Form.Group)`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0;
 `;
 
 export const SInput = styled(Form.Control)`
@@ -93,7 +99,6 @@ export const SInput = styled(Form.Control)`
 	margin: 0;
 	box-sizing: border-box;
 	position: relative;
-	/* margin-right: -50px; */
 
 	&:hover {
 		border: 1px solid #f76f34;

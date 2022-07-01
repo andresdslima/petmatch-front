@@ -82,7 +82,7 @@ export default function RegistrationForm() {
 				<Styled.SForm onSubmit={formik.handleSubmit}>
 					<img src={logo} alt="Logo da PetMatch" />
 
-					<Styled.SLabel alt="Insira seu nome completo" htmlFor="name">
+					<Styled.SLabel alt="Digite seu nome completo" htmlFor="name">
 						Nome completo
 					</Styled.SLabel>
 					{formik.errors.name && <small>{formik.errors.name}</small>}
@@ -90,12 +90,12 @@ export default function RegistrationForm() {
 						type="text"
 						name="name"
 						id="name"
-						placeholder="Insira seu nome completo"
+						placeholder="Digite seu nome completo"
 						value={formik.values.name}
 						onChange={formik.handleChange}
 					/>
 
-					<Styled.SLabel alt="Insira seu melhor email" htmlFor="email">
+					<Styled.SLabel alt="Digite seu melhor email" htmlFor="email">
 						Email
 					</Styled.SLabel>
 					{formik.errors.email && <small>{formik.errors.email}</small>}
@@ -103,13 +103,13 @@ export default function RegistrationForm() {
 						type="email"
 						name="email"
 						id="email"
-						placeholder="Insira seu melhor email"
+						placeholder="Digite seu melhor email"
 						value={formik.values.email}
 						onChange={formik.handleChange}
 					/>
 
 					<Styled.SLabel
-						alt="Insira uma senha com no mínimo 6 dígitos"
+						alt="Digite uma senha com no mínimo 6 dígitos"
 						htmlFor="password"
 					>
 						Senha
