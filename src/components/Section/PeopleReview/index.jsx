@@ -4,7 +4,7 @@ import './styles.css'
 import Person1 from '../../../assets/images/person1.svg'
 import Person2 from '../../../assets/images/person2.svg'
 
-import StarIcon from '../../../assets/images/Icon.svg'
+import StarIcon from '../../../assets/images/starIcon.svg'
 
 const PeopleReview = () => {
     return (
