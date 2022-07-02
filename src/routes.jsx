@@ -1,15 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
 import Home from './pages/Home';
+import Register from './pages/Register';
+import PetProfile from './pages/PetProfile'
 
-const AppRoutes = () => {
-    return (
-        <BrowserRouter basename='/petmatch-front'>
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </BrowserRouter>
-    );
+export default function AppRoutes() {
+	return (
+		//  basename='/petmatch-front'
+		<Router>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+				<Route path="/petprofile" element={<PetProfile />} />
+			</Routes>
+		</Router>
+	);
 }
-
-export default AppRoutes;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { Link } from "react-router-dom";
 import twoDogs from '../../assets/twoDogs.png'
 import oneDog from '../../assets/oneDog.png'
 import wrappedCat from '../../assets/wrappedCat.png'
@@ -33,7 +32,7 @@ const ImagesCarousel = () => {
           <S.ImageCarousel src={oneDog} alt="Cachorro" />
           <Carousel.Caption>
             <S.Text>
-              ADOTE COM A PET MATCH
+              ADOTE COM A PETMATCH
               <br />
               SEU MELHOR AMIGO ESTÁ AQUI
             </S.Text>
@@ -41,10 +40,10 @@ const ImagesCarousel = () => {
         </Carousel.Item>
       </S.ContainerCarousel>
       <S.ContainerButton>
-        <S.ButtonLink color={'#8D73E4'} colorHover={'#8D73E4'} to="/">
+        <S.ButtonLink color={'#8D73E4'} exact to="/">
           Quero Adotar
         </S.ButtonLink>
-        <S.ButtonLink color={'#F76F34'} colorHover={'#F76F34'} to="/">
+        <S.ButtonLink color={'#F76F34'} exact to="/">
           Quero Doar
         </S.ButtonLink>
       </S.ContainerButton>

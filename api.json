@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "nome": "Andre Lima",
+      "email": "andre@email.com",
+      "senha": "$2a$10$E2COGoxT5/SHaL.E/tf2cu7x3jDAlERkpDaQeG2/kkUC2NiwGDUJ6",
+      "userStatus": 1,
+      "permissao": 1,
+      "id": 1
+    },
+    {
+      "email": "aaa@aaa.com",
+      "password": "$2a$10$E2COGoxT5/SHaL.E/tf2cu7x3jDAlERkpDaQeG2/kkUC2NiwGDUJ6",
+      "name": "aaa",
+      "userStatus": 1,
+      "permission": 0,
+      "id": 2
+    }
+  ],
+  "pets": [
+    {
+      "id": 1,
+      "nome": "Scooby",
+      "especie": "cachorro",
+      "idade": 1,
+      "sexo": "M",
+      "peso": 5,
+      "tamanho": 50,
+      "porte": 100,
+      "cor": "preta",
+      "raça": "pitbull",
+      "castrado": true,
+      "vacinado": true,
+      "chip": "CP1234",
+      "sobre": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "userID": 2,
+      "petStatus": 1,
+      "userIDMatch": 0
+    }
+  ]
+}
