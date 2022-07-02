@@ -6,7 +6,7 @@ import * as S from './styled';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const isLogged = useSelector(state => state.usersSlice.isLogged);
+  const isLogged = useSelector(state => state.persistedReducer.isLogged);
   const location = useLocation();
   
   return (
