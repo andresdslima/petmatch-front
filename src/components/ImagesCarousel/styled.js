@@ -9,6 +9,7 @@ export const ContainerContent = styled.div`
     gap: 10vh;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
 
     @media (max-width: 1000px) {
         gap: 4vh;
@@ -24,8 +25,8 @@ export const ContainerCarousel = styled(Carousel)`
     align-items: center;
     justify-content: center;
     width: 68vw;
-    height: 30vh;
-    margin-top: 10vh;
+    height: 100%;
+    margin-top: 10vw;
     box-sizing: border-box;
 
     & .carousel-indicators{
@@ -48,14 +49,12 @@ export const ContainerCarousel = styled(Carousel)`
 
     @media (max-width: 1000px) {
         width: 75vw;
-        margin-top: 5vh;
-        height: 25vh;
+        margin-top: 5vw;
     }
 
     @media (max-width: 600px) {
         width: 80vw;
-        margin-top: 0;
-        height: 20vh;
+        margin-top: 5vw;
     }
 `;
 
@@ -112,7 +111,7 @@ export const ButtonLink = styled(Link)`
 	background-color: ${(props) => props.color};
     color: #FFF;
     border-radius: 4px;
-    transition: all 0.1s;
+    transition: all 0.5s ease-in-out;
 
 
     &:hover {
