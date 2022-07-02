@@ -1,10 +1,9 @@
 import React from 'react';
 import dog from '../../assets/images/dog-login.png';
-import footprints from '../../assets/watermarks/patas.jpg';
 import * as Styled from './styled';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../services/mainAPI/users';
 import logo from '../../assets/logos/Logo-teste-2.svg';
@@ -72,15 +71,13 @@ export default function RegistrationForm() {
 
 	return (
 		<Styled.SBackground>
-			<Styled.SHeader>
-				<img src={footprints} alt="Pegadas de animal" />
-			</Styled.SHeader>
-
 			<Styled.SContainer>
 				<Styled.SImage src={dog} alt="Cachorro" />
 
 				<Styled.SForm onSubmit={formik.handleSubmit}>
-					<img src={logo} alt="Logo da PetMatch" />
+					<Link exact to="/">
+						<img src={logo} alt="Logo da PetMatch" />
+					</Link>
 
 					<Styled.SLabel alt="Digite seu nome completo" htmlFor="name">
 						Nome completo
@@ -147,7 +144,7 @@ export default function RegistrationForm() {
 			</Styled.SContainer>
 
 			<Styled.SFooter>
-				<img src={footprints} alt="Pegadas de animal" />
+				<img src={logo} alt="Logo da PetMatch" />
 			</Styled.SFooter>
 		</Styled.SBackground>
 	);

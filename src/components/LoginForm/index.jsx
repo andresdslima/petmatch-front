@@ -1,11 +1,9 @@
 import React from 'react';
 import logo from '../../assets/logos/Logo-teste-2.svg';
 import dog from '../../assets/images/dog-login.png';
-import footprints from '../../assets/watermarks/patas.jpg';
 import emailIcon from '../../assets/icons/email-icon.svg';
 import passwordIcon from '../../assets/icons/password-icon.svg';
 import * as Styled from './styled';
-import { Form } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useNavigate, Link } from 'react-router-dom';
@@ -13,7 +11,6 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../services/mainAPI/users';
 import { api } from '../../services/mainAPI/config';
 import { signIn } from '../../store/modules/users';
-// import { signIn } from '../../store/users';
 
 const validationSchema = Yup.object({
 	email: Yup.string().email('Email inválido').required('*'),
@@ -61,15 +58,13 @@ export default function LoginForm() {
 
 	return (
 		<Styled.SBackground>
-			<Styled.SHeader>
-				<img src={footprints} alt="Pegadas de animal" />
-			</Styled.SHeader>
-
 			<Styled.SContainer>
 				<Styled.SImage src={dog} alt="Cachorro" />
 
 				<Styled.SForm onSubmit={formik.handleSubmit}>
-					<img src={logo} alt="Logo da PetMatch" />
+					<Link exact to="/">
+						<img src={logo} alt="Logo da PetMatch"  />
+					</Link>
 
 					<Styled.SLabel alt="Digite seu email" htmlFor="email">
 						Email
@@ -111,12 +106,13 @@ export default function LoginForm() {
 					<Link exact to="/register">
 						<Styled.SButton type="button">Cadastrar-se</Styled.SButton>
 					</Link>
+
 					{/* <Styled.SLink exact to="/login">Esqueci minha senha</Styled.SLink> */}
 				</Styled.SForm>
 			</Styled.SContainer>
 
 			<Styled.SFooter>
-				<img src={footprints} alt="Pegadas de animal" />
+				<img src={logo} alt="Logo da PetMatch" />
 			</Styled.SFooter>
 		</Styled.SBackground>
 	);

@@ -19,13 +19,13 @@ export const ContainerContent = styled.div`
 `;
 
 export const ContainerCarousel = styled(Carousel)`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 68vw;
-	height: 30vh;
-	margin-top: 10vh;
-	box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68vw;
+    height: 100%;
+    margin-top: 10vw;
+    box-sizing: border-box;
 
 	& .carousel-indicators {
 		display: none;
@@ -99,21 +99,20 @@ export const ContainerButton = styled.nav`
 `;
 
 export const ButtonLink = styled(Link)`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-	width: 15.6vw;
-	height: 6.1vh;
-	text-align: center;
-	font-weight: 600;
-	font-size: 0.875rem;
-	line-height: 1rem;
-	background-color: ${props => props.color};
-	color: #fdfdfd;
-	border-radius: 4px;
-	transition: all 0.1s;
-	opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 15.6vw;
+    height: 6.1vh;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1rem;
+	background-color: ${(props) => props.color};
+    color: #FFF;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
 
 	&:hover {
 		opacity: 0.8;
