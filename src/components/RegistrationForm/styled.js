@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const SBackground = styled.div`
-	background-color: #f76f34;
+	background-color: #fdfdfd;
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
@@ -37,7 +37,6 @@ export const SImage = styled.img`
 	width: 50%;
 	height: 100%;
 
-	
 	@media only screen and (min-width: 1200px) {
 		width: 40%;
 	}
@@ -60,6 +59,20 @@ export const SForm = styled(Form)`
 		padding: 0;
 		margin: 0;
 		font-weight: 600;
+	}
+
+	img {
+		width: 20%;
+
+		&.icon {
+			width: 7%;
+			margin-left: -20px;
+			position: relative;
+		}
+
+		@media only screen and (max-width: 500px) {
+			width: 30%;
+		}
 	}
 
 	@media only screen and (min-width: 1200px) {
@@ -94,7 +107,6 @@ export const SInput = styled(Form.Control)`
 		font-size: 15px;
 		width: 100%;
 	}
-
 `;
 
 export const SButton = styled(Button)`
@@ -142,23 +154,46 @@ export const SLink = styled(Link)`
 `;
 
 export const SFooter = styled.footer`
-	background-color: #f76f34;
+	background-color: #fdfdfd;
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 
-	img {
-		width: 8%;
-		margin: 1vh 10%;
+	div {
+		width: 20%;
+		margin-left: 15vw;
+
+		@media only screen and (min-width: 1200px) {
+			margin: 0 10% 0 10%;
+		}
 
 		@media only screen and (max-width: 500px) {
-			width: 15%;
+			margin: 0 15% 0 10%;
+		}
+	}
+
+	img {
+		width: 40%;
+		margin: 1vh 10%;
+
+		&.logo {
+			width: 6%;
+
+			@media only screen and (max-width: 500px) {
+				width: 10%;
+				margin-right: 0;
+			}
+		}
+
+		@media only screen and (max-width: 500px) {
+			width: 75%;
 		}
 	}
 `;
 
 export const SHeader = styled.header`
-	background-color: #f76f34;
+	background-color: #fdfdfd;
 	width: 100%;
 	padding-top: 3vh;
 	display: flex;
@@ -166,16 +201,15 @@ export const SHeader = styled.header`
 
 	img {
 		width: 8%;
-		margin: 1vh 30%;
+		margin: 2vh 30%;
 
-		
 		@media only screen and (min-width: 1200px) {
-			margin: 1vh 50%;
+			margin: 5vh 45% 2vh 0;
 		}
 
 		@media only screen and (max-width: 500px) {
 			width: 15%;
-			margin: 1vh 70%;
+			margin: 0vh 70% 10vh 0;
 		}
 	}
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import dog from '../../assets/images/dog-login.png';
-import footprints from '../../assets/watermarks/patas.jpg';
+import footprints from '../../assets/watermarks/patas.png';
 import * as Styled from './styled';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -147,7 +147,10 @@ export default function RegistrationForm() {
 			</Styled.SContainer>
 
 			<Styled.SFooter>
-				<img src={footprints} alt="Pegadas de animal" />
+				<img src={logo} alt="Logo da PetMatch" className="logo" />
+				<div>
+					<img src={footprints} alt="Pegadas de animal" />
+				</div>
 			</Styled.SFooter>
 		</Styled.SBackground>
 	);

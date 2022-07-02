@@ -7,13 +7,12 @@ import PetProfile from './pages/PetProfile'
 export default function AppRoutes() {
 	return (
 		//  basename='/petmatch-front'
-		<Router basename='/petmatch-front'>
+		<Router>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/petprofile" element={<PetProfile />} />
-
 			</Routes>
 		</Router>
 	);
