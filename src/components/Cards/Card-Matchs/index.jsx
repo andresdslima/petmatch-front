@@ -3,8 +3,7 @@ import './styles.css'
 
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import CardImage from '../../../assets/images/godofredo.svg'
-import MatchIcon from '../../../assets/images/matchIcon.png'
-import HeartIcon from '../../../assets/images/heartIcon.png'
+import ScreenShot from '../../../assets/images/matchIcon.png'
 
 const CardMatchs = () => {
     return (
@@ -17,8 +16,7 @@ const CardMatchs = () => {
                 </Card.Text>
             </Card.Body>
             <div className='matchIconContainer'>
-                <img src={MatchIcon} alt="Icone de Match" className='matchIcon' />
-                <img src={HeartIcon} alt="Icone coracao" className='heartIcon' />
+                <img src={ScreenShot} alt="Icone de Match" className='matchIcon' />
                 <span className='matchPercent'>99%</span>
             </div>
         </Card>
