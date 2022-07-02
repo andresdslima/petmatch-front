@@ -91,39 +91,3 @@ const CardCategory = () => {
 
 
 export default CardCategory;
-
-/*
-const settings = {
-    className: 'slider variable-width',
-    dots: false,
-    infinite: false,
-    centerMode: false,
-    speed: 500,
-    slidesToScroll: 2,
-    variableWidth: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-*/
