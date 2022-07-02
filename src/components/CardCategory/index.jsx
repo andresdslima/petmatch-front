@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import Card from 'react-bootstrap/Card';
 import dogSmile from '../../assets/dogSmile.png'
