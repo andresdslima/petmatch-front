@@ -20,7 +20,7 @@ export const SContainer = styled.div`
 	background-color: #fdfdfd;
 	margin: 0;
 	width: 100%;
-	height: 90vh;
+	height: 100vh;
 	max-width: 100%;
 	max-height: 100%;
 	display: flex;
@@ -37,7 +37,7 @@ export const SImage = styled.img`
 	height: 100%;
 
 	@media only screen and (min-width: 1200px) {
-		width: 40%;
+		width: 60%;
 	}
 
 	@media only screen and (max-width: 500px) {
@@ -46,7 +46,7 @@ export const SImage = styled.img`
 `;
 
 export const SForm = styled(Form)`
-	width: 50%;
+	width: 40%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -61,21 +61,27 @@ export const SForm = styled(Form)`
 	}
 
 	img {
-		width: 20%;
-
-		&.icon {
-			width: 7%;
-			margin-left: -20px;
-			position: relative;
-		}
+		width: 60%;
+		margin: 10% 20%;
 
 		@media only screen and (max-width: 500px) {
-			width: 30%;
+			width: 60%;
+			margin: 20%;
+			padding-left: 6%;
 		}
 	}
 
 	@media only screen and (min-width: 1200px) {
 		margin-right: 10%;
+	}
+
+	@media only screen and (max-width: 900px) {
+		margin-right: 5%;
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 100%;
+		margin-right: 0;
 	}
 `;
 
@@ -84,6 +90,38 @@ export const SGroup = styled(Form.Group)`
 	justify-content: center;
 	align-items: center;
 	gap: 0;
+	width: 55%;
+
+	img {
+		width: 6%;
+		margin: 0;
+		margin-left: -20px;
+		position: relative;
+
+		@media only screen and (max-width: 900px) {
+			width: 7%;
+			margin-left: -40px;
+		}
+
+		@media only screen and (max-width: 500px) {
+			width: 12%;
+			margin-left: -40px;
+		}
+	}
+
+	@media only screen and (max-width: 1200px) {
+		width: 70%;
+		justify-content: flex-start;
+	}
+	
+	@media only screen and (max-width: 900px) {
+		width: 100%;
+		/* justify-content: flex-start; */
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 60%;
+	}
 `;
 
 export const SInput = styled(Form.Control)`
@@ -98,13 +136,14 @@ export const SInput = styled(Form.Control)`
 	margin: 0;
 	box-sizing: border-box;
 	position: relative;
+	width: 100%;
 
 	&:hover {
 		border: 1px solid #f76f34;
 	}
 
 	@media only screen and (max-width: 900px) {
-		font-size: 15px;
+		width: 100%;
 	}
 `;
 
@@ -155,59 +194,14 @@ export const SFooter = styled.footer`
 	background-color: #fdfdfd;
 	width: 100%;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
 
-	div {
-		width: 20%;
-		margin-left: 15vw;
-
-		@media only screen and (min-width: 1200px) {
-			margin: 0 10% 0 10%;
-		}
-
-		@media only screen and (max-width: 500px) {
-			margin: 0 15% 0 10%;
-		}
-	}
-
 	img {
-		width: 40%;
-		margin: 1vh 10%;
-
-		&.logo {
-			width: 6%;
-
-			@media only screen and (max-width: 500px) {
-				width: 10%;
-				margin-right: 0;
-			}
-		}
+		width: 6%;
 
 		@media only screen and (max-width: 500px) {
-			width: 75%;
-		}
-	}
-`;
-
-export const SHeader = styled.header`
-	background-color: #fdfdfd;
-	width: 100%;
-	padding-top: 3vh;
-	display: flex;
-	justify-content: flex-end;
-
-	img {
-		width: 8%;
-		margin: 2vh 30%;
-
-		@media only screen and (min-width: 1200px) {
-			margin: 5vh 45% 2vh 0;
-		}
-
-		@media only screen and (max-width: 500px) {
-			width: 15%;
-			margin: 0vh 70% 10vh 0;
+			width: 10%;
 		}
 	}
 `;
