@@ -8,7 +8,7 @@ const MatchMainContent = () => {
             <Row xs={2} sm={2} md={3} lg={4} xl={5}>
                 {/*Os cards serão importados via chamada API */}
                 {Array.from({ length: 5 }).map((test) => (
-                    <Col className='d-flex justify-content-center'>
+                    <Col className='d-flex justify-content-center g-4'>
                         <CardMatches />
                     </Col>
                 ))}
