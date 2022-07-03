@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const SBackground = styled.div`
-	background-color: #f76f34;
+	background-color: #fdfdfd;
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
@@ -11,7 +11,7 @@ export const SBackground = styled.div`
 	max-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 0;
 `;
@@ -19,9 +19,8 @@ export const SBackground = styled.div`
 export const SContainer = styled.div`
 	background-color: #fdfdfd;
 	margin: 0;
-	padding: 0;
 	width: 100%;
-	height: 80%;
+	height: 100vh;
 	max-width: 100%;
 	max-height: 100%;
 	display: flex;
@@ -34,12 +33,11 @@ export const SContainer = styled.div`
 `;
 
 export const SImage = styled.img`
-	width: 50%;
+	width: 80%;
 	height: 100%;
 
-	
 	@media only screen and (min-width: 1200px) {
-		width: 40%;
+		width: 60%;
 	}
 
 	@media only screen and (max-width: 500px) {
@@ -48,7 +46,7 @@ export const SImage = styled.img`
 `;
 
 export const SForm = styled(Form)`
-	width: 50%;
+	width: 40%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -62,8 +60,28 @@ export const SForm = styled(Form)`
 		font-weight: 600;
 	}
 
+	img {
+		width: 60%;
+		margin: 10% 20%;
+
+		@media only screen and (max-width: 500px) {
+			width: 60%;
+			margin: 20%;
+			padding-left: 6%;
+		}
+	}
+
 	@media only screen and (min-width: 1200px) {
 		margin-right: 10%;
+	}
+
+	@media only screen and (max-width: 900px) {
+		margin-right: 5%;
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 100%;
+		margin-right: 0;
 	}
 `;
 
@@ -79,22 +97,23 @@ export const SInput = styled(Form.Control)`
 	margin: 0;
 	box-sizing: border-box;
 	position: relative;
-	width: 50%;
+	width: 55%;
 
 	&:hover {
 		border: 1px solid #f76f34;
 	}
 
-	@media only screen and (max-width: 900px) {
-		font-size: 15px;
-		width: 60%;
+	@media only screen and (max-width: 1200px) {
+		width: 70%;
 	}
 
-	@media only screen and (max-width: 500px) {
-		font-size: 15px;
+	@media only screen and (max-width: 900px) {
 		width: 100%;
 	}
 
+	@media only screen and (max-width: 500px) {
+		width: 60%;
+	}
 `;
 
 export const SButton = styled(Button)`
@@ -142,40 +161,17 @@ export const SLink = styled(Link)`
 `;
 
 export const SFooter = styled.footer`
-	background-color: #f76f34;
+	background-color: #fdfdfd;
 	width: 100%;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
+	align-items: center;
 
 	img {
-		width: 8%;
-		margin: 1vh 10%;
+		width: 6%;
 
 		@media only screen and (max-width: 500px) {
-			width: 15%;
-		}
-	}
-`;
-
-export const SHeader = styled.header`
-	background-color: #f76f34;
-	width: 100%;
-	padding-top: 3vh;
-	display: flex;
-	justify-content: flex-end;
-
-	img {
-		width: 8%;
-		margin: 1vh 30%;
-
-		
-		@media only screen and (min-width: 1200px) {
-			margin: 1vh 50%;
-		}
-
-		@media only screen and (max-width: 500px) {
-			width: 15%;
-			margin: 1vh 70%;
+			width: 10%;
 		}
 	}
 `;

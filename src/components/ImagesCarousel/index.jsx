@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { Link } from "react-router-dom";
 import twoDogs from '../../assets/twoDogs.png'
 import oneDog from '../../assets/oneDog.png'
 import wrappedCat from '../../assets/wrappedCat.png'
@@ -33,7 +32,7 @@ const ImagesCarousel = () => {
           <S.ImageCarousel src={oneDog} alt="Cachorro" />
           <Carousel.Caption>
             <S.Text>
-              ADOTE COM A PET MATCH
+              ADOTE COM A PETMATCH
               <br />
               SEU MELHOR AMIGO ESTÁ AQUI
             </S.Text>
