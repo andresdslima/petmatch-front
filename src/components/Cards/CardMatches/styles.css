@@ -1,17 +1,26 @@
 .cardContainer {
     text-align: center;
     position: relative;
+    width: 11.8em;
 }
 
 .matchIconContainer {
     width: 80%;
     position: absolute;
-    left: 50%;
-    top: 60%;
+    left: 45%;
+    top: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
+}
+
+.cardImg {
+    width: 100%;
+}
+
+.matchIcon {
+    width: 30%;
 }
 
 .matchPercent {
@@ -20,31 +29,37 @@
     color: #F76F34;
 }
 
+.cardTitle {
+    font-size: 14px !important;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+.cardText {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
 @media only screen and (max-width: 1200px) {}
 
 @media only screen and (max-width: 992px) {
     .matchPercent {
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .matchIconContainer {
-        top: 65%;
 
-    }
 
     .matchPercent {
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 576px) {
-    .matchIconContainer {
-        top: 70%;
-    }
 
     .matchPercent {
-        font-size: 18px;
+        font-size: 12px;
     }
 }
