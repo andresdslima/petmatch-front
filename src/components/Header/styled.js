@@ -60,6 +60,14 @@ export const NavUser = styled(Link)`
     left: -2em;
   }
 
+  &:hover {
+      background-color: #f76f34;
+    }
+
+  &:hover span, i  {
+    color: #fff;
+  }
+
   @media only screen and (max-width: 1200px) {
     &:before {
       display: none;
@@ -80,6 +88,10 @@ export const NavUser = styled(Link)`
 export const NavSignin = styled(NavUser)`
 justify-content: center;
 gap: 40px;
+
+&:hover img  {
+      stroke: #fff;
+  }
 
 @media only screen and (max-width: 992px) {
     justify-content: space-between;
