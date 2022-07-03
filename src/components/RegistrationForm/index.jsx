@@ -40,7 +40,9 @@ export default function RegistrationForm() {
 
 		onSubmit: async values => {
 			const response = await createUser({
-				...values,
+				name: values.name,
+				email: values.email,
+				password: values.password,
 				userStatus: 1,
 				permission: 0,
 			});
@@ -53,13 +55,30 @@ export default function RegistrationForm() {
 			alert('Usuário cadastrado com sucesso!');
 			formik.handleReset();
 
-			dispatch(
-				signIn({
-					accessToken: response.data.accessToken,
-					userStatus: response.data.user.userStatus,
-					permission: response.data.user.permission,
-					id: response.data.user.id,
-				}),
+			// dispatch(
+			// 	signIn({
+			// 		accessToken: response.data.accessToken,
+			// 		name: response.data.user.name,
+			// 		userStatus: response.data.user.userStatus,
+			// 		permission: response.data.user.permission,
+			// 		id: response.data.user.id,
+			// 	}),
+			// );
+
+			localStorage.setItem(
+				'data',
+				JSON.stringify(
+					dispatch(
+						signIn({
+							isLogged: true,
+							accessToken: response.data.accessToken,
+							name: response.data.user.name,
+							userStatus: response.data.user.userStatus,
+							permission: response.data.user.permission,
+							id: response.data.user.id,
+						}),
+					),
+				),
 			);
 
 			api.defaults.headers.common[
