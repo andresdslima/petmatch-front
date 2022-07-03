@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
 import Signin from '../../assets/images/SigninVector.svg';
 import * as S from './styled';
@@ -8,18 +8,24 @@ import { useSelector } from 'react-redux';
 const Header = () => {
 	// const isLogged = useSelector(state => state.persistedReducer.isLogged);
 	const location = useLocation();
+	const navigate = useNavigate();
 	const data = JSON.parse(localStorage.getItem('data'));
-  
+
 	const isLogged = () => {
 		if (!data) return false;
 
 		return true;
 	};
 
-	const name = () => {
-		if (data) return data.payload.name;
+	const username = () => {
+		if (data) return data.payload.username;
 
 		return;
+	};
+
+	const logout = () => {
+		localStorage.clear();
+		navigate('/');
 	};
 
 	return (
@@ -53,8 +59,10 @@ const Header = () => {
 						) : (
 							<S.NavUser active={location.pathname} exact to="#">
 								<S.UserIcon />
-								<S.UserName>{name()}</S.UserName>
-								<S.PlusSign>&#43;</S.PlusSign>
+								<S.UserName>{username()}</S.UserName>
+								<button onClick={logout}>
+									<S.PlusSign>&#43;</S.PlusSign>
+								</button>
 							</S.NavUser>
 						)}
 					</Nav>
