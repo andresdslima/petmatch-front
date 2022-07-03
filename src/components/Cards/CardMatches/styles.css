@@ -2,6 +2,8 @@
     text-align: center;
     position: relative;
     width: 11.8em;
+    border-radius: 16px !important;
+    box-shadow: 0px 4px 4px rgba(159, 159, 159, 0.33) !important;
 }
 
 .matchIconContainer {
