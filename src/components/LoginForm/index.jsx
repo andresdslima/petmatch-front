@@ -20,6 +20,7 @@ const validationSchema = Yup.object({
 export default function LoginForm() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	// const count = useSelector(state => state.countReducer);
 
 	const formik = useFormik({
 		initialValues: {
@@ -31,11 +32,9 @@ export default function LoginForm() {
 
 		onSubmit: async values => {
 			const { accessToken, user } = await loginUser(values);
-			// SALVAR RESPOSTA NO REDUX
 
 			if (!user) {
 				alert('Usuário ou senha inválidos!');
-				formik.handleReset();
 				return;
 			}
 
@@ -63,7 +62,7 @@ export default function LoginForm() {
 
 				<Styled.SForm onSubmit={formik.handleSubmit}>
 					<Link exact to="/">
-						<img src={logo} alt="Logo da PetMatch"  />
+						<img src={logo} alt="Logo da PetMatch" />
 					</Link>
 
 					<Styled.SLabel alt="Digite seu email" htmlFor="email">
