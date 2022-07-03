@@ -3,7 +3,7 @@
     border-radius: 0px 0px 16px 16px !important;
     width: 80%;
     margin: 10px auto;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .postTitle {
@@ -26,4 +26,19 @@
     display: flex !important;
     justify-content: space-around;
     align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .cardPost {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    .cardPost {
+        width: 60%;
+    }
 }
