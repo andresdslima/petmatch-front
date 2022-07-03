@@ -10,7 +10,7 @@ const SlantedCard = () => {
 	return (
 		<S.CardContainer>
 			<S.RectangleBackground>
-				<S.CardCenter className="text-center">
+				<S.CardCenter className="text-center shadow">
           {location.pathname == "/formularioenviado"? (<><S.ImageContainer>
             <S.CardImageDog variant="top" src={WhiteDog} />
           </S.ImageContainer><S.CardTextContainer>
