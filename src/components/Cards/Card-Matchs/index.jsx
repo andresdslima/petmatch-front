@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import CardImage from '../../../assets/images/godofredo.svg'
 import ScreenShot from '../../../assets/images/matchIcon.png'
 
-const CardMatches = () => {
+const CardMatchs = () => {
     return (
         <Card className='cardContainer'>
             <Card.Img variant="top" src={CardImage} className='cardImg' />
@@ -22,4 +22,4 @@ const CardMatches = () => {
     )
 }
 
-export default CardMatches
+export default CardMatchs

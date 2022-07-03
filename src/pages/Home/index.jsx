@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import ImagesCarousel from '../../components/ImagesCarousel';
 import StepByStepAdoption from '../../components/StepByStepAdoption';
 import CardCategory from '../../components/CardCategory';
-import CardMatches from '../../components/Cards/CardMatches';
+import MatchsMainContent from '../../components/MatchsMainContent';
 
 const Home = () => {
 	return (
@@ -13,7 +13,7 @@ const Home = () => {
 			<ImagesCarousel />
 			<CardCategory />
 			<StepByStepAdoption />
-			<CardMatches />
+			<MatchsMainContent />
 			<Footer />
 		</>
 	);
