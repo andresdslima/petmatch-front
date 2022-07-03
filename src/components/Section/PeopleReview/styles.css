@@ -1,5 +1,6 @@
 .peopleReviewDiv {
     background-color: #FC895E;
+    margin-bottom: 40px;
 
 }
 
@@ -69,6 +70,7 @@
     font-size: 12px;
     line-height: 14px;
     margin: 0;
+    text-align: justify;
 }
 
 
