@@ -17,8 +17,8 @@ const Header = () => {
 		return true;
 	};
 
-	const username = () => {
-		if (data) return data.payload.username;
+	const firstName = () => {
+		if (data) return data.payload.firstName;
 
 		return;
 	};
@@ -31,7 +31,7 @@ const Header = () => {
 	return (
 		<Navbar expand="lg mb-5">
 			<Container>
-				<Navbar.Brand href="#home" className="m-0 py-3">
+				<Navbar.Brand href="/" className="m-0 py-3">
 					<S.LogoImage src={Logo} alt="PetMatch Logo" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -59,7 +59,7 @@ const Header = () => {
 						) : (
 							<S.NavUser active={location.pathname} exact to="#">
 								<S.UserIcon />
-								<S.UserName>{username()}</S.UserName>
+								<S.UserName>{firstName()}</S.UserName>
 								<button onClick={logout}>
 									<S.PlusSign>&#43;</S.PlusSign>
 								</button>
