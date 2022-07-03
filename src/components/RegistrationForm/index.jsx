@@ -11,11 +11,8 @@ import { api } from '../../services/mainAPI/config';
 import { signIn } from '../../store/modules/users';
 
 const validationSchema = Yup.object({
-	name: Yup.string().min(10, 'Nome completo').required('*'),
-	username: Yup.string()
-		.min(5, 'Mínimo 5 caractéres')
-		.max(10, 'Máximo 10 caractéres')
-		.required('*'),
+	firstName: Yup.string().min(4, 'Primeiro nome').required('*'),
+	lastName: Yup.string().min(4, 'Sobrenome completo').required('*'),
 	email: Yup.string().email('Email inválido').required('*'),
 	password: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
 	confirmPassword: Yup.string()
@@ -31,8 +28,8 @@ export default function RegistrationForm() {
 
 	const formik = useFormik({
 		initialValues: {
-			name: '',
-			username: '',
+			firstName: '',
+			lastName: '',
 			email: '',
 			password: '',
 			confirmPassword: '',
@@ -45,8 +42,8 @@ export default function RegistrationForm() {
 
 		onSubmit: async values => {
 			const response = await createUser({
-				name: values.name,
-				username: values.username,
+				firstName: values.firstName,
+				lastName: values.lastName,
 				email: values.email,
 				password: values.password,
 				userStatus: 1,
@@ -78,7 +75,7 @@ export default function RegistrationForm() {
 						signIn({
 							isLogged: true,
 							accessToken: response.data.accessToken,
-							username: response.data.user.username,
+							firstName: response.data.user.firstName,
 							userStatus: response.data.user.userStatus,
 							permission: response.data.user.permission,
 							id: response.data.user.id,
@@ -104,29 +101,29 @@ export default function RegistrationForm() {
 						<img src={logo} alt="Logo da PetMatch" />
 					</Link>
 
-					<Styled.SLabel alt="Digite seu nome completo" htmlFor="name">
-						Nome completo
+					<Styled.SLabel alt="Digite seu primeiro nome" htmlFor="firstName">
+						Primeiro nome
 					</Styled.SLabel>
-					{formik.errors.name && <small>{formik.errors.name}</small>}
+					{formik.errors.firstName && <small>{formik.errors.firstName}</small>}
 					<Styled.SInput
 						type="text"
-						name="name"
-						id="name"
-						placeholder="Digite seu nome completo"
-						value={formik.values.name}
+						name="firstName"
+						id="firstName"
+						placeholder="Digite seu primeiro nome"
+						value={formik.values.firstName}
 						onChange={formik.handleChange}
 					/>
 
-					<Styled.SLabel alt="Digite seu nome de usuário" htmlFor="username">
-						Nome de usuário
+					<Styled.SLabel alt="Digite seu sobrenome completo" htmlFor="lastName">
+						Sobrenome completo
 					</Styled.SLabel>
-					{formik.errors.username && <small>{formik.errors.username}</small>}
+					{formik.errors.lastName && <small>{formik.errors.lastName}</small>}
 					<Styled.SInput
 						type="text"
-						name="username"
-						id="username"
-						placeholder="Digite seu nome de usuário"
-						value={formik.values.username}
+						name="lastName"
+						id="lastName"
+						placeholder="Digite seu sobrenome completo"
+						value={formik.values.lastName}
 						onChange={formik.handleChange}
 					/>
 
