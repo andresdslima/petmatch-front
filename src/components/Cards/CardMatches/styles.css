@@ -59,6 +59,14 @@
 
 @media only screen and (max-width: 576px) {
 
+    .cardContainer {
+        width: 8.1em;
+    }
+
+    .matchIconContainer {
+        top: 40%;
+    }
+
     .matchPercent {
         font-size: 12px;
     }
