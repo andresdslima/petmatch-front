@@ -12,6 +12,10 @@ import { signIn } from '../../store/modules/users';
 
 const validationSchema = Yup.object({
 	name: Yup.string().min(10, 'Nome completo').required('*'),
+	username: Yup.string()
+		.min(5, 'Mínimo 5 caractéres')
+		.max(10, 'Máximo 10 caractéres')
+		.required('*'),
 	email: Yup.string().email('Email inválido').required('*'),
 	password: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
 	confirmPassword: Yup.string()
@@ -28,6 +32,7 @@ export default function RegistrationForm() {
 	const formik = useFormik({
 		initialValues: {
 			name: '',
+			username: '',
 			email: '',
 			password: '',
 			confirmPassword: '',
@@ -41,6 +46,7 @@ export default function RegistrationForm() {
 		onSubmit: async values => {
 			const response = await createUser({
 				name: values.name,
+				username: values.username,
 				email: values.email,
 				password: values.password,
 				userStatus: 1,
@@ -72,7 +78,7 @@ export default function RegistrationForm() {
 						signIn({
 							isLogged: true,
 							accessToken: response.data.accessToken,
-							name: response.data.user.name,
+							username: response.data.user.username,
 							userStatus: response.data.user.userStatus,
 							permission: response.data.user.permission,
 							id: response.data.user.id,
@@ -108,6 +114,19 @@ export default function RegistrationForm() {
 						id="name"
 						placeholder="Digite seu nome completo"
 						value={formik.values.name}
+						onChange={formik.handleChange}
+					/>
+
+					<Styled.SLabel alt="Digite seu nome de usuário" htmlFor="username">
+						Nome de usuário
+					</Styled.SLabel>
+					{formik.errors.username && <small>{formik.errors.username}</small>}
+					<Styled.SInput
+						type="text"
+						name="username"
+						id="username"
+						placeholder="Digite seu nome de usuário"
+						value={formik.values.username}
 						onChange={formik.handleChange}
 					/>
 
