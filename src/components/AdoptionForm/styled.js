@@ -2,41 +2,39 @@ import styled from 'styled-components';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export const ContainerForm = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap: 30px;
-  padding: 0 2vw;
+export const ContainerForm = styled(Container)`
+	display: grid;
+	row-gap: 15px;
 
-	@media only screen and (max-width: 500px) {
-		justify-content: center;
-		gap: 10px;
-	}
+  @media only screen and (max-width: 500px) {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Label = styled(Form.Label)`
 	color: #141518;
 	font-size: max(1vw, 14px);
 	font-weight: 600;
+  margin: 0;
 `;
 
 export const FormItemSelect = styled(Form.Select)`
-	width: 25vw;
+	width: 22vw;
 	background-color: #f7f8ff;
 	border: 1px solid #d5d7db !important;
 	font-size: 14px;
 	color: #606266;
 	box-shadow: none !important;
 
-	@media only screen and (max-width: 900px) {
-		width: 25vw;
-	}
-
 	@media only screen and (max-width: 500px) {
-		width: 70vw;
+		width: 100%;
 	}
 `;
+
 export const SelectOption = styled.option`
 	font-size: 14px;
 	color: #606266;
@@ -50,9 +48,9 @@ export const InputContainer = styled(Form.Group)`
 
 	small {
 		color: #f00;
-		padding: 0;
-		margin: 0;
-		font-weight: 600;
+		padding: 0 !important;
+		margin: 0 !important;
+		font-weight: 500;
 	}
 `;
 
@@ -156,7 +154,7 @@ export const SInput = styled(Form.Control)`
 	margin: 0;
 	box-sizing: border-box;
 	position: relative;
-	width: 25vw !important;
+	width: 22vw !important;
 
 	&:hover {
 		border: 1px solid #f76f34;
@@ -171,7 +169,8 @@ export const SInput = styled(Form.Control)`
 	}
 
 	@media only screen and (max-width: 500px) {
-		width: 60%;
+		width: 100% !important;
+    margin-bottom: 1.5vh;
 	}
 `;
 
