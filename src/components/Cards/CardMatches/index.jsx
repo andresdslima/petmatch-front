@@ -35,6 +35,8 @@ const CardMatches = () => {
 	const petList = useSelector((state) => state.petsReducer)
 	const dispatch = useDispatch()
 
+	console.log(petList)
+
 	useEffect(()=>{
 		getPets().then(pets => dispatch(setPetList(pets)))
 	  },[])
