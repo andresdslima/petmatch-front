@@ -4,8 +4,8 @@ import CardImage from '../../../assets/images/godofredo.svg';
 import ScreenShot from '../../../assets/images/matchIcon.png';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNewPet, setPetList } from '../../../store/modules/pets'
-import { getPets } from '../../../services/mainAPI/pets'
+import { addNewPet, setPetList } from '../../../store/modules/pets';
+import { getPets } from '../../../services/mainAPI/pets';
 
 export const calculateMatch = (obj1, obj2) => {
 	const obj1Length = Object.keys(obj1).length;
@@ -28,16 +28,18 @@ export const calculateMatch = (obj1, obj2) => {
 		return counter;
 	}, 0);
 
-	return (count / Math.min(obj1Length, obj2Length)) * 100;
+	const match = (count / Math.min(obj1Length, obj2Length)) * 100;
+
+	return Math.round(match);
 };
 
 const CardMatches = () => {
-	const petList = useSelector((state) => state.petsReducer)
-	const dispatch = useDispatch()
+	const petList = useSelector(state => state.petsSlice);
+	const dispatch = useDispatch();
 
-	useEffect(()=>{
-		getPets().then(pets => dispatch(setPetList(pets)))
-	  },[])
+	useEffect(() => {
+		getPets().then(pets => dispatch(setPetList(pets)));
+	}, []);
 
 	return (
 		<Card className="cardContainer">
@@ -49,7 +51,7 @@ const CardMatches = () => {
 			<div className="matchIconContainer">
 				<img src={ScreenShot} alt="Icone de Match" className="matchIcon" />
 				{/* Pegar a % chamando a API p comparar as caracteristicas */}
-                <span className="matchPercent">90%</span>
+				<span className="matchPercent">90%</span>
 			</div>
 		</Card>
 	);

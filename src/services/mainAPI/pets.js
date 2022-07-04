@@ -1,9 +1,11 @@
-import { api } from "./config";
+import { api } from './config';
 
 export const getPets = async () => {
-    try {
-        const response = await api.get("/pets")
-    } catch(error) {
-        alert(`Error: ${error.response.data}`)
-    }
-}
+	try {
+		const response = await api.get('/pets');
+		console.log(response);
+		return response.data;
+	} catch (error) {
+		alert(`Error: ${error.response.data}`);
+	}
+};
