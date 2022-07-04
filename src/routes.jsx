@@ -6,6 +6,7 @@ import PetProfile from './pages/PetProfile'
 import FormularioEnviado from './pages/FormularioEnviado'
 import FormularioAprovadoFinal from './pages/FormularioAprovadoFinal'
 import Matches from './pages/Matches';
+import Adoption from './pages/Adoption';
 
 
 export default function AppRoutes() {
@@ -20,6 +21,7 @@ export default function AppRoutes() {
 				<Route path="/formularioenviado" element={<FormularioEnviado />} />
 				<Route path="/formularioaprovadofinal" element={<FormularioAprovadoFinal />} />
 				<Route path="/matches" element={<Matches/>} />
+				<Route path="/adoption" element={<Adoption />} />
 			</Routes>
 		</Router>
 	);

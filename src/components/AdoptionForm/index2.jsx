@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import dog from '../../assets/images/dog-login.png';
 import footprints from '../../assets/watermarks/patas.jpg';
-import * as Styled from './styled';
+import * as Styled from '../RegistrationForm/styled';
 import * as Yup from 'yup';
 import { useFormik, useFormikContext } from 'formik';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../services/mainAPI/users';
-import RegistrationStep1 from '../RegistrationStep1';
-import RegistrationStep2 from '../RegistrationStep2';
-import RegistrationStep3 from '../RegistrationStep3';
-import RegistrationStep4 from '../RegistrationStep4';
+import AdoptionStep1 from '../AdoptionStep1';
+import AdoptionStep2 from '../AdoptionStep2';
+import AdoptionStep3 from '../AdoptionStep3';
+import AdoptionStep4 from '../AdoptionStep4';
 // import { signIn } from '../../store/users';
 
 const validationSchema = Yup.object({
@@ -24,7 +24,7 @@ const validationSchema = Yup.object({
 	houseNumber: Yup.number().required('*'),
 });
 
-export default function RegistrationForm() {
+export default function AdoptionForm() {
 	const navigate = useNavigate();
 	// const dispatch = useDispatch();
 	const { register, errors, handleSubmit } = useForm();
@@ -73,15 +73,9 @@ export default function RegistrationForm() {
 
 	return (
 		<Styled.SBackground>
-			<Styled.SHeader>
-				<img src={footprints} alt="Pegadas de animal" />
-			</Styled.SHeader>
-
 			<Styled.SContainer>
-				<Styled.SImage src={dog} alt="Cachorro" />
-
 				{step === 1 && (
-					<RegistrationStep1
+					<AdoptionStep1
 						setStep={setStep}
 						formValues={formValues}
 						setFormValues={setFormValues}
@@ -89,7 +83,7 @@ export default function RegistrationForm() {
 				)}
 
 				{step === 2 && (
-					<RegistrationStep2
+					<AdoptionStep2
 						setStep={setStep}
 						formValues={formValues}
 						setFormValues={setFormValues}
@@ -97,7 +91,7 @@ export default function RegistrationForm() {
 				)}
 
 				{step === 3 && (
-					<RegistrationStep3
+					<AdoptionStep3
 						setStep={setStep}
 						formValues={formValues}
 						setFormValues={setFormValues}
@@ -105,17 +99,13 @@ export default function RegistrationForm() {
 				)}
 
 				{step === 4 && (
-					<RegistrationStep4
+					<AdoptionStep4
 						setStep={setStep}
 						formValues={formValues}
 						setFormValues={setFormValues}
 					/>
 				)}
 			</Styled.SContainer>
-
-			<Styled.SFooter>
-				<img src={footprints} alt="Pegadas de animal" />
-			</Styled.SFooter>
 		</Styled.SBackground>
 	);
 }
