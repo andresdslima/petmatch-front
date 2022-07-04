@@ -16,8 +16,8 @@ const Footer = () => {
     <S.FooterCenterContainer>
       <S.NavLinks>
         <S.ButtonLink active={location.pathname} exact to="/">Voltar ao topo</S.ButtonLink>
-        <S.ButtonLink active={location.pathname} exact to="/">ONG's</S.ButtonLink>
-        <S.ButtonLink active={location.pathname} exact to="/">Sobre</S.ButtonLink>
+        <S.ButtonLink active={location.pathname} exact to="/ongs">ONG's</S.ButtonLink>
+        <S.ButtonLink active={location.pathname} exact to="/sobre">Sobre</S.ButtonLink>
       </S.NavLinks>
       <S.Text>"Os animais nos ensinam o valor da vida."</S.Text>
       </S.FooterCenterContainer>
