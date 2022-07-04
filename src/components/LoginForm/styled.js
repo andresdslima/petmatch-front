@@ -37,7 +37,7 @@ export const SImage = styled.img`
 	height: 100%;
 
 	@media only screen and (min-width: 1200px) {
-		width: 60%;
+		width: 50%;
 	}
 
 	@media only screen and (max-width: 500px) {
