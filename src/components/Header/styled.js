@@ -36,7 +36,6 @@ export const ButtonLink = styled(Link)`
   width: auto;
   justify-content: flex-start;
   padding: 0 30px;
-
   }
 `;
 
