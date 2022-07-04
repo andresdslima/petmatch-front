@@ -1,4 +1,4 @@
-import { createSlice } from "reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     pet: []
@@ -9,13 +9,13 @@ const petsSlice = createSlice({
     initialState,
     reducers:{
         setPetList: (state, action) => {
-            object.assign(state, {
+            Object.assign(state, {
                 ...state,
                 pet: action.payload
             })
         } ,
         addNewPet: (state, action) => {
-            object.assign(state, {
+            Object.assign(state, {
                 ...state,
                 pet: [...state.pet, action.payload]
         })       
