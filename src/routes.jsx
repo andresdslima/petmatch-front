@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import PetProfile from './pages/PetProfile'
 import FormularioEnviado from './pages/FormularioEnviado'
 import FormularioAprovadoFinal from './pages/FormularioAprovadoFinal'
+import Matches from './pages/Matches';
 
 
 export default function AppRoutes() {
@@ -18,6 +19,7 @@ export default function AppRoutes() {
 				<Route path="/petprofile" element={<PetProfile />} />
 				<Route path="/formularioenviado" element={<FormularioEnviado />} />
 				<Route path="/formularioaprovadofinal" element={<FormularioAprovadoFinal />} />
+				<Route path="/matches" element={<Matches/>} />
 			</Routes>
 		</Router>
 	);
