@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import MatchesForm from '../../components/MatchesForm';
+import AdoptionForm from '../../components/AdoptionForm';
+import MatchsMainContent from '../../components/MatchsMainContent';
 import PeopleReview from '../../components/Section/PeopleReview';
 import CardPostsContainer from '../../components/Card-Posts-Container';
 
@@ -10,7 +11,8 @@ const Matches = () => {
 		<>
 			<Header />
 			
-			<MatchesForm />
+			<AdoptionForm />
+			<MatchsMainContent />
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />

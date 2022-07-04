@@ -100,7 +100,7 @@ width: 18vw;
 height: 3.54vw;
 background-color: #8D73E4 !important;
 color: #fff;
-font-size: 21px;
+font-size: 18px;
 font-weight: 600;
 box-shadow: none !important;
 

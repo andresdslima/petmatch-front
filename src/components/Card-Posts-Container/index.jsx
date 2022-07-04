@@ -9,10 +9,10 @@ const CardPostsContainer = () => {
         <div className="container">
             <Row xs={1} sm={1} md={2} lg={2}>
                 <Col>
-                    <CardPosts imageName={DogPostImage}></CardPosts>
+                    <CardPosts imageName={PeacockPostImage}></CardPosts>
                 </Col>
                 <Col>
-                    <CardPosts imageName={PeacockPostImage}></CardPosts>
+                    <CardPosts imageName={DogPostImage}></CardPosts>
                 </Col>
             </Row>
         </div>

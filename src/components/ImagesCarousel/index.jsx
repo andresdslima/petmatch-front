@@ -9,7 +9,7 @@ const ImagesCarousel = () => {
   return (
     <S.ContainerContent>
       <S.ContainerCarousel>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={3000}>
           <S.ImageCarousel src={twoDogs} alt="Dois cachorros" />
           <Carousel.Caption>
             <S.Text>
