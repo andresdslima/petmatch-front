@@ -31,6 +31,13 @@ export const ContainerCardsCategory = styled.nav`
     & .slick-slider {
         width: 100%;
 
+        & .slick-next:before{
+            color: #F76F34;
+        }
+        & .slick-prev:before{
+            color: #F76F34;
+        }
+
         & .slick-list {
             padding: 0.5rem 0;
         }
