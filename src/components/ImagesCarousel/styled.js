@@ -5,16 +5,16 @@ import { Carousel } from 'react-bootstrap';
 export const ContainerContent = styled.div`
 	display: flex;
 	justify-content: flex-start;
-	gap: 10vh;
+	gap: 10vw;
 	align-items: center;
 	flex-direction: column;
 
 	@media (max-width: 1000px) {
-		gap: 4vh;
+		gap: 4vw;
 	}
 
 	@media (max-width: 600px) {
-		gap: 1vh;
+		gap: 4vw;
 	}
 `;
 
@@ -24,7 +24,6 @@ export const ContainerCarousel = styled(Carousel)`
     justify-content: center;
     width: 68vw;
     height: 100%;
-    margin-top: 10vw;
     box-sizing: border-box;
 
 	& .carousel-indicators {
@@ -49,14 +48,13 @@ export const ContainerCarousel = styled(Carousel)`
 
 	@media (max-width: 1000px) {
 		width: 75vw;
-		margin-top: 5vh;
-		height: 25vh;
+		height: 25vw;
 	}
 
 	@media (max-width: 600px) {
 		width: 80vw;
 		margin-top: 0;
-		height: 20vh;
+		height: 20vw;
 	}
 `;
 
@@ -78,8 +76,8 @@ export const Text = styled.h3`
 		line-height: 1.5rem;
 	}
 
-	@media (max-width: 600px) {
-		font-size: 0.5rem;
+	@media (max-width: 468px) {
+		font-size: 0.75rem;
 		line-height: 1rem;
 	}
 `;
