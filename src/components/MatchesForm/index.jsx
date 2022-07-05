@@ -1,12 +1,18 @@
 import { Container, Form, Button } from 'react-bootstrap';
 import * as S from './styled';
 import { useFormik } from 'formik';
+import PetsCardsList from '../../components/PetsCardsList'
+import { useState } from 'react';
+
+
 
 const MatchesForm = () => {
+	const [toggle, setToggle] = useState(false);
+
 	const formik = useFormik({
 		initialValues: {especie:"", idademax: "", sexo:"", pesomax:"",  porte:"", cor:"", raca:"", castrado:"", vacinado:""},
 		onSubmit: values => {
-			console.log(values);
+			const userPreference = values;
 		}
 	});
 
@@ -141,12 +147,15 @@ const MatchesForm = () => {
 							</S.CheckboxContainer>
 					</S.ContainerForm>
 					<S.ButtonContainer className="my-5">
-					<S.SearchButton variant="primary" type="submit">
+					<S.SearchButton variant="primary" type="submit" onClick={() => setToggle(true)}>
 						Buscar
 					</S.SearchButton>
 					</S.ButtonContainer>
 				</Form>
 			</Container>
+			{toggle && (
+							<PetsCardsList />
+			)}
 		</>
 	);
 };
