@@ -2,17 +2,24 @@ import { Container, Form, Button } from 'react-bootstrap';
 import * as S from './styled';
 import { useFormik } from 'formik';
 import PetsCardsList from '../../components/PetsCardsList'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUsersPreferences } from '../../store/modules/usersPreferences';
+import { setPetList } from '../../store/modules/pets';
 
 
 
 const MatchesForm = () => {
 	const [toggle, setToggle] = useState(false);
+	const usersPref = useSelector(state => state.usersPreferencesSlice.usersPreferences)
+	
+	console.log(usersPref)
+	const dispatch = useDispatch();
 
 	const formik = useFormik({
 		initialValues: {especie:"", idademax: "", sexo:"", pesomax:"",  porte:"", cor:"", raca:"", castrado:"", vacinado:""},
 		onSubmit: values => {
-			const userPreference = values;
+			setPetList(values);
 		}
 	});
 
@@ -154,7 +161,7 @@ const MatchesForm = () => {
 				</Form>
 			</Container>
 			{toggle && (
-							<PetsCardsList />
+			<PetsCardsList />
 			)}
 		</>
 	);
