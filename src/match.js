@@ -1,10 +1,8 @@
 // filtros da busca do usuario logado
 const a = {
 	especie: 'cachorro',
-	idade_min: 1,
 	idade_max: 3,
 	sexo: 'M',
-	peso_min: 5,
 	peso_max: 10,
 	tamanho_max: 50,
 	porte: 100,
@@ -28,26 +26,28 @@ const b = {
 	vacinado: false,
 };
 
-const findMatch = (first, second) => {
-	const firstLength = Object.keys(first).length;
-	const secondLength = Object.keys(second).length;
-	const smaller = firstLength < secondLength ? first : second;
-	const greater = smaller === first ? second : first;
+const calculateMatch = (obj1, obj2) => {
+	const obj1Length = Object.keys(obj1).length;
+	const obj2Length = Object.keys(obj2).length;
+	const smaller = obj1Length < obj2Length ? obj1 : obj2;
+	const greater = smaller === obj1 ? obj2 : obj1;
 	const smallObjKeys = Object.keys(smaller);
 
 	let count = smallObjKeys.reduce((counter, key) => {
 		if (greater[key] === smaller[key]) return ++counter;
 
-		if (
-			smaller[key] <= greater[`${key}_max`] &&
-			smaller[key] >= greater[`${key}_min`]
-		)
-			return ++counter;
+		// if (
+		// 	smaller[key] <= greater[`${key}_max`] &&
+		// 	smaller[key] >= greater[`${key}_min`]
+		// )
+		// 	return ++counter;
 
 		if (smaller[key] <= greater[`${key}_max`]) return ++counter;
 
 		return counter;
 	}, 0);
 
-	return (count / Math.min(firstLength, secondLength)) * 100;
+	return (count / Math.min(obj1Length, obj2Length)) * 100;
 };
+
+console.log(calculateMatch(a, b));

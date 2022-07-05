@@ -22,7 +22,7 @@ export const updateUser = async (id, user) => {
 	try {
 		const response = await api.put(`/users/${id}`, user);
 		console.log(response);
-		return response;
+		return response.data;
 	} catch (error) {
 		console.error(error);
 		alert('Erro ao atualizar usuário');

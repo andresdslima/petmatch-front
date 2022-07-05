@@ -11,7 +11,8 @@ import { api } from '../../services/mainAPI/config';
 import { signIn } from '../../store/modules/users';
 
 const validationSchema = Yup.object({
-	name: Yup.string().min(10, 'Nome completo').required('*'),
+	firstName: Yup.string().min(4, 'Primeiro nome').required('*'),
+	lastName: Yup.string().min(4, 'Sobrenome completo').required('*'),
 	email: Yup.string().email('Email inválido').required('*'),
 	password: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
 	confirmPassword: Yup.string()
@@ -27,7 +28,8 @@ export default function RegistrationForm() {
 
 	const formik = useFormik({
 		initialValues: {
-			name: '',
+			firstName: '',
+			lastName: '',
 			email: '',
 			password: '',
 			confirmPassword: '',
@@ -40,7 +42,10 @@ export default function RegistrationForm() {
 
 		onSubmit: async values => {
 			const response = await createUser({
-				...values,
+				firstName: values.firstName,
+				lastName: values.lastName,
+				email: values.email,
+				password: values.password,
 				userStatus: 1,
 				permission: 0,
 			});
@@ -53,13 +58,30 @@ export default function RegistrationForm() {
 			alert('Usuário cadastrado com sucesso!');
 			formik.handleReset();
 
-			dispatch(
-				signIn({
-					accessToken: response.data.accessToken,
-					userStatus: response.data.user.userStatus,
-					permission: response.data.user.permission,
-					id: response.data.user.id,
-				}),
+			// dispatch(
+			// 	signIn({
+			// 		accessToken: response.data.accessToken,
+			// 		name: response.data.user.name,
+			// 		userStatus: response.data.user.userStatus,
+			// 		permission: response.data.user.permission,
+			// 		id: response.data.user.id,
+			// 	}),
+			// );
+
+			localStorage.setItem(
+				'data',
+				JSON.stringify(
+					dispatch(
+						signIn({
+							isLogged: true,
+							accessToken: response.data.accessToken,
+							firstName: response.data.user.firstName,
+							userStatus: response.data.user.userStatus,
+							permission: response.data.user.permission,
+							id: response.data.user.id,
+						}),
+					),
+				),
 			);
 
 			api.defaults.headers.common[
@@ -79,16 +101,29 @@ export default function RegistrationForm() {
 						<img src={logo} alt="Logo da PetMatch" />
 					</Link>
 
-					<Styled.SLabel alt="Digite seu nome completo" htmlFor="name">
-						Nome completo
+					<Styled.SLabel alt="Digite seu primeiro nome" htmlFor="firstName">
+						Primeiro nome
 					</Styled.SLabel>
-					{formik.errors.name && <small>{formik.errors.name}</small>}
+					{formik.errors.firstName && <small>{formik.errors.firstName}</small>}
 					<Styled.SInput
 						type="text"
-						name="name"
-						id="name"
-						placeholder="Digite seu nome completo"
-						value={formik.values.name}
+						name="firstName"
+						id="firstName"
+						placeholder="Digite seu primeiro nome"
+						value={formik.values.firstName}
+						onChange={formik.handleChange}
+					/>
+
+					<Styled.SLabel alt="Digite seu sobrenome completo" htmlFor="lastName">
+						Sobrenome completo
+					</Styled.SLabel>
+					{formik.errors.lastName && <small>{formik.errors.lastName}</small>}
+					<Styled.SInput
+						type="text"
+						name="lastName"
+						id="lastName"
+						placeholder="Digite seu sobrenome completo"
+						value={formik.values.lastName}
 						onChange={formik.handleChange}
 					/>
 

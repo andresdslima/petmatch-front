@@ -1,35 +1,46 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+export const StyledBackground = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+`;
 
 export const ContainerCategory = styled.div`
-    height: 100%;
-    width: 68vw;
-    margin: 7vw 0;
-    box-sizing: border-box;
+	height: 100%;
+	width: 68vw;
+	margin: 7vw 0;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-    @media (max-width: 1024px) {
-        width: 75vw;
-    }
+	@media (max-width: 1024px) {
+		width: 75vw;
+	}
 
-    @media (max-width: 600px) {
-        width: 80vw;
-    }
+	@media (max-width: 600px) {
+		width: 80vw;
+	}
 `;
 
 export const TitleCategory = styled.h3`
-    margin-bottom: 1.4vw;
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.5rem;
+	margin-bottom: 1.4vw;
+	font-size: 1.3rem;
+	font-weight: 600;
+	line-height: 1.5rem;
 `;
 
 export const ContainerCardsCategory = styled.nav`
-    box-sizing: border-box;
-    width: 100%;
+	box-sizing: border-box;
+	width: 100%;
 
-    & .slick-slider {
-        width: 100%;
+	& .slick-slider {
+		width: 100%;
 
         & .slick-next:before{
             color: #F76F34;
@@ -45,59 +56,54 @@ export const ContainerCardsCategory = styled.nav`
 `;
 
 export const LinkContainer = styled(Link)`
-    text-decoration: none;
-    text-align: center;
-    
+	text-decoration: none;
+	text-align: center;
 `;
 
 export const CardCategory = styled(Card)`
-    border-radius: 1.04vw;
-    width: 15.8vw;
-    height: 100%;
-    margin-right: 1.3vw;
-    box-shadow: 0 0.26vw 0.26vw rgba(159, 159, 159, 0.25);
-    transition: all .5s ease-in-out;
+	border-radius: 1.04vw;
+	width: 15.8vw;
+	height: 100%;
+	margin-right: 1.3vw;
+	box-shadow: 0 0.26vw 0.26vw rgba(159, 159, 159, 0.25);
+	transition: all 0.5s ease-in-out;
 
-    &:hover {
-        width: 20vw;    
-    }
+	&:hover {
+		width: 20vw;
+	}
 
-    @media (max-width: 468px) {
-        width: 30vw;
-        border-radius: 2vw;
+	@media (max-width: 468px) {
+		width: 30vw;
+		border-radius: 2vw;
 
-        &:hover {
-            width: 30vw;
-        }
-    }
-    
-    & .card-body {
-        border-radius: 0 0 1.04vw 1.04vw;
-        height: 2.6vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5vw 0;
+		&:hover {
+			width: 30vw;
+		}
+	}
 
-        
-        
-        & .card-title.h5 {
-            font-size: 1.3rem;
-            color: #141518;
-            margin-bottom: 0;
+	& .card-body {
+		border-radius: 0 0 1.04vw 1.04vw;
+		height: 2.6vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1.5vw 0;
 
-            @media (max-width: 1024px) {
-                font-size: 1rem;
-            }
+		& .card-title.h5 {
+			font-size: 1.3rem;
+			color: #141518;
+			margin-bottom: 0;
 
-            @media (max-width: 768px) {
-                font-size: 0.8rem;
-            }
-            @media (max-width: 468px) {
-                font-size: 0.6rem;
-            }
-        };
-    }
+			@media (max-width: 1024px) {
+				font-size: 1rem;
+			}
 
-    
+			@media (max-width: 768px) {
+				font-size: 0.8rem;
+			}
+			@media (max-width: 468px) {
+				font-size: 0.6rem;
+			}
+		}
+	}
 `;
