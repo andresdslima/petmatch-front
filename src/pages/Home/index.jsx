@@ -6,6 +6,7 @@ import StepByStepAdoption from '../../components/StepByStepAdoption';
 import CardCategory from '../../components/CardCategory';
 import MatchsMainContent from '../../components/MatchsMainContent';
 import PeopleReview from '../../components/Section/PeopleReview';
+import PetsCardsList from '../../components/PetsCardsList'
 import CardPostsContainer from '../../components/Card-Posts-Container';
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
 			<ImagesCarousel />
 			<CardCategory />
 			<StepByStepAdoption />
-			<MatchsMainContent />
+			<PetsCardsList />
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />
