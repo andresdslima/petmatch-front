@@ -45,6 +45,7 @@ export const InputContainer = styled(Form.Group)`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+  align-items: center;
 
 	small {
 		color: #f00;
