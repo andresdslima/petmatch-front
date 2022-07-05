@@ -17,7 +17,7 @@ import './styles.css'
 
 const AboutUsPageMainContent = () => {
     return (
-        <Row xs={1} sm={2} md={3} lg={4} id='grid' className="container-fluid">
+        <Row xs={1} sm={2} md={3} lg={4} id='grid' className="container">
             <Col>
                 <AboutUsCards imageName={Image1} />
             </Col>

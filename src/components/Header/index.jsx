@@ -32,7 +32,7 @@ const Header = () => {
 		<Navbar expand="lg mb-5">
 			<Container>
 				<Navbar.Brand href="/" className="m-0 py-3">
-					<S.LogoImage src={Logo} alt="PetMatch Logo" />
+					<S.LogoImage id='home' src={Logo} alt="PetMatch Logo" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">

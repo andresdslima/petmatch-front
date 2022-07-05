@@ -1,20 +1,17 @@
 import React from 'react';
-import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import ImagesCarousel from '../../components/ImagesCarousel';
-import StepByStepAdoption from '../../components/StepByStepAdoption';
-import CardCategory from '../../components/CardCategory';
+import Footer from '../../components/Footer';
+import AdoptionForm from '../../components/AdoptionForm';
 import MatchsMainContent from '../../components/MatchsMainContent';
 import PeopleReview from '../../components/Section/PeopleReview';
 import CardPostsContainer from '../../components/Card-Posts-Container';
 
-const Home = () => {
+const Matches = () => {
 	return (
 		<>
 			<Header />
-			<ImagesCarousel />
-			<CardCategory />
-			<StepByStepAdoption />
+			
+			<AdoptionForm />
 			<MatchsMainContent />
 			<PeopleReview />
 			<CardPostsContainer />
@@ -23,4 +20,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Matches;
