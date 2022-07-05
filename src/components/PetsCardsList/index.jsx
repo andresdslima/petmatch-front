@@ -8,6 +8,13 @@ import { addNewPet, setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
 
+const teste1 = {
+	nome: "Garfield",
+	especie: "cachorro",
+	cor: "preto",
+	idade: 1
+};
+
 export const calculateMatch = (obj1, obj2) => {
 	const obj1Length = Object.keys(obj1).length;
 	const obj2Length = Object.keys(obj2).length;
@@ -34,9 +41,8 @@ export const calculateMatch = (obj1, obj2) => {
 
 const CardMatches = () => {
 	const petList = useSelector(state => state.petsSlice.pets);
+	console.log(petList)
 	const dispatch = useDispatch();
-
-	console.log(petList);
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
@@ -63,7 +69,7 @@ const CardMatches = () => {
 										className="matchIcon"
 									/>
 									{/* Pegar a % chamando a API p comparar as caracteristicas */}
-									<span className="matchPercent">90%</span>
+									<span className="matchPercent">{calculateMatch(teste1, pet)}%</span>
 								</div>
 							</Card>
 						</Link>

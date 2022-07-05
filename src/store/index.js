@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import usersSlice from './modules/users';
 import petsSlice from './modules/pets';
+import usersPreferencesSlice from './modules/usersPreferences'
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
@@ -15,5 +16,6 @@ export const store = configureStore({
 	reducer: {
 		persistedReducer,
 		petsSlice,
+		usersPreferencesSlice
 	},
 });
