@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import * as S from './styled'
 import catMatch from '../../assets/banner/catMatch.png'
@@ -7,11 +7,21 @@ import dogFormFinish from '../../assets/banner/dogFormFinish.png';
 import dogSent from '../../assets/banner/dogSent.png';
 import dogsFormContact from '../../assets/banner/dogsFormContact.png';
 import dogsONG from '../../assets/banner/dogsONG.png';
+import catStep1 from '../../assets/banner/catStep1.png';
+import dogStep2 from '../../assets/banner/dogStep2.png';
+import mouseStep3 from '../../assets/banner/mouseStep3.png';
+import catStep4 from '../../assets/banner/catStep4.png';
+import AdoptionStep1 from '../AdoptionStep1';
+import AdoptionStep2 from '../AdoptionStep2';
+import AdoptionStep3 from '../AdoptionStep3';
+import AdoptionStep4 from '../AdoptionStep4';
+
 
 import { useLocation } from 'react-router-dom';
 
 const Banner = () => {
     const location = useLocation();
+    const [step, setStep] = useState(1)
     let imgBanner; 
     let textBanner;
     let altBanner;
@@ -43,11 +53,12 @@ const Banner = () => {
 				);
 				altBanner = 'dois cachorros pequenos';
 			} 
-     if (location?.pathname === '/formularioenviadofinish') {
+     if (location?.pathname === '/formularioaprovadofinal') {
 				imgBanner = dogFormFinish;
 				textBanner = (
 					<S.TextBanner>
-						SEJA FELIZ COM SEU<br /> NOVO MEMBRO DA FAMILIA!
+						SEJA FELIZ COM SEU
+						<br /> NOVO MEMBRO DA FAMILIA!
 					</S.TextBanner>
 				);
 				altBanner = 'dois garotos e um cachorro';
@@ -69,6 +80,38 @@ const Banner = () => {
 					</S.TextBanner>
 				);
 				altBanner = 'olhos de um cachorro';
+            }
+     if (location?.pathname === '/adoption' && step === 1 && <AdoptionStep1 setStep={setStep}/>) {
+				imgBanner = catStep1;
+				textBanner = (
+					<S.TextBanner>
+						VOCÊ ESTÁ NO CAMINHO CERTO<br /> EM BUSCA DA FELICIDADE!
+					</S.TextBanner>
+				);
+				altBanner = 'gato brincando com a mão';
+			} 
+     if (location?.pathname === '/adoption' && step === 2 &&<AdoptionStep2 setStep={setStep} />) {
+				imgBanner = dogStep2;
+				textBanner = <S.TextBanner>FALTA SÓ UM POUCO<br /> VAMOS LÁ!</S.TextBanner>;
+				altBanner = 'gato brincando com a mão';
+			} 
+     if (location?.pathname === '/adoption' && step === 3 &&<AdoptionStep3 setStep={setStep} />) {
+				imgBanner = mouseStep3;
+				textBanner = (
+					<S.TextBanner>
+						ESTAMOS QUASE ACABANDO<br /> PREENCHA COM ATENÇÃO!
+					</S.TextBanner>
+				);
+				altBanner = 'gato brincando com a mão';
+			} 
+     if (location?.pathname === '/adoption' && step === 4 &&<AdoptionStep4 setStep={setStep} />) {
+				imgBanner = catStep4;
+				textBanner = (
+					<S.TextBanner>
+						ESSA ETAPA É SUPER IMPORTANTE<br /> FAÇA COM ATENÇÃO PELO SEU PET!
+					</S.TextBanner>
+				);
+				altBanner = 'gato brincando com a mão';
 			} 
         
 	return (

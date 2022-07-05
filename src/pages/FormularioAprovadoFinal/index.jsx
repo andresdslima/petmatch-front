@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import SlantedCard from '../../components/SlantedCard';
@@ -6,7 +7,8 @@ import SlantedCard from '../../components/SlantedCard';
 const FormularioAprovadoFinal = () => {
     return (
         <>
-           <Header />
+            <Header />
+            <Banner />
             <SlantedCard />
             <Footer />
         </>
