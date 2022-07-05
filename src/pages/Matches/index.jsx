@@ -12,7 +12,6 @@ const Matches = () => {
 			<Header />
 			
 			<MatchesForm />
-			<MatchsMainContent />
 
 			<PeopleReview />
 			<CardPostsContainer />
