@@ -11,7 +11,7 @@ const PeopleReview = () => {
         <div className='peopleReviewDiv'>
             <div className="peopleReview container">
                 <div className="talkingAbout">
-                    <h6>O que estão falando sobre <br /> a Pet Match?</h6>
+                    <h6>O que estão falando sobre <br />a Pet Match?</h6>
                     <p>Queremos ouvir sua opinião! conte pra gente como foi sua experiência e o resultado dela.</p>
                 </div>
                 <div className="peopleOpinionContainer">
