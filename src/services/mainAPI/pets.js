@@ -9,3 +9,12 @@ export const getPets = async () => {
 		alert(`Error: ${error.response.data}`);
 	}
 };
+
+export const postPets = async(newPet) => {
+    try {
+        const response = await api.post("/pets", newPet)
+        return response.data
+    } catch (error) {
+        throw new Error(`Error: ${error.response.data}`)
+    }
+}
