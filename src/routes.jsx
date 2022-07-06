@@ -2,9 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Register from './pages/Register';
-import PetProfile from './pages/PetProfile'
-import FormularioEnviado from './pages/FormularioEnviado'
-import FormularioAprovadoFinal from './pages/FormularioAprovadoFinal'
+import PetProfile from './pages/PetProfile';
+import FormularioAprovadoFinal from './pages/FormularioAprovadoFinal';
 import About from './pages/About';
 import Matches from './pages/Matches';
 import Adoption from './pages/Adoption';
@@ -12,11 +11,8 @@ import Blog from './pages/Blog';
 import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
 
-
-
 export default function AppRoutes() {
 	return (
-		//  basename='/petmatch-front'
 		<Router>
 			<Routes>
 				<Route path="/" element={<Home />} />

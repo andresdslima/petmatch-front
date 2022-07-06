@@ -41,13 +41,20 @@ export default function LoginForm() {
 			alert('Usuário logado!');
 			formik.handleReset();
 
-			dispatch(
-				signIn({
-					accessToken,
-					userStatus: user.userStatus,
-					permission: user.permission,
-					id: user.id,
-				}),
+			localStorage.setItem(
+				'data',
+				JSON.stringify(
+					dispatch(
+						signIn({
+							isLogged: true,
+							accessToken: accessToken,
+							firstName: user.firstName,
+							userStatus: user.userStatus,
+							permission: user.permission,
+							id: user.id,
+						}),
+					),
+				),
 			);
 
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;

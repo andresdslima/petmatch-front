@@ -92,7 +92,7 @@ export const Title = styled.span`
 `;
 
 export const Text = styled.span`
-  font-size: max(1.25vw, 12px);
+  font-size: 12px;
   font-weight: 600;
   color: #6B4BCC;
   padding: 0 5%;

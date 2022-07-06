@@ -9,14 +9,6 @@
       "id": 1
     },
     {
-      "email": "aaa@aaa.com",
-      "password": "$2a$10$E2COGoxT5/SHaL.E/tf2cu7x3jDAlERkpDaQeG2/kkUC2NiwGDUJ6",
-      "name": "aaa",
-      "userStatus": 1,
-      "permission": 0,
-      "id": 2
-    },
-    {
       "name": "thais cavalcant",
       "email": "thais@thais.com",
       "password": "123456",
@@ -44,22 +36,13 @@
       "id": 5
     },
     {
-      "email": "maria@alice.com",
-      "password": "$2a$10$WL8.Ju3J9wnKx/i/roKWgeCE9QxjsfnrZrf2HosC.izKsLzIcWYoG",
-      "firstName": "maria",
-      "lastName": "alice",
+      "email": "abc@def.com",
+      "password": "$2a$10$bfEucNIvIc3Qyc2SF0bHrOwhmet6mYqpmXNzQBoly64hit42icAWW",
+      "firstName": "Andre",
+      "lastName": "Lima",
       "userStatus": 1,
       "permission": 0,
       "id": 6
-    },
-    {
-      "email": "teste@teste.com",
-      "password": "$2a$10$d3hAIhv88fJAXs06KefPNuyn3aTRPfonqAZW/EF4k99k3Eg8YlEPG",
-      "firstName": "teste",
-      "lastName": "teste",
-      "userStatus": 1,
-      "permission": 0,
-      "id": 7
     }
   ],
   "pets": [
@@ -72,8 +55,8 @@
       "peso": 5,
       "tamanho": 50,
       "porte": "medio",
-      "cor": "escuro",
-      "raca": "pitbull",
+      "cor": "preto",
+      "raça": "pitbull",
       "castrado": true,
       "vacinado": true,
       "chip": "CP1234",

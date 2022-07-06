@@ -7,7 +7,7 @@ export const ContainerBanner = styled(Carousel)`
     justify-content: center;
     width: 68vw;
     height: 100%;
-		margin: 0 auto;
+	margin: 0 auto;
     margin-top: 5vw;
     box-sizing: border-box;
 
@@ -48,17 +48,8 @@ export const TextBanner = styled.h3`
 	font-family: 'Inter';
 	color: #fdfdfd;
 	font-weight: 600;
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.7vw;
+	line-height: 2.08vw;
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.56);
 
-	@media (max-width: 1000px) {
-		font-size: 1rem;
-		line-height: 1.5rem;
-	}
-
-	@media (max-width: 468px) {
-		font-size: .75rem;
-		line-height: 1rem;
-	}
 `;
