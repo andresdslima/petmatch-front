@@ -32,9 +32,9 @@ export const calculateMatch = (objectForm, objectApi) => {
      if (objectForm.peso_max >= objectApi.peso) {
           count ++;
          };
-    //  if (a.tamanho_max >= b.tamanho) {
-    //       count ++;
-    //      };
+     if (objectForm.tamanho_max >= objectApi.tamanho) {
+          count ++;
+         };
 
     return (count / Math.min(objectFormLength, objectApiLength)) * 100;
   };
@@ -47,6 +47,7 @@ const CardMatches = () => {
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
 	}, []);
+
 
 	return (
 		<div className="container mb-5">
@@ -68,7 +69,6 @@ const CardMatches = () => {
 										alt="Icone de Match"
 										className="matchIcon"
 									/>
-									{/* Pegar a % chamando a API p comparar as caracteristicas */}
 									<span className="matchPercent">{calculateMatch(petList.petsFilter, pet)}%</span>
 								</div>
 							</Card>
