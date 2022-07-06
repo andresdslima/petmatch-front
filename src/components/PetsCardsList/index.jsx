@@ -44,15 +44,18 @@ const CardMatches = () => {
 	console.log(petList)
 	const dispatch = useDispatch();
 
+	const orderedList = [...petList.pets];
+	
+	orderedList.sort((a,b)=> calculateMatch(petList.petsFilter, b) - calculateMatch(petList.petsFilter, a));
+
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
 	}, []);
 
-
 	return (
 		<div className="container mb-5">
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
-				{petList.pets.map(pet => (
+				{orderedList.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
 						<Link exact to="/">
 							<Card className="cardContainer">
