@@ -9,6 +9,7 @@ import About from './pages/About';
 import Matches from './pages/Matches';
 import Adoption from './pages/Adoption';
 import Blog from './pages/Blog';
+import PageConstruction from './pages/PageConstruction';
 
 
 
@@ -27,6 +28,7 @@ export default function AppRoutes() {
 				<Route path="/matches" element={<Matches />} />
 				<Route path="/adoption" element={<Adoption />} />
 				<Route path="/blogs" element={<Blog />} />
+				<Route path="/underconstruction" element={<PageConstruction />} />
 
 			</Routes>
 		</Router>
