@@ -1,25 +1,24 @@
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import * as S from './styled';
 import { useFormik } from 'formik';
 import PetsCardsList from '../../components/PetsCardsList'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUsersPreferences } from '../../store/modules/usersPreferences';
-import { setPetList } from '../../store/modules/pets';
+import { setPetFilter } from '../../store/modules/pets';
 
 
 
 const MatchesForm = () => {
 	const [toggle, setToggle] = useState(false);
-	const usersPref = useSelector(state => state.usersPreferencesSlice.usersPreferences)
+	const usersPref = useSelector(state => state.petsSlice.petsFilter)
 	
 	console.log(usersPref)
 	const dispatch = useDispatch();
 
 	const formik = useFormik({
-		initialValues: {especie:"", idademax: "", sexo:"", pesomax:"",  porte:"", cor:"", raca:"", castrado:"", vacinado:""},
+		initialValues: {especie:"", idade_max: 0, sexo:"", peso_max:0,  porte:"", cor:"", raca:"", castrado:"", vacinado:""},
 		onSubmit: values => {
-			setPetList(values);
+			dispatch(setPetFilter(values));
 		}
 	});
 
@@ -36,28 +35,27 @@ const MatchesForm = () => {
 							<S.FormItemSelect
 								id="especie"
 								type="select"
-								placeholder="especie"
 								value={formik.values.especie}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value="" data-default disabled selected></S.SelectOption>
-								<S.SelectOption value="caes">Cães</S.SelectOption>
-								<S.SelectOption value="gatos">Gatos</S.SelectOption>
-								<S.SelectOption value="aves">Aves</S.SelectOption>
-								<S.SelectOption value="repteis">Répteis</S.SelectOption>
-								<S.SelectOption value="exoticos">Exóticos</S.SelectOption>
+								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="cachorro">Cães</S.SelectOption>
+								<S.SelectOption value="gato">Gatos</S.SelectOption>
+								<S.SelectOption value="ave">Aves</S.SelectOption>
+								<S.SelectOption value="reptil">Répteis</S.SelectOption>
+								<S.SelectOption value="exotico">Exóticos</S.SelectOption>
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Idade máxima</S.Label>
 							<S.FormItemSelect
-								id="idade"
+								id="idade_max"
 								type="number"
 								placeholder="Ex: 3"
 								value={formik.values.idade}
 								onChange={formik.handleChange}
 							>
-							<S.SelectOption value="" data-default disabled selected></S.SelectOption>
+							<S.SelectOption value=""></S.SelectOption>
 							<S.SelectOption value={1}>1 ano</S.SelectOption>
 							<S.SelectOption value={2}>2 anos</S.SelectOption>
 							<S.SelectOption value={3}>3 anos</S.SelectOption>
@@ -74,21 +72,21 @@ const MatchesForm = () => {
 								value={formik.values.sexo}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value="" data-default disabled selected></S.SelectOption>
-								<S.SelectOption value="feminino">Feminino</S.SelectOption>
-								<S.SelectOption value="masculino">Masculino</S.SelectOption>
+								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="F">Feminino</S.SelectOption>
+								<S.SelectOption value="M">Masculino</S.SelectOption>
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Peso máximo</S.Label>
 							<S.FormItemSelect
-								id="peso"
-								type="number"
+								id="peso_max"
+								type="select"
 								placeholder="Ex: 10"
 								value={formik.values.peso}
 								onChange={formik.handleChange}
 							>
-							<S.SelectOption value="" data-default disabled selected></S.SelectOption>
+							<S.SelectOption value=""></S.SelectOption>
 							<S.SelectOption value={1}>Menor que 1kg</S.SelectOption>
 							<S.SelectOption value={3}>3kgs</S.SelectOption>
 							<S.SelectOption value={5}>5kgs</S.SelectOption>
@@ -100,12 +98,12 @@ const MatchesForm = () => {
 							<S.Label>Porte</S.Label>
 							<S.FormItemSelect
 								id="porte"
-								type="number"
+								type="select"
 								placeholder="Ex: 100"
 								value={formik.values.porte}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value="" data-default disabled selected></S.SelectOption>
+								<S.SelectOption value=""></S.SelectOption>
 								<S.SelectOption value="pequeno">Pequeno (até 30 cm)</S.SelectOption>
 								<S.SelectOption value="medio">Médio (até 60 cm)</S.SelectOption>
 								<S.SelectOption value="grande">Grande (acima de 60 cm)</S.SelectOption>
@@ -120,7 +118,7 @@ const MatchesForm = () => {
 								value={formik.values.cor}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value="" data-default disabled selected></S.SelectOption>
+								<S.SelectOption value=""></S.SelectOption>
 								<S.SelectOption value="escuro">Escuro</S.SelectOption>
 								<S.SelectOption value="claro">Claro</S.SelectOption>
 								<S.SelectOption value="misto">Misto</S.SelectOption>
@@ -136,7 +134,7 @@ const MatchesForm = () => {
 								value={formik.values.raca}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value="" data-default disabled selected></S.SelectOption>
+								<S.SelectOption value=""></S.SelectOption>
 								<S.SelectOption value="viralata">Viralata</S.SelectOption>
 								<S.SelectOption value="pitbull">Pitbull</S.SelectOption>
 								<S.SelectOption value="shitzu">Shit-zu</S.SelectOption>
