@@ -7,6 +7,7 @@ import dogFormFinish from '../../assets/banner/dogFormFinish.png';
 import dogSent from '../../assets/banner/dogSent.png';
 import dogsFormContact from '../../assets/banner/dogsFormContact.png';
 import dogsONG from '../../assets/banner/dogsONG.png';
+import dogModel from '../../assets/banner/dogModel.png'
 import catStep1 from '../../assets/banner/catStep1.png';
 import dogStep2 from '../../assets/banner/dogStep2.png';
 import mouseStep3 from '../../assets/banner/mouseStep3.png';
@@ -81,6 +82,15 @@ const Banner = () => {
 			</S.TextBanner>
 		);
 		altBanner = 'olhos de um cachorro';
+	}
+	if (location?.pathname === '/underconstruction') {
+		imgBanner = dogModel;
+		textBanner = (
+			<S.TextBanner>
+				AS INFORMAÇÕES MAIS IMPORTANTES<br /> VOCÊ ENCONTRA POR AQUI!
+			</S.TextBanner>
+		);
+		altBanner = 'cachorro trabalhando';
 	}
 	if (location?.pathname === '/adoption' && step === 1 && <AdoptionStep1 setStep={setStep} />) {
 		imgBanner = catStep1;
