@@ -8,21 +8,7 @@ import { useFormik, useFormikContext } from 'formik';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../services/mainAPI/users';
-import AdoptionStep1 from '../AdoptionStep1';
-import AdoptionStep2 from '../AdoptionStep2';
-import AdoptionStep3 from '../AdoptionStep3';
-import AdoptionStep4 from '../AdoptionStep4';
 // import { signIn } from '../../store/users';
-
-const validationSchema = Yup.object({
-	name: Yup.string().required('*'),
-	email: Yup.string().email('Email inválido').required('*'),
-	password: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
-	confirmPassword: Yup.string()
-		.oneOf([Yup.ref('password'), null], 'Senhas não conferem')
-		.required('*'),
-	houseNumber: Yup.number().required('*'),
-});
 
 export default function AdoptionForm() {
 	const navigate = useNavigate();
@@ -47,7 +33,7 @@ export default function AdoptionForm() {
 			// about,
 		},
 
-		validationSchema,
+		// validationSchema,
 
 		onSubmit: async values => {
 			// const response = await createUser({
@@ -74,37 +60,7 @@ export default function AdoptionForm() {
 	return (
 		<Styled.SBackground>
 			<Styled.SContainer>
-				{step === 1 && (
-					<AdoptionStep1
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
-					/>
-				)}
-
-				{step === 2 && (
-					<AdoptionStep2
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
-					/>
-				)}
-
-				{step === 3 && (
-					<AdoptionStep3
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
-					/>
-				)}
-
-				{step === 4 && (
-					<AdoptionStep4
-						setStep={setStep}
-						formValues={formValues}
-						setFormValues={setFormValues}
-					/>
-				)}
+				
 			</Styled.SContainer>
 		</Styled.SBackground>
 	);

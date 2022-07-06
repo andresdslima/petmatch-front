@@ -1,3 +1,8 @@
 .cardGroup img {
     width: 200px;
+    transition: all 1s ease-in-out;
+}
+
+.cardGroup:hover {
+    transform: scale(1.15);
 }

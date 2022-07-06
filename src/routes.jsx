@@ -8,6 +8,7 @@ import FormularioAprovadoFinal from './pages/FormularioAprovadoFinal'
 import About from './pages/About';
 import Matches from './pages/Matches';
 import Adoption from './pages/Adoption';
+import Blog from './pages/Blog';
 
 
 
@@ -25,6 +26,7 @@ export default function AppRoutes() {
 				<Route path="/sobre" element={<About />} />
 				<Route path="/matches" element={<Matches />} />
 				<Route path="/adoption" element={<Adoption />} />
+				<Route path="/blogs" element={<Blog />} />
 
 			</Routes>
 		</Router>
