@@ -22,7 +22,8 @@ gap: 30px;
 
 @media only screen and (max-width: 500px) {
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
+  text-align: center !important;
   }
 `
 
@@ -53,15 +54,36 @@ font-size: 14px;
 color: #606266;
 `
 
+export const AllCheckboxesContainer = styled.div`
+width: 21.57vw;
+display: flex;
+justify-content: space-between;
+
+@media only screen and (max-width: 900px) {
+  width: 25vw;
+  }
+
+@media only screen and (max-width: 500px) {
+  width: 70vw;
+  }
+`
+
 export const CheckboxContainer = styled(Form.Group)`
 height: 77.5px;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+
+@media only screen and (max-width: 900px) {
+  width: 12.5vw;
+  }
+
+@media only screen and (max-width: 900px) {
+  width: 35vw;
+  }
 `
 
 export const Checkbox = styled(Form.Check)`
-width: 21.57vw;
 height: 38px;
 display: flex;
 align-items: flex-start;
@@ -78,14 +100,6 @@ color: #606266;
 & label {
   font-size: (0.73vw, 10px);
 }
-
-@media only screen and (max-width: 900px) {
-  width: 25vw;
-  }
-
-@media only screen and (max-width: 500px) {
-  width: 70vw;
-  }
 `
 
 export const ButtonContainer = styled.div`
