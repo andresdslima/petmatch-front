@@ -9,6 +9,8 @@ import About from './pages/About';
 import Matches from './pages/Matches';
 import Adoption from './pages/Adoption';
 import Blog from './pages/Blog';
+import ONGs from './pages/ONGs';
+import RequireAuth from './RequiredAuth';
 
 
 
@@ -21,13 +23,21 @@ export default function AppRoutes() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/petprofile" element={<PetProfile />} />
-				<Route path="/formularioenviado" element={<FormularioEnviado />} />
-				<Route path="/formularioaprovadofinal" element={<FormularioAprovadoFinal />} />
+				<Route path="/formularioenviado" element={<RequireAuth>
+					<FormularioEnviado />
+					</RequireAuth>} />
+				<Route path="/formularioaprovadofinal" element={<RequireAuth>
+					<FormularioAprovadoFinal />
+					</RequireAuth>} />
 				<Route path="/sobre" element={<About />} />
-				<Route path="/matches" element={<Matches />} />
-				<Route path="/adoption" element={<Adoption />} />
+				<Route path="/matches" element={<RequireAuth>
+					<Matches />
+					</RequireAuth>} />
+				<Route path="/adoption" element={<RequireAuth>
+					<Adoption />
+				</RequireAuth>} />
 				<Route path="/blogs" element={<Blog />} />
-
+				<Route path="/ongs" element={<ONGs />} />
 			</Routes>
 		</Router>
 	);
