@@ -19,6 +19,7 @@ import AdoptionStep4 from '../AdoptionStep4';
 import dogBlog from '../../assets/banner/dogBlog.png';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import AdoptionStep5 from '../AdoptionStep5';
 
 const Banner = () => {
 	const location = useLocation();
@@ -36,17 +37,6 @@ const Banner = () => {
 			</S.TextBanner>
 		);
 		altBanner = 'carinho gato';
-	}
-	if (location?.pathname === '/formularioenviado') {
-		imgBanner = dogSent;
-		textBanner = (
-			<S.TextBanner>
-				PERFEITO, ESTAMOS TÃO
-				<br />
-				ANSIOSOS QUANTO VOCÊ!
-			</S.TextBanner>
-		);
-		altBanner = 'cachorro sendo abraçado';
 	}
 	if (location?.pathname === '/formularioaprovadofinalcontato') {
 		imgBanner = dogsFormContact;
@@ -138,8 +128,18 @@ const Banner = () => {
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-
-	if (location?.pathname === '/blogs') {
+	if (location?.pathname === '/adoption' && step === 5 && <AdoptionStep5 />) {
+		imgBanner = dogSent;
+		textBanner = (
+			<S.TextBanner>
+				PERFEITO, ESTAMOS TÃO
+				<br />
+				ANSIOSOS QUANTO VOCÊ!
+			</S.TextBanner>
+		);
+		altBanner = 'cachorro sendo abraçado';
+	}
+	if (location?.pathname === '/blog') {
 		imgBanner = dogBlog;
 		textBanner = (
 			<S.TextBanner>

@@ -6,7 +6,6 @@ import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { countStep } from '../../store/modules/adoption';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object({
 	assinatura: Yup.string().min(6, 'Assinatura').required('*'),
@@ -16,7 +15,6 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 	const formObject = JSON.parse(localStorage.getItem('form'));
 	const { register } = useForm();
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	const formik = useFormik({
 		initialValues: {
@@ -31,9 +29,11 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 				...values,
 			});
 
+			setStep(5);
+			dispatch(countStep({ step: 5 }));
+
 			const currentForm = Object.assign(formObject, { ...values });
 			localStorage.setItem('form', JSON.stringify(currentForm));
-			navigate('/formularioenviado');
 		},
 	});
 
