@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	pets: [],
+	petsFilter: {}
 };
 
 const petsSlice = createSlice({
@@ -20,9 +21,16 @@ const petsSlice = createSlice({
 				pets: [...state.pets, action.payload],
 			});
 		},
+
+		setPetFilter: (state, action) => {
+			Object.assign(state, {
+				...state,
+				petsFilter: action.payload,
+			});
+		}
 	},
 });
 
-export const { setPetList, addNewPet } = petsSlice.actions;
+export const { setPetList, addNewPet, setPetFilter } = petsSlice.actions;
 
 export default petsSlice.reducer;
