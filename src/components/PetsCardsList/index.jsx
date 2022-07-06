@@ -8,39 +8,39 @@ import { addNewPet, setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
 
-const teste1 = {
-	nome: "Garfield",
-	especie: "cachorro",
-	cor: "preto",
-	idade: 1
-};
+export const calculateMatch = (objectForm, objectApi) => {
+    const objectFormLength = Object.keys(objectForm).length;
+    const objectApiLength = Object.keys(objectApi).length;
+    const smaller = objectFormLength < objectApiLength ? objectForm : objectApi;
+    const greater = smaller === objectForm ? objectApi : objectForm;
+  
+    let count = Object.keys(smaller).reduce((acc, key) => {
+      let counter = acc;
+  
+      if (Object.keys(greater).includes(key)) {
+        if (greater[key] === smaller[key]) {
+          return ++counter;
+        };
+      };
 
-export const calculateMatch = (obj1, obj2) => {
-	const obj1Length = Object.keys(obj1).length;
-	const obj2Length = Object.keys(obj2).length;
-	const smaller = obj1Length < obj2Length ? obj1 : obj2;
-	const greater = smaller === obj1 ? obj2 : obj1;
-	const smallObjKeys = Object.keys(smaller);
+      return counter;
+    }, 0);
+  
+     if (objectForm.idade_max >= objectApi.idade) {
+         count ++;
+        };
+     if (objectForm.peso_max >= objectApi.peso) {
+          count ++;
+         };
+    //  if (a.tamanho_max >= b.tamanho) {
+    //       count ++;
+    //      };
 
-	let count = smallObjKeys.reduce((counter, key) => {
-		if (greater[key] === smaller[key]) return ++counter;
-
-		// if (
-		// 	smaller[key] <= greater[`${key}_max`] &&
-		// 	smaller[key] >= greater[`${key}_min`]
-		// )
-		// 	return ++counter;
-
-		if (smaller[key] <= greater[`${key}_max`]) return ++counter;
-
-		return counter;
-	}, 0);
-
-	return (count / Math.min(obj1Length, obj2Length)) * 100;
-};
+    return (count / Math.min(objectFormLength, objectApiLength)) * 100;
+  };
 
 const CardMatches = () => {
-	const petList = useSelector(state => state.petsSlice.pets);
+	const petList = useSelector(state => state.petsSlice);
 	console.log(petList)
 	const dispatch = useDispatch();
 
@@ -51,8 +51,8 @@ const CardMatches = () => {
 	return (
 		<div className="container mb-5">
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
-				{petList.map(pet => (
-					<Col className="d-flex justify-content-center g-4">
+				{petList.pets.map(pet => (
+					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
 						<Link exact to="/">
 							<Card className="cardContainer">
 								<Card.Img variant="top" src={CardImage} className="cardImg" />
@@ -69,7 +69,7 @@ const CardMatches = () => {
 										className="matchIcon"
 									/>
 									{/* Pegar a % chamando a API p comparar as caracteristicas */}
-									<span className="matchPercent">{calculateMatch(teste1, pet)}%</span>
+									<span className="matchPercent">{calculateMatch(petList.petsFilter, pet)}%</span>
 								</div>
 							</Card>
 						</Link>
