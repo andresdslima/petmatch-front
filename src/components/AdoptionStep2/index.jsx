@@ -2,7 +2,10 @@ import React from 'react';
 import * as Styled from '../AdoptionForm/styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useForm } from 'react-hook-form';
 import { Form, Col, Row } from 'react-bootstrap';
+import { countStep } from '../../store/modules/adoption';
+import { useDispatch } from 'react-redux';
 
 const validationSchema = Yup.object({
 	cpf: Yup.string().min(11, '11 dígitos').required('*'),
@@ -12,32 +15,32 @@ const validationSchema = Yup.object({
 });
 
 export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
-	const oldForm = JSON.parse(localStorage.getItem('form1'));
+	const { register } = useForm();
+	const dispatch = useDispatch();
+	const formObject = JSON.parse(localStorage.getItem('form'));
 
 	const formik = useFormik({
 		initialValues: {
-			cpf: '',
-			rg: '',
-			estadoCivil: '',
-			profissao: '',
+			cpf: `${formObject.cpf ?? ''}`,
+			rg: `${formObject.rg ?? ''}`,
+			estadoCivil: `${formObject.estadoCivil ?? ''}`,
+			profissao: `${formObject.profissao ?? ''}`,
 		},
 
 		validationSchema,
 
-		onSubmit: async values => {
+		onSubmit: values => {
 			setFormValues({
 				...formValues,
 				...values,
 			});
-
-			const currentForm = Object.assign(oldForm, ...values);
-			console.log(currentForm);
-
-			localStorage.setItem('form2', JSON.stringify({ ...values }));
-			// localStorage.setItem('form2', JSON.stringify(currentForm));
-
+			
 			setStep(3);
-			// console.log(formValues);
+			dispatch(countStep({ step: 3 }));
+
+
+			const currentForm = Object.assign(formObject, { ...values });
+			localStorage.setItem('form', JSON.stringify(currentForm));
 		},
 	});
 
@@ -54,6 +57,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								name="cpf"
 								id="cpf"
 								placeholder="12345678901"
+								{...register('cpf')}
 								value={formik.values.cpf}
 								onChange={formik.handleChange}
 							/>
@@ -69,6 +73,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								name="rg"
 								id="rg"
 								placeholder="001234567"
+								{...register('rg')}
 								value={formik.values.rg}
 								onChange={formik.handleChange}
 							/>
@@ -85,14 +90,12 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								id="estadoCivil"
 								type="select"
 								placeholder="estadoCivil"
+								name="estadoCivil"
+								{...register('estadoCivil')}
 								value={formik.values.estadoCivil}
 								onChange={formik.handleChange}
 							>
-								<Styled.SelectOption
-									value=" "
-									data-default
-									selected
-								></Styled.SelectOption>
+								<Styled.SelectOption value=""></Styled.SelectOption>
 								<Styled.SelectOption value="Solteiro(a)">
 									Solteiro(a)
 								</Styled.SelectOption>
@@ -119,6 +122,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								name="profissao"
 								id="profissao"
 								placeholder="Sua profissão"
+								{...register('profissao')}
 								value={formik.values.profissao}
 								onChange={formik.handleChange}
 							/>
@@ -131,7 +135,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 				<Styled.SButton
 					variant="primary"
 					type="button"
-					onClick={() => setStep(1)}
+					onClick={() => {setStep(1); dispatch(countStep({ step: 1 }))}}
 				>
 					Voltar
 				</Styled.SButton>

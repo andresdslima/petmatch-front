@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import * as S from './styled'
-import catMatch from '../../assets/banner/catMatch.png'
-import dogAbout from '../../assets/banner/dogAbout.png'
+import * as S from './styled';
+import catMatch from '../../assets/banner/catMatch.png';
+import dogAbout from '../../assets/banner/dogAbout.png';
 import dogFormFinish from '../../assets/banner/dogFormFinish.png';
 import dogSent from '../../assets/banner/dogSent.png';
 import dogsFormContact from '../../assets/banner/dogsFormContact.png';
 import dogsONG from '../../assets/banner/dogsONG.png';
-import dogModel from '../../assets/banner/dogModel.png'
+import dogModel from '../../assets/banner/dogModel.png';
 import catStep1 from '../../assets/banner/catStep1.png';
 import dogStep2 from '../../assets/banner/dogStep2.png';
 import mouseStep3 from '../../assets/banner/mouseStep3.png';
@@ -16,14 +16,13 @@ import AdoptionStep1 from '../AdoptionStep1';
 import AdoptionStep2 from '../AdoptionStep2';
 import AdoptionStep3 from '../AdoptionStep3';
 import AdoptionStep4 from '../AdoptionStep4';
-import dogBlog from '../../assets/banner/dogBlog.png'
-
-
+import dogBlog from '../../assets/banner/dogBlog.png';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 const Banner = () => {
 	const location = useLocation();
-	const [step, setStep] = useState(1)
+	const step = useSelector(state => state.adoptionSlice.step);
 	let imgBanner;
 	let textBanner;
 	let altBanner;
@@ -32,16 +31,19 @@ const Banner = () => {
 		textBanner = (
 			<S.TextBanner>
 				COM CERTEZA SEU PRÓXIMO
-				<br />FAMILIAR ESTÁ AQUI!
+				<br />
+				FAMILIAR ESTÁ AQUI!
 			</S.TextBanner>
 		);
-		altBanner = "carinho gato";
+		altBanner = 'carinho gato';
 	}
 	if (location?.pathname === '/formularioenviado') {
 		imgBanner = dogSent;
 		textBanner = (
 			<S.TextBanner>
-				PERFEITO, ESTAMOS TÃO<br />ANSIOSOS QUANTO VOCÊ!
+				PERFEITO, ESTAMOS TÃO
+				<br />
+				ANSIOSOS QUANTO VOCÊ!
 			</S.TextBanner>
 		);
 		altBanner = 'cachorro sendo abraçado';
@@ -50,7 +52,8 @@ const Banner = () => {
 		imgBanner = dogsFormContact;
 		textBanner = (
 			<S.TextBanner>
-				FALTA BEM POUCO AGORA<br /> AGUENTA CORAÇÃO!
+				FALTA BEM POUCO AGORA
+				<br /> AGUENTA CORAÇÃO!
 			</S.TextBanner>
 		);
 		altBanner = 'dois cachorros pequenos';
@@ -78,7 +81,9 @@ const Banner = () => {
 		imgBanner = dogAbout;
 		textBanner = (
 			<S.TextBanner>
-				VOCÊ TAMBÉM FAZ PARTE DA PET MATCH<br />VEJA NOSSOS COLABORADORES
+				VOCÊ TAMBÉM FAZ PARTE DA PET MATCH
+				<br />
+				VEJA NOSSOS COLABORADORES
 			</S.TextBanner>
 		);
 		altBanner = 'olhos de um cachorro';
@@ -87,39 +92,48 @@ const Banner = () => {
 		imgBanner = dogModel;
 		textBanner = (
 			<S.TextBanner>
-				AS INFORMAÇÕES MAIS IMPORTANTES<br /> VOCÊ ENCONTRA POR AQUI!
+				AS INFORMAÇÕES MAIS IMPORTANTES
+				<br /> VOCÊ ENCONTRA POR AQUI!
 			</S.TextBanner>
 		);
 		altBanner = 'cachorro trabalhando';
 	}
-	if (location?.pathname === '/adoption' && step === 1 && <AdoptionStep1 setStep={setStep} />) {
+	if (location?.pathname === '/adoption' && step === 1 && <AdoptionStep1 />) {
 		imgBanner = catStep1;
 		textBanner = (
 			<S.TextBanner>
-				VOCÊ ESTÁ NO CAMINHO CERTO<br /> EM BUSCA DA FELICIDADE!
+				VOCÊ ESTÁ NO CAMINHO CERTO
+				<br /> EM BUSCA DA FELICIDADE!
 			</S.TextBanner>
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 2 && <AdoptionStep2 setStep={setStep} />) {
+	if (location?.pathname === '/adoption' && step === 2 && <AdoptionStep2 />) {
 		imgBanner = dogStep2;
-		textBanner = <S.TextBanner>FALTA SÓ UM POUCO<br /> VAMOS LÁ!</S.TextBanner>;
+		textBanner = (
+			<S.TextBanner>
+				FALTA SÓ UM POUCO
+				<br /> VAMOS LÁ!
+			</S.TextBanner>
+		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 3 && <AdoptionStep3 setStep={setStep} />) {
+	if (location?.pathname === '/adoption' && step === 3 && <AdoptionStep3 />) {
 		imgBanner = mouseStep3;
 		textBanner = (
 			<S.TextBanner>
-				ESTAMOS QUASE ACABANDO<br /> PREENCHA COM ATENÇÃO!
+				ESTAMOS QUASE ACABANDO
+				<br /> PREENCHA COM ATENÇÃO!
 			</S.TextBanner>
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 4 && <AdoptionStep4 setStep={setStep} />) {
+	if (location?.pathname === '/adoption' && step === 4 && <AdoptionStep4 />) {
 		imgBanner = catStep4;
 		textBanner = (
 			<S.TextBanner>
-				ESSA ETAPA É SUPER IMPORTANTE<br /> FAÇA COM ATENÇÃO PELO SEU PET!
+				ESSA ETAPA É SUPER IMPORTANTE
+				<br /> FAÇA COM ATENÇÃO PELO SEU PET!
 			</S.TextBanner>
 		);
 		altBanner = 'gato brincando com a mão';
@@ -129,7 +143,8 @@ const Banner = () => {
 		imgBanner = dogBlog;
 		textBanner = (
 			<S.TextBanner>
-				AS INFORMAÇÕES MAIS IMPORTANTES <br />VOCÊ ENCONTRA POR AQUI!
+				AS INFORMAÇÕES MAIS IMPORTANTES <br />
+				VOCÊ ENCONTRA POR AQUI!
 			</S.TextBanner>
 		);
 		altBanner = 'cachorro olhando com alegria';
@@ -138,10 +153,12 @@ const Banner = () => {
 	return (
 		<S.ContainerBanner>
 			<Carousel.Item>
-				<S.ImageBanner className="d-block w-100" src={imgBanner} alt={altBanner} />
-				<Carousel.Caption>
-					{textBanner}
-				</Carousel.Caption>
+				<S.ImageBanner
+					className="d-block w-100"
+					src={imgBanner}
+					alt={altBanner}
+				/>
+				<Carousel.Caption>{textBanner}</Carousel.Caption>
 			</Carousel.Item>
 		</S.ContainerBanner>
 	);

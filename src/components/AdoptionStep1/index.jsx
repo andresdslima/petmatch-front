@@ -3,6 +3,9 @@ import * as Styled from '../AdoptionForm/styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Col, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { countStep } from '../../store/modules/adoption';
 
 const validationSchema = Yup.object({
 	nome: Yup.string().min(6, 'Nome completo').required('*'),
@@ -17,17 +20,23 @@ const validationSchema = Yup.object({
 });
 
 export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
+	const { register } = useForm();
+	const dispatch = useDispatch();
+	const formObject = JSON.parse(localStorage.getItem('form'));
+
 	const formik = useFormik({
 		initialValues: {
-			nome: '',
-			email: '',
-			celular: '',
-			cidade: '',
-			estado: '',
-			cep: '',
-			endereco: '',
-			enderecoNumero: '',
-			enderecoComplemento: '',
+			nome: `${formObject ? formObject.nome : ''}`,
+			email: `${formObject ? formObject.email : ''}`,
+			celular: `${formObject ? formObject.celular : ''}`,
+			cidade: `${formObject ? formObject.cidade : ''}`,
+			estado: `${formObject ? formObject.estado : ''}`,
+			cep: `${formObject ? formObject.cep : ''}`,
+			endereco: `${formObject ? formObject.endereco : ''}`,
+			enderecoNumero: `${formObject ? formObject.enderecoNumero : ''}`,
+			enderecoComplemento: `${
+				formObject ? formObject.enderecoComplemento : ''
+			}`,
 		},
 
 		validationSchema,
@@ -37,17 +46,14 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 				...formValues,
 				...values,
 			});
-			console.log({ ...formValues, ...values });
+			
+			setStep(2);
+			dispatch(countStep({ step: 2 }));
 
 			localStorage.setItem(
-				'form1',
-				JSON.stringify({
-					...values,
-				}),
+				'form',
+				JSON.stringify({ ...formValues, ...values }),
 			);
-
-			setStep(2);
-			// console.log(formValues);
 		},
 	});
 
@@ -62,6 +68,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="text"
 								name="nome"
+								{...register('nome')}
 								id="nome"
 								placeholder="Nome completo"
 								value={formik.values.nome}
@@ -77,6 +84,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="email"
 								name="email"
+								{...register('email')}
 								id="email"
 								placeholder="Seu melhor email"
 								value={formik.values.email}
@@ -92,6 +100,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="number"
 								name="celular"
+								{...register('celular')}
 								id="celular"
 								placeholder="Ex: 11912345678"
 								value={formik.values.celular}
@@ -109,6 +118,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="text"
 								name="cidade"
+								{...register('cidade')}
 								id="cidade"
 								placeholder="Sua cidade"
 								value={formik.values.cidade}
@@ -124,15 +134,13 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.FormItemSelect
 								id="estado"
 								type="select"
+								name="estado"
+								{...register('estado')}
 								placeholder="Estado"
 								value={formik.values.estado}
 								onChange={formik.handleChange}
 							>
-								<Styled.SelectOption
-									value=" "
-									data-default
-									selected
-								></Styled.SelectOption>
+								<Styled.SelectOption value=""></Styled.SelectOption>
 								<Styled.SelectOption value="AC">AC</Styled.SelectOption>
 								<Styled.SelectOption value="AL">AL</Styled.SelectOption>
 								<Styled.SelectOption value="AM">AM</Styled.SelectOption>
@@ -171,6 +179,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="number"
 								name="cep"
+								{...register('cep')}
 								id="cep"
 								placeholder="Ex: 12345678"
 								value={formik.values.cep}
@@ -190,6 +199,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="text"
 								name="endereco"
+								{...register('endereco')}
 								id="endereco"
 								placeholder="Seu endereço completo"
 								value={formik.values.endereco}
@@ -207,6 +217,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="number"
 								name="enderecoNumero"
+								{...register('enderecoNumero')}
 								id="enderecoNumero"
 								placeholder="Número do endereço"
 								value={formik.values.enderecoNumero}
@@ -226,6 +237,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 							<Styled.SInput
 								type="text"
 								name="enderecoComplemento"
+								{...register('enderecoComplemento')}
 								id="enderecoComplemento"
 								placeholder="Complemento do endereço"
 								value={formik.values.enderecoComplemento}

@@ -24,7 +24,7 @@ const Header = () => {
 	};
 
 	const logout = () => {
-		localStorage.clear();
+		localStorage.removeItem('data');
 		navigate('/');
 	};
 

@@ -1,33 +1,24 @@
-import { Container, Form, Col, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import * as Styled from './styled';
 import AdoptionStep1 from '../AdoptionStep1';
 import AdoptionStep2 from '../AdoptionStep2';
 import AdoptionStep3 from '../AdoptionStep3';
 import AdoptionStep4 from '../AdoptionStep4';
+import { useSelector } from 'react-redux';
 // Store
 
 const AdoptionForm = () => {
 	const navigate = useNavigate();
 	// const dispatch = useDispatch();
+	// useFormikContext()
+	// useContext()
+	// formik.handleReset();
+	const stepp = useSelector(state => state.adoptionSlice.step);
 	const [step, setStep] = useState(1);
 	const [formValues, setFormValues] = useState({});
-
-	const formik = useFormik({
-		// Inserir valores iniciais a partir do localStorage ou Redux se tiver
-		initialValues: {},
-
-		onSubmit: values => {
-			console.log(values);
-			// localStorage.setItem('form', JSON.stringify(values));
-			// formik.handleReset();
-			// navigate('/');
-		},
-	});
 
 	return (
 		<Container className="my-5">
