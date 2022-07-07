@@ -1,7 +1,6 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
-import Signin from '../../assets/images/SigninVector.svg';
 import * as S from './styled';
 import { useSelector } from 'react-redux';
 
@@ -53,16 +52,16 @@ const Header = () => {
 					<Nav>
 						{!isLogged() ? (
 							<S.NavSignin active={location.pathname} exact to="/login">
-								<S.SigninIcon src={Signin} alt="Sign in" />
+								<S.SigninIcon></S.SigninIcon>
 								<S.SigninText>Entrar</S.SigninText>
 							</S.NavSignin>
 						) : (
 							<S.NavUser active={location.pathname} exact to="#">
 								<S.UserIcon />
 								<S.UserName>{firstName()}</S.UserName>
-								<button onClick={logout}>
-									<S.PlusSign>&#43;</S.PlusSign>
-								</button>
+								<S.ButtonSignOut onClick={logout}>
+									<S.SignOut></S.SignOut>
+								</S.ButtonSignOut>
 							</S.NavUser>
 						)}
 					</Nav>
