@@ -10,7 +10,6 @@ const MatchesForm = () => {
 	const [toggle, setToggle] = useState(false);
 	const usersPref = useSelector(state => state.petsSlice.petsFilter);
 
-	console.log(usersPref);
 	const dispatch = useDispatch();
 
 	const formik = useFormik({
@@ -48,11 +47,11 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="cachorro">Cães</S.SelectOption>
-								<S.SelectOption value="gato">Gatos</S.SelectOption>
-								<S.SelectOption value="ave">Aves</S.SelectOption>
-								<S.SelectOption value="reptil">Répteis</S.SelectOption>
-								<S.SelectOption value="exotico">Exóticos</S.SelectOption>
+								<S.SelectOption value="Cachorro">Cães</S.SelectOption>
+								<S.SelectOption value="Gato">Gatos</S.SelectOption>
+								<S.SelectOption value="Ave">Aves</S.SelectOption>
+								<S.SelectOption value="Réptil">Répteis</S.SelectOption>
+								<S.SelectOption value="Peixe">Peixes</S.SelectOption>
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
@@ -82,8 +81,8 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="F">Feminino</S.SelectOption>
-								<S.SelectOption value="M">Masculino</S.SelectOption>
+								<S.SelectOption value="Fêmea">Feminino</S.SelectOption>
+								<S.SelectOption value="Macho">Masculino</S.SelectOption>
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
@@ -113,11 +112,11 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="pequeno">
+								<S.SelectOption value="Pequeno">
 									Pequeno (até 30 cm)
 								</S.SelectOption>
-								<S.SelectOption value="medio">Médio (até 60 cm)</S.SelectOption>
-								<S.SelectOption value="grande">
+								<S.SelectOption value="Médio">Médio (até 60 cm)</S.SelectOption>
+								<S.SelectOption value="Grande">
 									Grande (acima de 60 cm)
 								</S.SelectOption>
 							</S.FormItemSelect>
@@ -148,10 +147,10 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="escuro">Escuro</S.SelectOption>
-								<S.SelectOption value="claro">Claro</S.SelectOption>
-								<S.SelectOption value="misto">Misto</S.SelectOption>
-								<S.SelectOption valu="caramelo">Caramelo</S.SelectOption>
+								<S.SelectOption value="Escuro">Escuro</S.SelectOption>
+								<S.SelectOption value="Claro">Claro</S.SelectOption>
+								<S.SelectOption value="Misto">Misto</S.SelectOption>
+								<S.SelectOption valu="Caramelo">Caramelo</S.SelectOption>
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
