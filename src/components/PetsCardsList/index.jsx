@@ -41,13 +41,12 @@ export const calculateMatch = (objectForm, objectApi) => {
 
 const CardMatches = () => {
 	const petList = useSelector(state => state.petsSlice);
-	console.log(petList)
 	const dispatch = useDispatch();
 
 	const orderedList = [...petList.pets];
 	
 	orderedList.sort((a,b)=> calculateMatch(petList.petsFilter, b) - calculateMatch(petList.petsFilter, a));
-
+	
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
 	}, []);
