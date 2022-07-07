@@ -2,12 +2,14 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
 import * as S from './styled';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../store/modules/users';
 
 const Header = () => {
 	// const isLogged = useSelector(state => state.persistedReducer.isLogged);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const data = JSON.parse(localStorage.getItem('data'));
 
 	const isLogged = () => {
@@ -24,6 +26,7 @@ const Header = () => {
 
 	const logout = () => {
 		localStorage.removeItem('data');
+		dispatch(signOut());
 		navigate('/');
 	};
 

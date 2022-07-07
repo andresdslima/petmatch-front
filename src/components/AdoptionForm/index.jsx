@@ -5,7 +5,6 @@ import AdoptionStep1 from '../AdoptionStep1';
 import AdoptionStep2 from '../AdoptionStep2';
 import AdoptionStep3 from '../AdoptionStep3';
 import AdoptionStep4 from '../AdoptionStep4';
-import { useSelector } from 'react-redux';
 import AdoptionStep5 from '../AdoptionStep5';
 
 const AdoptionForm = () => {
@@ -18,6 +17,25 @@ const AdoptionForm = () => {
 
 	return (
 		<Container className="my-5">
+			<Styled.NumberOfSteps className="mt-3 mb-5">
+				<Styled.StepNumberTwo
+					active={'1'}
+					steps={step}
+					text={'Informações de contato'}
+				>
+					1
+				</Styled.StepNumberTwo>
+				<Styled.StepNumberTwo active={'2'} steps={step} text={'Dados pessoais'}>
+					2
+				</Styled.StepNumberTwo>
+				<Styled.StepNumberTwo active={'3'} steps={step} text={'Dados do pet'}>
+					3
+				</Styled.StepNumberTwo>
+				<Styled.StepNumberThree active={'4'} steps={step} text={'Contrato'}>
+					4
+				</Styled.StepNumberThree>
+			</Styled.NumberOfSteps>
+
 			{step === 1 && (
 				<AdoptionStep1
 					setStep={setStep}
