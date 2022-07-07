@@ -19,9 +19,9 @@ export default function AppRoutes() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/petprofile" element={<PetProfile />} />
-				<Route path="/formularioenviado" element={<RequireAuth>
+				{/* <Route path="/formularioenviado" element={<RequireAuth>
 					<FormularioEnviado />
-					</RequireAuth>} />
+					</RequireAuth>} /> */}
 				<Route path="/formularioaprovadofinal" element={<RequireAuth>
 					<FormularioAprovadoFinal />
 					</RequireAuth>} />
