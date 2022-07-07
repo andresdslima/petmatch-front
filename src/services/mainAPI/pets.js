@@ -10,6 +10,26 @@ export const getPets = async () => {
 	}
 };
 
+export const getPet = async (id) => {
+	try {
+	const response = await api.get(`/pets/especie/${id}`);
+	console.log(response);
+	return response.data;
+	} catch(error) {
+		alert(`Error: ${error.response.data}`)
+	}
+};
+
+export const getPetBySpecie = async (especie) => {
+	try {
+	const response = await api.get(`/pets/${especie}`);
+	console.log(response);
+	return response.data;
+	} catch(error) {
+		alert(`Error: ${error.response.data}`)
+	}
+};
+
 export const postPets = async(newPet) => {
     try {
         const response = await api.post("/pets", newPet)
