@@ -158,7 +158,7 @@ export const SInput = styled(Form.Control)`
 	width: 22vw !important;
 
 	&:hover {
-		border: 1px solid #fdfdfd;
+		border: 1px solid #fc895e;
 	}
 
 	@media only screen and (max-width: 1200px) {
@@ -302,5 +302,57 @@ export const StepNumberThree = styled(StepNumberTwo)`
 		&::after {
 			margin-left: 35vw;
 		}
+	}
+`;
+
+export const SSignature = styled(SInput)`
+	border: none;
+	border-bottom: 1px solid #babdc2;
+
+	&:hover,
+	&:focus {
+		border: none;
+		border-bottom: 1px solid #fc895e;
+	}
+`;
+
+export const CheckboxContainer = styled(Form.Group)`
+	height: 77.5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	small {
+		color: #f00;
+		font-weight: 500;
+	}
+
+	@media only screen and (max-width: 900px) {
+		width: 12.5vw;
+	}
+
+	@media only screen and (max-width: 900px) {
+		width: 35vw;
+	}
+`;
+
+export const Checkbox = styled(Form.Check)`
+	height: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	font-size: 14px;
+	color: #606266;
+	margin-left: 1%;
+
+	& input {
+		box-shadow: none !important;
+		border: 1px solid #d5d7db !important;
+		background-color: #f7f8ff;
+	}
+
+	& label {
+		font-size: (0.73vw, 10px);
 	}
 `;
