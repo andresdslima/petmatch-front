@@ -39,7 +39,7 @@ const ImagesCarousel = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </S.ContainerCarousel>
-      <S.ContainerButton>
+      <S.ContainerButton >
         <S.ButtonLink color={'#8D73E4'} exact to="/">
           Quero Adotar
         </S.ButtonLink>
