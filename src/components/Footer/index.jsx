@@ -16,6 +16,9 @@ const Footer = () => {
 					<S.VetorImage src={Dog} alt="PetMatch Logo" />
 				</div>
 				<S.FooterCenterContainer>
+				<S.BoldText>Política de privacidade</S.BoldText>
+					<S.BoldText>Contato: contato@petmatch.com</S.BoldText>
+					<S.Text>"Os olhos de um animal têm o poder de falar mais do que uma grande linguagem"</S.Text>
 					<S.NavLinks>
 						<S.ButtonLink active={location.pathname} exact to="/">
 							Voltar ao topo
@@ -27,7 +30,6 @@ const Footer = () => {
 							Sobre
 						</S.ButtonLink>
 					</S.NavLinks>
-					<S.Text>"Os animais nos ensinam o valor da vida."</S.Text>
 				</S.FooterCenterContainer>
 				<div>
 					<S.VetorImage src={Cat} alt="PetMatch Logo" />
