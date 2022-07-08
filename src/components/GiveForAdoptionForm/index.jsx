@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addNewPet } from '../../store/modules/pets';
 import { postPets } from '../../services/mainAPI/pets';
 import { api } from '../../services/mainAPI/config';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
 // const validationSchema = Yup.object({
 // 	nome: Yup.string().min(6, 'Nome completo').required('*'),
@@ -21,7 +21,7 @@ import * as Yup from 'yup';
 
 const GiveForAdoptionForm = () => {
 	const data = JSON.parse(localStorage.getItem('data'));
-	const id = data.payload.id;
+	// const id = data.payload.id;
 	const accessToken = data.payload.accessToken;
 	const dispatch = useDispatch();
 	console.log(data);

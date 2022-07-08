@@ -1,5 +1,5 @@
 import React from 'react';
-import catProfile from '../../assets/images/catProfile.png';
+// import catProfile from '../../assets/images/catProfile.png';
 import iconCheck from '../../assets/iconCheck.svg'
 import * as S from './styled'
 import { useEffect } from 'react';
