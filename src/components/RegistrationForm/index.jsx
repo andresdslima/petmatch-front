@@ -42,12 +42,10 @@ export default function RegistrationForm() {
 
 		onSubmit: async values => {
 			const response = await createUser({
-				firstName: values.firstName,
-				lastName: values.lastName,
+				nome: values.firstName,
+				sobrenome: values.lastName,
 				email: values.email,
-				password: values.password,
-				userStatus: 1,
-				permission: 0,
+				senha: values.password,
 			});
 
 			if (response.status !== 201) {
@@ -58,27 +56,17 @@ export default function RegistrationForm() {
 			alert('Usuário cadastrado com sucesso!');
 			formik.handleReset();
 
-			// dispatch(
-			// 	signIn({
-			// 		accessToken: response.data.accessToken,
-			// 		name: response.data.user.name,
-			// 		userStatus: response.data.user.userStatus,
-			// 		permission: response.data.user.permission,
-			// 		id: response.data.user.id,
-			// 	}),
-			// );
-
 			localStorage.setItem(
 				'data',
 				JSON.stringify(
 					dispatch(
 						signIn({
 							isLogged: true,
-							accessToken: response.data.accessToken,
-							firstName: response.data.user.firstName,
-							userStatus: response.data.user.userStatus,
-							permission: response.data.user.permission,
-							id: response.data.user.id,
+							accessToken: response.data.token,
+							firstName: response.data.nome,
+							userStatus: response.data.userStatus,
+							permission: response.data.permissao,
+							id: response.data.id,
 						}),
 					),
 				),
@@ -86,7 +74,7 @@ export default function RegistrationForm() {
 
 			api.defaults.headers.common[
 				'Authorization'
-			] = `Bearer ${response.data.accessToken}`;
+			] = `Bearer ${response.data.token}`;
 			navigate('/');
 		},
 	});

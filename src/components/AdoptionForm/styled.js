@@ -271,7 +271,7 @@ export const StepNumberTwo = styled(StepNumberOne)`
 	@media only screen and (min-width: 1200px) {
 		&::after {
 			width: 14.5vw;
-			margin-right: 5vw;
+			margin-right: 25vw;
 			transform: translateX(-89px);
 		}
 	}
@@ -290,6 +290,12 @@ export const StepNumberThree = styled(StepNumberTwo)`
 		border: none;
 		margin-left: 43vw;
 		margin-bottom: 0;
+	}
+
+	@media only screen and (min-width: 1200px) {
+		&::after {
+			margin-left: 47vw;
+		}
 	}
 
 	@media only screen and (max-width: 900px) {

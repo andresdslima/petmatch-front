@@ -1,5 +1,5 @@
 # Projeto PetMatch
 
-- [Deploy](https://andresdslima.github.io/petmatch-front/)
+- [Deploy](https://thepetmatch.netlify.app)
 - [Frontend](https://github.com/andresdslima/petmatch-front)
 - [Backend](https://github.com/jguigo/api-petmatch)

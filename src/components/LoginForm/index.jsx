@@ -14,7 +14,7 @@ import { signIn } from '../../store/modules/users';
 
 const validationSchema = Yup.object({
 	email: Yup.string().email('Email inválido').required('*'),
-	password: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
+	senha: Yup.string().min(6, 'Mínimo 6 dígitos').required('*'),
 });
 
 export default function LoginForm() {
@@ -25,15 +25,15 @@ export default function LoginForm() {
 	const formik = useFormik({
 		initialValues: {
 			email: '',
-			password: '',
+			senha: '',
 		},
 
 		validationSchema,
 
 		onSubmit: async values => {
-			const { accessToken, user } = await loginUser(values);
+			const data = await loginUser(values);
 
-			if (!user) {
+			if (!data) {
 				alert('Usuário ou senha inválidos!');
 				return;
 			}
@@ -47,17 +47,17 @@ export default function LoginForm() {
 					dispatch(
 						signIn({
 							isLogged: true,
-							accessToken: accessToken,
-							firstName: user.firstName,
-							userStatus: user.userStatus,
-							permission: user.permission,
-							id: user.id,
+							accessToken: data.token,
+							firstName: data.nome,
+							userStatus: data.userStatus,
+							permission: data.permissao,
+							id: data.id,
 						}),
 					),
 				),
 			);
 
-			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
 			navigate('/');
 		},
 	});
@@ -92,17 +92,17 @@ export default function LoginForm() {
 						/>
 					</Styled.SGroup>
 
-					<Styled.SLabel alt="Digite sua senha" htmlFor="password">
+					<Styled.SLabel alt="Digite sua senha" htmlFor="senha">
 						Senha
 					</Styled.SLabel>
-					{formik.errors.password && <small>{formik.errors.password}</small>}
+					{formik.errors.senha && <small>{formik.errors.senha}</small>}
 					<Styled.SGroup>
 						<Styled.SInput
 							type="password"
 							placeholder="Digite sua senha"
-							name="password"
-							id="password"
-							value={formik.values.password}
+							name="senha"
+							id="senha"
+							value={formik.values.senha}
 							onChange={formik.handleChange}
 						/>
 						<img className="icon" src={passwordIcon} alt="Ícone de cadeado" />
