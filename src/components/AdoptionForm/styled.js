@@ -6,20 +6,20 @@ export const ContainerForm = styled(Container)`
 	display: grid;
 	row-gap: 15px;
 
-  @media only screen and (max-width: 500px) {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+	@media only screen and (max-width: 500px) {
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 `;
 
 export const Label = styled(Form.Label)`
 	color: #141518;
 	font-size: max(1vw, 14px);
 	font-weight: 600;
-  margin: 0;
+	margin: 0;
 `;
 
 export const FormItemSelect = styled(Form.Select)`
@@ -45,7 +45,7 @@ export const InputContainer = styled(Form.Group)`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-  align-items: center;
+	align-items: center;
 
 	small {
 		color: #f00;
@@ -73,8 +73,8 @@ export const SearchButton = styled(Button)`
 	box-shadow: none !important;
 
 	&:hover {
-		background-color: #f76f34 !important;
-		border: #f76f34;
+		background-color: #fdfdfd !important;
+		border: #fdfdfd;
 		color: #000;
 	}
 
@@ -158,7 +158,7 @@ export const SInput = styled(Form.Control)`
 	width: 22vw !important;
 
 	&:hover {
-		border: 1px solid #f76f34;
+		border: 1px solid #fdfdfd;
 	}
 
 	@media only screen and (max-width: 1200px) {
@@ -171,16 +171,16 @@ export const SInput = styled(Form.Control)`
 
 	@media only screen and (max-width: 500px) {
 		width: 100% !important;
-    margin-bottom: 1.5vh;
+		margin-bottom: 1.5vh;
 	}
 `;
 
 export const SButton = styled(Button)`
 	width: 200px;
-	border: none;
+	border: 1px solid #8d73e4;
 	border-radius: 4px;
 	background-color: ${props =>
-		props.type === 'submit' ? '#8D73E4' : '#F76F34'};
+		props.type === 'submit' ? '#8D73E4' : '#FDFDFD'};
 	padding: 10px 5px;
 	font-style: normal;
 	font-weight: 500;
@@ -189,15 +189,16 @@ export const SButton = styled(Button)`
 	margin: 1vh 0;
 	text-align: center;
 	opacity: 1;
-	color: #fdfdfd;
+	color: ${props => (props.type === 'submit' ? '#FDFDFD' : '#8D73E4')};
 	margin: 0 1vw;
 
 	&:hover,
 	&:focus {
-		opacity: 0.8;
+		opacity: 0.7;
 		cursor: pointer;
 		background-color: ${props =>
-			props.type === 'submit' ? '#8D73E4' : '#F76F34'};
+			props.type === 'submit' ? '#8D73E4' : '#FDFDFD'};
+		color: ${props => (props.type === 'submit' ? '#FDFDFD' : '#8D73E4')};
 	}
 `;
 
@@ -217,5 +218,89 @@ export const SLink = styled(Link)`
 
 	@media only screen and (max-width: 500px) {
 		font-size: 13px;
+	}
+`;
+
+export const NumberOfSteps = styled.div`
+	display: flex;
+	justify-content: center;
+	gap: 200px;
+
+	@media only screen and (max-width: 900px) {
+		gap: 150px;
+	}
+
+	@media only screen and (max-width: 500px) {
+		display: none;
+	}
+`;
+
+export const StepNumberOne = styled.span`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 28px;
+	height: 28px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #fdfdfd;
+	background-color: ${props =>
+		props.active <= props.steps ? '#fc895e' : '#d5d7db'};
+	border-radius: 100%;
+	padding: 2.1%;
+
+	&::after {
+		content: '${props => props.text}';
+		color: ${props => (props.active <= props.steps ? '#fc895e' : '#fff')};
+	}
+`;
+
+export const StepNumberTwo = styled(StepNumberOne)`
+	&::after {
+		width: 20vw;
+		border-bottom: ${props =>
+			props.active <= props.steps ? '1px solid #fc895e' : '1px solid #d5d7db'};
+		content: '${props => props.text}';
+		color: ${props => (props.active <= props.steps ? '#fc895e' : '#fff')};
+		position: absolute;
+		margin-left: 56vw;
+		margin-bottom: 2vh;
+		transform: translateX(-164px);
+	}
+
+	@media only screen and (min-width: 1200px) {
+		&::after {
+			width: 14.5vw;
+			margin-right: 25vw;
+			transform: translateX(-89px);
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		&::after {
+			width: 19.5vw;
+			margin-left: 46.5vw;
+			transform: translateX(-89px);
+		}
+	}
+`;
+
+export const StepNumberThree = styled(StepNumberTwo)`
+	&::after {
+		border: none;
+		margin-left: 43vw;
+		margin-bottom: 0;
+	}
+
+	@media only screen and (min-width: 1200px) {
+		&::after {
+			margin-left: 47vw;
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		&::after {
+			margin-left: 35vw;
+		}
 	}
 `;

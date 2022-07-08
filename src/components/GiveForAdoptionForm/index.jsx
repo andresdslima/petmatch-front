@@ -1,39 +1,51 @@
 import { Container, Form } from 'react-bootstrap';
 import * as S from './styled';
 import { useFormik } from 'formik';
-import PetsCardsList from '../../components/PetsCardsList';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setPetFilter } from '../../store/modules/pets';
+import { addNewPet } from '../../store/modules/pets';
+import { postPets } from '../../services/mainAPI/pets';
 
-const MatchesForm = () => {
-	const [toggle, setToggle] = useState(false);
-	// const usersPref = useSelector(state => state.petsSlice.petsFilter);
+const GiveForAdoptionForm = () => {
+
+	const data = JSON.parse(localStorage.getItem('data'));
+	const id = data.payload.id;
+	const accessToken = data.payload.accessToken;
+	console.log(data);
 
 	const dispatch = useDispatch();
 
 	const formik = useFormik({
 		initialValues: {
+			id: '',
 			especie: '',
-			idade_max: 0,
+			idade: 0,
 			sexo: '',
-			peso_max: 0,
+			peso: 0,
 			porte: '',
-			tamanho_max: 0,
+			tamanho: 0,
 			cor: '',
 			raca: '',
-			castrado: '',
-			vacinado: '',
+			castrado: false,
+			vacinado: false,
+			chip: '',
+			sobre: '',
+			petImage: '',
+			userId: '',
+			petStatus: ''
 		},
-		onSubmit: values => {
-			dispatch(setPetFilter(values));
+		onSubmit: async values => {
+
+			const data = await postPets({...values, user_id: id, petStatus: 1, accessToken: accessToken})
+			dispatch (addNewPet({pets: data}))
+			
+			formik.resetForm();
 		},
 	});
 
 	return (
 		<>
 			<S.TitleBackground className="mt-5">
-				<S.Title>Encontre seus matches!</S.Title>
+				<S.Title>Cadastre seu pet para doação</S.Title>
 			</S.TitleBackground>
 			<Container className="my-5">
 				<Form className="form" onSubmit={formik.handleSubmit}>
@@ -55,21 +67,14 @@ const MatchesForm = () => {
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
-							<S.Label>Idade máxima</S.Label>
-							<S.FormItemSelect
-								id="idade_max"
+							<S.Label>Idade (anos)</S.Label>
+							<Form.Control
+								id="idade"
 								type="number"
 								placeholder="Ex: 3"
 								value={formik.values.idade}
 								onChange={formik.handleChange}
-							>
-								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value={1}>1 ano</S.SelectOption>
-								<S.SelectOption value={2}>2 anos</S.SelectOption>
-								<S.SelectOption value={3}>3 anos</S.SelectOption>
-								<S.SelectOption value={5}>5 anos</S.SelectOption>
-								<S.SelectOption value={1000}>Acima de 5 anos</S.SelectOption>
-							</S.FormItemSelect>
+							/>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Sexo</S.Label>
@@ -86,21 +91,14 @@ const MatchesForm = () => {
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
-							<S.Label>Peso máximo</S.Label>
-							<S.FormItemSelect
-								id="peso_max"
-								type="select"
+							<S.Label>Peso (kg)</S.Label>
+							<Form.Control
+								id="peso"
+								type="number"
 								placeholder="Ex: 10"
 								value={formik.values.peso}
 								onChange={formik.handleChange}
-							>
-								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value={2}>2kg</S.SelectOption>
-								<S.SelectOption value={5}>5kg</S.SelectOption>
-								<S.SelectOption value={10}>10kg</S.SelectOption>
-								<S.SelectOption value={30}>30kg</S.SelectOption>
-								<S.SelectOption value={1000}>Mais que 30kg</S.SelectOption>
-							</S.FormItemSelect>
+							/>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Porte</S.Label>
@@ -122,20 +120,14 @@ const MatchesForm = () => {
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
-							<S.Label>Tamanho máximo</S.Label>
-							<S.FormItemSelect
-								id="tamanho_max"
-								type="select"
+							<S.Label>Tamanho (cm)</S.Label>
+							<Form.Control
+								id="tamanho"
+								type="number"
+								placeholder="Ex: 40"
 								value={formik.values.tamanho}
 								onChange={formik.handleChange}
-							>
-								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value={20}>20 cm</S.SelectOption>
-								<S.SelectOption value={35}>35 cm</S.SelectOption>
-								<S.SelectOption value={50}>50 cm</S.SelectOption>
-								<S.SelectOption value={65}>65 cm</S.SelectOption>
-								<S.SelectOption value={1000}>Mais que 65 cm</S.SelectOption>
-							</S.FormItemSelect>
+							/>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Cor</S.Label>
@@ -155,18 +147,14 @@ const MatchesForm = () => {
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Raça</S.Label>
-							<S.FormItemSelect
+							<Form.Control
 								id="raca"
-								type="select"
-								placeholder="Ex: 100"
+								name="raca"
+								type="text"
+								placeholder="Ex: Beagle"
 								value={formik.values.raca}
 								onChange={formik.handleChange}
-							>
-								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="viralata">Viralata</S.SelectOption>
-								<S.SelectOption value="pitbull">Pitbull</S.SelectOption>
-								<S.SelectOption value="shitzu">Shit-zu</S.SelectOption>
-							</S.FormItemSelect>
+							/>
 						</Form.Group>
 						<S.AllCheckboxesContainer>
 							<S.CheckboxContainer>
@@ -190,21 +178,43 @@ const MatchesForm = () => {
 								/>
 							</S.CheckboxContainer>
 						</S.AllCheckboxesContainer>
+						<Form.Group>
+							<S.Label>Chip</S.Label>
+							<Form.Control
+								id="chip"
+								name="chip"
+								type="text"
+								placeholder="Ex: D4J7X9"
+								value={formik.values.chip}
+								onChange={formik.handleChange}
+							/>
+						</Form.Group>
+						<Form.Group>
+							<S.Label>Imagem</S.Label>
+							<Form.Control
+								id="petImage"
+								type="file"
+								value={formik.values.petImage}
+								onChange={formik.handleChange}
+							/>
+						</Form.Group>
+						<Form.Group>
+						<S.Label>Sobre</S.Label>
+						<textarea id="sobre" placeholder="Conte-nos mais sobre o seu pet." value={formik.values.sobre} onChange={formik.handleChange}></textarea>
+						</Form.Group>
 					</S.ContainerForm>
 					<S.ButtonContainer className="my-5">
 						<S.SearchButton
 							variant="primary"
 							type="submit"
-							onClick={() => setToggle(true)}
 						>
-							Buscar
+							Cadastrar
 						</S.SearchButton>
 					</S.ButtonContainer>
 				</Form>
 			</Container>
-			{toggle && <PetsCardsList />}
 		</>
 	);
 };
 
-export default MatchesForm;
+export default GiveForAdoptionForm;

@@ -5,7 +5,7 @@ export const ContainerBanner = styled(Carousel)`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 68vw;
+    width: 100%;
     height: 100%;
 	margin: 0 auto;
     margin-top: 5vw;

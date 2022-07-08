@@ -56,7 +56,7 @@ const AboutUsPageMainContent = () => {
 			</Col>
 			<Col>
 				<a
-					href="https://www.linkedin.com/in/guilhermef-melo/"
+					href="https://www.linkedin.com/in/guilhermef-melo"
 					target="_blank"
 					rel="noreferrer"
 				>
@@ -110,7 +110,7 @@ const AboutUsPageMainContent = () => {
 			</Col>
 			<Col>
 				<a
-					href="https://www.linkedin.com/in/victor-landim-37b102169/"
+					href="https://www.linkedin.com/in/victor-landim-37b102169"
 					target="_blank"
 					rel="noreferrer"
 				>

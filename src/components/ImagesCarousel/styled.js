@@ -1,28 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Carousel } from 'react-bootstrap';
+import { Container, Carousel } from 'react-bootstrap';
 
-export const ContainerContent = styled.div`
+export const ContainerContent = styled(Container)`
 	display: flex;
 	justify-content: flex-start;
-	gap: 10vw;
+	gap: 3vw;
 	align-items: center;
 	flex-direction: column;
-
-	@media (max-width: 1000px) {
-		gap: 4vw;
-	}
-
-	@media (max-width: 600px) {
-		gap: 4vw;
-	}
 `;
 
 export const ContainerCarousel = styled(Carousel)`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 68vw;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
 

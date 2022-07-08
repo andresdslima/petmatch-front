@@ -1,14 +1,15 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
-import Signin from '../../assets/images/SigninVector.svg';
 import * as S from './styled';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../store/modules/users';
 
 const Header = () => {
 	// const isLogged = useSelector(state => state.persistedReducer.isLogged);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const data = JSON.parse(localStorage.getItem('data'));
 
 	const isLogged = () => {
@@ -25,6 +26,7 @@ const Header = () => {
 
 	const logout = () => {
 		localStorage.removeItem('data');
+		dispatch(signOut());
 		navigate('/');
 	};
 
@@ -32,7 +34,7 @@ const Header = () => {
 		<Navbar expand="lg mb-5">
 			<Container>
 				<Navbar.Brand href="/" className="m-0 py-3">
-					<S.LogoImage id='home' src={Logo} alt="PetMatch Logo" />
+					<S.LogoImage src={Logo} alt="PetMatch Logo" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
@@ -40,7 +42,7 @@ const Header = () => {
 						<S.ButtonLink active={location.pathname} exact to="/">
 							Home
 						</S.ButtonLink>
-						<S.ButtonLink active={location.pathname} exact to="/blogs">
+						<S.ButtonLink active={location.pathname} exact to="/blog">
 							Blog
 						</S.ButtonLink>
 						<S.ButtonLink active={location.pathname} exact to="/ongs">
@@ -53,16 +55,16 @@ const Header = () => {
 					<Nav>
 						{!isLogged() ? (
 							<S.NavSignin active={location.pathname} exact to="/login">
-								<S.SigninIcon src={Signin} alt="Sign in" />
+								<S.SigninIcon></S.SigninIcon>
 								<S.SigninText>Entrar</S.SigninText>
 							</S.NavSignin>
 						) : (
 							<S.NavUser active={location.pathname} exact to="#">
 								<S.UserIcon />
 								<S.UserName>{firstName()}</S.UserName>
-								<button onClick={logout}>
-									<S.PlusSign>&#43;</S.PlusSign>
-								</button>
+								<S.ButtonSignOut onClick={logout}>
+									<S.SignOut className='sign-out'></S.SignOut>
+								</S.ButtonSignOut>
 							</S.NavUser>
 						)}
 					</Nav>

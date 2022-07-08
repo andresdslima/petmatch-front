@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
-export const StyledBackground = styled.div`
+export const StyledBackground = styled(Container)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -11,7 +12,7 @@ export const StyledBackground = styled.div`
 
 export const ContainerCategory = styled.div`
 	height: 100%;
-	width: 68vw;
+	width: 100%;
 	margin: 7vw 0;
 	box-sizing: border-box;
 	display: flex;

@@ -1,7 +1,5 @@
 import * as S from './styled';
 
-import { Container } from 'react-bootstrap'
-
 const AboutUsSection = () => {
     return (
         <S.MainContainer>
