@@ -21,13 +21,15 @@ const PetPageProfile = () => {
 	return (
 		<S.ContainerProfile>
 			<S.ContainerCard>
-				<S.ContainerImg src={pet.petImage} alt="foto do pet" />
+				<S.ContainerImgPet>
+					<S.ImgPet src={pet.petImage} alt="foto do pet" />
+				</S.ContainerImgPet>
 				<S.CardBody>
 					<S.ContentText>
 						Peso: <S.ContentCardText>{pet.peso} kg</S.ContentCardText>
 					</S.ContentText>
 					<S.ContentText>
-						Cor Predominante: <S.ContentCardText>{pet.cor}</S.ContentCardText>
+						Cor: <S.ContentCardText>{pet.cor}</S.ContentCardText>
 					</S.ContentText>
 					<S.ContentText>
 						Espécie: <S.ContentCardText>{pet.especie}</S.ContentCardText>
@@ -43,8 +45,7 @@ const PetPageProfile = () => {
 			</S.ContainerCard>
 			<S.ContainerDescription>
 				<S.TextDescription>
-				{pet.sobre}
-					<strong>Testado negativo para FIV-FELV</strong>
+					{pet.sobre}
 				</S.TextDescription>
 				<S.ButtonDescription to={'/adoption'}>
 					Confirmar interesse!
@@ -66,7 +67,7 @@ const PetPageProfile = () => {
 					</S.ItemListCheck>
 					<S.ItemListCheck>
 						<S.IconCheck src={iconCheck} alt="Icone de check" />
-						<S.TextCheck>Jovem 1 - 3 anos</S.TextCheck>
+						<S.TextCheck>1 ano(s)</S.TextCheck>
 					</S.ItemListCheck>
 				</S.ContentListCheck>
 			</S.ListCheck>
