@@ -9,6 +9,8 @@ const GiveForAdoptionForm = () => {
 
 	const data = JSON.parse(localStorage.getItem('data'));
 	const id = data.payload.id;
+	const accessToken = data.payload.accessToken;
+	console.log(data);
 
 	const dispatch = useDispatch();
 
@@ -23,16 +25,19 @@ const GiveForAdoptionForm = () => {
 			tamanho: 0,
 			cor: '',
 			raca: '',
-			castrado: '',
-			vacinado: '',
+			castrado: false,
+			vacinado: false,
 			chip: '',
 			sobre: '',
 			petImage: '',
-			userId: ''
+			userId: '',
+			petStatus: ''
 		},
 		onSubmit: async values => {
-			const data = await postPets({...values, user_id: id})
+
+			const data = await postPets({...values, user_id: id, petStatus: 1, accessToken: accessToken})
 			dispatch (addNewPet({pets: data}))
+			
 			formik.resetForm();
 		},
 	});
@@ -144,8 +149,9 @@ const GiveForAdoptionForm = () => {
 							<S.Label>Raça</S.Label>
 							<Form.Control
 								id="raca"
+								name="raca"
 								type="text"
-								placeholder="Ex: Shit-zu"
+								placeholder="Ex: Beagle"
 								value={formik.values.raca}
 								onChange={formik.handleChange}
 							/>
@@ -176,9 +182,10 @@ const GiveForAdoptionForm = () => {
 							<S.Label>Chip</S.Label>
 							<Form.Control
 								id="chip"
+								name="chip"
 								type="text"
 								placeholder="Ex: D4J7X9"
-								value={formik.values.raca}
+								value={formik.values.chip}
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -187,7 +194,7 @@ const GiveForAdoptionForm = () => {
 							<Form.Control
 								id="petImage"
 								type="file"
-								value={formik.values.raca}
+								value={formik.values.petImage}
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
