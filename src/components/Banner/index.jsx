@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Container } from 'react-bootstrap';
 import * as S from './styled';
 import catMatch from '../../assets/banner/catMatch.png';
 import dogAbout from '../../assets/banner/dogAbout.png';
@@ -151,6 +151,7 @@ const Banner = () => {
 	}
 
 	return (
+		<Container>
 		<S.ContainerBanner>
 			<Carousel.Item>
 				<S.ImageBanner
@@ -161,6 +162,7 @@ const Banner = () => {
 				<Carousel.Caption>{textBanner}</Carousel.Caption>
 			</Carousel.Item>
 		</S.ContainerBanner>
+		</Container>
 	);
 };
 
