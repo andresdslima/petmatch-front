@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 import usersSlice from './modules/users';
 import petsSlice from './modules/pets';
 import adoptionSlice from './modules/adoption';
@@ -18,4 +18,10 @@ export const store = configureStore({
 		petsSlice,
 		adoptionSlice,
 	},
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
+
+export const persistor = persistStore(store);

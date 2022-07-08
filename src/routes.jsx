@@ -10,8 +10,11 @@ import Adoption from './pages/Adoption';
 import Blog from './pages/Blog';
 import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
+import { useSelector } from 'react-redux';
 
 export default function AppRoutes() {
+	// let login = useSelector(state => state.persistedReducer.isLogged);
+
 	return (
 		<Router>
 			<Routes>
@@ -22,17 +25,32 @@ export default function AppRoutes() {
 				{/* <Route path="/formularioenviado" element={<RequireAuth>
 					<FormularioEnviado />
 					</RequireAuth>} /> */}
-				<Route path="/formularioaprovadofinal" element={<RequireAuth>
-					<FormularioAprovadoFinal />
-					</RequireAuth>} />
+				<Route
+					path="/formularioaprovadofinal"
+					element={
+						<RequireAuth>
+							<FormularioAprovadoFinal />
+						</RequireAuth>
+					}
+				/>
 				<Route path="/sobre" element={<About />} />
-				<Route path="/matches" element={<RequireAuth>
-					<Matches />
-					</RequireAuth>} />
-				<Route path="/adoption" element={<RequireAuth>
-					<Adoption />
-				</RequireAuth>} />
-				<Route path="/blogs" element={<Blog />} />
+				<Route
+					path="/matches"
+					element={
+						<RequireAuth>
+							<Matches />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/adoption"
+					element={
+						<RequireAuth>
+							<Adoption />
+						</RequireAuth>
+					}
+				/>
+				<Route path="/blog" element={<Blog />} />
 				<Route path="/ongs" element={<ONGs />} />
 			</Routes>
 		</Router>

@@ -28,18 +28,13 @@ const AdoptionStep5 = ({ setStep, formValues, setFormValues }) => {
 			<Styled.ButtonContainer className="my-5">
 				<Styled.SButton
 					variant="primary"
-					type="button"
-					onClick={() => {
-						setStep(4);
-						dispatch(countStep({ step: 4 }));
-					}}
-				>
-					Voltar
-				</Styled.SButton>
-				<Styled.SButton
-					variant="primary"
 					type="submit"
-					onClick={() => navigate('/')}
+					onClick={() => {
+						setStep(1);
+						dispatch(countStep({ step: 1 }));
+						localStorage.removeItem('form');
+						navigate('/');
+					}}
 				>
 					Página Inicial
 				</Styled.SButton>
