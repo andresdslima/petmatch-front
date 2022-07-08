@@ -37,7 +37,7 @@ const MatchMainContent = () => {
 					<Col className="d-flex justify-content-center g-4" key={pet.id}>
 						<Link exact to="/">
 							<Card className="cardContainer">
-								<Card.Img variant="top" src={CardImage} className="cardImg" />
+								<Card.Img variant="top" src={pet.petImage} className="cardImg" />
 								<Card.Body>
 									<Card.Title className="cardTitle">{pet.nome}</Card.Title>
 									<Card.Text className="cardText">
