@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import dogSmile from '../../assets/dogSmile.png';
 import catSerious from '../../assets/catSerious.png';
 import birdModel from '../../assets/birdModel.png';
-import exotics from '../../assets/exotics.png';
+import fish from '../../assets/fish.jpg';
 import reptiles from '../../assets/reptiles.png';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -77,9 +77,9 @@ const CardCategory = () => {
 						</S.LinkContainer>
 						<S.LinkContainer to="/">
 							<S.CardCategory>
-								<Card.Img variant="top" src={exotics} />
+								<Card.Img variant="top" src={fish} />
 								<Card.Body>
-									<Card.Title>Exóticos</Card.Title>
+									<Card.Title>Peixes</Card.Title>
 								</Card.Body>
 							</S.CardCategory>
 						</S.LinkContainer>

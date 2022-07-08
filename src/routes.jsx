@@ -10,6 +10,7 @@ import Adoption from './pages/Adoption';
 import Blog from './pages/Blog';
 import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
+import GiveForAdoption from './pages/GiveForAdoption';
 // import { useSelector } from 'react-redux';
 
 export default function AppRoutes() {
@@ -47,6 +48,14 @@ export default function AppRoutes() {
 					element={
 						<RequireAuth>
 							<Adoption />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/giveforadoption"
+					element={
+						<RequireAuth>
+							<GiveForAdoption />
 						</RequireAuth>
 					}
 				/>

@@ -12,7 +12,7 @@ export const getPets = async () => {
 
 export const getPet = async (id) => {
 	try {
-	const response = await api.get(`/pets/especie/${id}`);
+	const response = await api.get(`/pets/${id}`);
 	console.log(response);
 	return response.data;
 	} catch(error) {
@@ -20,9 +20,9 @@ export const getPet = async (id) => {
 	}
 };
 
-export const getPetBySpecie = async (especie) => {
+export const getPetsBySpecie = async (especie) => {
 	try {
-	const response = await api.get(`/pets/${especie}`);
+	const response = await api.get(`/pets/especie/${especie}`);
 	console.log(response);
 	return response.data;
 	} catch(error) {

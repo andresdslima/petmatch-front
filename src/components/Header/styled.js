@@ -66,7 +66,8 @@ export const NavUser = styled(Link)`
 		background-color: #f2323f;
 	}
 
-	&:hover span, &:hover svg.sign-out {
+	&:hover span,
+	&:hover svg.sign-out {
 		color: #fff;
 	}
 
@@ -111,9 +112,11 @@ export const UserIcon = styled(PersonCircle)`
 `;
 
 export const SigninIcon = styled.div`
-	width: max(1.95vw, 25px);
-	height: 85%;
+	width: max(1.6vw, 25px);
+	height: 70%;
 	background-image: url(${Signin});
+	background-repeat: no-repeat;
+	background-size: 100%;
 
 	@media only screen and (max-width: 992px) {
 		display: none;
@@ -131,12 +134,12 @@ export const SigninText = styled(UserName)`
 `;
 
 export const ButtonSignOut = styled.button`
-background-color: transparent;
-border: none;
-`
+	background-color: transparent;
+	border: none;
+`;
 
 export const SignOut = styled(BoxArrowRight)`
-	color: #F2323F;
+	color: #f2323f;
 	font-size: 22px;
 	font-weight: 600;
 `;

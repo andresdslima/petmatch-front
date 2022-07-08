@@ -5,17 +5,9 @@ import { Container, Carousel } from 'react-bootstrap';
 export const ContainerContent = styled(Container)`
 	display: flex;
 	justify-content: flex-start;
-	gap: 10vw;
+	gap: 3vw;
 	align-items: center;
 	flex-direction: column;
-
-	@media (max-width: 1000px) {
-		gap: 4vw;
-	}
-
-	@media (max-width: 600px) {
-		gap: 4vw;
-	}
 `;
 
 export const ContainerCarousel = styled(Carousel)`

@@ -10,7 +10,7 @@ import Puppies from '../../assets/images/Puppies.svg'
 
 const Partners = () => {
     return (
-        <Container className='my-5'>
+        <Container className='mt-5'>
             <S.Title className='mb-5'>Conheça alguns membros da nossa família</S.Title>
             <S.PartnerContainerLeft>
                 <S.ImageDiv>
