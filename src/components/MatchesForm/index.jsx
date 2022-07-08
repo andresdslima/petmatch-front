@@ -185,7 +185,7 @@ const MatchesForm = () => {
 									type="checkbox"
 									id="vacinado"
 									label="Animais vacinados"
-									value={formik.values.castrado}
+									value={formik.values.vacinado}
 									onChange={formik.handleChange}
 								/>
 							</S.CheckboxContainer>

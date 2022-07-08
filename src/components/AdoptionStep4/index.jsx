@@ -8,7 +8,8 @@ import { countStep } from '../../store/modules/adoption';
 import { useDispatch } from 'react-redux';
 
 const validationSchema = Yup.object({
-	assinatura: Yup.string().min(6, 'Assinatura').required('*'),
+	assinatura: Yup.string().min(6, 'Assinatura registrada').required('*'),
+	declaracao: Yup.boolean().required('*'),
 });
 
 export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
@@ -18,7 +19,7 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 
 	const formik = useFormik({
 		initialValues: {
-			assinatura: `${formObject.assinatura ?? ''}`,
+			assinatura: '',
 		},
 
 		validationSchema,
@@ -40,50 +41,67 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 	return (
 		<Form onSubmit={formik.handleSubmit}>
 			<Styled.ContainerForm>
-				<p>
-					{' '}
-					Ao adotar o animal descrito declaro-me apto para assumir a guarda e a
-					responsabilidade sobre este animal, eximindo o doador de toda e
-					qualquer responsabilidade por quaisquer atos praticados pelo animal a
-					partir desta data. Declaro ainda estar ciente de todos os cuidados que
-					este animal exige no que se refere à sua guarda e manutenção, além de
-					conhecer todos os riscos inerentes à espécie no convívio com humanos,
-					estando apto a guardá-lo e vigiá-lo, comprometendo-me a proporcionar
-					boas condições de alojamento e alimentação, assim como, espaço físico
-					que possibilite o animal se exercitar. Responsabilizo-me por preservar
-					a saúde e integridade do animal e a submetê-lo aos cuidados médico
-					veterinários sempre que necessário para este fim. Comprometo-me a não
-					transmitir a posse deste animal a outrem sem o conhecimento do doador.
-					Comprometo-me também, a permitir o acesso do doador ao local onde se
-					encontra o animal para averiguação de suas condições. Tenho
-					conhecimento de que caso seja constatado por parte do doador situação
-					inadequada para o bem estar do animal, perderei a sua guarda, sem
-					prejuízo das penalidades legais. Comprometo-me ainda em ESTERILIZAR
-					(castrar) o animal adotado , se o doador já não o tiver feito,
-					contribuindo assim para o controle da população de animais domésticos.
-					Comprometo-me a cumprir toda a legislação vigente, municipal, estadual
-					e federal, relativa à posse de animais. Declaro-me assim, ciente das
-					normas acima, as quais aceito, assinando o presente Termo de
-					Responsabilidade, assumindo plenamente os deveres que dele constam,
-					bem como outros relacionados à posse responsável e que não estejam
-					incluídos neste Termo. Abandonar ou maltratar animais é crime. Pena: 3
-					meses a 1 ano de detenção e multa (Lei Federal 9605/98). 
-				</p>
-				<Styled.InputContainer>
-					<Styled.Label htmlFor="assinatura">Assinatura</Styled.Label>
-					{formik.errors.assinatura && (
-						<small>{formik.errors.assinatura}</small>
-					)}
-					<Styled.SInput
-						type="text"
-						name="assinatura"
-						id="assinatura"
-						placeholder="Assinatura"
-						{...register('assinatura')}
-						value={formik.values.assinatura}
-						onChange={formik.handleChange}
-					/>
-				</Styled.InputContainer>
+				<div>
+					<small>
+						Ao adotar o animal descrito declaro-me apto para assumir a guarda e
+						a responsabilidade sobre este animal, eximindo o doador de toda e
+						qualquer responsabilidade por quaisquer atos praticados pelo animal
+						a partir desta data. Declaro ainda estar ciente de todos os cuidados
+						que este animal exige no que se refere à sua guarda e manutenção,
+						além de conhecer todos os riscos inerentes à espécie no convívio com
+						humanos, estando apto a guardá-lo e vigiá-lo, comprometendo-me a
+						proporcionar boas condições de alojamento e alimentação, assim como,
+						espaço físico que possibilite o animal se exercitar.
+						Responsabilizo-me por preservar a saúde e integridade do animal e a
+						submetê-lo aos cuidados médico veterinários sempre que necessário
+						para este fim. Comprometo-me a não transmitir a posse deste animal a
+						outrem sem o conhecimento do doador. Comprometo-me também, a
+						permitir o acesso do doador ao local onde se encontra o animal para
+						averiguação de suas condições. Tenho conhecimento de que caso seja
+						constatado por parte do doador situação inadequada para o bem estar
+						do animal, perderei a sua guarda, sem prejuízo das penalidades
+						legais. Comprometo-me ainda em ESTERILIZAR (castrar) o animal
+						adotado , se o doador já não o tiver feito, contribuindo assim para
+						o controle da população de animais domésticos. Comprometo-me a
+						cumprir toda a legislação vigente, municipal, estadual e federal,
+						relativa à posse de animais. Declaro-me assim, ciente das normas
+						acima, as quais aceito, assinando o presente Termo de
+						Responsabilidade, assumindo plenamente os deveres que dele constam,
+						bem como outros relacionados à posse responsável e que não estejam
+						incluídos neste Termo. Abandonar ou maltratar animais é crime. Pena:
+						3 meses a 1 ano de detenção e multa (Lei Federal 9605/98).
+					</small>
+					<Styled.InputContainer>
+						<Styled.Label htmlFor="assinatura">Assinatura</Styled.Label>
+						{formik.errors.assinatura && (
+							<small>{formik.errors.assinatura}</small>
+						)}
+						<Styled.SSignature
+							type="text"
+							name="assinatura"
+							id="assinatura"
+							placeholder="Assinatura ou Nome completo"
+							{...register('assinatura')}
+							value={formik.values.assinatura}
+							onChange={formik.handleChange}
+						/>
+					</Styled.InputContainer>
+					<Styled.CheckboxContainer>
+						{formik.errors.declaracao && (
+							<small>{formik.errors.declaracao}</small>
+						)}
+						<Styled.Checkbox
+							type="checkbox"
+							name="declaracao"
+							id="declaracao"
+							label="Declaro que li, estou ciente e de acordo com os termos do presente contrato."
+							alt="Declaro que li, estou ciente e de acordo com os termos do presente contrato."
+							{...register('declaracao')}
+							value={formik.values.declaracao}
+							onChange={formik.handleChange}
+						/>
+					</Styled.CheckboxContainer>
+				</div>
 			</Styled.ContainerForm>
 
 			<Styled.ButtonContainer className="my-5">

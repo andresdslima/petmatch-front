@@ -4,19 +4,30 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { addNewPet } from '../../store/modules/pets';
 import { postPets } from '../../services/mainAPI/pets';
+import { api } from '../../services/mainAPI/config';
+import * as Yup from 'yup';
+
+// const validationSchema = Yup.object({
+// 	nome: Yup.string().min(6, 'Nome completo').required('*'),
+// 	email: Yup.string().email('Email inválido').required('*'),
+// 	celular: Yup.string().min(11, '11 dígitos').required('*'),
+// 	cidade: Yup.string().min(3, 'Digite sua cidade').required('*'),
+// 	estado: Yup.string().min(2, 'Escolha seu estado').required('*'),
+// 	cep: Yup.string().min(8, '8 dígitos').required('*'),
+// 	endereco: Yup.string().min(6, 'Endereço completo').required('*'),
+// 	enderecoNumero: Yup.number().required('*'),
+// 	enderecoComplemento: Yup.string(),
+// });
 
 const GiveForAdoptionForm = () => {
-
 	const data = JSON.parse(localStorage.getItem('data'));
 	const id = data.payload.id;
 	const accessToken = data.payload.accessToken;
-	console.log(data);
-
 	const dispatch = useDispatch();
+	console.log(data);
 
 	const formik = useFormik({
 		initialValues: {
-			id: '',
 			especie: '',
 			idade: 0,
 			sexo: '',
@@ -30,14 +41,44 @@ const GiveForAdoptionForm = () => {
 			chip: '',
 			sobre: '',
 			petImage: '',
-			userId: '',
-			petStatus: ''
+			nome: '',
 		},
-		onSubmit: async values => {
 
-			const data = await postPets({...values, user_id: id, petStatus: 1, accessToken: accessToken})
-			dispatch (addNewPet({pets: data}))
-			
+		// validationSchema,
+
+		onSubmit: async values => {
+			// api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			const myHeaders = new Headers();
+			myHeaders.append('Content-Type', 'application/json');
+			myHeaders.append('Authorization', `Bearer ${accessToken}`);
+			const formData = new FormData();
+
+			formData.append('especie', values.especie);
+			formData.append('nome', values.nome);
+			formData.append('idade', values.idade);
+			formData.append('sexo', values.sexo);
+			formData.append('peso', values.peso);
+			formData.append('tamanho', values.tamanho);
+			formData.append('porte', values.porte);
+			formData.append('cor', values.cor);
+			formData.append('raca', values.raca);
+			formData.append('castrado', values.castrado);
+			formData.append('vacinado', values.vacinado);
+			formData.append('chip', values.chip);
+			formData.append('sobre', values.sobre);
+			formData.append('petImage', values.petImage, 'petImage.png');
+
+			const requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: formData,
+				redirect: 'follow',
+			};
+
+			const data = await postPets(requestOptions);
+
+			alert('Pet cadastrado com sucesso!');
+			dispatch(addNewPet({ pets: data }));
 			formik.resetForm();
 		},
 	});
@@ -156,6 +197,17 @@ const GiveForAdoptionForm = () => {
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
+						<Form.Group>
+							<S.Label>Nome</S.Label>
+							<Form.Control
+								id="nome"
+								name="nome"
+								type="text"
+								placeholder="Ex: Scooby"
+								value={formik.values.nome}
+								onChange={formik.handleChange}
+							/>
+						</Form.Group>
 						<S.AllCheckboxesContainer>
 							<S.CheckboxContainer>
 								<S.Label>Castrado</S.Label>
@@ -193,21 +245,24 @@ const GiveForAdoptionForm = () => {
 							<S.Label>Imagem</S.Label>
 							<Form.Control
 								id="petImage"
+								name="petImage"
 								type="file"
 								value={formik.values.petImage}
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
 						<Form.Group>
-						<S.Label>Sobre</S.Label>
-						<textarea id="sobre" placeholder="Conte-nos mais sobre o seu pet." value={formik.values.sobre} onChange={formik.handleChange}></textarea>
+							<S.Label>Sobre</S.Label>
+							<textarea
+								id="sobre"
+								placeholder="Conte-nos mais sobre o seu pet."
+								value={formik.values.sobre}
+								onChange={formik.handleChange}
+							></textarea>
 						</Form.Group>
 					</S.ContainerForm>
 					<S.ButtonContainer className="my-5">
-						<S.SearchButton
-							variant="primary"
-							type="submit"
-						>
+						<S.SearchButton variant="primary" type="submit">
 							Cadastrar
 						</S.SearchButton>
 					</S.ButtonContainer>
