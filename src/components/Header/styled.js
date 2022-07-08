@@ -66,7 +66,7 @@ export const NavUser = styled(Link)`
 		background-color: #f2323f;
 	}
 
-	&:hover span, &:hover svg.sc-bBrHrO {
+	&:hover span, &:hover svg.sign-out {
 		color: #fff;
 	}
 

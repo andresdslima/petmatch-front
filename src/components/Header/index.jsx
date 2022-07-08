@@ -63,7 +63,7 @@ const Header = () => {
 								<S.UserIcon />
 								<S.UserName>{firstName()}</S.UserName>
 								<S.ButtonSignOut onClick={logout}>
-									<S.SignOut></S.SignOut>
+									<S.SignOut className='sign-out'></S.SignOut>
 								</S.ButtonSignOut>
 							</S.NavUser>
 						)}
