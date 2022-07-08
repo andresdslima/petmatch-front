@@ -36,7 +36,7 @@ const MatchMainContent = () => {
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{fivePetsRandomList2.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.id}>
-						<Link exact to="/">
+						<Link exact to={`/petprofile/?${pet.id}`}>
 							<Card className="cardContainer">
 								<Card.Img
 									variant="top"
