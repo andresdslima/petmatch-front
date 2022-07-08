@@ -47,35 +47,36 @@ const GiveForAdoptionForm = () => {
 		// validationSchema,
 
 		onSubmit: async values => {
-			// api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			const myHeaders = new Headers();
-			myHeaders.append('Content-Type', 'application/json');
-			myHeaders.append('Authorization', `Bearer ${accessToken}`);
-			const formData = new FormData();
+			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			// const myHeaders = new Headers();
+			// myHeaders.append('Authorization', `Bearer ${accessToken}`);
 
-			formData.append('especie', values.especie);
-			formData.append('nome', values.nome);
-			formData.append('idade', values.idade);
-			formData.append('sexo', values.sexo);
-			formData.append('peso', values.peso);
-			formData.append('tamanho', values.tamanho);
-			formData.append('porte', values.porte);
-			formData.append('cor', values.cor);
-			formData.append('raca', values.raca);
-			formData.append('castrado', values.castrado);
-			formData.append('vacinado', values.vacinado);
-			formData.append('chip', values.chip);
-			formData.append('sobre', values.sobre);
-			formData.append('petImage', values.petImage, 'petImage.png');
+			// const formData = new FormData();
+			// formData.append('especie', values.especie);
+			// formData.append('nome', values.nome);
+			// formData.append('idade', values.idade);
+			// formData.append('sexo', values.sexo);
+			// formData.append('peso', values.peso);
+			// formData.append('tamanho', values.tamanho);
+			// formData.append('porte', values.porte);
+			// formData.append('cor', values.cor);
+			// formData.append('raca', values.raca);
+			// formData.append('castrado', values.castrado);
+			// formData.append('vacinado', values.vacinado);
+			// formData.append('chip', values.chip);
+			// formData.append('sobre', values.sobre);
+			// formData.append('petImage', values.petImage, 'petImage.png');
 
-			const requestOptions = {
-				method: 'POST',
-				headers: myHeaders,
-				body: formData,
-				redirect: 'follow',
-			};
+			// const requestOptions = {
+			// 	method: 'POST',
+			// 	headers: myHeaders,
+			// 	body: formData,
+			// 	redirect: 'follow',
+			// };
 
-			const data = await postPets(requestOptions);
+			const data = await postPets({
+				...values,
+			});
 
 			alert('Pet cadastrado com sucesso!');
 			dispatch(addNewPet({ pets: data }));
