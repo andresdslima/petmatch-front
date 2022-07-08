@@ -1,7 +1,7 @@
 import './styles.css';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import CardImage from '../../assets/images/godofredo.svg';
-import React, { useEffect, useState } from 'react';
+import { Row, Col, Card } from 'react-bootstrap';
+// import CardImage from '../../assets/images/godofredo.svg';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
@@ -28,6 +28,7 @@ const MatchMainContent = () => {
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -37,7 +38,11 @@ const MatchMainContent = () => {
 					<Col className="d-flex justify-content-center g-4" key={pet.id}>
 						<Link exact to="/">
 							<Card className="cardContainer">
-								<Card.Img variant="top" src={pet.petImage} className="cardImg" />
+								<Card.Img
+									variant="top"
+									src={pet.petImage}
+									className="cardImg"
+								/>
 								<Card.Body>
 									<Card.Title className="cardTitle">{pet.nome}</Card.Title>
 									<Card.Text className="cardText">

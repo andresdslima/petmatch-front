@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 export const TitleBackground = styled.div`
 	background-color: #fc895e;

@@ -1,22 +1,22 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function RequireAuth({ children }) {
-    let location = useLocation();
-    const data = JSON.parse(localStorage.getItem('data'));
-    // const isLogged = useSelector(state => state.persistedReducer.isLogged);
+	let location = useLocation();
+	const data = JSON.parse(localStorage.getItem('data'));
+	// const isLogged = useSelector(state => state.persistedReducer.isLogged);
 
-    const isLogged = () => {
-        if(!data) return false;
+	const isLogged = () => {
+		if (!data) return false;
 
-        return true;
-    }
+		return true;
+	};
 
-    if (!isLogged()) {
-        return <Navigate to="/login" state={{ from: location }} replace />;
-    }
+	if (!isLogged()) {
+		return <Navigate to="/login" state={{ from: location }} replace />;
+	}
 
-    return children
+	return children;
 }
 
 export default RequireAuth;

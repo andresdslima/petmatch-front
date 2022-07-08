@@ -10,7 +10,7 @@ import Adoption from './pages/Adoption';
 import Blog from './pages/Blog';
 import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 export default function AppRoutes() {
 	// let login = useSelector(state => state.persistedReducer.isLogged);

@@ -3,12 +3,12 @@ import * as S from './styled';
 import { useFormik } from 'formik';
 import PetsCardsList from '../../components/PetsCardsList';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setPetFilter } from '../../store/modules/pets';
 
 const MatchesForm = () => {
 	const [toggle, setToggle] = useState(false);
-	const usersPref = useSelector(state => state.petsSlice.petsFilter);
+	// const usersPref = useSelector(state => state.petsSlice.petsFilter);
 
 	const dispatch = useDispatch();
 

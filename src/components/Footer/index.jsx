@@ -5,9 +5,9 @@ import * as S from './styled';
 
 const Footer = () => {
 	const location = useLocation();
-	const backToTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
+	// const backToTop = () => {
+	// 	window.scrollTo({ top: 0, behavior: 'smooth' });
+	// };
 
 	return (
 		<S.FooterBackground expand="lg" className="p-0">
@@ -16,9 +16,12 @@ const Footer = () => {
 					<S.VetorImage src={Dog} alt="PetMatch Logo" />
 				</div>
 				<S.FooterCenterContainer>
-				<S.BoldText>Política de privacidade</S.BoldText>
+					<S.BoldText>Política de privacidade</S.BoldText>
 					<S.BoldText>Contato: contato@petmatch.com</S.BoldText>
-					<S.Text>"Os olhos de um animal têm o poder de falar mais do que uma grande linguagem"</S.Text>
+					<S.Text>
+						"Os olhos de um animal têm o poder de falar mais do que uma grande
+						linguagem"
+					</S.Text>
 					<S.NavLinks>
 						<S.ButtonLink active={location.pathname} exact to="/">
 							Voltar ao topo
