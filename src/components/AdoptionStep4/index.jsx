@@ -6,6 +6,8 @@ import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { countStep } from '../../store/modules/adoption';
 import { useDispatch } from 'react-redux';
+import { createAdoption } from '../../services/mainAPI/adoption';
+import { api } from '../../services/mainAPI/config';
 
 const validationSchema = Yup.object({
 	assinatura: Yup.string().min(6, 'Assinatura registrada').required('*'),
@@ -14,6 +16,7 @@ const validationSchema = Yup.object({
 
 export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 	const formObject = JSON.parse(localStorage.getItem('form'));
+	const data = JSON.parse(localStorage.getItem('data'));
 	const { register } = useForm();
 	const dispatch = useDispatch();
 
@@ -24,25 +27,31 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 
 		validationSchema,
 
-		onSubmit: values => {
+		onSubmit: async values => {
 			setFormValues({
 				...formValues,
 				...values,
 			});
+
+			api.defaults.headers.common[
+				'Authorization'
+			] = `Bearer ${data.payload.accessToken}`;
 
 			setStep(5);
 			dispatch(countStep({ step: 5 }));
 
 			const currentForm = Object.assign(formObject, { ...values });
 			localStorage.setItem('form', JSON.stringify(currentForm));
+
+			await createAdoption(values);
 		},
 	});
 
 	return (
 		<Form onSubmit={formik.handleSubmit}>
 			<Styled.ContainerForm>
-				<div>
-					<small>
+				<Styled.SDiv>
+					<span>
 						Ao adotar o animal descrito declaro-me apto para assumir a guarda e
 						a responsabilidade sobre este animal, eximindo o doador de toda e
 						qualquer responsabilidade por quaisquer atos praticados pelo animal
@@ -52,6 +61,7 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 						humanos, estando apto a guardá-lo e vigiá-lo, comprometendo-me a
 						proporcionar boas condições de alojamento e alimentação, assim como,
 						espaço físico que possibilite o animal se exercitar.
+						<br />
 						Responsabilizo-me por preservar a saúde e integridade do animal e a
 						submetê-lo aos cuidados médico veterinários sempre que necessário
 						para este fim. Comprometo-me a não transmitir a posse deste animal a
@@ -60,19 +70,24 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 						averiguação de suas condições. Tenho conhecimento de que caso seja
 						constatado por parte do doador situação inadequada para o bem estar
 						do animal, perderei a sua guarda, sem prejuízo das penalidades
-						legais. Comprometo-me ainda em ESTERILIZAR (castrar) o animal
-						adotado , se o doador já não o tiver feito, contribuindo assim para
-						o controle da população de animais domésticos. Comprometo-me a
-						cumprir toda a legislação vigente, municipal, estadual e federal,
-						relativa à posse de animais. Declaro-me assim, ciente das normas
-						acima, as quais aceito, assinando o presente Termo de
-						Responsabilidade, assumindo plenamente os deveres que dele constam,
-						bem como outros relacionados à posse responsável e que não estejam
-						incluídos neste Termo. Abandonar ou maltratar animais é crime. Pena:
-						3 meses a 1 ano de detenção e multa (Lei Federal 9605/98).
-					</small>
+						legais.
+						<br />
+						Comprometo-me ainda em <strong>ESTERILIZAR (castrar)</strong> o
+						animal adotado , se o doador já não o tiver feito, contribuindo
+						assim para o controle da população de animais domésticos.
+						Comprometo-me a cumprir toda a legislação vigente, municipal,
+						estadual e federal, relativa à posse de animais. Declaro-me assim,
+						ciente das normas acima, as quais aceito, assinando o presente Termo
+						de Responsabilidade, assumindo plenamente os deveres que dele
+						constam, bem como outros relacionados à posse responsável e que não
+						estejam incluídos neste Termo. Abandonar ou maltratar animais é
+						crime. Pena: 3 meses a 1 ano de detenção e multa{' '}
+						<strong>(Lei Federal 9605/98)</strong>.
+					</span>
 					<Styled.InputContainer>
-						<Styled.Label htmlFor="assinatura">Assinatura</Styled.Label>
+						<Styled.Label htmlFor="assinatura">
+							Assinatura do Adotante
+						</Styled.Label>
 						{formik.errors.assinatura && (
 							<small>{formik.errors.assinatura}</small>
 						)}
@@ -101,7 +116,7 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 							onChange={formik.handleChange}
 						/>
 					</Styled.CheckboxContainer>
-				</div>
+				</Styled.SDiv>
 			</Styled.ContainerForm>
 
 			<Styled.ButtonContainer className="my-5">
@@ -116,7 +131,7 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 					Voltar
 				</Styled.SButton>
 				<Styled.SButton variant="primary" type="submit">
-					Concluir
+					Enviar formulário
 				</Styled.SButton>
 			</Styled.ButtonContainer>
 		</Form>

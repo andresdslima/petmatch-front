@@ -46,6 +46,7 @@ export const InputContainer = styled(Form.Group)`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 1rem;
 
 	small {
 		color: #f00;
@@ -354,5 +355,16 @@ export const Checkbox = styled(Form.Check)`
 
 	& label {
 		font-size: (0.73vw, 10px);
+	}
+`;
+
+export const SDiv = styled.div`
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 1.5rem;
+	text-align: justify;
+
+	span {
+		font-size: 12px;
 	}
 `;
