@@ -170,9 +170,28 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="viralata">Viralata</S.SelectOption>
-								<S.SelectOption value="pitbull">Pitbull</S.SelectOption>
-								<S.SelectOption value="shitzu">Shit-zu</S.SelectOption>
+								<S.SelectOption value="Vira-lata">Viralata</S.SelectOption>
+								<S.SelectOption value="Pitbull">Pitbull</S.SelectOption>
+								<S.SelectOption value="Shitzu">Shit-zu</S.SelectOption>
+								<S.SelectOption value="Pug">Pug</S.SelectOption>
+								<S.SelectOption value="Maltês">Maltês</S.SelectOption>
+								<S.SelectOption value="Buldogue">Buldogue</S.SelectOption>
+								<S.SelectOption value="Spitz Alemão">Spitz Alemão</S.SelectOption>
+								<S.SelectOption value="Dachshund">Dachshund</S.SelectOption>
+								<S.SelectOption value="Pastor-Alemão">Pastor-Alemão</S.SelectOption>
+								<S.SelectOption value="Basset">Basset</S.SelectOption>
+								<S.SelectOption value="Schnauzer">Schnauzer</S.SelectOption>
+								<S.SelectOption value="Poodle">Poodle</S.SelectOption>
+								<S.SelectOption value="Persa">Persa</S.SelectOption>
+								<S.SelectOption value="Himalaia">Himalaia</S.SelectOption>
+								<S.SelectOption value="Siamês">Siamês</S.SelectOption>
+								<S.SelectOption value="Maine Coon">Maine Coon</S.SelectOption>
+								<S.SelectOption value="Angorá">Angorá</S.SelectOption>
+								<S.SelectOption value="Sphynx">Sphynx</S.SelectOption>
+								<S.SelectOption value="Ragdoll">Ragdoll</S.SelectOption>
+								<S.SelectOption value="Ashera">Ashera</S.SelectOption>
+								<S.SelectOption value="American Shorthair">American Shorthair</S.SelectOption>
+
 							</S.FormItemSelect>
 						</Form.Group>
 						<S.AllCheckboxesContainer>
