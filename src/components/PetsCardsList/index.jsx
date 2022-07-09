@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
+import * as S from './styled'
+
 
 export const calculateMatch = (objectForm, objectApi) => {
 	const objectFormLength = Object.keys(objectForm).length;
@@ -53,43 +55,43 @@ const CardMatches = () => {
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
-		<div className="container mb-5">
+		<S.Container className="container mb-5">
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
-							<Card className="cardContainer">
-								<Card.Img
+							<S.CardContainer>
+								<S.CardImage
 									variant="top"
 									src={pet.petImage}
-									className="cardImg"
+
 								/>
 								<Card.Body>
-									<Card.Title className="cardTitle">{pet.nome}</Card.Title>
-									<Card.Text className="cardText">
+									<S.CardTitle>{pet.nome}</S.CardTitle>
+									<S.CardText>
 										Multiverso dos pugs - PR
-									</Card.Text>
+									</S.CardText>
 								</Card.Body>
-								<div className="matchIconContainer">
-									<img
+								<S.MatchIconContainer>
+									<S.MatchIcon
 										src={ScreenShot}
 										alt="Icone de Match"
-										className="matchIcon"
+
 									/>
-									<span className="matchPercent">
+									<S.MatchPercent>
 										{calculateMatch(petList.petsFilter, pet)}%
-									</span>
-								</div>
-							</Card>
+									</S.MatchPercent>
+								</S.MatchIconContainer>
+							</S.CardContainer>
 						</Link>
 					</Col>
 				))}
 			</Row>
-		</div>
+		</S.Container>
 	);
 };
 

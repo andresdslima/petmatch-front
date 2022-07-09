@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addNewPet } from '../../store/modules/pets';
 import { postPets } from '../../services/mainAPI/pets';
 import { api } from '../../services/mainAPI/config';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
 // const validationSchema = Yup.object({
 // 	nome: Yup.string().min(6, 'Nome completo').required('*'),
@@ -21,7 +21,7 @@ import * as Yup from 'yup';
 
 const GiveForAdoptionForm = () => {
 	const data = JSON.parse(localStorage.getItem('data'));
-	const id = data.payload.id;
+	// const id = data.payload.id;
 	const accessToken = data.payload.accessToken;
 	const dispatch = useDispatch();
 	console.log(data);
@@ -47,35 +47,36 @@ const GiveForAdoptionForm = () => {
 		// validationSchema,
 
 		onSubmit: async values => {
-			// api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			const myHeaders = new Headers();
-			myHeaders.append('Content-Type', 'application/json');
-			myHeaders.append('Authorization', `Bearer ${accessToken}`);
-			const formData = new FormData();
+			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			// const myHeaders = new Headers();
+			// myHeaders.append('Authorization', `Bearer ${accessToken}`);
 
-			formData.append('especie', values.especie);
-			formData.append('nome', values.nome);
-			formData.append('idade', values.idade);
-			formData.append('sexo', values.sexo);
-			formData.append('peso', values.peso);
-			formData.append('tamanho', values.tamanho);
-			formData.append('porte', values.porte);
-			formData.append('cor', values.cor);
-			formData.append('raca', values.raca);
-			formData.append('castrado', values.castrado);
-			formData.append('vacinado', values.vacinado);
-			formData.append('chip', values.chip);
-			formData.append('sobre', values.sobre);
-			formData.append('petImage', values.petImage, 'petImage.png');
+			// const formData = new FormData();
+			// formData.append('especie', values.especie);
+			// formData.append('nome', values.nome);
+			// formData.append('idade', values.idade);
+			// formData.append('sexo', values.sexo);
+			// formData.append('peso', values.peso);
+			// formData.append('tamanho', values.tamanho);
+			// formData.append('porte', values.porte);
+			// formData.append('cor', values.cor);
+			// formData.append('raca', values.raca);
+			// formData.append('castrado', values.castrado);
+			// formData.append('vacinado', values.vacinado);
+			// formData.append('chip', values.chip);
+			// formData.append('sobre', values.sobre);
+			// formData.append('petImage', values.petImage, 'petImage.png');
 
-			const requestOptions = {
-				method: 'POST',
-				headers: myHeaders,
-				body: formData,
-				redirect: 'follow',
-			};
+			// const requestOptions = {
+			// 	method: 'POST',
+			// 	headers: myHeaders,
+			// 	body: formData,
+			// 	redirect: 'follow',
+			// };
 
-			const data = await postPets(requestOptions);
+			const data = await postPets({
+				...values,
+			});
 
 			alert('Pet cadastrado com sucesso!');
 			dispatch(addNewPet({ pets: data }));
