@@ -32,7 +32,8 @@ const MatchMainContent = () => {
 	}, []);
 
 	return (
-		<div className="container mb-5">
+		<div className="container">
+			<h3>Confira essas fofuras</h3>
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{fivePetsRandomList2.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.id}>

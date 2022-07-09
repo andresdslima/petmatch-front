@@ -8,17 +8,13 @@ export const StyledBackground = styled(Container)`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin: 5vw auto;
 `;
 
 export const ContainerCategory = styled.div`
 	height: 100%;
 	width: 100%;
-	margin: 7vw 0;
 	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 
 	@media (max-width: 1024px) {
 		width: 75vw;
@@ -34,6 +30,7 @@ export const TitleCategory = styled.h3`
 	font-size: 1.3rem;
 	font-weight: 600;
 	line-height: 1.5rem;
+	text-align: start;
 `;
 
 export const ContainerCardsCategory = styled.nav`

@@ -1,4 +1,9 @@
+import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
+
+export const ContainerStepByStep = styled(Container)`
+margin-bottom: 5vw;
+`
 
 export const IntroductionText = styled.span`
   color: #141518;

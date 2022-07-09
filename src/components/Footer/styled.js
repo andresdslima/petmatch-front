@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const FooterBackground = styled(Navbar)`
 	background-color: #7355d3;
+	margin-top: 5vw;
 `;
 
 export const FooterContainer = styled(Container)`
