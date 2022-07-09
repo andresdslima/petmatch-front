@@ -5,9 +5,10 @@ import PetsCardsList from '../../components/PetsCardsList';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPetFilter } from '../../store/modules/pets';
-import { useLocation } from 'react-router-dom';
+
 
 const MatchesForm = () => {
+
 	const [toggle, setToggle] = useState(false);
 
 	const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const MatchesForm = () => {
 								value={formik.values.especie}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="" disabled></S.SelectOption>
 								<S.SelectOption value="Cachorro">Cães</S.SelectOption>
 								<S.SelectOption value="Gato">Gatos</S.SelectOption>
 								<S.SelectOption value="Ave">Aves</S.SelectOption>
@@ -196,6 +197,7 @@ const MatchesForm = () => {
 							variant="primary"
 							type="submit"
 							onClick={() => setToggle(true)}
+							disabled={!formik.values.especie && true}
 						>
 							Buscar
 						</S.SearchButton>
