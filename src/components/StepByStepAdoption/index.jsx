@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import Woman1 from '../../assets/images/Woman1.svg'
 import Woman2 from '../../assets/images/Woman2.svg'
 import Woman3 from '../../assets/images/Woman3.svg'

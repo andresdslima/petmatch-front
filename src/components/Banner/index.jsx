@@ -16,17 +16,20 @@ import AdoptionStep1 from '../AdoptionStep1';
 import AdoptionStep2 from '../AdoptionStep2';
 import AdoptionStep3 from '../AdoptionStep3';
 import AdoptionStep4 from '../AdoptionStep4';
+import AdoptionStep5 from '../AdoptionStep5';
 import dogBlog from '../../assets/banner/dogBlog.png';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import AdoptionStep5 from '../AdoptionStep5';
 
 const Banner = () => {
 	const location = useLocation();
 	const step = useSelector(state => state.adoptionSlice.step);
+	const petId = location?.search.split('?')[1];
+
 	let imgBanner;
 	let textBanner;
 	let altBanner;
+
 	if (location?.pathname === '/matches') {
 		imgBanner = catMatch;
 		textBanner = (
@@ -38,6 +41,7 @@ const Banner = () => {
 		);
 		altBanner = 'carinho gato';
 	}
+
 	if (location?.pathname === '/formularioaprovadofinalcontato') {
 		imgBanner = dogsFormContact;
 		textBanner = (
@@ -48,6 +52,7 @@ const Banner = () => {
 		);
 		altBanner = 'dois cachorros pequenos';
 	}
+
 	if (location?.pathname === '/formularioaprovadofinal') {
 		imgBanner = dogFormFinish;
 		textBanner = (
@@ -58,6 +63,7 @@ const Banner = () => {
 		);
 		altBanner = 'dois garotos e um cachorro';
 	}
+
 	if (location?.pathname === '/ongs') {
 		imgBanner = dogsONG;
 		textBanner = (
@@ -67,6 +73,7 @@ const Banner = () => {
 		);
 		altBanner = 'filhotes de cachorro';
 	}
+
 	if (location?.pathname === '/sobre') {
 		imgBanner = dogAbout;
 		textBanner = (
@@ -78,6 +85,7 @@ const Banner = () => {
 		);
 		altBanner = 'olhos de um cachorro';
 	}
+
 	if (location?.pathname === '/underconstruction') {
 		imgBanner = dogModel;
 		textBanner = (
@@ -88,7 +96,8 @@ const Banner = () => {
 		);
 		altBanner = 'cachorro trabalhando';
 	}
-	if (location?.pathname === '/adoption' && step === 1 && <AdoptionStep1 />) {
+
+	if (location?.search === `?${petId}` && step === 1 && <AdoptionStep1 />) {
 		imgBanner = catStep1;
 		textBanner = (
 			<S.TextBanner>
@@ -98,7 +107,8 @@ const Banner = () => {
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 2 && <AdoptionStep2 />) {
+
+	if (location?.search === `?${petId}` && step === 2 && <AdoptionStep2 />) {
 		imgBanner = dogStep2;
 		textBanner = (
 			<S.TextBanner>
@@ -108,7 +118,8 @@ const Banner = () => {
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 3 && <AdoptionStep3 />) {
+
+	if (location?.search === `?${petId}` && step === 3 && <AdoptionStep3 />) {
 		imgBanner = mouseStep3;
 		textBanner = (
 			<S.TextBanner>
@@ -118,7 +129,8 @@ const Banner = () => {
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 4 && <AdoptionStep4 />) {
+
+	if (location?.search === `?${petId}` && step === 4 && <AdoptionStep4 />) {
 		imgBanner = catStep4;
 		textBanner = (
 			<S.TextBanner>
@@ -128,7 +140,8 @@ const Banner = () => {
 		);
 		altBanner = 'gato brincando com a mão';
 	}
-	if (location?.pathname === '/adoption' && step === 5 && <AdoptionStep5 />) {
+
+	if (location?.search === `?${petId}` && step === 5 && <AdoptionStep5 />) {
 		imgBanner = dogSent;
 		textBanner = (
 			<S.TextBanner>
@@ -139,6 +152,7 @@ const Banner = () => {
 		);
 		altBanner = 'cachorro sendo abraçado';
 	}
+
 	if (location?.pathname === '/blog') {
 		imgBanner = dogBlog;
 		textBanner = (
@@ -152,16 +166,16 @@ const Banner = () => {
 
 	return (
 		<Container>
-		<S.ContainerBanner>
-			<Carousel.Item>
-				<S.ImageBanner
-					className="d-block w-100"
-					src={imgBanner}
-					alt={altBanner}
-				/>
-				<Carousel.Caption>{textBanner}</Carousel.Caption>
-			</Carousel.Item>
-		</S.ContainerBanner>
+			<S.ContainerBanner>
+				<Carousel.Item>
+					<S.ImageBanner
+						className="d-block w-100"
+						src={imgBanner}
+						alt={altBanner}
+					/>
+					<Carousel.Caption>{textBanner}</Carousel.Caption>
+				</Carousel.Item>
+			</S.ContainerBanner>
 		</Container>
 	);
 };

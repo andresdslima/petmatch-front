@@ -1,21 +1,20 @@
 import React from 'react';
 // import catProfile from '../../assets/images/catProfile.png';
-import iconCheck from '../../assets/iconCheck.svg'
-import * as S from './styled'
+import iconCheck from '../../assets/iconCheck.svg';
+import * as S from './styled';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPet } from '../../services/mainAPI/pets';
 
-
 const PetPageProfile = () => {
-
 	const pet = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
+	const petId = parseInt(window.location.search.split('?')[1]);
 
 	useEffect(() => {
-		getPet(parseInt(window.location.search.split('?')[1])).then(pets => dispatch(setPetList(pets)));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		getPet(petId).then(pets => dispatch(setPetList(pets)));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -44,10 +43,8 @@ const PetPageProfile = () => {
 				</S.NamePet>
 			</S.ContainerCard>
 			<S.ContainerDescription>
-				<S.TextDescription>
-					{pet.sobre}
-				</S.TextDescription>
-				<S.ButtonDescription to={'/adoption'}>
+				<S.TextDescription>{pet.sobre}</S.TextDescription>
+				<S.ButtonDescription to={`/adoption/?${petId}`}>
 					Confirmar interesse!
 				</S.ButtonDescription>
 			</S.ContainerDescription>
