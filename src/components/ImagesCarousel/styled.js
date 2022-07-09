@@ -74,6 +74,10 @@ export const Text = styled.h3`
 	}
 `;
 
+export const ContainerDisplayButton = styled.div`
+	display: ${(props) => props.display};
+`;
+
 export const ContainerButton = styled.nav`
 	display: flex;
 	justify-content: space-around;
