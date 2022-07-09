@@ -5,10 +5,10 @@ import PetsCardsList from '../../components/PetsCardsList';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPetFilter } from '../../store/modules/pets';
+import { useLocation } from 'react-router-dom';
 
 const MatchesForm = () => {
 	const [toggle, setToggle] = useState(false);
-	// const usersPref = useSelector(state => state.petsSlice.petsFilter);
 
 	const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const MatchesForm = () => {
 			vacinado: '',
 		},
 		onSubmit: values => {
-			dispatch(setPetFilter(values));
+			dispatch(setPetFilter(values));	
 		},
 	});
 
@@ -202,7 +202,7 @@ const MatchesForm = () => {
 					</S.ButtonContainer>
 				</Form>
 			</Container>
-			{toggle && <PetsCardsList />}
+			{toggle && <PetsCardsList specie={formik.values.especie}/>}
 		</>
 	);
 };
