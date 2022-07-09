@@ -64,7 +64,7 @@ const PetPageProfile = () => {
 					</S.ItemListCheck>
 					<S.ItemListCheck>
 						<S.IconCheck src={iconCheck} alt="Icone de check" />
-						<S.TextCheck>1 ano(s)</S.TextCheck>
+						<S.TextCheck>{pet.idade} ano(s)</S.TextCheck>
 					</S.ItemListCheck>
 				</S.ContentListCheck>
 			</S.ListCheck>
