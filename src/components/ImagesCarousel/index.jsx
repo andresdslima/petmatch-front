@@ -50,10 +50,10 @@ const ImagesCarousel = () => {
 				}
 			>
 				<S.ContainerButton>
-					<S.ButtonLink color={'#8D73E4'} exact to="/">
+					<S.ButtonLink color={'#8D73E4'} exact to="/matches">
 						Quero Adotar
 					</S.ButtonLink>
-					<S.ButtonLink color={'#F76F34'} exact to="/">
+					<S.ButtonLink color={'#F76F34'} to="/giveforadoption">
 						Quero Doar
 					</S.ButtonLink>
 				</S.ContainerButton>
