@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { BsGenderMale } from 'react-icons/bs';
+import { BsGenderMale, BsGenderFemale } from 'react-icons/bs';
 
 
 export const ContainerProfile = styled.div`
@@ -145,6 +145,19 @@ export const IconSex = styled(BsGenderMale)`
         left: 85%;
     }
 `;
+
+export const FemaleGenderIcon = styled(BsGenderFemale)`
+font-size: 1.5vw;
+    position: absolute;
+    left: 84%;
+    color: #404145;
+    font-weight: 600;
+
+    @media (max-width: 500px) {
+        font-size: 2.3vw;
+        left: 85%;
+    }
+`
 
 export const ContainerDescription = styled.div`
     display: flex;

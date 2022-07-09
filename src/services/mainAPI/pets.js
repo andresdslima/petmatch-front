@@ -33,6 +33,8 @@ export const getPetsBySpecie = async especie => {
 export const postPets = async newPet => {
 	try {
 		const response = await api.post('/pets', newPet);
+		console.log(response);
+		alert('Pet criado com sucesso!');
 		return response.data;
 	} catch (error) {
 		throw new Error(`Error: ${error.response.data}`);

@@ -9,12 +9,9 @@ import AdoptionStep5 from '../AdoptionStep5';
 import MatchsMainContent from '../../components/MatchsMainContent';
 
 const AdoptionForm = () => {
-	// const dispatch = useDispatch();
-	// useFormikContext()
-	// useContext()
-	// formik.handleReset();
 	const [step, setStep] = useState(1);
 	const [formValues, setFormValues] = useState({});
+
 
 	return (
 		<>
@@ -83,7 +80,8 @@ const AdoptionForm = () => {
 				)}
 			</Container>
 
-			{step === 5 && <MatchsMainContent />}
+			{/* Retornar todos os pets para o petSlice.pets */}
+			{/* {step === 5 && <MatchsMainContent />} */}
 		</>
 	);
 };

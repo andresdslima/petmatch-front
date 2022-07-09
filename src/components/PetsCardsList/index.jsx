@@ -5,8 +5,8 @@ import ScreenShot from '../../assets/images/matchIcon.png';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
-import { getPets } from '../../services/mainAPI/pets';
-import { Link } from 'react-router-dom';
+import { getPets, getPetsBySpecie } from '../../services/mainAPI/pets';
+import { Link} from 'react-router-dom';
 import * as S from './styled'
 
 
@@ -41,7 +41,7 @@ export const calculateMatch = (objectForm, objectApi) => {
 	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
 };
 
-const CardMatches = () => {
+const CardMatches = ({specie}) => {
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
 
@@ -54,9 +54,8 @@ const CardMatches = () => {
 	);
 
 	useEffect(() => {
-		getPets().then(pets => dispatch(setPetList(pets)));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
+	}, [specie]);
 
 	return (
 		<S.Container className="container mb-5">

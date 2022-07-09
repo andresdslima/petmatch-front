@@ -6,9 +6,10 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPetFilter } from '../../store/modules/pets';
 
+
 const MatchesForm = () => {
+
 	const [toggle, setToggle] = useState(false);
-	// const usersPref = useSelector(state => state.petsSlice.petsFilter);
 
 	const dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ const MatchesForm = () => {
 			vacinado: '',
 		},
 		onSubmit: values => {
-			dispatch(setPetFilter(values));
+			dispatch(setPetFilter(values));	
 		},
 	});
 
@@ -46,7 +47,7 @@ const MatchesForm = () => {
 								value={formik.values.especie}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="" disabled></S.SelectOption>
 								<S.SelectOption value="Cachorro">Cães</S.SelectOption>
 								<S.SelectOption value="Gato">Gatos</S.SelectOption>
 								<S.SelectOption value="Ave">Aves</S.SelectOption>
@@ -196,13 +197,14 @@ const MatchesForm = () => {
 							variant="primary"
 							type="submit"
 							onClick={() => setToggle(true)}
+							disabled={!formik.values.especie && true}
 						>
 							Buscar
 						</S.SearchButton>
 					</S.ButtonContainer>
 				</Form>
 			</Container>
-			{toggle && <PetsCardsList />}
+			{toggle && <PetsCardsList specie={formik.values.especie}/>}
 		</>
 	);
 };

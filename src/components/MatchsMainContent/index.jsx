@@ -8,6 +8,7 @@ import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
 
 const MatchMainContent = () => {
+
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
 
