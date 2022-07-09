@@ -13,7 +13,7 @@ import * as S from './styled';
 const CardCategory = () => {
 	const settings = {
 		dots: false,
-		infinite: false,
+		infinite: true,
 		centerMode: false,
 		speed: 500,
 		slidesToScroll: 3,
@@ -45,7 +45,9 @@ const CardCategory = () => {
 					<Slider {...settings}>
 						<S.LinkContainer to="/">
 							<S.CardCategory>
-								<Card.Img variant="top" src={dogSmile} />
+								<S.ContainerImgCategory>
+									<S.ImgCategory src={dogSmile} />
+								</S.ContainerImgCategory>
 								<Card.Body>
 									<Card.Title>Cães</Card.Title>
 								</Card.Body>
@@ -53,7 +55,9 @@ const CardCategory = () => {
 						</S.LinkContainer>
 						<S.LinkContainer to="/">
 							<S.CardCategory>
-								<Card.Img variant="top" src={catSerious} />
+								<S.ContainerImgCategory>
+									<S.ImgCategory src={catSerious} />
+								</S.ContainerImgCategory>
 								<Card.Body>
 									<Card.Title>Gatos</Card.Title>
 								</Card.Body>
@@ -61,7 +65,9 @@ const CardCategory = () => {
 						</S.LinkContainer>
 						<S.LinkContainer to="/">
 							<S.CardCategory>
-								<Card.Img variant="top" src={birdModel} />
+								<S.ContainerImgCategory>
+									<S.ImgCategory src={birdModel} />
+								</S.ContainerImgCategory>
 								<Card.Body>
 									<Card.Title>Aves</Card.Title>
 								</Card.Body>
@@ -69,7 +75,9 @@ const CardCategory = () => {
 						</S.LinkContainer>
 						<S.LinkContainer to="/">
 							<S.CardCategory>
-								<Card.Img variant="top" src={reptiles} />
+								<S.ContainerImgCategory>
+									<S.ImgCategory src={reptiles} />
+								</S.ContainerImgCategory>
 								<Card.Body>
 									<Card.Title>Répteis</Card.Title>
 								</Card.Body>
@@ -77,7 +85,9 @@ const CardCategory = () => {
 						</S.LinkContainer>
 						<S.LinkContainer to="/">
 							<S.CardCategory>
-								<Card.Img variant="top" src={Fish} />
+								<S.ContainerImgCategory>
+									<S.ImgCategory src={Fish} />
+								</S.ContainerImgCategory>
 								<Card.Body>
 									<Card.Title>Peixes</Card.Title>
 								</Card.Body>
