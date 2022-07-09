@@ -52,6 +52,15 @@
       "userStatus": 1,
       "permission": 0,
       "id": 7
+    },
+    {
+      "email": "teste2@email.com",
+      "password": "$2a$10$jVDwmYpAWlk5U/XQOAUza.EhC8Y07F.3BM4Lpk9Cn9f0rZY0vR.6m",
+      "firstName": "teste2",
+      "lastName": "teste2",
+      "userStatus": 1,
+      "permission": 0,
+      "id": 8
     }
   ],
   "pets": [
