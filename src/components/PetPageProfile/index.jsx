@@ -39,7 +39,7 @@ const PetPageProfile = () => {
 				</S.CardBody>
 				<S.NamePet>
 					<S.NamePetText>{pet.nome}</S.NamePetText>
-					<S.IconSex />
+					{pet.sexo == "Fêmea" ? (<S.FemaleGenderIcon />) : (<S.IconSex />)}
 				</S.NamePet>
 			</S.ContainerCard>
 			<S.ContainerDescription>
@@ -50,14 +50,19 @@ const PetPageProfile = () => {
 			</S.ContainerDescription>
 			<S.ListCheck>
 				<S.ContentListCheck>
-					<S.ItemListCheck>
+					{pet.vacinado && (
+						<S.ItemListCheck>
 						<S.IconCheck src={iconCheck} alt="Icone de check" />
 						<S.TextCheck>Vacinado</S.TextCheck>
-					</S.ItemListCheck>
-					<S.ItemListCheck>
+					</S.ItemListCheck>)
+					}
+					{pet.castrado && (
+						<S.ItemListCheck>
 						<S.IconCheck src={iconCheck} alt="Icone de check" />
 						<S.TextCheck>Castrado</S.TextCheck>
 					</S.ItemListCheck>
+					)
+					}
 					<S.ItemListCheck>
 						<S.IconCheck src={iconCheck} alt="Icone de check" />
 						<S.TextCheck>{pet.porte}</S.TextCheck>
