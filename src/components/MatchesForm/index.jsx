@@ -5,11 +5,17 @@ import PetsCardsList from '../../components/PetsCardsList';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPetFilter } from '../../store/modules/pets';
+import { getPetsBySpecie } from '../../services/mainAPI/pets';
 
 
 const MatchesForm = () => {
 
 	const [toggle, setToggle] = useState(false);
+	const [click, setClick] = useState(false);
+	const handleClick = (especie) => {
+		setToggle(true);
+		setClick(!click);
+	}
 
 	const dispatch = useDispatch();
 
@@ -196,7 +202,7 @@ const MatchesForm = () => {
 						<S.SearchButton
 							variant="primary"
 							type="submit"
-							onClick={() => setToggle(true)}
+							onClick={handleClick}
 							disabled={!formik.values.especie && true}
 						>
 							Buscar
@@ -204,7 +210,7 @@ const MatchesForm = () => {
 					</S.ButtonContainer>
 				</Form>
 			</Container>
-			{toggle && <PetsCardsList specie={formik.values.especie}/>}
+			{toggle && <PetsCardsList specie={formik.values.especie} click={click}/>}
 		</>
 	);
 };

@@ -41,7 +41,7 @@ export const calculateMatch = (objectForm, objectApi) => {
 	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
 };
 
-const CardMatches = ({specie}) => {
+const CardMatches = ({specie, click}) => {
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
 
@@ -55,7 +55,8 @@ const CardMatches = ({specie}) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
-	}, [specie]);
+		
+	}, [!click]);
 
 	return (
 		<S.Container className="container mb-5">
