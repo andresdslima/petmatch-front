@@ -8,6 +8,12 @@
     width: 11.8em;
     border-radius: 16px !important;
     box-shadow: 0px 4px 4px rgba(159, 159, 159, 0.33) !important;
+
+}
+
+.cardContainer:hover {
+    width: 14em;
+    border: 5px solid #FC895E;
 }
 
 .matchIconContainer {
