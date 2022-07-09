@@ -8,6 +8,7 @@ import { Form } from 'react-bootstrap';
 import { countStep } from '../../store/modules/adoption';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPet } from '../../services/mainAPI/pets';
+import iconCheck from '../../assets/iconCheck.svg';
 
 const validationSchema = Yup.object({
 	enderecoAnimal: Yup.string().min(6, 'Endereço completo').required('*'),
@@ -78,20 +79,20 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 				<S.ListCheck>
 					<S.ContentListCheck>
 						<S.ItemListCheck>
-							<S.IconCheck src={S.IconCheck} alt="Icone de check" />
+							<S.IconCheck src={iconCheck} alt="Icone de check" />
 							<S.TextCheck>Vacinado</S.TextCheck>
 						</S.ItemListCheck>
 						<S.ItemListCheck>
-							<S.IconCheck src={S.IconCheck} alt="Icone de check" />
+							<S.IconCheck src={iconCheck} alt="Icone de check" />
 							<S.TextCheck>Castrado</S.TextCheck>
 						</S.ItemListCheck>
 						<S.ItemListCheck>
-							<S.IconCheck src={S.IconCheck} alt="Icone de check" />
+							<S.IconCheck src={iconCheck} alt="Icone de check" />
 							<S.TextCheck>{pet.porte}</S.TextCheck>
 						</S.ItemListCheck>
 						<S.ItemListCheck>
-							<S.IconCheck src={S.IconCheck} alt="Icone de check" />
-							<S.TextCheck>1 ano(s)</S.TextCheck>
+							<S.IconCheck src={iconCheck} alt="Icone de check" />
+							<S.TextCheck>{pet.idade} ano(s)</S.TextCheck>
 						</S.ItemListCheck>
 					</S.ContentListCheck>
 				</S.ListCheck>
