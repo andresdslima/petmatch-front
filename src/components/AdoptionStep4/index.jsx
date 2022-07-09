@@ -3,7 +3,6 @@ import * as Styled from '../AdoptionForm/styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import { countStep } from '../../store/modules/adoption';
 import { useDispatch } from 'react-redux';
 import { createAdoption } from '../../services/mainAPI/adoption';
@@ -15,9 +14,7 @@ const validationSchema = Yup.object({
 });
 
 export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
-	const formObject = JSON.parse(localStorage.getItem('form'));
 	const data = JSON.parse(localStorage.getItem('data'));
-	const { register } = useForm();
 	const dispatch = useDispatch();
 
 	const formik = useFormik({
@@ -27,10 +24,9 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 
 		validationSchema,
 
-		onSubmit: async values => {
+		onSubmit: async () => {
 			setFormValues({
 				...formValues,
-				...values,
 			});
 
 			api.defaults.headers.common[
@@ -39,11 +35,9 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 
 			setStep(5);
 			dispatch(countStep({ step: 5 }));
+			localStorage.removeItem('form');
 
-			const currentForm = Object.assign(formObject, { ...values });
-			localStorage.setItem('form', JSON.stringify(currentForm));
-
-			await createAdoption(values);
+			await createAdoption(formValues);
 		},
 	});
 
@@ -70,11 +64,11 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 						averiguação de suas condições. Tenho conhecimento de que caso seja
 						constatado por parte do doador situação inadequada para o bem estar
 						do animal, perderei a sua guarda, sem prejuízo das penalidades
-						legais.
+						legais. Comprometo-me ainda em{' '}
+						<strong>ESTERILIZAR (castrar)</strong> o animal adotado, se o doador
+						já não o tiver feito, contribuindo assim para o controle da
+						população de animais domésticos.
 						<br />
-						Comprometo-me ainda em <strong>ESTERILIZAR (castrar)</strong> o
-						animal adotado , se o doador já não o tiver feito, contribuindo
-						assim para o controle da população de animais domésticos.
 						Comprometo-me a cumprir toda a legislação vigente, municipal,
 						estadual e federal, relativa à posse de animais. Declaro-me assim,
 						ciente das normas acima, as quais aceito, assinando o presente Termo
@@ -96,7 +90,6 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 							name="assinatura"
 							id="assinatura"
 							placeholder="Assinatura ou Nome completo"
-							{...register('assinatura')}
 							value={formik.values.assinatura}
 							onChange={formik.handleChange}
 						/>
@@ -111,7 +104,6 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 							id="declaracao"
 							label="Declaro que li, estou ciente e de acordo com os termos do presente contrato."
 							alt="Declaro que li, estou ciente e de acordo com os termos do presente contrato."
-							{...register('declaracao')}
 							value={formik.values.declaracao}
 							onChange={formik.handleChange}
 						/>

@@ -7,7 +7,7 @@ import { BsGenderMale } from 'react-icons/bs';
 export const ContainerProfile = styled.div`
     display: flex;
     justify-content: center;
-    margin: 20vw auto;
+    margin: 10vw auto;
     width: 84.37vw;
     height: 30.92vw;
     box-sizing: border-box;
@@ -26,6 +26,7 @@ export const ContainerCard = styled(Card)`
     border-radius: 1rem;
     box-shadow: 0px .25rem .25rem rgba(159, 159, 159, 0.33);
     box-sizing: border-box;
+    border-width: 0;
 
     @media (max-width: 500px) {
         margin-right: 15vw;

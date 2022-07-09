@@ -32,7 +32,6 @@ const AdoptionStep5 = ({ setStep, formValues, setFormValues }) => {
 					onClick={() => {
 						setStep(1);
 						dispatch(countStep({ step: 1 }));
-						localStorage.removeItem('form');
 						navigate('/');
 					}}
 				>

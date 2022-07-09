@@ -30,16 +30,16 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 		validationSchema,
 
 		onSubmit: values => {
+			const currentForm = Object.assign(formObject, { ...values });
+
 			setFormValues({
 				...formValues,
 				...values,
 			});
-			
+
 			setStep(3);
 			dispatch(countStep({ step: 3 }));
 
-
-			const currentForm = Object.assign(formObject, { ...values });
 			localStorage.setItem('form', JSON.stringify(currentForm));
 		},
 	});
@@ -135,7 +135,10 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 				<Styled.SButton
 					variant="primary"
 					type="button"
-					onClick={() => {setStep(1); dispatch(countStep({ step: 1 }))}}
+					onClick={() => {
+						setStep(1);
+						dispatch(countStep({ step: 1 }));
+					}}
 				>
 					Voltar
 				</Styled.SButton>
