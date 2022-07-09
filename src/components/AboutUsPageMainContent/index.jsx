@@ -12,121 +12,132 @@ import Image10 from '../../assets/images/thaisIcon.png';
 import Image11 from '../../assets/images/victorIcon.png';
 import Image12 from '../../assets/images/joaoIcon.png';
 
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import './styles.css';
+import * as S from './styled'
 
 const AboutUsPageMainContent = () => {
 	return (
-		<Row xs={1} sm={2} md={3} lg={4} id="grid" className="container">
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/fredericlsr"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image1} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/ramon-qs"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image2} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/andrelimadev"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image3} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/marcelo-tesla"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image4} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/guilhermef-melo"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image5} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/carreiroe"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image6} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/felipe-matheus-26b147163"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image7} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/gioschneider"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image8} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/viniciusantonello"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image9} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/thaispcavalcante"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image10} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/victor-landim-37b102169"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image11} />
-				</a>
-			</Col>
-			<Col>
-				<a
-					href="https://www.linkedin.com/in/oliveirajg"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<AboutUsCards imageName={Image12} />
-				</a>
-			</Col>
-		</Row>
+		<Container className='mt-5'>
+			<S.ContainerText>
+			<S.Text>
+				Nós somos a Pet Match, esse time aí junto com você, para transformar o
+				processo de adoção e doação muito mais responsável, prático, seguro e
+				assertivo! Venha transformar o mundo pet conosco, estamos de braços e
+				patas abertas para você!
+			</S.Text>
+			</S.ContainerText>
+			<Row xs={1} sm={2} md={3} lg={4} id="grid" className="container">
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/fredericlsr"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image1} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/ramon-qs"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image2} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/andrelimadev"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image3} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/marcelo-tesla"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image4} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/guilhermef-melo"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image5} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/carreiroe"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image6} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/felipe-matheus-26b147163"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image7} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/gioschneider"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image8} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/viniciusantonello"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image9} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/thaispcavalcante"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image10} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/victor-landim-37b102169"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image11} />
+					</a>
+				</Col>
+				<Col>
+					<a
+						href="https://www.linkedin.com/in/oliveirajg"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<AboutUsCards imageName={Image12} />
+					</a>
+				</Col>
+			</Row>
+		</Container>
 	);
 };
 
