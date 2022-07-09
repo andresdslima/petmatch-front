@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import * as Styled from '../AdoptionForm/styled';
 import * as S from '../PetPageProfile/styled';
+import * as St from './styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -9,6 +10,7 @@ import { countStep } from '../../store/modules/adoption';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPet } from '../../services/mainAPI/pets';
 import iconCheck from '../../assets/iconCheck.svg';
+import { setPetList } from '../../store/modules/pets';
 
 const validationSchema = Yup.object({
 	enderecoAnimal: Yup.string().min(6, 'Endereço completo').required('*'),
@@ -22,7 +24,7 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 	const petId = parseInt(window.location.search.split('?')[1]);
 
 	useEffect(() => {
-		getPet(petId);
+		getPet(petId).then(pets => dispatch(setPetList(pets)));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -49,7 +51,7 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 
 	return (
 		<>
-			<S.ContainerProfile>
+			<St.Container>
 				<S.ContainerCard>
 					<S.ContainerImgPet>
 						<S.ImgPet src={pet.petImage} alt="foto do pet" />
@@ -96,7 +98,7 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 						</S.ItemListCheck>
 					</S.ContentListCheck>
 				</S.ListCheck>
-			</S.ContainerProfile>
+			</St.Container>
 
 			<Form onSubmit={formik.handleSubmit}>
 				<Styled.ContainerForm>

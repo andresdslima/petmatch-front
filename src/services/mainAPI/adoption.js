@@ -11,7 +11,7 @@ export const createAdoption = async petId => {
 		return { data, status };
 	} catch (error) {
 		console.error(error);
-		alert('Erro ao cadastrar usuário');
+		alert('Erro ao cadastrar formulário de adoção');
 		return { status: error.response.status };
 	}
 };
