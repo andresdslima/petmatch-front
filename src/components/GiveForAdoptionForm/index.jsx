@@ -21,10 +21,13 @@ import { api } from '../../services/mainAPI/config';
 
 const GiveForAdoptionForm = () => {
 	const data = JSON.parse(localStorage.getItem('data'));
-	// const id = data.payload.id;
 	const accessToken = data.payload.accessToken;
 	const dispatch = useDispatch();
-	console.log(data);
+
+	function handleChange(event) {
+		const file = event.target.files[0];
+		formik.setFieldValue('petImage', file);
+	}
 
 	const formik = useFormik({
 		initialValues: {
@@ -40,7 +43,7 @@ const GiveForAdoptionForm = () => {
 			vacinado: false,
 			chip: '',
 			sobre: '',
-			petImage: '',
+			petImage: undefined,
 			nome: '',
 		},
 
@@ -48,35 +51,26 @@ const GiveForAdoptionForm = () => {
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			// const myHeaders = new Headers();
-			// myHeaders.append('Authorization', `Bearer ${accessToken}`);
+			console.log(values.petImage);
+			// C:\fakepath\Rectangle 886.png
 
-			// const formData = new FormData();
-			// formData.append('especie', values.especie);
-			// formData.append('nome', values.nome);
-			// formData.append('idade', values.idade);
-			// formData.append('sexo', values.sexo);
-			// formData.append('peso', values.peso);
-			// formData.append('tamanho', values.tamanho);
-			// formData.append('porte', values.porte);
-			// formData.append('cor', values.cor);
-			// formData.append('raca', values.raca);
-			// formData.append('castrado', values.castrado);
-			// formData.append('vacinado', values.vacinado);
-			// formData.append('chip', values.chip);
-			// formData.append('sobre', values.sobre);
-			// formData.append('petImage', values.petImage, 'petImage.png');
+			const formData = new FormData();
+			formData.append('especie', values.especie);
+			formData.append('nome', values.nome);
+			formData.append('idade', values.idade);
+			formData.append('sexo', values.sexo);
+			formData.append('peso', values.peso);
+			formData.append('tamanho', values.tamanho);
+			formData.append('porte', values.porte);
+			formData.append('cor', values.cor);
+			formData.append('raca', values.raca);
+			formData.append('castrado', values.castrado);
+			formData.append('vacinado', values.vacinado);
+			formData.append('chip', values.chip);
+			formData.append('sobre', values.sobre);
+			formData.append('petImage', values.petImage, 'petImage.png');
 
-			// const requestOptions = {
-			// 	method: 'POST',
-			// 	headers: myHeaders,
-			// 	body: formData,
-			// 	redirect: 'follow',
-			// };
-
-			const data = await postPets({
-				...values,
-			});
+			const data = await postPets(formData);
 
 			alert('Pet cadastrado com sucesso!');
 			dispatch(addNewPet({ pets: data }));
@@ -248,9 +242,12 @@ const GiveForAdoptionForm = () => {
 								id="petImage"
 								name="petImage"
 								type="file"
-								value={formik.values.petImage}
-								onChange={formik.handleChange}
+								accept="image/*"
+								value={undefined}
+								onChange={event => handleChange(event)}
+								required
 							/>
+							<small>Tamanho máximo 1Mb</small>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Sobre</S.Label>

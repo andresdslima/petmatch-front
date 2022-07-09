@@ -10,12 +10,13 @@ import { api } from '../../services/mainAPI/config';
 
 const validationSchema = Yup.object({
 	assinatura: Yup.string().min(6, 'Assinatura registrada').required('*'),
-	declaracao: Yup.boolean().required('*'),
+	declaracao: Yup.boolean(true).required('*'),
 });
 
 export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 	const data = JSON.parse(localStorage.getItem('data'));
 	const dispatch = useDispatch();
+	const petId = parseInt(window.location.search.split('?')[1]);
 
 	const formik = useFormik({
 		initialValues: {
@@ -37,7 +38,7 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 			dispatch(countStep({ step: 5 }));
 			localStorage.removeItem('form');
 
-			await createAdoption(formValues);
+			await createAdoption(petId);
 		},
 	});
 
