@@ -4,17 +4,16 @@ import iconCheck from '../../assets/iconCheck.svg';
 import * as S from './styled';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPetList } from '../../store/modules/pets';
+import { setPetItem } from '../../store/modules/pets';
 import { getPet } from '../../services/mainAPI/pets';
 
 const PetPageProfile = () => {
-	const pet = useSelector(state => state.petsSlice.pets);
+	const pet = useSelector(state => state.petsSlice.petItem);
 	const dispatch = useDispatch();
 	const petId = parseInt(window.location.search.split('?')[1]);
 
 	useEffect(() => {
-		getPet(petId).then(pets => dispatch(setPetList(pets)));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		getPet(petId).then(petItem => dispatch(setPetItem(petItem)));
 	}, []);
 
 	return (
@@ -39,7 +38,7 @@ const PetPageProfile = () => {
 				</S.CardBody>
 				<S.NamePet>
 					<S.NamePetText>{pet.nome}</S.NamePetText>
-					{pet.sexo == "Fêmea" ? (<S.FemaleGenderIcon />) : (<S.IconSex />)}
+					{pet.sexo == "Fêmea" ? (<S.FemaleGenderIcon />): (<S.IconSex/>)}	
 				</S.NamePet>
 			</S.ContainerCard>
 			<S.ContainerDescription>
