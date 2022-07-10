@@ -38,7 +38,6 @@ export default function LoginForm() {
 				return;
 			}
 
-			alert('Usuário logado!');
 			formik.handleReset();
 
 			localStorage.setItem(

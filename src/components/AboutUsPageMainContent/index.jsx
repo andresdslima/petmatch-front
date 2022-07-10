@@ -11,14 +11,12 @@ import Image9 from '../../assets/images/viniciusIcon.png';
 import Image10 from '../../assets/images/thaisIcon.png';
 import Image11 from '../../assets/images/victorIcon.png';
 import Image12 from '../../assets/images/joaoIcon.png';
-
 import { Col, Container } from 'react-bootstrap';
-
-import * as S from './styled'
+import * as S from './styled';
 
 const AboutUsPageMainContent = () => {
 	return (
-		<Container className='mt-5'>
+		<Container className="mt-5">
 			<S.ContainerText>
 				<S.Text>
 					Nós somos a Pet Match, esse time aí junto com você, para transformar o

@@ -36,6 +36,8 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 				'Authorization'
 			] = `Bearer ${data.payload.accessToken}`;
 
+			api.defaults.headers.common['Content-Type'] = `application/json`;
+
 			setStep(5);
 			dispatch(countStep({ step: 5 }));
 			localStorage.removeItem('form');

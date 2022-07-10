@@ -5,9 +5,10 @@ import * as S from './styled';
 
 const Footer = () => {
 	const location = useLocation();
-	// const backToTop = () => {
-	// 	window.scrollTo({ top: 0, behavior: 'smooth' });
-	// };
+
+	const backToTop = () => {
+		window.scrollTo(0, 0);
+	};
 
 	return (
 		<S.FooterBackground expand="lg" className="p-0">
@@ -23,9 +24,9 @@ const Footer = () => {
 						linguagem"
 					</S.Text>
 					<S.NavLinks>
-						<S.ButtonLink active={location.pathname} exact to="/">
+						<S.SButton onClick={backToTop}>
 							Voltar ao topo
-						</S.ButtonLink>
+						</S.SButton>
 						<S.ButtonLink active={location.pathname} exact to="/ongs">
 							ONG's
 						</S.ButtonLink>

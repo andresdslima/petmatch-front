@@ -3,9 +3,11 @@ import * as S from './styled.js';
 import * as Styled from '../AdoptionForm/styled';
 import { countStep } from '../../store/modules/adoption';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const AdoptionStep5 = ({ setStep, formValues, setFormValues }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -24,18 +26,17 @@ const AdoptionStep5 = ({ setStep, formValues, setFormValues }) => {
 			</S.CardContainer>
 
 			<Styled.ButtonContainer className="my-5">
-				<a href="/">
-					<Styled.SButton
-						variant="primary"
-						type='submit'
-						onClick={() => {
-							setStep(1);
-							dispatch(countStep({ step: 1 }));
-						}}
-					>
-						Página Inicial
-					</Styled.SButton>
-				</a>
+				<Styled.SButton
+					variant="primary"
+					type="submit"
+					onClick={() => {
+						setStep(1);
+						dispatch(countStep({ step: 1 }));
+						navigate('/');
+					}}
+				>
+					Página Inicial
+				</Styled.SButton>
 			</Styled.ButtonContainer>
 		</>
 	);

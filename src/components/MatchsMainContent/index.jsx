@@ -5,14 +5,14 @@ import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
 import * as S from './styled'
+import { getUserById } from '../../services/mainAPI/users';
 
 const MatchMainContent = () => {
 
-	const petList = useSelector(state => state.petsSlice);
+	const petList = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
 
-	const randomList = [...petList.pets];
-
+	const randomList = [...petList];
 	randomList.sort(() => Math.random() - 0.5);
 
 	const fivePetsRandomList2 = randomList.slice(0, 5);
@@ -25,6 +25,12 @@ const MatchMainContent = () => {
 
 	console.log(randomList);
 	console.log(fivePetsRandomList);
+	const getPetLocation = async petUserId => {
+		const user = await getUserById(petUserId);
+		const location = `${user.cidade} - ${user.uf}`;
+		console.log(location);
+		return location;
+	};
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
@@ -46,7 +52,7 @@ const MatchMainContent = () => {
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
 									<S.CardText className="cardText">
-										Multiverso dos pugs - PR
+									{`${getPetLocation(pet.userID)}`}
 									</S.CardText>
 								</S.CardBody>
 							</S.CardContainer>

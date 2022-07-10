@@ -5,9 +5,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPetsBySpecie } from '../../services/mainAPI/pets';
-import { Link} from 'react-router-dom';
-import * as S from './styled'
-
+import { Link } from 'react-router-dom';
+import * as S from './styled';
+import { getUserById } from '../../services/mainAPI/users';
 
 export const calculateMatch = (objectForm, objectApi) => {
 	const objectFormLength = Object.keys(objectForm).length;
@@ -40,11 +40,15 @@ export const calculateMatch = (objectForm, objectApi) => {
 	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
 };
 
-const PetsCardList = ({specie, click}) => {
+const PetsCardList = ({ specie, click }) => {
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
-
 	const orderedList = [...petList.pets];
+
+	const getPetLocation = async petUserId => {
+		const user = await getUserById(petUserId);
+		return `${user.cidade} - ${user.estado}`;
+	};
 
 	orderedList.sort(
 		(a, b) =>
@@ -54,7 +58,7 @@ const PetsCardList = ({specie, click}) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
-		
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [!click]);
 
 	return (
