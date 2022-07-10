@@ -1,8 +1,9 @@
-import { Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
+import { Link } from 'react-router-dom';
 import * as S from './styled';
 import { getUserById } from '../../services/mainAPI/users';
 
@@ -42,37 +43,42 @@ const MatchMainContent = () => {
 
 	const [teste, setTeste] = useState('');
 
+	// console.log(randomList);
+	// console.log(fivePetsRandomList);
+	// const getPetLocation = async petUserId => {
+	// 	const user = await getUserById(petUserId);
+	// 	const location = `${user.cidade} - ${user.uf}`;
+	// 	console.log(location);
+	// 	return location;
+	// };
+
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
 	}, [dispatch]);
 
 	return (
-		<div className="container">
+		<Container>
 			<S.Titulo>Confira essas fofuras</S.Titulo>
-			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
+			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
 				{fivePetsRandomList2.map((pet, index) => (
-					<Col className="d-flex justify-content-center g-4" key={pet.id}>
-						<S.SLink exact to={`/petprofile/?${pet.id}`}>
-							<S.CardContainer2 className=" cardContainer">
-								<S.CardImage2
-									variant="top"
-									src={pet.petImage}
-									className="cardImg"
-								/>
-								<S.CardBody2>
-									<S.CardTitle2 className="cardTitle">{pet.nome}</S.CardTitle2>
-									<S.CardText2 className="cardText">
+					<S.Column key={pet.id}>
+						<Link exact to={`/petprofile/?${pet.id}`}>
+							<S.CardContainer>
+								<S.CardImage variant="top" src={pet.petImage} />
+								<S.CardBody>
+									<S.CardTitle>{pet.nome}</S.CardTitle>
+									<S.CardText className="cardText">
 										{/* {`${getPetLocation(pet.userID)}`} */}
 										{/* {pet.userID} - {teste2[index].userID} */}
 										{pet.userID} - {petLocations[index]} São Paulo - SP
-									</S.CardText2>
-								</S.CardBody2>
-							</S.CardContainer2>
-						</S.SLink>
-					</Col>
+									</S.CardText>
+								</S.CardBody>
+							</S.CardContainer>
+						</Link>
+					</S.Column>
 				))}
-			</Row>
-		</div>
+			</S.RowContainer>
+		</Container>
 	);
 };
 
