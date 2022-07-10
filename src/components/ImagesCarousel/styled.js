@@ -39,20 +39,26 @@ export const ContainerCarousel = styled(Carousel)`
 	}
 
 	@media (max-width: 1000px) {
-		width: 75vw;
+		width: 90vw;
 		height: 25vw;
 	}
 
 	@media (max-width: 600px) {
-		width: 80vw;
 		margin-top: 0;
-		height: 20vw;
+		height: 30vw;
 	}
 `;
 
 export const ImageCarousel = styled.img`
 	width: 100%;
 	height: 100%;
+
+	@media (max-width: 768px) {
+		height: 25vw;
+	}
+	@media (max-width: 468px) {
+		height: 30vw;
+	}
 `;
 
 export const Text = styled.h3`
@@ -84,11 +90,16 @@ export const ContainerButton = styled.nav`
 	width: 34vw;
 
 	@media (max-width: 1000px) {
-		gap: 5vh;
+		gap: 5vw;
+	}
+	
+	@media (max-width: 768px) {
+		width: 50vw;
 	}
 
-	@media (max-width: 600px) {
-		gap: 3vh;
+	@media (max-width: 468px) {
+		gap: 3.5vw;
+		width: 65vw;
 	}
 `;
 
@@ -98,14 +109,14 @@ export const ButtonLink = styled(Link)`
     align-items: center;
     text-decoration: none;
     width: 15.6vw;
-    height: 6.1vh;
+    height: 5vw;
     text-align: center;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 1rem;
 	background-color: ${(props) => props.color};
     color: #FFF;
-    border-radius: 4px;
+    border-radius: .25rem;
     transition: all 0.5s ease-in-out;
 
 	&:hover {
@@ -113,13 +124,18 @@ export const ButtonLink = styled(Link)`
 		color: #fdfdfd;
 	}
 
-	@media (max-width: 700px) {
-		width: 16vw;
-		height: 4vh;
-		font-size: 0.5rem;
+	@media (max-width: 768px) {
+		width: 25vw;
+		height: 6vw;
+		font-size: 1rem;
 
 		&:hover {
 			font-size: 0.8rem;
 		}
+	}
+
+	@media (max-width: 468px){
+		width: 30vw;
+		height: 8vw;
 	}
 `;
