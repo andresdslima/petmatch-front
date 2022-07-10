@@ -46,7 +46,9 @@ const PetsCardList = ({ specie, click }) => {
 
 	const getPetLocation = async petUserId => {
 		const user = await getUserById(petUserId);
-		return `${user.cidade} - ${user.estado}`;
+		const location = `${user.cidade} - ${user.uf}`;
+		console.log(location);
+		return location;
 	};
 
 	orderedList.sort(
@@ -64,13 +66,14 @@ const PetsCardList = ({ specie, click }) => {
 		<Container>
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
-					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
+					<Col className="d-flex justify-content-center g-4" key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
 								<S.CardImage variant="top" src={pet.petImage} />
 								<Card.Body>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
-									{/* <span>{getPetLocation(pet.userID)}</span> */}
+									{/* <span>{`${getPetLocation(pet.userID)}`}</span> */}
+									<span>São Paulo - SP</span>
 								</Card.Body>
 								<S.MatchIconContainer>
 									<S.MatchIcon src={ScreenShot} alt="Icone de Match" />
