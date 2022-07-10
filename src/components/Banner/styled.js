@@ -54,8 +54,16 @@ export const TextBanner = styled.h3`
 	font-family: 'Inter';
 	color: #fdfdfd;
 	font-weight: 600;
-	font-size: 1.7vw;
-	line-height: 2.08vw;
+	font-size: 2vw;
+	line-height: 2.5vw;
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.56);
 
+	@media (max-width: 768px) {
+		font-size: 2.5vw;
+		line-height: 3vw;
+	}
+	@media (max-width: 468px) {
+		font-size: 3vw;
+		line-height: 3.5vw;
+	}
 `;

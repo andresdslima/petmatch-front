@@ -8,7 +8,7 @@ const CardPosts = ({ imageName }) => {
 
 	return (
 		<S.CardPost className="cardPost">
-			<Card.Img variant="top" src={imageName} />
+			<S.CardImage variant="top" src={imageName} />
 			<Card.Body>
 				<S.PostTitle className="postTitle">SOBRE PETS</S.PostTitle>
 				<Card.Text className="cardText">
