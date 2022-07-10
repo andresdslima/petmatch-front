@@ -1,4 +1,3 @@
-import './styles.css';
 import { Row, Col, Card } from 'react-bootstrap';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
