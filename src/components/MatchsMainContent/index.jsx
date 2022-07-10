@@ -15,22 +15,32 @@ const MatchMainContent = () => {
 	const randomList = [...petList];
 	randomList.sort(() => Math.random() - 0.5);
 
-	const fivePetsRandomList2 = randomList.slice(0, 5);
+	const fivePetsRandomList = randomList.slice(0, 5);
 
-	const fivePetsRandomList = [];
+	// const fivePetsRandomList = [];
 
-	for (let i = 0; i < 5; i++) {
-		fivePetsRandomList.push(randomList[i]);
-	}
+	// for (let i = 0; i < 5; i++) {
+	// 	fivePetsRandomList.push(randomList[i]);
+	// }
 
-	console.log(randomList);
-	console.log(fivePetsRandomList);
+	// console.log(randomList);
+	// console.log(fivePetsRandomList);
 	const getPetLocation = async petUserId => {
 		const user = await getUserById(petUserId);
 		const location = `${user.cidade} - ${user.uf}`;
 		console.log(location);
 		return location;
 	};
+
+	const userList = fivePetsRandomList.map(pet => {
+		return pet.userID
+	});
+
+	const locationList = userList.map(user => {
+		return getPetLocation(user)
+	});
+
+	console.log(locationList);
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
@@ -41,7 +51,7 @@ const MatchMainContent = () => {
 		<Container>
 			<S.Titulo>Confira essas fofuras</S.Titulo>
 			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
-				{fivePetsRandomList2.map(pet => (
+				{fivePetsRandomList.map(pet => (
 					<S.Column key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer >
