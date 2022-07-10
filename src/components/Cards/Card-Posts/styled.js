@@ -4,7 +4,7 @@ import { Card, Button } from 'react-bootstrap';
 
 export const CardPost = styled(Card)`
 	box-shadow: 6px 11px 39px rgba(151, 151, 151, 0.25);
-	border-radius: 0px 0px 16px 16px !important;
+	border-radius: 16px 16px 16px 16px !important;
 	width: 80%;
 	margin: 10px auto;
 	padding-bottom: 30px;
@@ -17,6 +17,10 @@ export const CardPost = styled(Card)`
 		width: 60%;
 	}
 `;
+
+export const CardImage = styled(Card.Img)`
+border-radius: 16px 16px 0 0 !important;
+`
 
 export const PostTitle = styled(Card.Title)`
 	font-weight: 400 !important;
