@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 export const BlogContainer = styled(Container)`
 	margin-bottom: 15vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const DogBlogImage = styled.img`

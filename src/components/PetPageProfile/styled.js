@@ -182,6 +182,7 @@ export const TextDescription = styled.p`
     font-weight: 400;
     color: #404145;
     margin-bottom: 3vw;
+    text-align: justify;
 
     @media (max-width: 500px) {
         width: 100%;

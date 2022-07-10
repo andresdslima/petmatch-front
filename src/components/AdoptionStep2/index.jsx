@@ -12,12 +12,14 @@ const validationSchema = Yup.object({
 	rg: Yup.string().min(9, '9 dígitos').required('*'),
 	estadoCivil: Yup.string().required('*'),
 	profissao: Yup.string().required('*'),
+	bairro: Yup.string().min(3, 'Nome do bairro').required('*'),
 });
 
 export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 	const { register } = useForm();
 	const dispatch = useDispatch();
 	const formObject = JSON.parse(localStorage.getItem('form'));
+	const userObject = JSON.parse(localStorage.getItem('user'));
 
 	const formik = useFormik({
 		initialValues: {
@@ -25,6 +27,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 			rg: `${formObject.rg ?? ''}`,
 			estadoCivil: `${formObject.estadoCivil ?? ''}`,
 			profissao: `${formObject.profissao ?? ''}`,
+			bairro: `${formObject.bairro ?? ''}`,
 		},
 
 		validationSchema,
@@ -41,6 +44,15 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 			dispatch(countStep({ step: 3 }));
 
 			localStorage.setItem('form', JSON.stringify(currentForm));
+			localStorage.setItem(
+				'user',
+				JSON.stringify(
+					Object.assign(userObject, {
+						cpf: `${values.cpf}`,
+						bairro: values.bairro,
+					}),
+				),
+			);
 		},
 	});
 
@@ -124,6 +136,22 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								placeholder="Sua profissão"
 								{...register('profissao')}
 								value={formik.values.profissao}
+								onChange={formik.handleChange}
+							/>
+						</Styled.InputContainer>
+					</Col>
+
+					<Col xs={12} sm={4}>
+						<Styled.InputContainer>
+							<Styled.Label htmlFor="bairro">Bairro</Styled.Label>
+							{formik.errors.bairro && <small>{formik.errors.bairro}</small>}
+							<Styled.SInput
+								type="text"
+								name="bairro"
+								id="bairro"
+								placeholder="Seu bairro"
+								{...register('bairro')}
+								value={formik.values.bairro}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>

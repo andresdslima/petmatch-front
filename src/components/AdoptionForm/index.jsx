@@ -12,7 +12,6 @@ const AdoptionForm = () => {
 	const [step, setStep] = useState(1);
 	const [formValues, setFormValues] = useState({});
 
-
 	return (
 		<>
 			<Container className="my-5">
@@ -80,8 +79,7 @@ const AdoptionForm = () => {
 				)}
 			</Container>
 
-			{/* Retornar todos os pets para o petSlice.pets */}
-			{/* {step === 5 && <MatchsMainContent />} */}
+			{step === 5 && <MatchsMainContent />}
 		</>
 	);
 };

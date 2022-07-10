@@ -10,7 +10,7 @@ import { countStep } from '../../store/modules/adoption';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPet } from '../../services/mainAPI/pets';
 import iconCheck from '../../assets/iconCheck.svg';
-import { setPetList } from '../../store/modules/pets';
+import { setPetItem } from '../../store/modules/pets';
 
 const validationSchema = Yup.object({
 	enderecoAnimal: Yup.string().min(6, 'Endereço completo').required('*'),
@@ -20,11 +20,11 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 	const formObject = JSON.parse(localStorage.getItem('form'));
 	const { register } = useForm();
 	const dispatch = useDispatch();
-	const pet = useSelector(state => state.petsSlice.pets);
+	const pet = useSelector(state => state.petsSlice.petItem);
 	const petId = parseInt(window.location.search.split('?')[1]);
 
 	useEffect(() => {
-		getPet(petId).then(pets => dispatch(setPetList(pets)));
+		getPet(petId).then(pets => dispatch(setPetItem(pets)));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 

@@ -1,18 +1,16 @@
 import './styles.css';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
-import { Link } from 'react-router-dom';
-import * as S from './styled'
+import * as S from './styled';
 
 const MatchMainContent = () => {
-
-	const petList = useSelector(state => state.petsSlice);
+	const petList = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
 
-	const randomList = [...petList.pets];
+	const randomList = [...petList];
 
 	randomList.sort(() => Math.random() - 0.5);
 
@@ -23,9 +21,6 @@ const MatchMainContent = () => {
 	for (let i = 0; i < 5; i++) {
 		fivePetsRandomList.push(randomList[i]);
 	}
-
-	console.log(randomList);
-	console.log(fivePetsRandomList);
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
@@ -38,7 +33,7 @@ const MatchMainContent = () => {
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{fivePetsRandomList2.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.id}>
-						<Link exact to={`/petprofile/?${pet.id}`}>
+						<S.SLink exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer2 className=" cardContainer">
 								<S.CardImage2
 									variant="top"
@@ -52,7 +47,7 @@ const MatchMainContent = () => {
 									</S.CardText2>
 								</S.CardBody2>
 							</S.CardContainer2>
-						</Link>
+						</S.SLink>
 					</Col>
 				))}
 			</Row>

@@ -6,15 +6,18 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetItem } from '../../store/modules/pets';
 import { getPet } from '../../services/mainAPI/pets';
+import { useLocation } from 'react-router-dom';
 
 const PetPageProfile = () => {
 	const pet = useSelector(state => state.petsSlice.petItem);
 	const dispatch = useDispatch();
 	const petId = parseInt(window.location.search.split('?')[1]);
+	const location = useLocation();
 
 	useEffect(() => {
 		getPet(petId).then(petItem => dispatch(setPetItem(petItem)));
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [location.search]);
 
 	return (
 		<S.ContainerProfile>
@@ -38,7 +41,7 @@ const PetPageProfile = () => {
 				</S.CardBody>
 				<S.NamePet>
 					<S.NamePetText>{pet.nome}</S.NamePetText>
-					{pet.sexo == "Fêmea" ? (<S.FemaleGenderIcon />): (<S.IconSex/>)}	
+					{pet.sexo === 'Fêmea' ? <S.FemaleGenderIcon /> : <S.IconSex />}
 				</S.NamePet>
 			</S.ContainerCard>
 			<S.ContainerDescription>
@@ -51,17 +54,16 @@ const PetPageProfile = () => {
 				<S.ContentListCheck>
 					{pet.vacinado && (
 						<S.ItemListCheck>
-						<S.IconCheck src={iconCheck} alt="Icone de check" />
-						<S.TextCheck>Vacinado</S.TextCheck>
-					</S.ItemListCheck>)
-					}
+							<S.IconCheck src={iconCheck} alt="Icone de check" />
+							<S.TextCheck>Vacinado</S.TextCheck>
+						</S.ItemListCheck>
+					)}
 					{pet.castrado && (
 						<S.ItemListCheck>
-						<S.IconCheck src={iconCheck} alt="Icone de check" />
-						<S.TextCheck>Castrado</S.TextCheck>
-					</S.ItemListCheck>
-					)
-					}
+							<S.IconCheck src={iconCheck} alt="Icone de check" />
+							<S.TextCheck>Castrado</S.TextCheck>
+						</S.ItemListCheck>
+					)}
 					<S.ItemListCheck>
 						<S.IconCheck src={iconCheck} alt="Icone de check" />
 						<S.TextCheck>{pet.porte}</S.TextCheck>

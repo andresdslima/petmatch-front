@@ -11,7 +11,6 @@ import Blog from './pages/Blog';
 import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
 import GiveForAdoption from './pages/GiveForAdoption';
-// import { useSelector } from 'react-redux';
 
 export default function AppRoutes() {
 	// let login = useSelector(state => state.persistedReducer.isLogged);

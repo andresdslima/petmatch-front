@@ -3,7 +3,6 @@ import { api } from './config';
 export const getPets = async () => {
 	try {
 		const response = await api.get('/pets');
-		console.log(response);
 		return response.data;
 	} catch (error) {
 		alert(`Error: ${error.response.data}`);
@@ -13,7 +12,6 @@ export const getPets = async () => {
 export const getPet = async id => {
 	try {
 		const response = await api.get(`/pets/${id}`);
-		console.log(response);
 		return response.data;
 	} catch (error) {
 		alert(`Error: ${error.response.data}`);
@@ -23,7 +21,6 @@ export const getPet = async id => {
 export const getPetsBySpecie = async especie => {
 	try {
 		const response = await api.get(`/pets/especie/${especie}`);
-		console.log(response);
 		return response.data;
 	} catch (error) {
 		alert(`Error: ${error.response.data}`);
@@ -33,8 +30,7 @@ export const getPetsBySpecie = async especie => {
 export const postPets = async newPet => {
 	try {
 		const response = await api.post('/pets', newPet);
-		console.log(response);
-		alert('Pet criado com sucesso!');
+		alert('Seu Pet foi cadastrado com sucesso!');
 		return response.data;
 	} catch (error) {
 		throw new Error(`Error: ${error.response.data}`);

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	pets: [],
 	petsFilter: {},
-	petItem: []
+	petItem: [],
 };
 
 const petsSlice = createSlice({
@@ -28,16 +28,16 @@ const petsSlice = createSlice({
 				pets: [...state.pets, action.payload],
 			});
 		},
-
 		setPetFilter: (state, action) => {
 			Object.assign(state, {
 				...state,
 				petsFilter: action.payload,
 			});
-		}
+		},
 	},
 });
 
-export const { setPetList, addNewPet, setPetFilter, setPetItem } = petsSlice.actions;
+export const { setPetList, addNewPet, setPetFilter, setPetItem } =
+	petsSlice.actions;
 
 export default petsSlice.reducer;

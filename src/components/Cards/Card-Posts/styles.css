@@ -26,18 +26,20 @@
     display: flex !important;
     justify-content: space-around;
     align-items: center;
+    opacity: 1;
+}
+
+.buttonPost:hover {
+    opacity: 0.8;
 }
 
 @media only screen and (max-width: 768px) {
-
-
     .cardPost {
         width: 70%;
     }
 }
 
 @media only screen and (max-width: 576px) {
-
     .cardPost {
         width: 60%;
     }

@@ -267,6 +267,7 @@ export const StepNumberTwo = styled(StepNumberOne)`
 		margin-left: 56vw;
 		margin-bottom: 2vh;
 		transform: translateX(-164px);
+		text-align: center;
 	}
 
 	@media only screen and (min-width: 1200px) {
@@ -288,6 +289,7 @@ export const StepNumberTwo = styled(StepNumberOne)`
 
 export const StepNumberThree = styled(StepNumberTwo)`
 	&::after {
+		width: auto;
 		border: none;
 		margin-left: 43vw;
 		margin-bottom: 0;
@@ -326,14 +328,6 @@ export const CheckboxContainer = styled(Form.Group)`
 	small {
 		color: #f00;
 		font-weight: 500;
-	}
-
-	@media only screen and (max-width: 900px) {
-		width: 12.5vw;
-	}
-
-	@media only screen and (max-width: 900px) {
-		width: 35vw;
 	}
 `;
 

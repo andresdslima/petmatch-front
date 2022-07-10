@@ -2,14 +2,13 @@ import { api } from './config';
 
 export const getUser = async id => {
 	const response = await api.get(`/users/${id}`);
-	console.log(response);
 	return response.data;
 };
 
 export const createUser = async user => {
 	try {
 		const { data, status } = await api.post('/users/', user);
-		console.log({ data, status });
+		alert('Usuário cadastrado com sucesso!');
 		return { data, status };
 	} catch (error) {
 		console.error(error);
@@ -33,10 +32,10 @@ export const updateUser = async (id, user) => {
 export const loginUser = async user => {
 	try {
 		const response = await api.post('/login', user);
-		console.log(response);
 		return response.data;
 	} catch (error) {
 		console.error(error);
+		alert('Erro ao efetuar login');
 		return { status: error.response.status };
 	}
 };

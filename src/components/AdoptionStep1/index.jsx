@@ -10,13 +10,13 @@ import { countStep } from '../../store/modules/adoption';
 const validationSchema = Yup.object({
 	nome: Yup.string().min(6, 'Nome completo').required('*'),
 	email: Yup.string().email('Email inválido').required('*'),
-	celular: Yup.string().min(11, '11 dígitos').required('*'),
+	contato: Yup.string().min(11, '11 dígitos').required('*'),
 	cidade: Yup.string().min(3, 'Digite sua cidade').required('*'),
-	estado: Yup.string().min(2, 'Escolha seu estado').required('*'),
+	uf: Yup.string().min(2, 'Escolha seu estado').required('*'),
 	cep: Yup.string().min(8, '8 dígitos').required('*'),
-	endereco: Yup.string().min(6, 'Endereço completo').required('*'),
-	enderecoNumero: Yup.number().required('*'),
-	enderecoComplemento: Yup.string(),
+	logradouro: Yup.string().min(6, 'Endereço completo').required('*'),
+	numero_logradouro: Yup.number().required('*'),
+	complemento: Yup.string(),
 });
 
 export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
@@ -28,15 +28,13 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 		initialValues: {
 			nome: `${formObject ? formObject.nome : ''}`,
 			email: `${formObject ? formObject.email : ''}`,
-			celular: `${formObject ? formObject.celular : ''}`,
+			contato: `${formObject ? formObject.contato : ''}`,
 			cidade: `${formObject ? formObject.cidade : ''}`,
-			estado: `${formObject ? formObject.estado : ''}`,
+			uf: `${formObject ? formObject.uf : ''}`,
 			cep: `${formObject ? formObject.cep : ''}`,
-			endereco: `${formObject ? formObject.endereco : ''}`,
-			enderecoNumero: `${formObject ? formObject.enderecoNumero : ''}`,
-			enderecoComplemento: `${
-				formObject ? formObject.enderecoComplemento : ''
-			}`,
+			logradouro: `${formObject ? formObject.logradouro : ''}`,
+			numero_logradouro: `${formObject ? formObject.numero_logradouro : ''}`,
+			complemento: `${formObject ? formObject.complemento : ''}`,
 		},
 
 		validationSchema,
@@ -46,13 +44,28 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 				...formValues,
 				...values,
 			});
-			
+
 			setStep(2);
 			dispatch(countStep({ step: 2 }));
 
 			localStorage.setItem(
 				'form',
 				JSON.stringify({ ...formValues, ...values }),
+			);
+
+			localStorage.setItem(
+				'user',
+				JSON.stringify({
+					nome: values.nome,
+					email: values.email,
+					contato: parseInt(values.contato),
+					cidade: values.cidade,
+					uf: values.uf,
+					cep: `${values.cep}`,
+					logradouro: values.logradouro,
+					numero_logradouro: `${values.numero_logradouro}`,
+					complemento: values.complemento,
+				}),
 			);
 		},
 	});
@@ -95,15 +108,15 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="celular">Celular</Styled.Label>
-							{formik.errors.celular && <small>{formik.errors.celular}</small>}
+							<Styled.Label htmlFor="contato">Celular</Styled.Label>
+							{formik.errors.contato && <small>{formik.errors.contato}</small>}
 							<Styled.SInput
 								type="number"
-								name="celular"
-								{...register('celular')}
-								id="celular"
+								name="contato"
+								{...register('contato')}
+								id="contato"
 								placeholder="Ex: 11912345678"
-								value={formik.values.celular}
+								value={formik.values.contato}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>
@@ -129,15 +142,15 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="estado">Estado</Styled.Label>
-							{formik.errors.estado && <small>{formik.errors.estado}</small>}
+							<Styled.Label htmlFor="uf">Estado</Styled.Label>
+							{formik.errors.uf && <small>{formik.errors.uf}</small>}
 							<Styled.FormItemSelect
-								id="estado"
+								id="uf"
 								type="select"
-								name="estado"
-								{...register('estado')}
-								placeholder="Estado"
-								value={formik.values.estado}
+								name="uf"
+								{...register('uf')}
+								placeholder="uf"
+								value={formik.values.uf}
 								onChange={formik.handleChange}
 							>
 								<Styled.SelectOption value=""></Styled.SelectOption>
@@ -192,17 +205,17 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 				<Row>
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="endereco">Endereço</Styled.Label>
-							{formik.errors.endereco && (
-								<small>{formik.errors.endereco}</small>
+							<Styled.Label htmlFor="logradouro">Endereço</Styled.Label>
+							{formik.errors.logradouro && (
+								<small>{formik.errors.logradouro}</small>
 							)}
 							<Styled.SInput
 								type="text"
-								name="endereco"
-								{...register('endereco')}
-								id="endereco"
+								name="logradouro"
+								{...register('logradouro')}
+								id="logradouro"
 								placeholder="Seu endereço completo"
-								value={formik.values.endereco}
+								value={formik.values.logradouro}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>
@@ -210,17 +223,17 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="enderecoNumero">Número</Styled.Label>
-							{formik.errors.enderecoNumero && (
-								<small>{formik.errors.enderecoNumero}</small>
+							<Styled.Label htmlFor="numero_logradouro">Número</Styled.Label>
+							{formik.errors.numero_logradouro && (
+								<small>{formik.errors.numero_logradouro}</small>
 							)}
 							<Styled.SInput
 								type="number"
-								name="enderecoNumero"
-								{...register('enderecoNumero')}
-								id="enderecoNumero"
+								name="numero_logradouro"
+								{...register('numero_logradouro')}
+								id="numero_logradouro"
 								placeholder="Número do endereço"
-								value={formik.values.enderecoNumero}
+								value={formik.values.numero_logradouro}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>
@@ -228,19 +241,17 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="enderecoComplemento">
-								Complemento
-							</Styled.Label>
-							{formik.errors.enderecoComplemento && (
-								<small>{formik.errors.enderecoComplemento}</small>
+							<Styled.Label htmlFor="complemento">Complemento</Styled.Label>
+							{formik.errors.complemento && (
+								<small>{formik.errors.complemento}</small>
 							)}
 							<Styled.SInput
 								type="text"
-								name="enderecoComplemento"
-								{...register('enderecoComplemento')}
-								id="enderecoComplemento"
+								name="complemento"
+								{...register('complemento')}
+								id="complemento"
 								placeholder="Complemento do endereço"
-								value={formik.values.enderecoComplemento}
+								value={formik.values.complemento}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>

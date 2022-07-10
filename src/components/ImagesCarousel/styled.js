@@ -11,12 +11,12 @@ export const ContainerContent = styled(Container)`
 `;
 
 export const ContainerCarousel = styled(Carousel)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
 
 	& .carousel-indicators {
 		display: none;
@@ -81,7 +81,7 @@ export const Text = styled.h3`
 `;
 
 export const ContainerDisplayButton = styled.div`
-	display: ${(props) => props.display};
+	display: ${props => props.display};
 `;
 
 export const ContainerButton = styled.nav`
@@ -92,7 +92,7 @@ export const ContainerButton = styled.nav`
 	@media (max-width: 1000px) {
 		gap: 5vw;
 	}
-	
+
 	@media (max-width: 768px) {
 		width: 50vw;
 	}
@@ -104,20 +104,20 @@ export const ContainerButton = styled.nav`
 `;
 
 export const ButtonLink = styled(Link)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    width: 15.6vw;
-    height: 5vw;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1rem;
-	background-color: ${(props) => props.color};
-    color: #FFF;
-    border-radius: .25rem;
-    transition: all 0.5s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	width: 12.5vw;
+	height: 5vw;
+	text-align: center;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 1rem;
+	background-color: ${props => props.color};
+	color: #fff;
+	border-radius: 0.25rem;
+	transition: all 0.5s ease-in-out;
 
 	&:hover {
 		opacity: 0.8;
@@ -134,7 +134,7 @@ export const ButtonLink = styled(Link)`
 		}
 	}
 
-	@media (max-width: 468px){
+	@media (max-width: 468px) {
 		width: 30vw;
 		height: 8vw;
 	}

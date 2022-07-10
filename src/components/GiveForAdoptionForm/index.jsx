@@ -51,8 +51,6 @@ const GiveForAdoptionForm = () => {
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			console.log(values.petImage);
-			// C:\fakepath\Rectangle 886.png
 
 			const formData = new FormData();
 			formData.append('especie', values.especie);
@@ -72,7 +70,6 @@ const GiveForAdoptionForm = () => {
 
 			const data = await postPets(formData);
 
-			alert('Pet cadastrado com sucesso!');
 			dispatch(addNewPet({ pets: data }));
 			formik.resetForm();
 		},

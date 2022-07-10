@@ -7,6 +7,7 @@ import { countStep } from '../../store/modules/adoption';
 import { useDispatch } from 'react-redux';
 import { createAdoption } from '../../services/mainAPI/adoption';
 import { api } from '../../services/mainAPI/config';
+import { updateUser } from '../../services/mainAPI/users';
 
 const validationSchema = Yup.object({
 	assinatura: Yup.string().min(6, 'Assinatura registrada').required('*'),
@@ -15,8 +16,9 @@ const validationSchema = Yup.object({
 
 export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 	const data = JSON.parse(localStorage.getItem('data'));
-	const dispatch = useDispatch();
+	const user = JSON.parse(localStorage.getItem('user'));
 	const petId = parseInt(window.location.search.split('?')[1]);
+	const dispatch = useDispatch();
 
 	const formik = useFormik({
 		initialValues: {
@@ -37,8 +39,10 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 			setStep(5);
 			dispatch(countStep({ step: 5 }));
 			localStorage.removeItem('form');
+			localStorage.removeItem('user');
 
 			await createAdoption(petId);
+			await updateUser(data.payload.id, user);
 		},
 	});
 
