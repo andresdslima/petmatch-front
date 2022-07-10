@@ -103,8 +103,19 @@ const GiveForAdoptionForm = () => {
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
+							<S.Label>Nome</S.Label>
+							<S.FormItem
+								id="nome"
+								name="nome"
+								type="text"
+								placeholder="Ex: Scooby"
+								value={formik.values.nome}
+								onChange={formik.handleChange}
+							/>
+						</Form.Group>
+						<Form.Group>
 							<S.Label>Idade (anos)</S.Label>
-							<Form.Control
+							<S.FormItem
 								id="idade"
 								type="number"
 								placeholder="Ex: 3"
@@ -127,8 +138,19 @@ const GiveForAdoptionForm = () => {
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
+							<S.Label>Raça</S.Label>
+							<S.FormItem
+								id="raca"
+								name="raca"
+								type="text"
+								placeholder="Ex: Beagle"
+								value={formik.values.raca}
+								onChange={formik.handleChange}
+							/>
+						</Form.Group>
+						<Form.Group>
 							<S.Label>Peso (kg)</S.Label>
-							<Form.Control
+							<S.FormItem
 								id="peso"
 								type="number"
 								placeholder="Ex: 10"
@@ -157,7 +179,7 @@ const GiveForAdoptionForm = () => {
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Tamanho (cm)</S.Label>
-							<Form.Control
+							<S.FormItem
 								id="tamanho"
 								type="number"
 								placeholder="Ex: 40"
@@ -182,24 +204,13 @@ const GiveForAdoptionForm = () => {
 							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
-							<S.Label>Raça</S.Label>
-							<Form.Control
-								id="raca"
-								name="raca"
+							<S.Label>Chip</S.Label>
+							<S.FormItem
+								id="chip"
+								name="chip"
 								type="text"
-								placeholder="Ex: Beagle"
-								value={formik.values.raca}
-								onChange={formik.handleChange}
-							/>
-						</Form.Group>
-						<Form.Group>
-							<S.Label>Nome</S.Label>
-							<Form.Control
-								id="nome"
-								name="nome"
-								type="text"
-								placeholder="Ex: Scooby"
-								value={formik.values.nome}
+								placeholder="Ex: D4J7X9"
+								value={formik.values.chip}
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -226,19 +237,8 @@ const GiveForAdoptionForm = () => {
 							</S.CheckboxContainer>
 						</S.AllCheckboxesContainer>
 						<Form.Group>
-							<S.Label>Chip</S.Label>
-							<Form.Control
-								id="chip"
-								name="chip"
-								type="text"
-								placeholder="Ex: D4J7X9"
-								value={formik.values.chip}
-								onChange={formik.handleChange}
-							/>
-						</Form.Group>
-						<Form.Group>
 							<S.Label>Imagem</S.Label>
-							<Form.Control
+							<S.FormItem
 								id="petImage"
 								name="petImage"
 								type="file"
@@ -249,15 +249,15 @@ const GiveForAdoptionForm = () => {
 							/>
 							<small>Tamanho máximo 1Mb</small>
 						</Form.Group>
-						<Form.Group>
+						<S.TextareaContainer>
 							<S.Label>Sobre</S.Label>
-							<textarea
+							<S.TextArea
 								id="sobre"
 								placeholder="Conte-nos mais sobre o seu pet."
 								value={formik.values.sobre}
 								onChange={formik.handleChange}
-							></textarea>
-						</Form.Group>
+							></S.TextArea>
+						</S.TextareaContainer>
 					</S.ContainerForm>
 					<S.ButtonContainer className="my-5">
 						<S.SearchButton variant="primary" type="submit">

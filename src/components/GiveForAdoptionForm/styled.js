@@ -49,9 +49,27 @@ export const FormItemSelect = styled(Form.Select)`
 		width: 70vw;
 	}
 `;
+
 export const SelectOption = styled.option`
 	font-size: 14px;
 	color: #606266;
+`;
+
+export const FormItem = styled(Form.Control)`
+	width: 21.57vw;
+	background-color: #f7f8ff;
+	border: 1px solid #d5d7db !important;
+	font-size: 14px;
+	color: #606266;
+	box-shadow: none !important;
+
+	@media only screen and (max-width: 900px) {
+		width: 25vw;
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 70vw;
+	}
 `;
 
 export const AllCheckboxesContainer = styled.div`
@@ -99,6 +117,32 @@ export const Checkbox = styled(Form.Check)`
 
 	& label {
 		font-size: (0.73vw, 10px);
+	}
+`;
+
+export const TextareaContainer = styled(Form.Group)`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const TextArea = styled.textarea`
+	resize: none;
+	height: 7.5vw;
+	width: 21.57vw;
+	background-color: #f7f8ff;
+	border: 1px solid #d5d7db !important;
+	font-size: 14px;
+	color: #606266;
+	box-shadow: none !important;
+	border-radius: 0.375rem;
+
+	@media only screen and (max-width: 900px) {
+		width: 25vw;
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 70vw;
+		height: 30vw;
 	}
 `;
 
