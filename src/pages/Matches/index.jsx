@@ -8,11 +8,20 @@ import CardPostsContainer from '../../components/Card-Posts-Container';
 import Banner from '../../components/Banner';
 
 const Matches = () => {
+
+	const data = JSON.parse(localStorage.getItem('data'));
+
+	const isLogged = () => {
+		if (!data) return false;
+
+		return true;
+	};
+
 	return (
 		<>
 			<Header />
 			<Banner />
-			<MatchesForm />
+			{isLogged() && <MatchesForm />}
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />
