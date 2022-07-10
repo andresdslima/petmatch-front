@@ -11,53 +11,56 @@ import Blog from './pages/Blog';
 import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
 import GiveForAdoption from './pages/GiveForAdoption';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function AppRoutes() {
 	// let login = useSelector(state => state.persistedReducer.isLogged);
 
 	return (
 		<Router>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/register" element={<Register />} />
-				<Route path="/petprofile" element={<PetProfile />} />
-				<Route
-					path="/formularioaprovadofinal"
-					element={
-						<RequireAuth>
-							<FormularioAprovadoFinal />
-						</RequireAuth>
-					}
-				/>
-				<Route path="/sobre" element={<About />} />
-				<Route
-					path="/matches"
-					element={
-						<RequireAuth>
-							<Matches />
-						</RequireAuth>
-					}
-				/>
-				<Route
-					path="/adoption"
-					element={
-						<RequireAuth>
-							<Adoption />
-						</RequireAuth>
-					}
-				/>
-				<Route
-					path="/giveforadoption"
-					element={
-						<RequireAuth>
-							<GiveForAdoption />
-						</RequireAuth>
-					}
-				/>
-				<Route path="/blog" element={<Blog />} />
-				<Route path="/ongs" element={<ONGs />} />
-			</Routes>
+			<ScrollToTop>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
+					<Route path="/petprofile" element={<PetProfile />} />
+					<Route
+						path="/formularioaprovadofinal"
+						element={
+							<RequireAuth>
+								<FormularioAprovadoFinal />
+							</RequireAuth>
+						}
+					/>
+					<Route path="/sobre" element={<About />} />
+					<Route
+						path="/matches"
+						element={
+							<RequireAuth>
+								<Matches />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="/adoption"
+						element={
+							<RequireAuth>
+								<Adoption />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="/giveforadoption"
+						element={
+							<RequireAuth>
+								<GiveForAdoption />
+							</RequireAuth>
+						}
+					/>
+					<Route path="/blog" element={<Blog />} />
+					<Route path="/ongs" element={<ONGs />} />
+				</Routes>
+			</ScrollToTop>
 		</Router>
 	);
 }

@@ -13,6 +13,7 @@ const validationSchema = Yup.object({
 	estadoCivil: Yup.string().required('*'),
 	profissao: Yup.string().required('*'),
 	bairro: Yup.string().min(3, 'Nome do bairro').required('*'),
+	complemento: Yup.string(),
 });
 
 export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
@@ -28,12 +29,17 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 			estadoCivil: `${formObject.estadoCivil ?? ''}`,
 			profissao: `${formObject.profissao ?? ''}`,
 			bairro: `${formObject.bairro ?? ''}`,
+			complemento: `${formObject.complemento ?? ''}`,
 		},
 
 		validationSchema,
 
 		onSubmit: values => {
 			const currentForm = Object.assign(formObject, { ...values });
+			const updatedUser = Object.assign(userObject, {
+				cpf: `${values.cpf}`,
+				bairro: values.bairro,
+			});
 
 			setFormValues({
 				...formValues,
@@ -44,15 +50,18 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 			dispatch(countStep({ step: 3 }));
 
 			localStorage.setItem('form', JSON.stringify(currentForm));
-			localStorage.setItem(
-				'user',
-				JSON.stringify(
-					Object.assign(userObject, {
-						cpf: `${values.cpf}`,
-						bairro: values.bairro,
-					}),
-				),
-			);
+			localStorage.setItem('user', JSON.stringify(updatedUser));
+
+			if (values.complemento.length > 0) {
+				localStorage.setItem(
+					'user',
+					JSON.stringify(
+						Object.assign(updatedUser, {
+							complemento: values.complemento,
+						}),
+					),
+				);
+			}
 		},
 	});
 
@@ -152,6 +161,24 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								placeholder="Seu bairro"
 								{...register('bairro')}
 								value={formik.values.bairro}
+								onChange={formik.handleChange}
+							/>
+						</Styled.InputContainer>
+					</Col>
+
+					<Col xs={12} sm={4}>
+						<Styled.InputContainer>
+							<Styled.Label htmlFor="complemento">Complemento</Styled.Label>
+							{formik.errors.complemento && (
+								<small>{formik.errors.complemento}</small>
+							)}
+							<Styled.SInput
+								type="text"
+								name="complemento"
+								{...register('complemento')}
+								id="complemento"
+								placeholder="Complemento do endereço"
+								value={formik.values.complemento}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>

@@ -84,3 +84,30 @@ export const BoldText = styled.span`
 	font-size: 14px;
 	font-weight: 600;
 `;
+
+export const SButton = styled.button`
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 600;
+	color: #f8f9fa;
+	outline: 1px solid #d5d7db;
+	outline-offset: -1px;
+	background-color: #8d73e4;
+	width: max(8vw, 120px);
+	height: max(2.3vw, 35px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+	border: none;
+
+	&:hover {
+		color: #e7e1fb;
+		background-color: #f76f34;
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 100px;
+	}
+`;

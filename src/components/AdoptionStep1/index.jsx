@@ -8,7 +8,8 @@ import { useForm } from 'react-hook-form';
 import { countStep } from '../../store/modules/adoption';
 
 const validationSchema = Yup.object({
-	nome: Yup.string().min(6, 'Nome completo').required('*'),
+	nome: Yup.string().required('*'),
+	sobrenome: Yup.string().required('*'),
 	email: Yup.string().email('Email inválido').required('*'),
 	contato: Yup.string().min(11, '11 dígitos').required('*'),
 	cidade: Yup.string().min(3, 'Digite sua cidade').required('*'),
@@ -16,7 +17,6 @@ const validationSchema = Yup.object({
 	cep: Yup.string().min(8, '8 dígitos').required('*'),
 	logradouro: Yup.string().min(6, 'Endereço completo').required('*'),
 	numero_logradouro: Yup.number().required('*'),
-	complemento: Yup.string(),
 });
 
 export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
@@ -27,6 +27,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 	const formik = useFormik({
 		initialValues: {
 			nome: `${formObject ? formObject.nome : ''}`,
+			sobrenome: `${formObject ? formObject.sobrenome : ''}`,
 			email: `${formObject ? formObject.email : ''}`,
 			contato: `${formObject ? formObject.contato : ''}`,
 			cidade: `${formObject ? formObject.cidade : ''}`,
@@ -34,7 +35,6 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 			cep: `${formObject ? formObject.cep : ''}`,
 			logradouro: `${formObject ? formObject.logradouro : ''}`,
 			numero_logradouro: `${formObject ? formObject.numero_logradouro : ''}`,
-			complemento: `${formObject ? formObject.complemento : ''}`,
 		},
 
 		validationSchema,
@@ -57,14 +57,14 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 				'user',
 				JSON.stringify({
 					nome: values.nome,
+					sobrenome: values.sobrenome,
 					email: values.email,
-					contato: parseInt(values.contato),
+					contato: `${values.contato}`,
 					cidade: values.cidade,
 					uf: values.uf,
 					cep: `${values.cep}`,
 					logradouro: values.logradouro,
 					numero_logradouro: `${values.numero_logradouro}`,
-					complemento: values.complemento,
 				}),
 			);
 		},
@@ -76,7 +76,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 				<Row>
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="nome">Nome completo</Styled.Label>
+							<Styled.Label htmlFor="nome">Nome</Styled.Label>
 							{formik.errors.nome && <small>{formik.errors.nome}</small>}
 							<Styled.SInput
 								type="text"
@@ -85,6 +85,24 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 								id="nome"
 								placeholder="Nome completo"
 								value={formik.values.nome}
+								onChange={formik.handleChange}
+							/>
+						</Styled.InputContainer>
+					</Col>
+
+					<Col xs={12} sm={4}>
+						<Styled.InputContainer>
+							<Styled.Label htmlFor="sobrenome">Sobrenome</Styled.Label>
+							{formik.errors.sobrenome && (
+								<small>{formik.errors.sobrenome}</small>
+							)}
+							<Styled.SInput
+								type="text"
+								name="sobrenome"
+								{...register('sobrenome')}
+								id="sobrenome"
+								placeholder="Sobrenome completo"
+								value={formik.values.sobrenome}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>
@@ -101,22 +119,6 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 								id="email"
 								placeholder="Seu melhor email"
 								value={formik.values.email}
-								onChange={formik.handleChange}
-							/>
-						</Styled.InputContainer>
-					</Col>
-
-					<Col xs={12} sm={4}>
-						<Styled.InputContainer>
-							<Styled.Label htmlFor="contato">Celular</Styled.Label>
-							{formik.errors.contato && <small>{formik.errors.contato}</small>}
-							<Styled.SInput
-								type="number"
-								name="contato"
-								{...register('contato')}
-								id="contato"
-								placeholder="Ex: 11912345678"
-								value={formik.values.contato}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>
@@ -241,17 +243,15 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
-							<Styled.Label htmlFor="complemento">Complemento</Styled.Label>
-							{formik.errors.complemento && (
-								<small>{formik.errors.complemento}</small>
-							)}
+							<Styled.Label htmlFor="contato">Celular</Styled.Label>
+							{formik.errors.contato && <small>{formik.errors.contato}</small>}
 							<Styled.SInput
-								type="text"
-								name="complemento"
-								{...register('complemento')}
-								id="complemento"
-								placeholder="Complemento do endereço"
-								value={formik.values.complemento}
+								type="number"
+								name="contato"
+								{...register('contato')}
+								id="contato"
+								placeholder="Ex: 11912345678"
+								value={formik.values.contato}
 								onChange={formik.handleChange}
 							/>
 						</Styled.InputContainer>

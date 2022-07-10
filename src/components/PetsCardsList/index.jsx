@@ -4,9 +4,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPetsBySpecie } from '../../services/mainAPI/pets';
-import { Link} from 'react-router-dom';
-import * as S from './styled'
-
+import { Link } from 'react-router-dom';
+import * as S from './styled';
+import { getUserById } from '../../services/mainAPI/users';
 
 export const calculateMatch = (objectForm, objectApi) => {
 	const objectFormLength = Object.keys(objectForm).length;
@@ -39,11 +39,15 @@ export const calculateMatch = (objectForm, objectApi) => {
 	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
 };
 
-const PetsCardList = ({specie, click}) => {
+const PetsCardList = ({ specie, click }) => {
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
-
 	const orderedList = [...petList.pets];
+
+	const getPetLocation = async petUserId => {
+		const user = await getUserById(petUserId);
+		return `${user.cidade} - ${user.estado}`;
+	};
 
 	orderedList.sort(
 		(a, b) =>
@@ -53,7 +57,7 @@ const PetsCardList = ({specie, click}) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
-		
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [!click]);
 
 	return (
@@ -63,23 +67,13 @@ const PetsCardList = ({specie, click}) => {
 					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
-								<S.CardImage
-									variant="top"
-									src={pet.petImage}
-
-								/>
+								<S.CardImage variant="top" src={pet.petImage} />
 								<Card.Body>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
-									<span>
-										Multiverso dos pugs - PR
-									</span>
+									{/* <span>{getPetLocation(pet.userID)}</span> */}
 								</Card.Body>
 								<S.MatchIconContainer>
-									<S.MatchIcon
-										src={ScreenShot}
-										alt="Icone de Match"
-
-									/>
+									<S.MatchIcon src={ScreenShot} alt="Icone de Match" />
 									<S.MatchPercent>
 										{calculateMatch(petList.petsFilter, pet)}%
 									</S.MatchPercent>

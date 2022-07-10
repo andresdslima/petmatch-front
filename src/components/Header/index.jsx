@@ -33,7 +33,7 @@ const Header = () => {
 	return (
 		<Navbar expand="lg mb-5">
 			<Container>
-				<Navbar.Brand href="/" className="m-0 py-3">
+				<Navbar.Brand className="m-0 py-3">
 					<S.LogoImage src={Logo} alt="PetMatch Logo" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -63,7 +63,7 @@ const Header = () => {
 								<S.UserIcon />
 								<S.UserName>{firstName()}</S.UserName>
 								<S.ButtonSignOut onClick={logout}>
-									<S.SignOut className='sign-out'></S.SignOut>
+									<S.SignOut className="sign-out"></S.SignOut>
 								</S.ButtonSignOut>
 							</S.NavUser>
 						)}

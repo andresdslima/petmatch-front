@@ -36,7 +36,7 @@ export const CardText2 = styled(Card.Text)`
 
 export const SLink = styled(Link)`
 	&:hover {
-		border: 2px solid #F88B5C;
+		border: 2px solid #f88b5c;
 		border-radius: 16px;
 	}
 `;

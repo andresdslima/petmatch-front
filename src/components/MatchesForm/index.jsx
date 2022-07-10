@@ -5,19 +5,16 @@ import PetsCardsList from '../../components/PetsCardsList';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPetFilter } from '../../store/modules/pets';
-import { getPetsBySpecie } from '../../services/mainAPI/pets';
-
 
 const MatchesForm = () => {
-
 	const [toggle, setToggle] = useState(false);
 	const [click, setClick] = useState(false);
-	const handleClick = (especie) => {
+	const dispatch = useDispatch();
+
+	const handleClick = especie => {
 		setToggle(true);
 		setClick(!click);
-	}
-
-	const dispatch = useDispatch();
+	};
 
 	const formik = useFormik({
 		initialValues: {
@@ -33,7 +30,7 @@ const MatchesForm = () => {
 			vacinado: '',
 		},
 		onSubmit: values => {
-			dispatch(setPetFilter(values));	
+			dispatch(setPetFilter(values));
 		},
 	});
 
@@ -176,9 +173,13 @@ const MatchesForm = () => {
 								<S.SelectOption value="Pug">Pug</S.SelectOption>
 								<S.SelectOption value="Maltês">Maltês</S.SelectOption>
 								<S.SelectOption value="Buldogue">Buldogue</S.SelectOption>
-								<S.SelectOption value="Spitz Alemão">Spitz Alemão</S.SelectOption>
+								<S.SelectOption value="Spitz Alemão">
+									Spitz Alemão
+								</S.SelectOption>
 								<S.SelectOption value="Dachshund">Dachshund</S.SelectOption>
-								<S.SelectOption value="Pastor-Alemão">Pastor-Alemão</S.SelectOption>
+								<S.SelectOption value="Pastor-Alemão">
+									Pastor-Alemão
+								</S.SelectOption>
 								<S.SelectOption value="Basset">Basset</S.SelectOption>
 								<S.SelectOption value="Schnauzer">Schnauzer</S.SelectOption>
 								<S.SelectOption value="Poodle">Poodle</S.SelectOption>
@@ -190,8 +191,9 @@ const MatchesForm = () => {
 								<S.SelectOption value="Sphynx">Sphynx</S.SelectOption>
 								<S.SelectOption value="Ragdoll">Ragdoll</S.SelectOption>
 								<S.SelectOption value="Ashera">Ashera</S.SelectOption>
-								<S.SelectOption value="American Shorthair">American Shorthair</S.SelectOption>
-
+								<S.SelectOption value="American Shorthair">
+									American Shorthair
+								</S.SelectOption>
 							</S.FormItemSelect>
 						</Form.Group>
 						<S.AllCheckboxesContainer>
@@ -229,7 +231,7 @@ const MatchesForm = () => {
 					</S.ButtonContainer>
 				</Form>
 			</Container>
-			{toggle && <PetsCardsList specie={formik.values.especie} click={click}/>}
+			{toggle && <PetsCardsList specie={formik.values.especie} click={click} />}
 		</>
 	);
 };

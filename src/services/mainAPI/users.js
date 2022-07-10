@@ -1,8 +1,14 @@
 import { api } from './config';
 
-export const getUser = async id => {
-	const response = await api.get(`/users/${id}`);
-	return response.data;
+export const getUserById = async id => {
+	try {
+		const response = await api.get(`/users/${id}`);
+		return response.data;
+	} catch (error) {
+		console.error(error);
+		alert('Erro no getUserById');
+		return { status: error.response.status };
+	}
 };
 
 export const createUser = async user => {
@@ -20,7 +26,6 @@ export const createUser = async user => {
 export const updateUser = async (id, user) => {
 	try {
 		const response = await api.put(`/users/${id}`, user);
-		console.log(response);
 		return response.data;
 	} catch (error) {
 		console.error(error);
