@@ -42,6 +42,13 @@ export const ContainerBanner = styled(Carousel)`
 export const ImageBanner = styled.img`
 	width: 100%;
 	height: 100%;
+
+	@media (max-width: 768px) {
+		height: 25vw;
+	}
+	@media (max-width: 468px) {
+		height: 30vw;
+	}
 `;
 
 export const TextBanner = styled.h3`

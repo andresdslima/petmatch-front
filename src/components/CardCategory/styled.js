@@ -70,6 +70,7 @@ export const ContainerCardsCategory = styled.nav`
 export const LinkContainer = styled(Link)`
 	text-decoration: none;
 	text-align: center;
+	cursor: default;
 `;
 
 export const CardCategory = styled(Card)`
