@@ -3,6 +3,12 @@ import styled from 'styled-components';
 
 export const ContainerStepByStep = styled(Container)`
 margin-bottom: 5vw;
+
+@media only screen and (max-width: 500px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `
 
 export const IntroductionText = styled.span`
@@ -21,7 +27,7 @@ export const NumberOfSteps = styled.div`
   }
 
   @media only screen and (max-width: 500px) {
-    display: none;
+    flex-direction: column;
   }
 `;
 
@@ -69,6 +75,13 @@ export const StepNumberTwo = styled(StepNumberOne)`
       transform: translateX(89px);
     }
   }
+
+  @media only screen and (max-width: 500px) {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
 `;
 
 export const StepCheck = styled(StepNumberOne)`
@@ -103,8 +116,7 @@ export const FirstImage = styled.img`
   }
 
   @media only screen and (max-width: 500px) {
-    width: 121px;
-    height: 136px;
+   
   }
 `;
 
@@ -116,11 +128,6 @@ export const SecondImage = styled.img`
     width: 120px;
     height: 106.66px;
   }
-
-  @media only screen and (max-width: 500px) {
-    width: 180px;
-    height: 160px;
-  }
 `;
 
 export const ThirdImage = styled.img`
@@ -130,11 +137,6 @@ export const ThirdImage = styled.img`
   @media only screen and (max-width: 900px) {
     width: 84px;
     height: 98px;
-  }
-
-  @media only screen and (max-width: 500px) {
-    width: 126px;
-    height: 147px;
   }
 `;
 
@@ -151,7 +153,7 @@ export const ItemText = styled.span`
   }
 
   @media only screen and (max-width: 500px) {
-    width: 224px;
-    font-size: 21px;
+    width: 200px;
+    font-size: 15px;
   }
 `;
