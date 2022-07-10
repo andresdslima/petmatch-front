@@ -12,22 +12,22 @@ import Image10 from '../../assets/images/thaisIcon.png';
 import Image11 from '../../assets/images/victorIcon.png';
 import Image12 from '../../assets/images/joaoIcon.png';
 
-import { Row, Col, Container } from 'react-bootstrap';
-import './styles.css';
+import { Col, Container } from 'react-bootstrap';
+
 import * as S from './styled'
 
 const AboutUsPageMainContent = () => {
 	return (
 		<Container className='mt-5'>
 			<S.ContainerText>
-			<S.Text>
-				Nós somos a Pet Match, esse time aí junto com você, para transformar o
-				processo de adoção e doação muito mais responsável, prático, seguro e
-				assertivo! Venha transformar o mundo pet conosco, estamos de braços e
-				patas abertas para você!
-			</S.Text>
+				<S.Text>
+					Nós somos a Pet Match, esse time aí junto com você, para transformar o
+					processo de adoção e doação muito mais responsável, prático, seguro e
+					assertivo! Venha transformar o mundo pet conosco, estamos de braços e
+					patas abertas para você!
+				</S.Text>
 			</S.ContainerText>
-			<Row xs={1} sm={2} md={3} lg={4} id="grid" className="container">
+			<S.RowGrid xs={1} sm={2} md={3} lg={4} id="grid" className="container">
 				<Col>
 					<a
 						href="https://www.linkedin.com/in/fredericlsr"
@@ -136,7 +136,7 @@ const AboutUsPageMainContent = () => {
 						<AboutUsCards imageName={Image12} />
 					</a>
 				</Col>
-			</Row>
+			</S.RowGrid>
 		</Container>
 	);
 };
