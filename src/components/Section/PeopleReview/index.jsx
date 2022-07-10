@@ -1,4 +1,4 @@
-import './styles.css'
+// import './styles.css'
 import Person1 from '../../../assets/images/person1.svg'
 import Person2 from '../../../assets/images/person2.svg'
 import StarIcon from '../../../assets/images/starIcon.svg'
@@ -15,7 +15,7 @@ const PeopleReview = () => {
                 <S.PeopleOpinionContainer>
                     <S.PeopleOpinion>
                         <div className='personPicture'>
-                            <S.Picture src={Person1} alt="Imagem Pessoa"/>
+                            <S.Picture src={Person1} alt="Imagem Pessoa" />
                         </div>
                         <div className='opinionContent'>
                             <S.PersonInfo>

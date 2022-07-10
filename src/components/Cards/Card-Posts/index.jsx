@@ -1,25 +1,26 @@
 import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import './styles.css';
+import * as S from './styled';
+
 
 const CardPosts = ({ imageName }) => {
 	const navigate = useNavigate();
 
 	return (
-		<Card className="cardPost">
+		<S.CardPost className="cardPost">
 			<Card.Img variant="top" src={imageName} />
 			<Card.Body>
-				<Card.Title className="postTitle">SOBRE PETS</Card.Title>
+				<S.PostTitle className="postTitle">SOBRE PETS</S.PostTitle>
 				<Card.Text className="cardText">
 					O abandono dos pets está cada vez mais sendo visto de forma comum e
 					isso está se tornando um problema cada vez mais [...]
 				</Card.Text>
 			</Card.Body>
-			<Button className="buttonPost" onClick={() => navigate('/blog')}>
+			<S.ButtonPost className="buttonPost" onClick={() => navigate('/blog')}>
 				<span>Leia mais</span>
 				<span>+</span>
-			</Button>
-		</Card>
+			</S.ButtonPost>
+		</S.CardPost>
 	);
 };
 

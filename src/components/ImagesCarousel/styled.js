@@ -87,7 +87,7 @@ export const ContainerDisplayButton = styled.div`
 export const ContainerButton = styled.nav`
 	display: flex;
 	justify-content: space-around;
-	width: 34vw;
+	width: 35vw;
 
 	@media (max-width: 1000px) {
 		gap: 5vw;
@@ -115,19 +115,24 @@ export const ButtonLink = styled(Link)`
 	font-size: 0.875rem;
 	line-height: 1rem;
 	background-color: ${props => props.color};
-	color: #fff;
+	color: #fdfdfd;
 	border-radius: 0.25rem;
-	transition: all 0.5s ease-in-out;
+	transition: all 0.3s ease-in-out;
 
 	&:hover {
 		opacity: 0.8;
 		color: #fdfdfd;
 	}
 
+	@media (min-width: 1200px) {
+		height: 7.5vh;
+		width: 10vw;
+	}
+
 	@media (max-width: 768px) {
-		width: 25vw;
-		height: 6vw;
-		font-size: 1rem;
+		width: 20vw;
+		height: 5vw;
+		font-size: 0.8rem;
 
 		&:hover {
 			font-size: 0.8rem;
@@ -135,7 +140,7 @@ export const ButtonLink = styled(Link)`
 	}
 
 	@media (max-width: 468px) {
-		width: 30vw;
-		height: 8vw;
+		width: 26vw;
+		height: 7vw;
 	}
 `;
