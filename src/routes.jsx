@@ -36,9 +36,7 @@ export default function AppRoutes() {
 					<Route
 						path="/matches"
 						element={
-							<RequireAuth>
 								<Matches />
-							</RequireAuth>
 						}
 					/>
 					<Route
