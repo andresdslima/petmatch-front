@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Titulo = styled.h3`
-	font-size: 21px;
+	font-size: 1.3vw;
 	font-weight: 600;
 	margin-bottom: 1.4vw;
 
@@ -43,8 +43,7 @@ export const CardContainer = styled(Card)`
 	&:hover {
 		border: 2px solid #f88b5c !important;
 		border-radius: 16px;
-	}
-`;
+}`
 
 export const CardImage = styled(CardImg)`
 	width: 100%;
@@ -58,20 +57,36 @@ export const CardImage = styled(CardImg)`
 
 	@media only screen and (max-width: 500px) {
 		height: 34.5vw;
-	}
-`;
+	}`
 
 export const CardBody = styled(Card.Body)`
-	text-align: center;
+text-align: center;
 `;
 
 export const CardTitle = styled(Card.Title)`
-	font-size: 14px;
-	color: #404145;
+font-size: 14px;
+color: #404145;
 	font-weight: 600;
+
+	@media (max-width: 768px){
+		font-size: 2.5vw;
+	}
+
+	@media (max-width: 468px){
+		font-size: 3.5vw;
+	}
 `;
 
 export const CardText = styled(Card.Text)`
 	font-size: 12px;
 	color: #404145;
+
+	@media (max-width: 768px){
+		font-size: 2vw;
+	}
+
+	@media (max-width: 468px){
+		font-size: 3vw;
+	}
 `;
+
