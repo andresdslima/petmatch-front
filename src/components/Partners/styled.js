@@ -9,12 +9,27 @@ font-weight: 600;
   }
 `
 
+export const ContainerAlign = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Paragrafhs = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+`;
+
 export const PartnerContainerLeft = styled.div`
 display: flex;
 justify-content: flex-start;
 gap: 4.55vw;
 align-items: center;
-padding: 50px 0;
+padding: 3.2vw 0;
 text-align: start;
 position: relative;
 
@@ -30,7 +45,7 @@ position: relative;
 @media only screen and (max-width: 500px) {
   flex-direction: column;
   text-align: center;
-  padding: 25px 0;
+  padding: 1.6vw 0;
   }
 `
 
@@ -109,18 +124,22 @@ width: 6.88vw;
 export const PartnerDescription = styled.p`
 font-size: 1.1vw;
 margin: 0;
+max-width: 60%;
 
 @media only screen and (max-width: 900px) {
-    font-size: 10px;
+    font-size: 1.5vw;
   }
 
 @media only screen and (max-width: 500px) {
-    font-size: 7px;
+    font-size: 2.5vw;
+    text-align: left;
+    max-width: 100%;
   }
 `
 
 export const PuppiesImage = styled.img`
 width: 26.25vw;
+/* margin: 0 auto; */
 
 @media only screen and (max-width: 900px) {
   width: 39.37vw;
