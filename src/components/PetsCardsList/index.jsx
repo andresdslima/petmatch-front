@@ -1,5 +1,6 @@
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import ScreenShot from '../../assets/images/matchIcon.png';
+import Heart from '../../assets/images/OrangeHeart.svg';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
@@ -58,9 +59,9 @@ const PetsCardList = ({specie, click}) => {
 
 	return (
 		<Container>
-			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
+			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
-					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
+					<S.Column key={pet.nome}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
 								<S.CardImage
@@ -68,27 +69,29 @@ const PetsCardList = ({specie, click}) => {
 									src={pet.petImage}
 
 								/>
-								<Card.Body>
+								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
-									<span>
+									<S.CardText>
 										Multiverso dos pugs - PR
-									</span>
-								</Card.Body>
+									</S.CardText>
+								</S.CardBody>
 								<S.MatchIconContainer>
+									<S.MatchIconDiv>
 									<S.MatchIcon
-										src={ScreenShot}
+										src={Heart}
 										alt="Icone de Match"
 
 									/>
+									</S.MatchIconDiv>
 									<S.MatchPercent>
 										{calculateMatch(petList.petsFilter, pet)}%
 									</S.MatchPercent>
 								</S.MatchIconContainer>
 							</S.CardContainer>
 						</Link>
-					</Col>
+					</S.Column>
 				))}
-			</Row>
+			</S.RowContainer>
 		</Container>
 	);
 };
