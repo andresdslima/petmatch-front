@@ -1,11 +1,11 @@
 import './styles.css';
 import { Row, Col, Card } from 'react-bootstrap';
-// import CardImage from '../../assets/images/godofredo.svg';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
+import * as S from './styled'
 
 const MatchMainContent = () => {
 
@@ -34,24 +34,24 @@ const MatchMainContent = () => {
 
 	return (
 		<div className="container">
-			<h3>Confira essas fofuras</h3>
+			<S.Titulo>Confira essas fofuras</S.Titulo>
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{fivePetsRandomList2.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
-							<Card className="cardContainer">
-								<Card.Img
+							<S.CardContainer2 className=" cardContainer">
+								<S.CardImage2
 									variant="top"
 									src={pet.petImage}
 									className="cardImg"
 								/>
-								<Card.Body>
-									<Card.Title className="cardTitle">{pet.nome}</Card.Title>
-									<Card.Text className="cardText">
+								<S.CardBody2>
+									<S.CardTitle2 className="cardTitle">{pet.nome}</S.CardTitle2>
+									<S.CardText2 className="cardText">
 										Multiverso dos pugs - PR
-									</Card.Text>
-								</Card.Body>
-							</Card>
+									</S.CardText2>
+								</S.CardBody2>
+							</S.CardContainer2>
 						</Link>
 					</Col>
 				))}

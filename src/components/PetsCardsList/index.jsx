@@ -1,11 +1,9 @@
-import './styles.css';
-import { Row, Col, Card } from 'react-bootstrap';
-// import CardImage from '../../assets/images/godofredo.svg';
+import { Row, Col, Card, Container } from 'react-bootstrap';
 import ScreenShot from '../../assets/images/matchIcon.png';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
-import { getPets, getPetsBySpecie } from '../../services/mainAPI/pets';
+import { getPetsBySpecie } from '../../services/mainAPI/pets';
 import { Link} from 'react-router-dom';
 import * as S from './styled'
 
@@ -41,7 +39,7 @@ export const calculateMatch = (objectForm, objectApi) => {
 	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
 };
 
-const CardMatches = ({specie, click}) => {
+const PetsCardList = ({specie, click}) => {
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
 
@@ -59,7 +57,7 @@ const CardMatches = ({specie, click}) => {
 	}, [!click]);
 
 	return (
-		<S.Container className="container mb-5">
+		<Container>
 			<Row xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
 					<Col className="d-flex justify-content-center g-4" key={pet.nome}>
@@ -72,9 +70,9 @@ const CardMatches = ({specie, click}) => {
 								/>
 								<Card.Body>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
-									<S.CardText>
+									<span>
 										Multiverso dos pugs - PR
-									</S.CardText>
+									</span>
 								</Card.Body>
 								<S.MatchIconContainer>
 									<S.MatchIcon
@@ -91,8 +89,8 @@ const CardMatches = ({specie, click}) => {
 					</Col>
 				))}
 			</Row>
-		</S.Container>
+		</Container>
 	);
 };
 
-export default CardMatches;
+export default PetsCardList;
