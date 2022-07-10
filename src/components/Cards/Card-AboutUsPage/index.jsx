@@ -1,10 +1,10 @@
-import './styles.css'
+import * as S from './styled'
 
 const AboutUsCards = ({ imageName }) => {
     return (
-        <div className="cardGroup">
-            <img src={imageName} alt="Imagem integrante" />
-        </div>
+        <S.CardGroup>
+            <S.CardGroupImage src={imageName} alt="Imagem integrante" />
+        </S.CardGroup>
     )
 }
 
