@@ -31,7 +31,7 @@ const Header = () => {
 	};
 
 	return (
-		<Navbar expand="lg mb-5">
+		<Navbar expand="lg mb-1">
 			<Container>
 				<Navbar.Brand className="m-0 py-3">
 					<S.LogoImage src={Logo} alt="PetMatch Logo" />
