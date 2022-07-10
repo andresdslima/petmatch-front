@@ -3,6 +3,7 @@ import Header from "../../components/Header"
 import Banner from "../../components/Banner"
 import Footer from "../../components/Footer"
 import PeopleReview from "../../components/Section/PeopleReview"
+import CardsPostContainer from "../../components/Card-Posts-Container"
 
 const Blog = () => {
     return (
@@ -11,6 +12,7 @@ const Blog = () => {
             <Banner />
             <BlogMainContent />
             <PeopleReview />
+            <CardsPostContainer />
             <Footer />
         </>
     )

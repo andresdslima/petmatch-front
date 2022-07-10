@@ -1,26 +1,28 @@
-import { Container } from "react-bootstrap"
-import styled from "styled-components"
+import { Container } from 'react-bootstrap';
+import styled from 'styled-components';
 
 export const BlogContainer = styled(Container)`
-    margin-bottom: 100px;
-`
+	margin-bottom: 15vw;
+`;
 
 export const DogBlogImage = styled.img`
-width: 70%;
-margin-top: 50px;
+	width: 53vw;
+	margin-top: 50px;
 
-`
+	@media (max-width: 500px) {
+		width: 80%;
+	}
+`;
 
 export const BlogParagraph = styled.p`
-font-weight: 600;
-font-size: 1.5rem;
-line-height: 28px;
-color: #6B4BCC;
+	font-weight: 600;
+	font-size: 1.5rem;
+	line-height: 28px;
+	color: #6b4bcc;
+	margin-top: 3vw;
 
-@media (max-width: 500px) {
+	@media (max-width: 500px) {
 		font-size: 0.9rem;
-        margin-top: 30px;
+		margin-top: 30px;
 	}
-
-
-`
+`;
