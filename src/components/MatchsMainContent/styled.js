@@ -1,14 +1,18 @@
 import { Card, CardImg, Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Titulo = styled.h3`
-	font-size: 1.3vw;
+	font-size: 2vw;
 	font-weight: 600;
 	margin-bottom: 1.4vw;
 
 	@media only screen and (max-width: 900px) {
 		margin-bottom: 3vw;
+		font-size: 3vw;
+	}
+
+	@media (max-width: 468px) {
+		font-size: 5vw;
 	}
 `;
 

@@ -125,8 +125,8 @@ export const ButtonLink = styled(Link)`
 	}
 
 	@media (min-width: 1200px) {
-		height: 7.5vh;
-		width: 10vw;
+		width: 15vw;
+		height: 3.5vw;
 	}
 
 	@media (max-width: 768px) {
