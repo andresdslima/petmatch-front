@@ -13,7 +13,7 @@ import * as S from './styled';
 const CardCategory = () => {
 	const settings = {
 		dots: false,
-		infinite: true,
+		infinite: false,
 		centerMode: false,
 		speed: 500,
 		slidesToScroll: 3,
