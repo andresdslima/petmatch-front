@@ -26,8 +26,8 @@ const MatchesForm = () => {
 			tamanho_max: 0,
 			cor: '',
 			raca: '',
-			castrado: '',
-			vacinado: '',
+			castrado: false,
+			vacinado: false,
 		},
 		onSubmit: values => {
 			dispatch(setPetFilter(values));
