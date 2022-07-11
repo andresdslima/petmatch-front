@@ -7,6 +7,8 @@ import CardCategory from '../../components/CardCategory';
 import MatchsMainContent from '../../components/MatchsMainContent';
 import PeopleReview from '../../components/Section/PeopleReview';
 import CardPostsContainer from '../../components/Card-Posts-Container';
+import MorePetsButton from '../../components/MorePetsButton';
+
 
 const Home = () => {
 	return (
@@ -16,6 +18,7 @@ const Home = () => {
 			<CardCategory />
 			<StepByStepAdoption />
 			<MatchsMainContent />
+			<MorePetsButton />
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />

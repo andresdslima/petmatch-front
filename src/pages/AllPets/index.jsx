@@ -1,18 +1,16 @@
-import React from 'react';
-import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import MatchesForm from '../../components/MatchesForm';
+import Header from '../../components/Header';
+import ImagesCarousel from '../../components/ImagesCarousel';
 import PeopleReview from '../../components/Section/PeopleReview';
 import CardPostsContainer from '../../components/Card-Posts-Container';
-import Banner from '../../components/Banner';
+import ListAllPets from '../../components/ListAllPets';
 
-const Matches = () => {
-
+const AllPets = () => {
 	return (
 		<>
 			<Header />
-			<Banner />
-			<MatchesForm />
+			<ImagesCarousel />
+			<ListAllPets />
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />
@@ -20,4 +18,4 @@ const Matches = () => {
 	);
 };
 
-export default Matches;
+export default AllPets;
