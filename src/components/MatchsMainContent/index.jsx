@@ -8,6 +8,7 @@ import * as S from './styled';
 import { getUserById } from '../../services/mainAPI/users';
 
 const MatchMainContent = () => {
+
 	const petList = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
 
@@ -27,16 +28,17 @@ const MatchMainContent = () => {
 	const getPetLocation = async petUserId => {
 		const user = await getUserById(petUserId);
 		const location = `${user.cidade} - ${user.uf}`;
+		
 		console.log(location);
 		return location;
 	};
 
 	const userList = fivePetsRandomList.map(pet => {
-		return pet.userID
+		return pet.userID;
 	});
 
 	const locationList = userList.map(user => {
-		return getPetLocation(user)
+		return getPetLocation(user);
 	});
 
 	console.log(locationList);
@@ -59,7 +61,7 @@ const MatchMainContent = () => {
 									<S.CardText className="cardText">
 										{/* {`${getPetLocation(pet.userID)}`} */}
 										{/* {pet.userID} - {teste2[index].userID} */}
-										{pet.userID} São Paulo - SP
+										{pet.raca} 
 									</S.CardText>
 								</S.CardBody>
 							</S.CardContainer>
