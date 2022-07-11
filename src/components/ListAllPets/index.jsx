@@ -40,7 +40,7 @@ const ListAllPets = () => {
 						</S.Column>
 					))}
 				</S.RowContainer>
-				<small>*SRD: Sem Raça Defnidida</small>
+				<small>*SRD: Sem Raça Definida</small>
 			</S.PetsContainer>
 		</>
 	);

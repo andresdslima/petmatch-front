@@ -55,6 +55,7 @@ const PetsCardList = ({ specie, click }) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [!click]);
 
 	return (
@@ -86,7 +87,7 @@ const PetsCardList = ({ specie, click }) => {
 					</S.Column>
 				))}
 			</S.RowContainer>
-			<small>*SRD: Sem Raça Defnidida</small>
+			<small>*SRD: Sem Raça Definida</small>
 		</S.SContainer>
 	);
 };

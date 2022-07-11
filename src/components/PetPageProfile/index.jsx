@@ -7,12 +7,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPetItem } from '../../store/modules/pets';
 import { getPet } from '../../services/mainAPI/pets';
 import { useLocation } from 'react-router-dom';
+import { getUserById } from '../../services/mainAPI/users';
 
 const PetPageProfile = () => {
 	const pet = useSelector(state => state.petsSlice.petItem);
 	const dispatch = useDispatch();
 	const petId = parseInt(window.location.search.split('?')[1]);
 	const location = useLocation();
+
+	const getPetOwner = async userId => {
+		const user = await getUserById(userId);
+		const name = `${user.nome}`;
+
+		console.log(name);
+		return name;
+	};
+	
+	const userName = () => {
+		return pet.userID ? getPetOwner(pet.userID) : '';
+	};
 
 	useEffect(() => {
 		getPet(petId).then(petItem => dispatch(setPetItem(petItem)));
@@ -37,6 +50,9 @@ const PetPageProfile = () => {
 					</S.ContentText>
 					<S.ContentText>
 						Raça: <S.ContentCardText>{pet.raca}</S.ContentCardText>
+					</S.ContentText>
+					<S.ContentText>
+						Dono: <S.ContentCardText>{`${userName()}`}</S.ContentCardText>
 					</S.ContentText>
 				</S.CardBody>
 				<S.NamePet>
