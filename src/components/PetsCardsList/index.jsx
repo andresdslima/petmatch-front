@@ -40,15 +40,11 @@ export const calculateMatch = (objectForm, objectApi) => {
 	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
 };
 
-const PetsCardList = ({ specie, click }) => {
+const PetsCardList = ({specie, click}) => {
 	const petList = useSelector(state => state.petsSlice);
 	const dispatch = useDispatch();
-	const orderedList = [...petList.pets];
 
-	const getPetLocation = async petUserId => {
-		const user = await getUserById(petUserId);
-		return `${user.cidade} - ${user.estado}`;
-	};
+	const orderedList = [...petList.pets];
 
 	orderedList.sort(
 		(a, b) =>
@@ -58,14 +54,14 @@ const PetsCardList = ({ specie, click }) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		
 	}, [!click]);
 
 	return (
 		<Container>
 			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
-					<S.Column key={pet.nome}>
+					<S.Column key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
 								<S.CardImage
