@@ -53,7 +53,6 @@ export default function RegistrationForm() {
 				return;
 			}
 
-			alert('Usuário cadastrado com sucesso!');
 			formik.handleReset();
 
 			localStorage.setItem(

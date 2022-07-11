@@ -1,14 +1,12 @@
 import { Container } from 'react-bootstrap';
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPets } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
 import * as S from './styled';
-import { getUserById } from '../../services/mainAPI/users';
 
 const MatchMainContent = () => {
-
 	const petList = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
 
@@ -17,31 +15,25 @@ const MatchMainContent = () => {
 
 	const fivePetsRandomList = randomList.slice(0, 5);
 
-	// const fivePetsRandomList = [];
+	// const getPetLocation = async petUserId => {
+	// 	const user = await getUserById(petUserId);
+	// 	const location = `${user.cidade} - ${user.uf}`;
 
-	// for (let i = 0; i < 5; i++) {
-	// 	fivePetsRandomList.push(randomList[i]);
-	// }
+	// 	console.log(location);
+	// 	return location;
+	// };
 
-	// console.log(randomList);
-	// console.log(fivePetsRandomList);
-	const getPetLocation = async petUserId => {
-		const user = await getUserById(petUserId);
-		const location = `${user.cidade} - ${user.uf}`;
-		
-		console.log(location);
-		return location;
-	};
+	// const userIdList = fivePetsRandomList.map(pet => {
+	// 	return pet.userID;
+	// });
 
-	const userList = fivePetsRandomList.map(pet => {
-		return pet.userID;
-	});
+	// const locationList = userIdList.map(async user => {
+	// 	const result = await getPetLocation(user);
+	// 	const final = result.then(location => location.result);
+	// 	return result;
+	// });
 
-	const locationList = userList.map(user => {
-		return getPetLocation(user);
-	});
-
-	console.log(locationList);
+	// console.log(locationList);
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
@@ -59,9 +51,12 @@ const MatchMainContent = () => {
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
 									<S.CardText className="cardText">
-										{/* {`${getPetLocation(pet.userID)}`} */}
+										{/* {`${getPetLocation(pet.userID).result}`} */}
+										{/* {getPetLocation(pet.userID)} */}
 										{/* {pet.userID} - {teste2[index].userID} */}
-										{pet.raca} 
+										{pet.raca}
+										<br />
+										{pet.idade} ano(s)
 									</S.CardText>
 								</S.CardBody>
 							</S.CardContainer>
@@ -69,6 +64,7 @@ const MatchMainContent = () => {
 					</S.Column>
 				))}
 			</S.RowContainer>
+			<small>*SRD: Sem Raça Defnidida</small>
 		</Container>
 	);
 };

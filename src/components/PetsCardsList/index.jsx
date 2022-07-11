@@ -1,5 +1,4 @@
-import { Row, Col, Card, Container } from 'react-bootstrap';
-import ScreenShot from '../../assets/images/matchIcon.png';
+import { Container } from 'react-bootstrap';
 import Heart from '../../assets/images/OrangeHeart.svg';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +6,6 @@ import { setPetList } from '../../store/modules/pets';
 import { getPetsBySpecie } from '../../services/mainAPI/pets';
 import { Link } from 'react-router-dom';
 import * as S from './styled';
-import { getUserById } from '../../services/mainAPI/users';
 
 export const calculateMatch = (objectForm, objectApi) => {
 	const objectFormLength = Object.keys(objectForm).length;
@@ -45,10 +43,10 @@ const PetsCardList = ({ specie, click }) => {
 	const dispatch = useDispatch();
 	const orderedList = [...petList.pets];
 
-	const getPetLocation = async petUserId => {
-		const user = await getUserById(petUserId);
-		return `${user.cidade} - ${user.estado}`;
-	};
+	// const getPetLocation = async petUserId => {
+	// 	const user = await getUserById(petUserId);
+	// 	return `${user.cidade} - ${user.estado}`;
+	// };
 
 	orderedList.sort(
 		(a, b) =>
@@ -65,7 +63,7 @@ const PetsCardList = ({ specie, click }) => {
 		<Container>
 			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
-					<S.Column key={pet.nome}>
+					<S.Column key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
 								<S.CardImage

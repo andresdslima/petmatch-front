@@ -33,6 +33,7 @@ export const postPets = async newPet => {
 		alert('Seu Pet foi cadastrado com sucesso!');
 		return response.data;
 	} catch (error) {
+		alert(`Error: ${error.response.data}`);
 		throw new Error(`Error: ${error.response.data}`);
 	}
 };

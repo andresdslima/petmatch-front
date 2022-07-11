@@ -6,7 +6,7 @@ export const getUserById = async id => {
 		return response.data;
 	} catch (error) {
 		console.error(error);
-		// alert('Erro no getUserById');
+		alert('Erro no getUserById');
 		return { status: error.response.status };
 	}
 };

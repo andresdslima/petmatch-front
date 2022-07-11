@@ -30,7 +30,7 @@ export const Column = styled(Col)`
 	margin-bottom: 1.7vw;
 
 	@media only screen and (max-width: 1100px) {
-		width: 33%;
+		width: 23%;
 		margin-bottom: 3vw;
 	}
 
@@ -57,7 +57,7 @@ export const CardImage = styled(CardImg)`
 	border-radius: 15px 15px 0 0;
 
 	@media only screen and (max-width: 1100px) {
-		height: 20vw;
+		height: 15vw;
 	}
 
 	@media only screen and (max-width: 500px) {

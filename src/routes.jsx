@@ -33,12 +33,7 @@ export default function AppRoutes() {
 						}
 					/>
 					<Route path="/sobre" element={<About />} />
-					<Route
-						path="/matches"
-						element={
-								<Matches />
-						}
-					/>
+					<Route path="/matches" element={<Matches />} />
 					<Route
 						path="/adoption"
 						element={

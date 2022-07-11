@@ -51,6 +51,7 @@ const GiveForAdoptionForm = () => {
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			api.defaults.headers.common['Content-Type'] = 'multipart/form-data';
 
 			const formData = new FormData();
 			formData.append('especie', values.especie);
@@ -90,6 +91,7 @@ const GiveForAdoptionForm = () => {
 								type="select"
 								value={formik.values.especie}
 								onChange={formik.handleChange}
+								required
 							>
 								<S.SelectOption value=""></S.SelectOption>
 								<S.SelectOption value="Cachorro">Cães</S.SelectOption>
@@ -107,6 +109,7 @@ const GiveForAdoptionForm = () => {
 								type="text"
 								placeholder="Ex: Scooby"
 								value={formik.values.nome}
+								required
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -117,6 +120,7 @@ const GiveForAdoptionForm = () => {
 								type="number"
 								placeholder="Ex: 3"
 								value={formik.values.idade}
+								required
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -127,6 +131,7 @@ const GiveForAdoptionForm = () => {
 								type="select"
 								placeholder="Ex: feminino"
 								value={formik.values.sexo}
+								required
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
@@ -142,6 +147,7 @@ const GiveForAdoptionForm = () => {
 								type="text"
 								placeholder="Ex: Beagle"
 								value={formik.values.raca}
+								required
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -152,6 +158,7 @@ const GiveForAdoptionForm = () => {
 								type="number"
 								placeholder="Ex: 10"
 								value={formik.values.peso}
+								required
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -162,6 +169,7 @@ const GiveForAdoptionForm = () => {
 								type="select"
 								placeholder="Ex: 100"
 								value={formik.values.porte}
+								required
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
@@ -179,6 +187,7 @@ const GiveForAdoptionForm = () => {
 							<S.FormItem
 								id="tamanho"
 								type="number"
+								required
 								placeholder="Ex: 40"
 								value={formik.values.tamanho}
 								onChange={formik.handleChange}
@@ -191,6 +200,7 @@ const GiveForAdoptionForm = () => {
 								type="select"
 								placeholder="Ex: Branco"
 								value={formik.values.cor}
+								required
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
@@ -208,6 +218,7 @@ const GiveForAdoptionForm = () => {
 								type="text"
 								placeholder="Ex: D4J7X9"
 								value={formik.values.chip}
+								required
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>
@@ -252,6 +263,7 @@ const GiveForAdoptionForm = () => {
 								id="sobre"
 								placeholder="Conte-nos mais sobre o seu pet."
 								value={formik.values.sobre}
+								required
 								onChange={formik.handleChange}
 							></S.TextArea>
 						</S.TextareaContainer>
