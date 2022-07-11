@@ -17,19 +17,9 @@ const MatchMainContent = () => {
 
 	const fivePetsRandomList = randomList.slice(0, 5);
 
-	// const fivePetsRandomList = [];
-
-	// for (let i = 0; i < 5; i++) {
-	// 	fivePetsRandomList.push(randomList[i]);
-	// }
-
-	// console.log(randomList);
-	// console.log(fivePetsRandomList);
 	const getPetLocation = async petUserId => {
 		const user = await getUserById(petUserId);
 		const location = `${user.cidade} - ${user.uf}`;
-		
-		console.log(location);
 		return location;
 	};
 
@@ -40,8 +30,6 @@ const MatchMainContent = () => {
 	const locationList = userList.map(user => {
 		return getPetLocation(user);
 	});
-
-	console.log(locationList);
 
 	useEffect(() => {
 		getPets().then(pets => dispatch(setPetList(pets)));
