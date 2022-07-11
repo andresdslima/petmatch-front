@@ -1,4 +1,4 @@
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 
