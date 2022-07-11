@@ -2,11 +2,11 @@ import { Card, CardImg, Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const Titulo = styled.h3`
-	font-size: 2vw;
+	font-size: 1.3rem;
 	font-weight: 600;
 	margin-bottom: 1.4vw;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
 		margin-bottom: 3vw;
 		font-size: 3vw;
 	}
@@ -20,7 +20,7 @@ export const RowContainer = styled(Row)`
 	display: flex;
 	justify-content: space-between;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
 		justify-content: center;
 	}
 `;
@@ -28,7 +28,7 @@ export const RowContainer = styled(Row)`
 export const Column = styled(Col)`
 	width: 16.5vw;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
 		width: 33%;
 		margin-bottom: 3vw;
 	}
@@ -45,7 +45,7 @@ export const CardContainer = styled(Card)`
 	border-width: 0;
 
 	&:hover {
-		border: 2px solid #f88b5c !important;
+		outline: 2px solid #f88b5c !important;
 		border-radius: 16px;
 }`
 
@@ -55,7 +55,7 @@ export const CardImage = styled(CardImg)`
 	object-fit: cover;
 	border-radius: 15px 15px 0 0;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
 		height: 20vw;
 	}
 

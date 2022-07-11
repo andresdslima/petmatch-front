@@ -7,7 +7,7 @@ export const RowContainer = styled(Row)`
 	justify-content: flex-start;
     gap: 13px;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
         gap: 0px;
 	}
 `;
@@ -15,7 +15,7 @@ export const RowContainer = styled(Row)`
 export const Column = styled(Col)`
 	width: 16.5vw;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
 		width: 33%;
 		margin-bottom: 3vw;
 	}
@@ -32,7 +32,7 @@ export const CardContainer = styled(Card)`
 	border-width: 0;
 
 	&:hover {
-		border: 2px solid #f88b5c !important;
+		outline: 2px solid #f88b5c !important;
 		border-radius: 16px;
 }`
 
@@ -42,7 +42,7 @@ export const CardImage = styled(CardImg)`
 	object-fit: cover;
 	border-radius: 15px 15px 0 0;
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 1100px) {
 		height: 20vw;
 	}
 
