@@ -115,6 +115,7 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 							onChange={formik.handleChange}
 						/>
 					</Styled.CheckboxContainer>
+				<small>*Seus dados cadastrais serão atualizados automaticamente.</small>
 				</Styled.SDiv>
 			</Styled.ContainerForm>
 

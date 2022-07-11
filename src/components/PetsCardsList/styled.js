@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Card, CardImg, Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 

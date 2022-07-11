@@ -94,7 +94,6 @@ export const ContentCardText = styled.p`
 `;
 
 export const NamePet = styled.div`
-    position: absolute;
     width: 18.75vw;
     height: 4.2vw;
     position: absolute;
@@ -112,7 +111,7 @@ export const NamePet = styled.div`
     border-radius: 3.125vw;
     z-index: 999;
     left: 59%;
-    bottom: 84%;
+    bottom: 89%;
 
     @media (max-width: 500px) {
         left: 65%;
