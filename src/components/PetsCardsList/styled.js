@@ -1,9 +1,13 @@
-import { Card, CardImg, Col, Row } from 'react-bootstrap';
+import { Card, CardImg, Col, Row, Container } from 'react-bootstrap';
 import styled from 'styled-components';
+
+export const SContainer = styled(Container)`
+	margin: 5vw auto 0 auto;
+`;
 
 export const RowContainer = styled(Row)`
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	gap: 13px;
 
 	@media only screen and (max-width: 1100px) {

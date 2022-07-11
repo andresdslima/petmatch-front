@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const RowContainer = styled(Row)`
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	gap: 13px;
 
 	@media only screen and (max-width: 1100px) {
@@ -97,5 +97,5 @@ export const Title = styled.h3`
 `;
 
 export const PetsContainer = styled(Container)`
-	margin-top: 5vw;
+	margin: 5vw auto 0 auto;
 `;
