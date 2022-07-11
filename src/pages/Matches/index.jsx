@@ -6,6 +6,7 @@ import PeopleReview from '../../components/Section/PeopleReview';
 // import MatchsMainContent from '../../components/MatchsMainContent';
 import CardPostsContainer from '../../components/Card-Posts-Container';
 import Banner from '../../components/Banner';
+import ListAllPets from '../../components/ListAllPets';
 
 const Matches = () => {
 
@@ -21,7 +22,7 @@ const Matches = () => {
 		<>
 			<Header />
 			<Banner />
-			{isLogged() && <MatchesForm />}
+			{isLogged()? (<MatchesForm />) : (<ListAllPets />)}
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />
