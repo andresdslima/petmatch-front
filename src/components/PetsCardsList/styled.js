@@ -39,6 +39,21 @@ export const CardContainer = styled(Card)`
 	}
 `;
 
+export const CardImage = styled(CardImg)`
+	width: 100%;
+	height: 11.76vw;
+	object-fit: cover;
+	border-radius: 15px 15px 0 0;
+
+	@media only screen and (max-width: 900px) {
+		height: 20vw;
+	}
+
+	@media only screen and (max-width: 500px) {
+		height: 34.5vw;
+	}
+`;
+
 export const MatchIconContainer = styled.div`
 	position: absolute;
 	bottom: 17.5%;
@@ -53,20 +68,6 @@ export const MatchIconContainer = styled.div`
 
 	@media only screen and (max-width: 500px) {
         bottom: 30%;
-	}
-`;
-export const CardImage = styled(CardImg)`
-	width: 100%;
-	height: 11.76vw;
-	object-fit: cover;
-	border-radius: 15px 15px 0 0;
-
-	@media only screen and (max-width: 900px) {
-		height: 20vw;
-	}
-
-	@media only screen and (max-width: 500px) {
-		height: 34.5vw;
 	}
 `;
 

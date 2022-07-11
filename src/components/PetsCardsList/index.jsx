@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap';
+import { Row, Col, Card, Container } from 'react-bootstrap';
 import ScreenShot from '../../assets/images/matchIcon.png';
 import Heart from '../../assets/images/OrangeHeart.svg';
 import React, { useEffect } from 'react';
@@ -47,9 +47,7 @@ const PetsCardList = ({ specie, click }) => {
 
 	const getPetLocation = async petUserId => {
 		const user = await getUserById(petUserId);
-		const location = `${user.cidade} - ${user.uf}`;
-		console.log(location);
-		return location;
+		return `${user.cidade} - ${user.estado}`;
 	};
 
 	orderedList.sort(
@@ -67,20 +65,27 @@ const PetsCardList = ({ specie, click }) => {
 		<Container>
 			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
-					<S.Column key={pet.id}>
+					<S.Column key={pet.nome}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
-								<S.CardImage variant="top" src={pet.petImage} />
+								<S.CardImage
+									variant="top"
+									src={pet.petImage}
+
+								/>
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
 									<S.CardText>
-										{/* <span>{`${getPetLocation(pet.userID)}`}</span> */}
-										<span>São Paulo - SP</span>
+									{pet.userID} São Paulo - SP
 									</S.CardText>
 								</S.CardBody>
 								<S.MatchIconContainer>
 									<S.MatchIconDiv>
-										<S.MatchIcon src={Heart} alt="Icone de Match" />
+									<S.MatchIcon
+										src={Heart}
+										alt="Icone de Match"
+
+									/>
 									</S.MatchIconDiv>
 									<S.MatchPercent>
 										{calculateMatch(petList.petsFilter, pet)}%
