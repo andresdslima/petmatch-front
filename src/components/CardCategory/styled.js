@@ -83,6 +83,10 @@ export const CardCategory = styled(Card)`
 	transition: all 0.5s ease-in-out;
 	box-sizing: border-box;
 
+	&:hover {
+		cursor: pointer;
+	}
+
 
 	& .card-body {
 		border-radius: 0 0 1.04vw 1.04vw;

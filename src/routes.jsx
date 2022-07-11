@@ -12,6 +12,8 @@ import ONGs from './pages/ONGs';
 import RequireAuth from './RequiredAuth';
 import GiveForAdoption from './pages/GiveForAdoption';
 import ScrollToTop from './components/ScrollToTop';
+import PetsBySpecie from './pages/PetsBySpecie';
+import AllPets from './pages/AllPets';
 
 export default function AppRoutes() {
 	// let login = useSelector(state => state.persistedReducer.isLogged);
@@ -33,7 +35,9 @@ export default function AppRoutes() {
 						}
 					/>
 					<Route path="/sobre" element={<About />} />
-					<Route path="/matches" element={<Matches />} />
+					<Route path="/matches" element={<RequireAuth>
+						<Matches />
+						</RequireAuth>} />
 					<Route
 						path="/adoption"
 						element={
@@ -52,6 +56,8 @@ export default function AppRoutes() {
 					/>
 					<Route path="/blog" element={<Blog />} />
 					<Route path="/ongs" element={<ONGs />} />
+					<Route path="/petsbyspecie/:param" element={<PetsBySpecie />} />
+					<Route path="/allpets" element={<AllPets />} />
 				</Routes>
 			</ScrollToTop>
 		</Router>
