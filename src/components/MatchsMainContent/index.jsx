@@ -59,7 +59,7 @@ const MatchMainContent = () => {
 									<S.CardText className="cardText">
 										{/* {`${getPetLocation(pet.userID)}`} */}
 										{/* {pet.userID} - {teste2[index].userID} */}
-										{pet.userID} - {petLocations[index]} São Paulo - SP
+										{pet.userID} São Paulo - SP
 									</S.CardText>
 								</S.CardBody>
 							</S.CardContainer>
