@@ -141,15 +141,43 @@ const GiveForAdoptionForm = () => {
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Raça</S.Label>
-							<S.FormItem
+							<S.FormItemSelect
 								id="raca"
-								name="raca"
-								type="text"
-								placeholder="Ex: Beagle"
-								value={formik.values.raca}
-								required
+								type="select"
+								value={formik.values.raca} required
 								onChange={formik.handleChange}
-							/>
+							>
+								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="SRD">
+									SRD (Sem raça definida)
+								</S.SelectOption>
+								<S.SelectOption value="Pitbull">Pitbull</S.SelectOption>
+								<S.SelectOption value="Shitzu">Shit-zu</S.SelectOption>
+								<S.SelectOption value="Pug">Pug</S.SelectOption>
+								<S.SelectOption value="Maltês">Maltês</S.SelectOption>
+								<S.SelectOption value="Buldogue">Buldogue</S.SelectOption>
+								<S.SelectOption value="Spitz Alemão">
+									Spitz Alemão
+								</S.SelectOption>
+								<S.SelectOption value="Dachshund">Dachshund</S.SelectOption>
+								<S.SelectOption value="Pastor-Alemão">
+									Pastor-Alemão
+								</S.SelectOption>
+								<S.SelectOption value="Basset">Basset</S.SelectOption>
+								<S.SelectOption value="Schnauzer">Schnauzer</S.SelectOption>
+								<S.SelectOption value="Poodle">Poodle</S.SelectOption>
+								<S.SelectOption value="Persa">Persa</S.SelectOption>
+								<S.SelectOption value="Himalaia">Himalaia</S.SelectOption>
+								<S.SelectOption value="Siamês">Siamês</S.SelectOption>
+								<S.SelectOption value="Maine Coon">Maine Coon</S.SelectOption>
+								<S.SelectOption value="Angorá">Angorá</S.SelectOption>
+								<S.SelectOption value="Sphynx">Sphynx</S.SelectOption>
+								<S.SelectOption value="Ragdoll">Ragdoll</S.SelectOption>
+								<S.SelectOption value="Ashera">Ashera</S.SelectOption>
+								<S.SelectOption value="American Shorthair">
+									American Shorthair
+								</S.SelectOption>
+							</S.FormItemSelect>
 						</Form.Group>
 						<Form.Group>
 							<S.Label>Peso (kg)</S.Label>

@@ -162,7 +162,6 @@ const MatchesForm = () => {
 							<S.FormItemSelect
 								id="raca"
 								type="select"
-								placeholder="Ex: 100"
 								value={formik.values.raca}
 								onChange={formik.handleChange}
 							>
