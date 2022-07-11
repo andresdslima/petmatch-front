@@ -278,6 +278,14 @@ export const StepNumberTwo = styled(StepNumberOne)`
 		}
 	}
 
+	@media only screen and (min-width: 1400px) {
+		&::after {
+			width: 15vw;
+			margin-right: 27vw;
+			transform: translateX(-89px);
+		}
+	}
+
 	@media only screen and (max-width: 900px) {
 		&::after {
 			width: 19.5vw;
