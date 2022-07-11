@@ -72,7 +72,11 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="cpf">CPF</Styled.Label>
-							{formik.errors.cpf && <small>{formik.errors.cpf}</small>}
+							{formik.errors.cpf && (
+								<small>
+									<em>{formik.errors.cpf}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="number"
 								name="cpf"
@@ -88,7 +92,11 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="rg">RG</Styled.Label>
-							{formik.errors.rg && <small>{formik.errors.rg}</small>}
+							{formik.errors.rg && (
+								<small>
+									<em>{formik.errors.rg}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="number"
 								name="rg"
@@ -105,7 +113,9 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="estadoCivil">Estado Civil</Styled.Label>
 							{formik.errors.estadoCivil && (
-								<small>{formik.errors.estadoCivil}</small>
+								<small>
+									<em>{formik.errors.estadoCivil}</em>
+								</small>
 							)}
 							<Styled.FormItemSelect
 								id="estadoCivil"
@@ -136,7 +146,9 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="profissao">Profissão</Styled.Label>
 							{formik.errors.profissao && (
-								<small>{formik.errors.profissao}</small>
+								<small>
+									<em>{formik.errors.profissao}</em>
+								</small>
 							)}
 							<Styled.SInput
 								type="text"
@@ -153,7 +165,11 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="bairro">Bairro</Styled.Label>
-							{formik.errors.bairro && <small>{formik.errors.bairro}</small>}
+							{formik.errors.bairro && (
+								<small>
+									<em>{formik.errors.bairro}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="text"
 								name="bairro"
@@ -170,7 +186,9 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="complemento">Complemento</Styled.Label>
 							{formik.errors.complemento && (
-								<small>{formik.errors.complemento}</small>
+								<small>
+									<em>{formik.errors.complemento}</em>
+								</small>
 							)}
 							<Styled.SInput
 								type="text"

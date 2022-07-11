@@ -107,7 +107,9 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 							Endereço completo de onde o animal ficará
 						</Styled.Label>
 						{formik.errors.enderecoAnimal && (
-							<small>{formik.errors.enderecoAnimal}</small>
+							<small>
+								<em>{formik.errors.enderecoAnimal}</em>
+							</small>
 						)}
 						<Styled.SInput
 							type="text"

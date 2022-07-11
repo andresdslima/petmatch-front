@@ -37,7 +37,7 @@ const MatchesForm = () => {
 	return (
 		<>
 			<S.TitleBackground className="mt-5">
-				<S.Title>Encontre seus matches!</S.Title>
+				<S.Title>Busque aqui e dê um PetMatch!</S.Title>
 			</S.TitleBackground>
 			<Container className="my-5">
 				<Form className="form" onSubmit={formik.handleSubmit}>
@@ -166,7 +166,9 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="SRD">SRD (Sem raça definida)</S.SelectOption>
+								<S.SelectOption value="SRD">
+									SRD (Sem raça definida)
+								</S.SelectOption>
 								<S.SelectOption value="Pitbull">Pitbull</S.SelectOption>
 								<S.SelectOption value="Shitzu">Shit-zu</S.SelectOption>
 								<S.SelectOption value="Pug">Pug</S.SelectOption>
@@ -218,7 +220,9 @@ const MatchesForm = () => {
 							</S.CheckboxContainer>
 						</S.AllCheckboxesContainer>
 					</S.ContainerForm>
-					<small>*Preencha todos os campos para um match perfeito!</small>
+					<small>
+						<em>*Preencha todos os campos para um match perfeito!</em>
+					</small>
 					<S.ButtonContainer className="my-5">
 						<S.SearchButton
 							variant="primary"

@@ -257,6 +257,10 @@ export const StepNumberOne = styled.span`
 	}
 `;
 
+export const STitle = styled.h5`
+	text-align: center;
+`;
+
 export const StepNumberTwo = styled(StepNumberOne)`
 	&::after {
 		width: 20vw;

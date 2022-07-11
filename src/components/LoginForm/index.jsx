@@ -74,7 +74,11 @@ export default function LoginForm() {
 					<Styled.SLabel alt="Digite seu email" htmlFor="email">
 						Email
 					</Styled.SLabel>
-					{formik.errors.email && <small>{formik.errors.email}</small>}
+					{formik.errors.email && (
+						<small>
+							<em>{formik.errors.email}</em>
+						</small>
+					)}
 					<Styled.SGroup>
 						<Styled.SInput
 							type="email"
@@ -94,7 +98,11 @@ export default function LoginForm() {
 					<Styled.SLabel alt="Digite sua senha" htmlFor="senha">
 						Senha
 					</Styled.SLabel>
-					{formik.errors.senha && <small>{formik.errors.senha}</small>}
+					{formik.errors.senha && (
+						<small>
+							<em>{formik.errors.senha}</em>
+						</small>
+					)}
 					<Styled.SGroup>
 						<Styled.SInput
 							type="password"

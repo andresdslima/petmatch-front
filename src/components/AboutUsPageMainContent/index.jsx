@@ -19,7 +19,7 @@ const AboutUsPageMainContent = () => {
 		<Container className="mt-5">
 			<S.ContainerText>
 				<S.Text>
-					Nós somos a Pet Match, esse time aí junto com você, para transformar o
+					Nós somos a PetMatch, esse time aí junto com você, para transformar o
 					processo de adoção e doação muito mais responsável, prático, seguro e
 					assertivo! Venha transformar o mundo pet conosco, estamos de braços e
 					patas abertas para você!

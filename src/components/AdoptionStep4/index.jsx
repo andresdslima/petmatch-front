@@ -90,7 +90,9 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 							Assinatura do Adotante
 						</Styled.Label>
 						{formik.errors.assinatura && (
-							<small>{formik.errors.assinatura}</small>
+							<small>
+								<em>{formik.errors.assinatura}</em>
+							</small>
 						)}
 						<Styled.SSignature
 							type="text"
@@ -103,7 +105,9 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 					</Styled.InputContainer>
 					<Styled.CheckboxContainer>
 						{formik.errors.declaracao && (
-							<small>{formik.errors.declaracao}</small>
+							<small>
+								<em>{formik.errors.declaracao}</em>
+							</small>
 						)}
 						<Styled.Checkbox
 							type="checkbox"
@@ -115,7 +119,9 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 							onChange={formik.handleChange}
 						/>
 					</Styled.CheckboxContainer>
-				<small>*Seus dados cadastrais serão atualizados automaticamente.</small>
+					<small>
+						<em>*Seus dados cadastrais serão atualizados automaticamente.</em>
+					</small>
 				</Styled.SDiv>
 			</Styled.ContainerForm>
 

@@ -91,7 +91,11 @@ export default function RegistrationForm() {
 					<Styled.SLabel alt="Digite seu primeiro nome" htmlFor="firstName">
 						Primeiro nome
 					</Styled.SLabel>
-					{formik.errors.firstName && <small>{formik.errors.firstName}</small>}
+					{formik.errors.firstName && (
+						<small>
+							<em>{formik.errors.firstName}</em>
+						</small>
+					)}
 					<Styled.SInput
 						type="text"
 						name="firstName"
@@ -104,7 +108,11 @@ export default function RegistrationForm() {
 					<Styled.SLabel alt="Digite seu sobrenome completo" htmlFor="lastName">
 						Sobrenome completo
 					</Styled.SLabel>
-					{formik.errors.lastName && <small>{formik.errors.lastName}</small>}
+					{formik.errors.lastName && (
+						<small>
+							<em>{formik.errors.lastName}</em>
+						</small>
+					)}
 					<Styled.SInput
 						type="text"
 						name="lastName"
@@ -117,7 +125,11 @@ export default function RegistrationForm() {
 					<Styled.SLabel alt="Digite seu melhor email" htmlFor="email">
 						Email
 					</Styled.SLabel>
-					{formik.errors.email && <small>{formik.errors.email}</small>}
+					{formik.errors.email && (
+						<small>
+							<em>{formik.errors.email}</em>
+						</small>
+					)}
 					<Styled.SInput
 						type="email"
 						name="email"
@@ -133,7 +145,11 @@ export default function RegistrationForm() {
 					>
 						Senha
 					</Styled.SLabel>
-					{formik.errors.password && <small>{formik.errors.password}</small>}
+					{formik.errors.password && (
+						<small>
+							<em>{formik.errors.password}</em>
+						</small>
+					)}
 					<Styled.SInput
 						type="password"
 						placeholder="Digite sua senha"
@@ -147,7 +163,9 @@ export default function RegistrationForm() {
 						Confirmar senha
 					</Styled.SLabel>
 					{formik.errors.confirmPassword && (
-						<small>{formik.errors.confirmPassword}</small>
+						<small>
+							<em>{formik.errors.confirmPassword}</em>
+						</small>
 					)}
 					<Styled.SInput
 						type="password"
