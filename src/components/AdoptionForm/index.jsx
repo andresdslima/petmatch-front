@@ -37,6 +37,7 @@ const AdoptionForm = () => {
 						4
 					</Styled.StepNumberThree>
 				</Styled.NumberOfSteps>
+				<Styled.STitle>Formulário de Adoção</Styled.STitle>
 
 				{step === 1 && (
 					<AdoptionStep1

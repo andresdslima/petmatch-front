@@ -78,7 +78,7 @@ const Banner = () => {
 		imgBanner = dogAbout;
 		textBanner = (
 			<S.TextBanner>
-				VOCÊ TAMBÉM FAZ PARTE DA PET MATCH
+				VOCÊ TAMBÉM FAZ PARTE DA PETMATCH
 				<br />
 				VEJA NOSSOS COLABORADORES
 			</S.TextBanner>

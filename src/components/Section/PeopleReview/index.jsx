@@ -9,7 +9,7 @@ const PeopleReview = () => {
         <S.PeopleReviewDiv>
             <S.PeopleReview>
                 <S.TalkingAbout>
-                    <S.TalkingAboutTitle>O que estão falando sobre a Pet Match?</S.TalkingAboutTitle>
+                    <S.TalkingAboutTitle>O que estão falando sobre a PetMatch?</S.TalkingAboutTitle>
                     <S.TalkingAboutText>Queremos ouvir sua opinião! conte pra gente como foi sua experiência e o resultado dela.</S.TalkingAboutText>
                 </S.TalkingAbout>
                 <S.PeopleOpinionContainer>
