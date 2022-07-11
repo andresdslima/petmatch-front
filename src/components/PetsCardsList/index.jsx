@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import Heart from '../../assets/images/OrangeHeart.svg';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,7 +58,7 @@ const PetsCardList = ({ specie, click }) => {
 	}, [!click]);
 
 	return (
-		<Container>
+		<S.SContainer>
 			<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
 				{orderedList.map(pet => (
 					<S.Column key={pet.id}>
@@ -88,7 +87,7 @@ const PetsCardList = ({ specie, click }) => {
 				))}
 			</S.RowContainer>
 			<small>*SRD: Sem Raça Defnidida</small>
-		</Container>
+		</S.SContainer>
 	);
 };
 
