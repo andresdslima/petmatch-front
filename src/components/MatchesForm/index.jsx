@@ -41,7 +41,7 @@ const MatchesForm = () => {
 			</S.TitleBackground>
 			<Container className="my-5">
 				<Form className="form" onSubmit={formik.handleSubmit}>
-					<S.ContainerForm className="text-start">
+					<S.ContainerForm className="text-start mb-5">
 						<Form.Group>
 							<S.Label>Espécie</S.Label>
 							<S.FormItemSelect
@@ -218,6 +218,7 @@ const MatchesForm = () => {
 							</S.CheckboxContainer>
 						</S.AllCheckboxesContainer>
 					</S.ContainerForm>
+					<small>*Preencha todos os campos para um match perfeito!</small>
 					<S.ButtonContainer className="my-5">
 						<S.SearchButton
 							variant="primary"
