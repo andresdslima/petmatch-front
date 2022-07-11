@@ -9,19 +9,19 @@ const PeopleReview = () => {
         <S.PeopleReviewDiv>
             <S.PeopleReview>
                 <S.TalkingAbout>
-                    <S.TalkingAboutTitle>O que estão falando sobre <br />a Pet Match?</S.TalkingAboutTitle>
+                    <S.TalkingAboutTitle>O que estão falando sobre a Pet Match?</S.TalkingAboutTitle>
                     <S.TalkingAboutText>Queremos ouvir sua opinião! conte pra gente como foi sua experiência e o resultado dela.</S.TalkingAboutText>
                 </S.TalkingAbout>
                 <S.PeopleOpinionContainer>
                     <S.PeopleOpinion>
-                        <div className='personPicture'>
+                        <div>
                             <S.Picture src={Person1} alt="Imagem Pessoa" />
                         </div>
-                        <div className='opinionContent'>
+                        <div>
                             <S.PersonInfo>
                                 <S.NameStatement>
                                     <S.PersonName>Roseane A.</S.PersonName>
-                                    <S.Statement className='statement'>Tutora da Savana</S.Statement>
+                                    <S.Statement>Tutora da Savana</S.Statement>
                                 </S.NameStatement>
                                 <div className='starsReview'>
                                     <img src={StarIcon} alt="Icone estrela" />

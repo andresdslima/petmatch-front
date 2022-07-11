@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Title = styled.div`
 font-size: 1.56vw;
 font-weight: 600;
+text-align: center;
 
 @media only screen and (max-width: 500px) {
   font-size: 12px;

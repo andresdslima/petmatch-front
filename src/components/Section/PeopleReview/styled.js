@@ -9,7 +9,8 @@ export const PeopleReviewDiv = styled.div`
 export const PeopleReview = styled(Container)`
 	display: flex;
     justify-content: space-between;
-    padding: 30px 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
 
     @media only screen and (max-width: 768px) {
         display: block;
@@ -17,11 +18,11 @@ export const PeopleReview = styled(Container)`
 `;
 
 export const TalkingAbout = styled.div`
- width: 30%;
+ width: 24%;
  text-align: start;
 
  @media only screen and (max-width: 992px) {
-    width: 40%;
+    width: 30%;
 	}
  @media only screen and (max-width: 768px) {
     width: 70%;
@@ -30,7 +31,7 @@ export const TalkingAbout = styled.div`
 	}
 `
 
-export const TalkingAboutTitle = styled.h6`
+export const TalkingAboutTitle = styled.span`
 font-weight: 600;
     font-size: 21px;
     line-height: 24px;
@@ -46,11 +47,13 @@ export const TalkingAboutText = styled.p`
 export const PeopleOpinionContainer = styled.div`
  display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 80px;
     width: 50%;
 
     @media only screen and (max-width: 992px) {
-    width: 60%;
+    width: 68%;
+    gap: 0;
 	}
 
     @media only screen and (max-width: 768px) {
@@ -67,6 +70,8 @@ export const PeopleOpinionContainer = styled.div`
 export const PeopleOpinion = styled.div`
 display: flex;
     margin-right: 10px;
+    gap: 10px;
+
 `
 
 export const Picture = styled.img`
@@ -76,10 +81,11 @@ export const Picture = styled.img`
 
 export const PersonInfo = styled.div`
     display: flex;
+    justify-content: space-between;
 `
 
 export const NameStatement = styled.div`
-    padding: 5px 10px;
+    padding: 5px 0;
 `
 
 export const PersonName = styled.h6`

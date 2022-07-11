@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
 import * as S from './styled';
 import { useDispatch } from 'react-redux';
@@ -31,10 +31,12 @@ const Header = () => {
 	};
 
 	return (
-		<Navbar expand="lg mb-1">
+		<Navbar expand="lg mb-4">
 			<Container>
 				<Navbar.Brand className="m-0 py-3">
-					<S.LogoImage src={Logo} alt="PetMatch Logo" />
+					<Link exact to="/">
+					<S.LogoImage src={Logo} alt="PetMatch Logo"/>
+					</Link>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">

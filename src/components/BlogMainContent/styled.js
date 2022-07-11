@@ -24,6 +24,7 @@ export const BlogParagraph = styled.p`
 	line-height: 28px;
 	color: #6b4bcc;
 	margin-top: 3vw;
+	text-align: center;
 
 	@media (max-width: 500px) {
 		font-size: 0.9rem;

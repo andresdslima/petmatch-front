@@ -14,7 +14,7 @@ export const RowContainer = styled(Row)`
 
 export const Column = styled(Col)`
 	width: 16.5vw;
-    margin-bottom: 2vw;
+    margin-bottom: 1.7vw;
 
 	@media only screen and (max-width: 1100px) {
 		width: 33%;

@@ -15,5 +15,5 @@ export const ContainerText = styled.div`
 export const Text = styled.p`
 	font-size: 17px;
 	font-weight: 600;
-	text-align: justify;
+	text-align: center;
 `;
