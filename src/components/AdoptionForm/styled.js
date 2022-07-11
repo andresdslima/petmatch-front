@@ -249,6 +249,7 @@ export const StepNumberOne = styled.span`
 		props.active <= props.steps ? '#fc895e' : '#d5d7db'};
 	border-radius: 100%;
 	padding: 2.1%;
+	z-index: 99;
 
 	&::after {
 		content: '${props => props.text}';
