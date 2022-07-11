@@ -55,7 +55,7 @@ const PetsCardList = ({ specie, click }) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [!click]);
 
 	return (
@@ -65,6 +65,16 @@ const PetsCardList = ({ specie, click }) => {
 					<S.Column key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
+								<S.GenderIconContainer>
+									<S.GenderIconDiv>
+										{pet.sexo === 'Fêmea' ? (
+											<S.FemaleGenderIcon />
+										) : (
+											<S.MaleGenderIcon />
+										)}
+									</S.GenderIconDiv>
+								</S.GenderIconContainer>
+
 								<S.CardImage variant="top" src={pet.petImage} />
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
@@ -87,7 +97,9 @@ const PetsCardList = ({ specie, click }) => {
 					</S.Column>
 				))}
 			</S.RowContainer>
-			<small>*SRD: Sem Raça Definida</small>
+			<small>
+				<em>*SRD: Sem Raça Definida</em>
+			</small>
 		</S.SContainer>
 	);
 };

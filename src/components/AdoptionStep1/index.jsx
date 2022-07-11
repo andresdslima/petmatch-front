@@ -77,7 +77,11 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="nome">Nome</Styled.Label>
-							{formik.errors.nome && <small>{formik.errors.nome}</small>}
+							{formik.errors.nome && (
+								<small>
+									<em>{formik.errors.nome}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="text"
 								name="nome"
@@ -94,7 +98,9 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="sobrenome">Sobrenome</Styled.Label>
 							{formik.errors.sobrenome && (
-								<small>{formik.errors.sobrenome}</small>
+								<small>
+									<em>{formik.errors.sobrenome}</em>
+								</small>
 							)}
 							<Styled.SInput
 								type="text"
@@ -111,7 +117,11 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="email">Email</Styled.Label>
-							{formik.errors.email && <small>{formik.errors.email}</small>}
+							{formik.errors.email && (
+								<small>
+									<em>{formik.errors.email}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="email"
 								name="email"
@@ -129,7 +139,11 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="cidade">Cidade</Styled.Label>
-							{formik.errors.cidade && <small>{formik.errors.cidade}</small>}
+							{formik.errors.cidade && (
+								<small>
+									<em>{formik.errors.cidade}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="text"
 								name="cidade"
@@ -145,7 +159,11 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="uf">Estado</Styled.Label>
-							{formik.errors.uf && <small>{formik.errors.uf}</small>}
+							{formik.errors.uf && (
+								<small>
+									<em>{formik.errors.uf}</em>
+								</small>
+							)}
 							<Styled.FormItemSelect
 								id="uf"
 								type="select"
@@ -190,7 +208,11 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="cep">CEP</Styled.Label>
-							{formik.errors.cep && <small>{formik.errors.cep}</small>}
+							{formik.errors.cep && (
+								<small>
+									<em>{formik.errors.cep}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="number"
 								name="cep"
@@ -209,7 +231,9 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="logradouro">Endereço</Styled.Label>
 							{formik.errors.logradouro && (
-								<small>{formik.errors.logradouro}</small>
+								<small>
+									<em>{formik.errors.logradouro}</em>
+								</small>
 							)}
 							<Styled.SInput
 								type="text"
@@ -227,7 +251,9 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="numero_logradouro">Número</Styled.Label>
 							{formik.errors.numero_logradouro && (
-								<small>{formik.errors.numero_logradouro}</small>
+								<small>
+									<em>{formik.errors.numero_logradouro}</em>
+								</small>
 							)}
 							<Styled.SInput
 								type="number"
@@ -244,7 +270,11 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="contato">Celular</Styled.Label>
-							{formik.errors.contato && <small>{formik.errors.contato}</small>}
+							{formik.errors.contato && (
+								<small>
+									<em>{formik.errors.contato}</em>
+								</small>
+							)}
 							<Styled.SInput
 								type="number"
 								name="contato"

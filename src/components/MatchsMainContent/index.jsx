@@ -47,6 +47,16 @@ const MatchMainContent = () => {
 					<S.Column key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
+								<S.GenderIconContainer>
+									<S.GenderIconDiv>
+										{pet.sexo === 'Fêmea' ? (
+											<S.FemaleGenderIcon />
+										) : (
+											<S.MaleGenderIcon />
+										)}
+									</S.GenderIconDiv>
+								</S.GenderIconContainer>
+
 								<S.CardImage variant="top" src={pet.petImage} />
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
@@ -64,7 +74,9 @@ const MatchMainContent = () => {
 					</S.Column>
 				))}
 			</S.RowContainer>
-			<small>*SRD: Sem Raça Definida</small>
+			<small>
+				<em>*SRD: Sem Raça Definida</em>
+			</small>
 		</Container>
 	);
 };

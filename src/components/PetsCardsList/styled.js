@@ -1,3 +1,4 @@
+import { BsGenderMale, BsGenderFemale } from 'react-icons/bs';
 import { Card, CardImg, Col, Row, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 
@@ -120,4 +121,27 @@ export const CardTitle = styled(Card.Title)`
 export const CardText = styled(Card.Text)`
 	font-size: 12px;
 	color: #404145;
+`;
+
+export const GenderIconContainer = styled.div`
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+export const GenderIconDiv = styled(MatchIconDiv)`
+	background-color: #8d73e4;
+`;
+
+export const FemaleGenderIcon = styled(BsGenderFemale)`
+	font-size: 20px;
+	color: #fff;
+`;
+
+export const MaleGenderIcon = styled(BsGenderMale)`
+	font-size: 20px;
+	color: #fff;
 `;

@@ -144,7 +144,8 @@ const GiveForAdoptionForm = () => {
 							<S.FormItemSelect
 								id="raca"
 								type="select"
-								value={formik.values.raca} required
+								value={formik.values.raca}
+								required
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
@@ -283,7 +284,9 @@ const GiveForAdoptionForm = () => {
 								onChange={event => handleChange(event)}
 								required
 							/>
-							<small>Tamanho máximo 1Mb</small>
+							<small>
+								<em>*Tamanho máximo 1Mb.</em>
+							</small>
 						</Form.Group>
 						<S.TextareaContainer>
 							<S.Label>Sobre</S.Label>

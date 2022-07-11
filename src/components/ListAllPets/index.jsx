@@ -16,7 +16,7 @@ const ListAllPets = () => {
 	return (
 		<>
 			<S.TitleBackground className="mt-5">
-				<S.Title>Nossos pets em busca de um lar</S.Title>
+				<S.Title>Nossos Pets em busca de um lar</S.Title>
 			</S.TitleBackground>
 			<S.PetsContainer>
 				<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
@@ -24,6 +24,16 @@ const ListAllPets = () => {
 						<S.Column key={pet.id}>
 							<Link exact to={`/petprofile/?${pet.id}`}>
 								<S.CardContainer>
+									<S.GenderIconContainer>
+										<S.GenderIconDiv>
+											{pet.sexo === 'Fêmea' ? (
+												<S.FemaleGenderIcon />
+											) : (
+												<S.MaleGenderIcon />
+											)}
+										</S.GenderIconDiv>
+									</S.GenderIconContainer>
+
 									<S.CardImage variant="top" src={pet.petImage} />
 									<S.CardBody>
 										<S.CardTitle>{pet.nome}</S.CardTitle>
@@ -40,7 +50,13 @@ const ListAllPets = () => {
 						</S.Column>
 					))}
 				</S.RowContainer>
-				<small>*SRD: Sem Raça Definida</small>
+				<small>
+					<em>*SRD: Sem Raça Definida</em>
+				</small>
+				<br />
+				<small>
+					<em>**Faça seu login e busque aqui pelo seu Pet ideal!</em>
+				</small>
 			</S.PetsContainer>
 		</>
 	);
