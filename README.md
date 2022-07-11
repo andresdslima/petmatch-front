@@ -4,7 +4,6 @@
 
 <p align="left"> Desafio final multitask, Hacker (Front/Back-end) e Hipster (Product Design) do Gama Academy XP41. A proposta desse projeto foi criar um sistema funcional, navegável e interativo de um empreendimento.</p>
 
-
 ## 📺Apresentação
 
 <p align="left"> Somos a Pet Match! Viemos com a intenção de tornar o processo de adoção do pet uma jornada mais leve, assertiva e segura. Queremos propor uma maneira de match, no qual a pessoa que está adotando tenha certeza do que está fazendo, sendo assim, uma adoção responsável e não impulsiva. Além disso, queremos que a pessoa que esteja doando seu pet tenha convicção de que, quem receberá seu pet seja uma pessoa com quem ele ficará bem e poderá proporcioná-lo uma ótima condição de vida.
@@ -23,20 +22,20 @@ Esperamos que aproveite essa jornada conosco da Pet Match, temos prazer em poder
 
 As seguintes ferramentas foram utilizadas na construção do projeto:
 
-
 🖌️ Product Design
+
 - Figma
 
-
 🖥️ Front-end
+
 - HTML5
 - CSS3
 - JavaScript
 - React.js
 - Redux Toolkit
 
-
 ⌨️ Back-end
+
 - JavaScript
 - NodeJS
 - Sequelize
@@ -45,6 +44,8 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 
 ## 📚Documentação
 
+- [Kanban](https://trello.com/b/I6xFzVo8/desafio-chef%C3%A3o-projeto-ado%C3%A7%C3%A3o)</br>
+- [Notion](https://rune-shame-8aa.notion.site/Desafio-Chef-o-Final-Pet-Match-9f0577cf8b8f43548febcfa894894f9d)</br>
 - [Layout](https://www.figma.com/file/qh3S9lIgdm3cto3YGC2X3q/PetMatch---Desafio-Chef%C3%A3o?node-id=2%3A3)</br>
 - [Deploy](https://thepetmatch.vercel.app)</br>
 - [Repositório Front-end](https://github.com/andresdslima/petmatch-front) </br>
@@ -57,19 +58,20 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 <p>Esse projeto só foi possível graças a contribuição de todos os envolvidos, a orientação dos professores da Gama Academy, a equipe de suporte da Gama e principalmente ao esforço colaborativo de toda a equipe ao longo de todo o projeto.<p\>
 
 🖌️ Product Design
+
 - [Giovanna Schneider](https://www.linkedin.com/in/gioschneider/)
 - [João Gabriel de Oliveira](https://www.linkedin.com/in/oliveirajg/)
 - [Marcelo Tesla](https://www.linkedin.com/in/marcelo-tesla/)
 
-
 🖥️ Front-end
+
 - [André Lima](https://www.linkedin.com/in/andrelimadev/)
 - [Felipe Matheus](https://www.linkedin.com/in/felipe-matheus-26b147163/)
 - [Thais Cavalcante](https://www.linkedin.com/in/thaispcavalcante/)
 - [Victor Landim](https://www.linkedin.com/in/victor-landim-37b102169/)
 
-
 ⌨️ Back-end
+
 - [Eduardo Carreiro](https://www.linkedin.com/in/carreiroe/)
 - [Frederic Rodrigues](https://www.linkedin.com/in/fredericlsr/)
 - [Guilherme Melo](https://www.linkedin.com/in/guilhermef-melo/)
