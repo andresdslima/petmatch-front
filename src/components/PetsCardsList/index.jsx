@@ -56,7 +56,6 @@ const PetsCardList = ({ specie, click }) => {
 
 	useEffect(() => {
 		getPetsBySpecie(specie).then(pets => dispatch(setPetList(pets)));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [!click]);
 
 	return (
@@ -66,24 +65,18 @@ const PetsCardList = ({ specie, click }) => {
 					<S.Column key={pet.id}>
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
-								<S.CardImage
-									variant="top"
-									src={pet.petImage}
-
-								/>
+								<S.CardImage variant="top" src={pet.petImage} />
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
 									<S.CardText>
-									{pet.userID} São Paulo - SP
+										{pet.raca}
+										<br />
+										{pet.idade} ano(s)
 									</S.CardText>
 								</S.CardBody>
 								<S.MatchIconContainer>
 									<S.MatchIconDiv>
-									<S.MatchIcon
-										src={Heart}
-										alt="Icone de Match"
-
-									/>
+										<S.MatchIcon src={Heart} alt="Icone de Match" />
 									</S.MatchIconDiv>
 									<S.MatchPercent>
 										{calculateMatch(petList.petsFilter, pet)}%
@@ -94,6 +87,7 @@ const PetsCardList = ({ specie, click }) => {
 					</S.Column>
 				))}
 			</S.RowContainer>
+			<small>*SRD: Sem Raça Defnidida</small>
 		</Container>
 	);
 };

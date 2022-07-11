@@ -5,19 +5,19 @@ import styled from 'styled-components';
 export const RowContainer = styled(Row)`
 	display: flex;
 	justify-content: flex-start;
-    gap: 13px;
+	gap: 13px;
 
 	@media only screen and (max-width: 1100px) {
-        gap: 0px;
+		gap: 0px;
 	}
 `;
 
 export const Column = styled(Col)`
 	width: 16.5vw;
-    margin-bottom: 1.7vw;
+	margin-bottom: 1.7vw;
 
 	@media only screen and (max-width: 1100px) {
-		width: 33%;
+		width: 23%;
 		margin-bottom: 3vw;
 	}
 
@@ -46,7 +46,7 @@ export const CardImage = styled(CardImg)`
 	border-radius: 15px 15px 0 0;
 
 	@media only screen and (max-width: 1100px) {
-		height: 20vw;
+		height: 15vw;
 	}
 
 	@media only screen and (max-width: 500px) {
@@ -62,12 +62,12 @@ export const MatchIconContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 
-    @media only screen and (max-width: 1100px) {
+	@media only screen and (max-width: 1100px) {
 		bottom: 19%;
 	}
 
 	@media only screen and (max-width: 500px) {
-        bottom: 30%;
+		bottom: 30%;
 	}
 `;
 
@@ -83,14 +83,14 @@ export const MatchIconDiv = styled.div`
 	-webkit-clip-path: circle(50% at 50% 50%);
 	clip-path: circle(50% at 50% 50%);
 
-    @media only screen and (max-width: 1100px) {
+	@media only screen and (max-width: 1100px) {
 		width: 46.5px;
-        height: 46.5px;
+		height: 46.5px;
 	}
 
 	@media only screen and (max-width: 500px) {
-        width: 37.22px;
-        height: 37.22px
+		width: 37.22px;
+		height: 37.22px;
 	}
 `;
 

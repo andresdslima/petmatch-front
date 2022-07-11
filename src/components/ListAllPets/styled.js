@@ -1,14 +1,13 @@
 import { Card, CardImg, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const RowContainer = styled(Row)`
 	display: flex;
 	justify-content: flex-start;
-    gap: 13px;
+	gap: 13px;
 
 	@media only screen and (max-width: 1100px) {
-        gap: 0px;
+		gap: 0px;
 	}
 `;
 
@@ -17,7 +16,7 @@ export const Column = styled(Col)`
 	margin-bottom: 1.7vw;
 
 	@media only screen and (max-width: 1100px) {
-		width: 33%;
+		width: 23%;
 		margin-bottom: 3vw;
 	}
 
@@ -35,7 +34,8 @@ export const CardContainer = styled(Card)`
 	&:hover {
 		outline: 2px solid #f88b5c !important;
 		border-radius: 16px;
-}`
+	}
+`;
 
 export const CardImage = styled(CardImg)`
 	width: 100%;
@@ -44,27 +44,28 @@ export const CardImage = styled(CardImg)`
 	border-radius: 15px 15px 0 0;
 
 	@media only screen and (max-width: 1100px) {
-		height: 20vw;
+		height: 15vw;
 	}
 
 	@media only screen and (max-width: 500px) {
 		height: 34.5vw;
-	}`
+	}
+`;
 
 export const CardBody = styled(Card.Body)`
-text-align: center;
+	text-align: center;
 `;
 
 export const CardTitle = styled(Card.Title)`
-font-size: 14px;
-color: #404145;
+	font-size: 14px;
+	color: #404145;
 	font-weight: 600;
 
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		font-size: 2.5vw;
 	}
 
-	@media (max-width: 468px){
+	@media (max-width: 468px) {
 		font-size: 3.5vw;
 	}
 `;
@@ -73,11 +74,11 @@ export const CardText = styled(Card.Text)`
 	font-size: 12px;
 	color: #404145;
 
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		font-size: 2vw;
 	}
 
-	@media (max-width: 468px){
+	@media (max-width: 468px) {
 		font-size: 3vw;
 	}
 `;
@@ -96,5 +97,5 @@ export const Title = styled.h3`
 `;
 
 export const PetsContainer = styled(Container)`
-margin-top: 5vw;
-`
+	margin-top: 5vw;
+`;

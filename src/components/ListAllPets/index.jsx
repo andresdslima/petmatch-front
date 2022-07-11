@@ -16,7 +16,7 @@ const ListAllPets = () => {
 	return (
 		<>
 			<S.TitleBackground className="mt-5">
-				<S.Title>Nossos pets</S.Title>
+				<S.Title>Nossos pets em busca de um lar</S.Title>
 			</S.TitleBackground>
 			<S.PetsContainer>
 				<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
@@ -30,7 +30,9 @@ const ListAllPets = () => {
 										<S.CardText className="cardText">
 											{/* {`${getPetLocation(pet.userID)}`} */}
 											{/* {pet.userID} - {teste2[index].userID} */}
-											{pet.userID} São Paulo - SP
+											{pet.raca}
+											<br />
+											{pet.idade} ano(s)
 										</S.CardText>
 									</S.CardBody>
 								</S.CardContainer>
@@ -38,6 +40,7 @@ const ListAllPets = () => {
 						</S.Column>
 					))}
 				</S.RowContainer>
+				<small>*SRD: Sem Raça Defnidida</small>
 			</S.PetsContainer>
 		</>
 	);

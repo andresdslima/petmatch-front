@@ -28,6 +28,7 @@ const Header = () => {
 		localStorage.removeItem('data');
 		dispatch(signOut());
 		navigate('/');
+		window.location.reload();
 	};
 
 	return (
@@ -64,7 +65,7 @@ const Header = () => {
 							<S.NavUser active={location.pathname} exact to="#">
 								<S.UserIcon />
 								<S.UserName>{firstName()}</S.UserName>
-								<S.ButtonSignOut onClick={logout}>
+								<S.ButtonSignOut onClick={() => logout()}>
 									<S.SignOut className="sign-out"></S.SignOut>
 								</S.ButtonSignOut>
 							</S.NavUser>

@@ -167,7 +167,7 @@ const MatchesForm = () => {
 								onChange={formik.handleChange}
 							>
 								<S.SelectOption value=""></S.SelectOption>
-								<S.SelectOption value="Vira-lata">Viralata</S.SelectOption>
+								<S.SelectOption value="SRD">SRD (Sem raça definida)</S.SelectOption>
 								<S.SelectOption value="Pitbull">Pitbull</S.SelectOption>
 								<S.SelectOption value="Shitzu">Shit-zu</S.SelectOption>
 								<S.SelectOption value="Pug">Pug</S.SelectOption>
