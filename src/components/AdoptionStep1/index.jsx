@@ -144,15 +144,81 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 									<em>{formik.errors.cidade}</em>
 								</small>
 							)}
-							<Styled.SInput
-								type="text"
+							<Styled.FormItemSelect
+								type="select"
 								name="cidade"
-								{...register('cidade')}
 								id="cidade"
-								placeholder="Sua cidade"
+								{...register('cidade')}
 								value={formik.values.cidade}
 								onChange={formik.handleChange}
-							/>
+							>
+								<Styled.SelectOption value=""></Styled.SelectOption>
+								<Styled.SelectOption value="Aracaju">
+									Aracaju
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Belém">Belém</Styled.SelectOption>
+								<Styled.SelectOption value="Belo Horizonte">
+									Belo Horizonte
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Boa Vista">
+									Boa Vista
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Brasília">
+									Brasília
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Campo Grande">
+									Campo Grande
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Cuiabá">Cuiabá</Styled.SelectOption>
+								<Styled.SelectOption value="Curitiba">
+									Curitiba
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Florianópolis">
+									Florianópolis
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Fortaleza">
+									Fortaleza
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Goiânia">
+									Goiânia
+								</Styled.SelectOption>
+								<Styled.SelectOption value="João Pessoa">
+									João Pessoa
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Macapá">Macapá</Styled.SelectOption>
+								<Styled.SelectOption value="Maceió">Maceió</Styled.SelectOption>
+								<Styled.SelectOption value="Manaus">Manaus</Styled.SelectOption>
+								<Styled.SelectOption value="Natal">Natal</Styled.SelectOption>
+								<Styled.SelectOption value="Palmas">Palmas</Styled.SelectOption>
+								<Styled.SelectOption value="Porto Alegre">
+									Porto Alegre
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Porto Velho">
+									Porto Velho
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Recife">Recife</Styled.SelectOption>
+								<Styled.SelectOption value="Rio Branco">
+									Rio Branco
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Rio de Janeiro">
+									Rio de Janeiro
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Salvador">
+									Salvador
+								</Styled.SelectOption>
+								<Styled.SelectOption value="São Luís">
+									São Luís
+								</Styled.SelectOption>
+								<Styled.SelectOption value="São Paulo">
+									São Paulo
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Teresina">
+									Teresina
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Vitória">
+									Vitória
+								</Styled.SelectOption>
+							</Styled.FormItemSelect>
 						</Styled.InputContainer>
 					</Col>
 
@@ -169,7 +235,6 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 								type="select"
 								name="uf"
 								{...register('uf')}
-								placeholder="uf"
 								value={formik.values.uf}
 								onChange={formik.handleChange}
 							>

@@ -28,6 +28,8 @@ const MatchesForm = () => {
 			raca: '',
 			castrado: false,
 			vacinado: false,
+			uf: '',
+			cidade: '',
 		},
 		onSubmit: values => {
 			dispatch(setPetFilter(values));
@@ -49,6 +51,7 @@ const MatchesForm = () => {
 								type="select"
 								value={formik.values.especie}
 								onChange={formik.handleChange}
+								required
 							>
 								<S.SelectOption value="" disabled></S.SelectOption>
 								<S.SelectOption value="Cachorro">Cães</S.SelectOption>
@@ -219,6 +222,94 @@ const MatchesForm = () => {
 								/>
 							</S.CheckboxContainer>
 						</S.AllCheckboxesContainer>
+						<Form.Group>
+							<S.Label htmlFor="uf">Estado</S.Label>
+							<S.FormItemSelect
+								id="uf"
+								name="uf"
+								type="select"
+								value={formik.values.uf}
+								onChange={formik.handleChange}
+							>
+								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="AC">AC</S.SelectOption>
+								<S.SelectOption value="AL">AL</S.SelectOption>
+								<S.SelectOption value="AM">AM</S.SelectOption>
+								<S.SelectOption value="AP">AP</S.SelectOption>
+								<S.SelectOption value="BA">BA</S.SelectOption>
+								<S.SelectOption value="CE">CE</S.SelectOption>
+								<S.SelectOption value="DF">DF</S.SelectOption>
+								<S.SelectOption value="ES">ES</S.SelectOption>
+								<S.SelectOption value="GO">GO</S.SelectOption>
+								<S.SelectOption value="MA">MA</S.SelectOption>
+								<S.SelectOption value="MT">MT</S.SelectOption>
+								<S.SelectOption value="MS">MS</S.SelectOption>
+								<S.SelectOption value="MG">MG</S.SelectOption>
+								<S.SelectOption value="PA">PA</S.SelectOption>
+								<S.SelectOption value="PB">PB</S.SelectOption>
+								<S.SelectOption value="PE">PE</S.SelectOption>
+								<S.SelectOption value="PI">PI</S.SelectOption>
+								<S.SelectOption value="PR">PR</S.SelectOption>
+								<S.SelectOption value="RJ">RJ</S.SelectOption>
+								<S.SelectOption value="RN">RN</S.SelectOption>
+								<S.SelectOption value="RO">RO</S.SelectOption>
+								<S.SelectOption value="RR">RR</S.SelectOption>
+								<S.SelectOption value="RS">RS</S.SelectOption>
+								<S.SelectOption value="SC">SC</S.SelectOption>
+								<S.SelectOption value="SE">SE</S.SelectOption>
+								<S.SelectOption value="SP">SP</S.SelectOption>
+								<S.SelectOption value="TO">TO</S.SelectOption>
+							</S.FormItemSelect>
+						</Form.Group>
+						<Form.Group>
+							<S.Label htmlFor="cidade">Cidade</S.Label>
+							<S.FormItemSelect
+								id="cidade"
+								name="cidade"
+								type="select"
+								value={formik.values.cidade}
+								onChange={formik.handleChange}
+							>
+								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="Aracaju">Aracaju</S.SelectOption>
+								<S.SelectOption value="Belém">Belém</S.SelectOption>
+								<S.SelectOption value="Belo Horizonte">
+									Belo Horizonte
+								</S.SelectOption>
+								<S.SelectOption value="Boa Vista">Boa Vista</S.SelectOption>
+								<S.SelectOption value="Brasília">Brasília</S.SelectOption>
+								<S.SelectOption value="Campo Grande">
+									Campo Grande
+								</S.SelectOption>
+								<S.SelectOption value="Cuiabá">Cuiabá</S.SelectOption>
+								<S.SelectOption value="Curitiba">Curitiba</S.SelectOption>
+								<S.SelectOption value="Florianópolis">
+									Florianópolis
+								</S.SelectOption>
+								<S.SelectOption value="Fortaleza">Fortaleza</S.SelectOption>
+								<S.SelectOption value="Goiânia">Goiânia</S.SelectOption>
+								<S.SelectOption value="João Pessoa">João Pessoa</S.SelectOption>
+								<S.SelectOption value="Macapá">Macapá</S.SelectOption>
+								<S.SelectOption value="Maceió">Maceió</S.SelectOption>
+								<S.SelectOption value="Manaus">Manaus</S.SelectOption>
+								<S.SelectOption value="Natal">Natal</S.SelectOption>
+								<S.SelectOption value="Palmas">Palmas</S.SelectOption>
+								<S.SelectOption value="Porto Alegre">
+									Porto Alegre
+								</S.SelectOption>
+								<S.SelectOption value="Porto Velho">Porto Velho</S.SelectOption>
+								<S.SelectOption value="Recife">Recife</S.SelectOption>
+								<S.SelectOption value="Rio Branco">Rio Branco</S.SelectOption>
+								<S.SelectOption value="Rio de Janeiro">
+									Rio de Janeiro
+								</S.SelectOption>
+								<S.SelectOption value="Salvador">Salvador</S.SelectOption>
+								<S.SelectOption value="São Luís">São Luís</S.SelectOption>
+								<S.SelectOption value="São Paulo">São Paulo</S.SelectOption>
+								<S.SelectOption value="Teresina">Teresina</S.SelectOption>
+								<S.SelectOption value="Vitória">Vitória</S.SelectOption>
+							</S.FormItemSelect>
+						</Form.Group>
 					</S.ContainerForm>
 					<small>
 						<em>*Preencha todos os campos para um match perfeito!</em>

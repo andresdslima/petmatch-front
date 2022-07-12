@@ -134,6 +134,9 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 									Casado(a)
 								</Styled.SelectOption>
 								<Styled.SelectOption value="Viúvo(a)">
+									Divorciado(a)
+								</Styled.SelectOption>
+								<Styled.SelectOption value="Viúvo(a)">
 									Viúvo(a)
 								</Styled.SelectOption>
 							</Styled.FormItemSelect>

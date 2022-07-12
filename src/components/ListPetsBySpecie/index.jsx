@@ -12,7 +12,7 @@ const ListPetsBySpecie = () => {
 
 	useEffect(() => {
 		getPetsBySpecie(param).then(pets => dispatch(setPetList(pets)));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dispatch]);
 
 	return (
@@ -34,10 +34,12 @@ const ListPetsBySpecie = () => {
 									<S.CardBody>
 										<S.CardTitle>{pet.nome}</S.CardTitle>
 										<S.CardText className="cardText">
-											{/* pet.cidade */}
 											{pet.raca}
 											<br />
 											{pet.idade} ano(s)
+											<br />
+											{pet.user.cidade ? pet.user.cidade : ''} -{' '}
+											{pet.user.uf ? pet.user.uf : ''}
 										</S.CardText>
 									</S.CardBody>
 								</S.CardContainer>

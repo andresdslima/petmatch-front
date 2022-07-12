@@ -33,8 +33,15 @@ export const calculateMatch = (objectForm, objectApi) => {
 	if (objectForm.tamanho_max >= objectApi.tamanho) {
 		count++;
 	}
+	if (objectForm.uf === objectApi.user.uf) {
+		count++;
+	}
+	if (objectForm.cidade === objectApi.user.cidade) {
+		count++;
+	}
 
-	return (count / Math.min(objectFormLength, objectApiLength)) * 100;
+	const result = (count / Math.min(objectFormLength, objectApiLength)) * 100;
+	return result.toFixed(1);
 };
 
 const PetsCardList = ({ specie, click }) => {
@@ -74,10 +81,12 @@ const PetsCardList = ({ specie, click }) => {
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
 									<S.CardText>
-										{/* pet.cidade */}
 										{pet.raca}
 										<br />
 										{pet.idade} ano(s)
+										<br />
+										{pet.user.cidade ? pet.user.cidade : ''} -{' '}
+										{pet.user.uf ? pet.user.uf : ''}
 									</S.CardText>
 								</S.CardBody>
 								<S.MatchIconContainer>

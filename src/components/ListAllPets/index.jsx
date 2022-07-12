@@ -38,10 +38,12 @@ const ListAllPets = () => {
 									<S.CardBody>
 										<S.CardTitle>{pet.nome}</S.CardTitle>
 										<S.CardText className="cardText">
-											{/* pet.cidade */}
 											{pet.raca}
 											<br />
 											{pet.idade} ano(s)
+											<br />
+											{pet.user.cidade ? pet.user.cidade : ''} -{' '}
+											{pet.user.uf ? pet.user.uf : ''}
 										</S.CardText>
 									</S.CardBody>
 								</S.CardContainer>
