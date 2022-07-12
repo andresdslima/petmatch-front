@@ -8,17 +8,21 @@ import * as S from './styled';
 const ListPetsBySpecie = () => {
 	const petList = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
-    const { param } = useParams();
+	const { param } = useParams();
 
 	useEffect(() => {
 		getPetsBySpecie(param).then(pets => dispatch(setPetList(pets)));
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dispatch]);
-
 
 	return (
 		<>
 			<S.TitleBackground className="mt-5">
-                {param==="Réptil"? (<S.Title>Répteis</S.Title>):(<S.Title>{param}s</S.Title>)}
+				{param === 'Réptil' ? (
+					<S.Title>Répteis</S.Title>
+				) : (
+					<S.Title>{param}s</S.Title>
+				)}
 			</S.TitleBackground>
 			<S.PetsContainer>
 				<S.RowContainer xs={2} sm={2} md={3} lg={4} xl={5}>
@@ -30,8 +34,7 @@ const ListPetsBySpecie = () => {
 									<S.CardBody>
 										<S.CardTitle>{pet.nome}</S.CardTitle>
 										<S.CardText className="cardText">
-											{/* {`${getPetLocation(pet.userID)}`} */}
-											{/* {pet.userID} - {teste2[index].userID} */}
+											{/* pet.cidade */}
 											{pet.raca}
 											<br />
 											{pet.idade} ano(s)

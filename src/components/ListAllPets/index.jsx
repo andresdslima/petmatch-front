@@ -38,8 +38,7 @@ const ListAllPets = () => {
 									<S.CardBody>
 										<S.CardTitle>{pet.nome}</S.CardTitle>
 										<S.CardText className="cardText">
-											{/* {`${getPetLocation(pet.userID)}`} */}
-											{/* {pet.userID} - {teste2[index].userID} */}
+											{/* pet.cidade */}
 											{pet.raca}
 											<br />
 											{pet.idade} ano(s)

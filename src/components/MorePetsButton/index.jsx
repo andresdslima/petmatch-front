@@ -4,7 +4,7 @@ const MorePetsButton = () => {
     return (
         <S.ButtonContainer>
         <S.MorePetsButton to="/allpets">
-            Mais pets!
+            Todos os pets
         </S.MorePetsButton>
     </S.ButtonContainer>
     )

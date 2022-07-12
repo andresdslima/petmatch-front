@@ -1,5 +1,4 @@
 import React from 'react';
-// import catProfile from '../../assets/images/catProfile.png';
 import iconCheck from '../../assets/iconCheck.svg';
 import * as S from './styled';
 import { useEffect } from 'react';
@@ -7,25 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPetItem } from '../../store/modules/pets';
 import { getPet } from '../../services/mainAPI/pets';
 import { useLocation } from 'react-router-dom';
-import { getUserById } from '../../services/mainAPI/users';
 
 const PetPageProfile = () => {
 	const pet = useSelector(state => state.petsSlice.petItem);
 	const dispatch = useDispatch();
 	const petId = parseInt(window.location.search.split('?')[1]);
 	const location = useLocation();
-
-	const getPetOwner = async userId => {
-		const user = await getUserById(userId);
-		const name = `${user.nome}`;
-
-		console.log(name);
-		return name;
-	};
-
-	const userName = () => {
-		return pet.userID ? getPetOwner(pet.userID) : '';
-	};
 
 	useEffect(() => {
 		getPet(petId).then(petItem => dispatch(setPetItem(petItem)));

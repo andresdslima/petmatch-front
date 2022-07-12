@@ -1,5 +1,5 @@
 import Heart from '../../assets/images/OrangeHeart.svg';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPetList } from '../../store/modules/pets';
 import { getPetsBySpecie } from '../../services/mainAPI/pets';
@@ -42,11 +42,6 @@ const PetsCardList = ({ specie, click }) => {
 	const dispatch = useDispatch();
 	const orderedList = [...petList.pets];
 
-	// const getPetLocation = async petUserId => {
-	// 	const user = await getUserById(petUserId);
-	// 	return `${user.cidade} - ${user.estado}`;
-	// };
-
 	orderedList.sort(
 		(a, b) =>
 			calculateMatch(petList.petsFilter, b) -
@@ -79,6 +74,7 @@ const PetsCardList = ({ specie, click }) => {
 								<S.CardBody>
 									<S.CardTitle>{pet.nome}</S.CardTitle>
 									<S.CardText>
+										{/* pet.cidade */}
 										{pet.raca}
 										<br />
 										{pet.idade} ano(s)

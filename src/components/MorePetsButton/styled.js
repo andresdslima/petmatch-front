@@ -32,6 +32,10 @@ export const MorePetsButton = styled(Link)`
 		width: 10vw;
 	}
 
+	@media (max-width: 1100px) {
+		width: 15vw;
+	}
+
 	@media (max-width: 768px) {
 		width: 20vw;
 		font-size: 0.8rem;
