@@ -135,7 +135,7 @@ export const MatchIconDiv = styled.div`
 `;
 
 export const GenderIconDiv = styled(MatchIconDiv)`
-	background-color: #8d73e4;
+	background-color: ${props => props.color};
 `;
 
 export const FemaleGenderIcon = styled(BsGenderFemale)`

@@ -39,8 +39,8 @@ export const CardContainer = styled(Card)`
 
 	@media only screen and (min-width: 500px) {
 		&:hover {
-		outline: 2px solid #f88b5c !important;
-	}
+			outline: 2px solid #f88b5c !important;
+		}
 	}
 `;
 
@@ -134,7 +134,7 @@ export const GenderIconContainer = styled.div`
 `;
 
 export const GenderIconDiv = styled(MatchIconDiv)`
-	background-color: #8d73e4;
+	background-color: ${props => props.color};
 `;
 
 export const FemaleGenderIcon = styled(BsGenderFemale)`

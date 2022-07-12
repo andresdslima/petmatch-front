@@ -1,3 +1,4 @@
+import { BsGenderMale, BsGenderFemale } from 'react-icons/bs';
 import { Card, CardImg, Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
@@ -33,8 +34,8 @@ export const CardContainer = styled(Card)`
 
 	@media only screen and (min-width: 500px) {
 		&:hover {
-		outline: 2px solid #f88b5c !important;
-	}
+			outline: 2px solid #f88b5c !important;
+		}
 	}
 `;
 
@@ -99,4 +100,50 @@ export const Title = styled.h3`
 
 export const PetsContainer = styled(Container)`
 	margin: 5vw auto 0 auto;
+`;
+
+export const MatchIconDiv = styled.div`
+	background-color: #f76f34;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 5px solid #fff;
+	border-radius: 100%;
+	-webkit-clip-path: circle(50% at 50% 50%);
+	clip-path: circle(50% at 50% 50%);
+
+	@media only screen and (max-width: 1100px) {
+		width: 46.5px;
+		height: 46.5px;
+	}
+
+	@media only screen and (max-width: 500px) {
+		width: 37.22px;
+		height: 37.22px;
+	}
+`;
+
+export const GenderIconContainer = styled.div`
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+export const GenderIconDiv = styled(MatchIconDiv)`
+	background-color: ${props => props.color};
+`;
+
+export const FemaleGenderIcon = styled(BsGenderFemale)`
+	font-size: 20px;
+	color: #fff;
+`;
+
+export const MaleGenderIcon = styled(BsGenderMale)`
+	font-size: 20px;
+	color: #fff;
 `;

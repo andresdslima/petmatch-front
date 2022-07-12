@@ -68,13 +68,15 @@ const PetsCardList = ({ specie, click }) => {
 						<Link exact to={`/petprofile/?${pet.id}`}>
 							<S.CardContainer>
 								<S.GenderIconContainer>
-									<S.GenderIconDiv>
-										{pet.sexo === 'Fêmea' ? (
+									{pet.sexo === 'Fêmea' ? (
+										<S.GenderIconDiv color="#F2323F">
 											<S.FemaleGenderIcon />
-										) : (
+										</S.GenderIconDiv>
+									) : (
+										<S.GenderIconDiv color="#8D73E4">
 											<S.MaleGenderIcon />
-										)}
-									</S.GenderIconDiv>
+										</S.GenderIconDiv>
+									)}
 								</S.GenderIconContainer>
 
 								<S.CardImage variant="top" src={pet.petImage} />

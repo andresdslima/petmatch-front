@@ -30,6 +30,18 @@ const ListPetsBySpecie = () => {
 						<S.Column key={pet.id}>
 							<Link exact to={`/petprofile/?${pet.id}`}>
 								<S.CardContainer>
+									<S.GenderIconContainer>
+										{pet.sexo === 'Fêmea' ? (
+											<S.GenderIconDiv color="#F2323F">
+												<S.FemaleGenderIcon />
+											</S.GenderIconDiv>
+										) : (
+											<S.GenderIconDiv color="#8D73E4">
+												<S.MaleGenderIcon />
+											</S.GenderIconDiv>
+										)}
+									</S.GenderIconContainer>
+
 									<S.CardImage variant="top" src={pet.petImage} />
 									<S.CardBody>
 										<S.CardTitle>{pet.nome}</S.CardTitle>
