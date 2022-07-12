@@ -80,13 +80,14 @@ export const CardCategory = styled(Card)`
 	border-width: 0;
 	margin-right: 1.3vw;
 	box-shadow: 0 0.26vw 0.26vw rgba(159, 159, 159, 0.25);
-	transition: all 0.5s ease-in-out;
 	box-sizing: border-box;
 
-	&:hover {
+	@media only screen and (min-width: 500px) {
+		&:hover {
+		outline: 2px solid #f88b5c;
 		cursor: pointer;
 	}
-
+	}
 
 	& .card-body {
 		border-radius: 0 0 1.04vw 1.04vw;

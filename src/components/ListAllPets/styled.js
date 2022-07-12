@@ -32,9 +32,10 @@ export const CardContainer = styled(Card)`
 	box-shadow: 0px 4px 4px rgba(159, 159, 159, 0.33);
 	border-width: 0;
 
-	&:hover {
+	@media only screen and (min-width: 500px) {
+		&:hover {
 		outline: 2px solid #f88b5c !important;
-		border-radius: 16px;
+	}
 	}
 `;
 

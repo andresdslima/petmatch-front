@@ -5,16 +5,16 @@ import { Card, Button } from 'react-bootstrap';
 export const CardPost = styled(Card)`
 	box-shadow: 6px 11px 39px rgba(151, 151, 151, 0.25);
 	border-radius: 16px 16px 16px 16px !important;
-	width: 80%;
-	margin: 10px auto;
+	width: 33vw;
 	padding-bottom: 30px;
+	border-width: 0;
 
-	@media only screen and (max-width: 768px) {
-		width: 70%;
+	@media only screen and (max-width: 900px) {
+		width: 50vw;
 	}
 
-	@media only screen and (max-width: 576px) {
-		width: 60%;
+	@media only screen and (max-width: 500px) {
+		width: 100%;
 	}
 `;
 
@@ -30,15 +30,15 @@ export const PostTitle = styled(Card.Title)`
 `;
 
 export const ButtonPost = styled(Button)`
-	width: 40%;
+	width: 30%;
 	margin: 10px auto !important;
 	background: #8d73e4 !important;
 	border: none !important;
 	border-radius: 4px !important;
 	font-weight: 600 !important;
 	font-size: 14px !important;
-	line-height: 16px !important;
-	margin-bottom: 60px;
+	height: max(2.3vw, 35px);
+	margin-bottom: 45px;
 	display: flex !important;
 	justify-content: space-around;
 	align-items: center;
@@ -48,15 +48,11 @@ export const ButtonPost = styled(Button)`
 		opacity: 0.8;
 	}
 
-	@media only screen and (max-width: 768px) {
-		.cardPost {
-			width: 70%;
-		}
+	@media only screen and (max-width: 900px) {
+		width: 50%;
 	}
 
-	@media only screen and (max-width: 576px) {
-		.cardPost {
-			width: 60%;
-		}
+	@media only screen and (max-width: 900px) {
+		width: 40%;
 	}
 `;

@@ -13,7 +13,7 @@ export const MorePetsButton = styled(Link)`
 	align-items: center;
 	text-decoration: none;
 	width: 2.5vw;
-	height: 1vw;
+	height: max(2.3vw, 35px);
 	text-align: center;
 	font-weight: 600;
 	font-size: 0.875rem;
@@ -30,12 +30,10 @@ export const MorePetsButton = styled(Link)`
 
 	@media (min-width: 1200px) {
 		width: 10vw;
-		height: 3.5vw;
 	}
 
 	@media (max-width: 768px) {
 		width: 20vw;
-		height: 5vw;
 		font-size: 0.8rem;
 
 		&:hover {
@@ -43,8 +41,8 @@ export const MorePetsButton = styled(Link)`
 		}
 	}
 
-	@media (max-width: 468px) {
-		width: 26vw;
-		height: 7vw;
+	@media (max-width: 500px) {
+		width: 28vw;
+		margin-top: 5vw;
 	}
 `;
