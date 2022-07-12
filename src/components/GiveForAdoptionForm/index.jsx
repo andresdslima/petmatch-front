@@ -9,19 +9,6 @@ import { api } from '../../services/mainAPI/config';
 import { getUserById } from '../../services/mainAPI/users';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-// import * as Yup from 'yup';
-
-// const validationSchema = Yup.object({
-// 	nome: Yup.string().min(6, 'Nome completo').required('*'),
-// 	email: Yup.string().email('Email inválido').required('*'),
-// 	celular: Yup.string().min(11, '11 dígitos').required('*'),
-// 	cidade: Yup.string().min(3, 'Digite sua cidade').required('*'),
-// 	estado: Yup.string().min(2, 'Escolha seu estado').required('*'),
-// 	cep: Yup.string().min(8, '8 dígitos').required('*'),
-// 	endereco: Yup.string().min(6, 'Endereço completo').required('*'),
-// 	enderecoNumero: Yup.number().required('*'),
-// 	enderecoComplemento: Yup.string(),
-// });
 
 const GiveForAdoptionForm = () => {
 	const userItem = useSelector(state => state.persistedReducer.user);
