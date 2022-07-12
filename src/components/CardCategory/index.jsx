@@ -49,7 +49,7 @@ const CardCategory = () => {
 									<S.ImgCategory src={dogSmile} />
 								</S.ContainerImgCategory>
 								<Card.Body>
-									<Card.Title>Cães</Card.Title>
+									<Card.Title>Cachorros</Card.Title>
 								</Card.Body>
 							</S.CardCategory>
 						</S.LinkContainer>
