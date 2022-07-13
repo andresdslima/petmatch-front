@@ -32,8 +32,19 @@ const usersSlice = createSlice({
 			Object.assign(state, {
 				// ...state,
 				user: {
-					cidade: action.payload.cidade,
 					id: action.payload.id,
+					nome: action.payload.nome,
+					sobrenome: action.payload.sobrenome,
+					cpf: action.payload.cpf,
+					contato: action.payload.contato,
+					cep: action.payload.cep,
+					logradouro: action.payload.logradouro,
+					numero_logradouro: action.payload.numero_logradouro,
+					complemento: action.payload.complemento,
+					bairro: action.payload.bairro,
+					cidade: action.payload.cidade,
+					uf: action.payload.uf,
+					sobre: action.payload.sobre,
 				},
 			});
 		},

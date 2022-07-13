@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import PeopleReview from '../../components/Section/PeopleReview';
 import CardPostsContainer from '../../components/Card-Posts-Container';
 import ImagesCarousel from '../../components/ImagesCarousel';
-import GiveForAdoptionForm from '../../components/GiveForAdoptionForm';
+// import GiveForAdoptionForm from '../../components/GiveForAdoptionForm';
 import UserEditForm from '../../components/UserEditForm';
 
 const UserEdit = () => {
@@ -12,7 +12,7 @@ const UserEdit = () => {
 		<>
 			<Header />
 			<ImagesCarousel />
-            <UserEditForm />
+			<UserEditForm />
 			<PeopleReview />
 			<CardPostsContainer />
 			<Footer />

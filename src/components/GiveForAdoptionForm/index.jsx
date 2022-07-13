@@ -53,7 +53,7 @@ const GiveForAdoptionForm = () => {
 
 			if (!userItem.cidade) {
 				alert('É necessário completar seu cadastro primeiro');
-				navigate(`/users/${userItem.id}`);
+				navigate(`/users`);
 				return;
 			}
 

@@ -3,14 +3,13 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const FooterLogoContainer = styled(Container)`
-display: flex;
-justify-content: center;
-margin: 2.5vw auto;
-`
+	display: flex;
+	justify-content: center;
+	margin: 2.5vw auto;
+`;
 
 export const FooterBackground = styled(Navbar)`
 	background-color: #7355d3;
-	
 `;
 
 export const FooterContainer = styled(Container)`
@@ -46,7 +45,14 @@ export const NavLinks = styled(Nav)`
 	flex-direction: row;
 
 	@media only screen and (max-width: 500px) {
-		gap: 20px;
+		gap: 10px;
+
+		a,
+		button {
+			width: 100%;
+			font-size: 0.75rem;
+			padding: 1rem;
+		}
 	}
 `;
 

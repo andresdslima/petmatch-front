@@ -1,8 +1,8 @@
 import Dog from '../../assets/images/DogVector.svg';
 import Cat from '../../assets/images/CatVector.svg';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import * as S from './styled';
-import LogoFooter from '../../assets/images/LogoFooter.svg'
+import LogoFooter from '../../assets/images/LogoFooter.svg';
 
 const Footer = () => {
 	const location = useLocation();
@@ -14,7 +14,9 @@ const Footer = () => {
 	return (
 		<>
 			<S.FooterLogoContainer>
-				<img src={LogoFooter} alt="Footer Logo" />
+				<Link exact to="/">
+					<img src={LogoFooter} alt="Footer Logo" />
+				</Link>
 			</S.FooterLogoContainer>
 			<S.FooterBackground expand="lg" className="p-0">
 				<S.FooterContainer>

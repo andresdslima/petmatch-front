@@ -22,6 +22,8 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 	const formObject = JSON.parse(localStorage.getItem('form'));
 	const userObject = JSON.parse(localStorage.getItem('user'));
 
+	// Se o usuario ja tiver CPF, vai dar erro qnd ele pedir p adotar outro pet???
+
 	const formik = useFormik({
 		initialValues: {
 			cpf: `${formObject.cpf ?? ''}`,
