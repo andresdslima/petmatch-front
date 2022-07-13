@@ -17,15 +17,12 @@ const UserEditForm = () => {
 	// const dispatch = useDispatch();
 	// const navigate = useNavigate();
 
-	// function handleChange(event) {
-	// 	const file = event.target.files[0];
-	// 	formik.setFieldValue('petImage', file);
-	// }
-
 	// useEffect(() => {
 	// 	getUserById(data.payload.id).then(user => dispatch(storeUser(user)));
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	// }, []);
+
+	
+	const userId = parseInt(window.location.search.split('?')[1]);
 
 	const formik = useFormik({
 		initialValues: {
@@ -45,8 +42,23 @@ const UserEditForm = () => {
 
 		onSubmit: async values => {
 			// api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			const response = await updateUser(userId, {
+				cpf: values.cpf,
+				contato: values.contato,
+				cep: values.cep,
+				logradouro: values.logradouro,
+				numero_logradouro: values.numero_logradouro,
+				complemento: values.complemento,
+				bairro: values.bairro,
+				cidade: values.cidade,
+				uf: values.uf,
+				sobre: values.sobre,
+			});
 
-			// const data = await postPets(formData);
+			if (response.status !== 201) {
+				alert('Erro aqui ao atualizar usuário');
+				return;
+			}
 
 			// dispatch(addNewPet({ pets: data }));
 			// formik.resetForm();
