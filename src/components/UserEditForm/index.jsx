@@ -93,12 +93,13 @@ const UserEditForm = () => {
 			};
 
 			const response = await updateUser(userId, {
+				cpf: `${values.cpf}`,
 				nome: values.nome,
 				sobrenome: values.sobrenome,
-				contato: values.contato,
-				cep: values.cep,
+				contato: `${values.contato}`,
+				cep: `${values.cep}`,
 				logradouro: values.logradouro,
-				numero_logradouro: values.numero_logradouro,
+				numero_logradouro: `${values.numero_logradouro}`,
 				complemento: values.complemento,
 				bairro: values.bairro,
 				cidade: values.cidade,
@@ -106,12 +107,12 @@ const UserEditForm = () => {
 				sobre: values.sobre,
 			});
 
-			if (response.status !== 201) {
-				alert('Erro aqui ao atualizar usuário');
+			if (response.status !== 200) {
+				alert('Erro ao atualizar usuário');
 				return;
 			}
 
-			dispatch(storeUser(response));
+			dispatch(storeUser(response.data));
 			navigate('/');
 		},
 	});
