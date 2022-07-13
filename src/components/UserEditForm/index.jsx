@@ -36,8 +36,8 @@ const UserEditForm = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			nome: `${userItem ? userItem.nome : ''}`,
-			sobrenome: `${userItem ? userItem.sobrenome : ''}`,
+			nome: `${userItem.nome ?? ''}`,
+			sobrenome: `${userItem.sobrenome ?? ''}`,
 			email: '',
 			senha: '',
 			cpf: `${userItem.cpf ?? ''}`,
@@ -57,40 +57,7 @@ const UserEditForm = () => {
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 
-			// Falta validar se o user ja tem CPF e poder alterar o email e senha
-
-			const checkUserCpf = () => { // ??? <=====
-				if (userItem.cpf) {
-					return {
-						nome: values.nome,
-						sobrenome: values.sobrenome,
-						contato: values.contato,
-						cep: values.cep,
-						logradouro: values.logradouro,
-						numero_logradouro: values.numero_logradouro,
-						complemento: values.complemento,
-						bairro: values.bairro,
-						cidade: values.cidade,
-						uf: values.uf,
-						sobre: values.sobre,
-					};
-				} else {
-					return {
-						cpf: values.cpf,
-						nome: values.nome,
-						sobrenome: values.sobrenome,
-						contato: values.contato,
-						cep: values.cep,
-						logradouro: values.logradouro,
-						numero_logradouro: values.numero_logradouro,
-						complemento: values.complemento,
-						bairro: values.bairro,
-						cidade: values.cidade,
-						uf: values.uf,
-						sobre: values.sobre,
-					};
-				}
-			};
+			// Falta poder alterar o email e senha do usuario
 
 			const response = await updateUser(userId, {
 				cpf: `${values.cpf}`,
@@ -127,6 +94,11 @@ const UserEditForm = () => {
 					<S.ContainerForm className="text-start">
 						<Form.Group>
 							<S.Label>Nome</S.Label>
+							{/* {formik.errors.nome && (
+								<small>
+									<em>{formik.errors.nome}</em>
+								</small>
+							)} */}
 							<S.FormItem
 								id="nome"
 								name="nome"

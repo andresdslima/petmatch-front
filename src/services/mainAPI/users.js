@@ -18,7 +18,6 @@ export const createUser = async user => {
 		return { data, status };
 	} catch (error) {
 		console.error(error);
-		alert('Erro ao cadastrar usuário');
 		return { status: error.response.status };
 	}
 };

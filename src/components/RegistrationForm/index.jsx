@@ -49,11 +49,13 @@ export default function RegistrationForm() {
 			});
 
 			if (response.status !== 201) {
-				alert('Erro aqui ao cadastrar usuário');
+				alert('Erro ao cadastrar usuário');
 				return;
 			}
 
 			formik.handleReset();
+
+			// No POST de usuario nao vem o token
 
 			localStorage.setItem(
 				'data',
@@ -74,7 +76,7 @@ export default function RegistrationForm() {
 			api.defaults.headers.common[
 				'Authorization'
 			] = `Bearer ${response.data.token}`;
-			navigate('/');
+			navigate('/login');
 		},
 	});
 
