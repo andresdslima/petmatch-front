@@ -14,6 +14,7 @@ import GiveForAdoption from './pages/GiveForAdoption';
 import ScrollToTop from './components/ScrollToTop';
 import PetsBySpecie from './pages/PetsBySpecie';
 import AllPets from './pages/AllPets';
+import UserEdit from './pages/UserEdit';
 
 export default function AppRoutes() {
 	// let login = useSelector(state => state.persistedReducer.isLogged);
@@ -58,6 +59,11 @@ export default function AppRoutes() {
 					<Route path="/ongs" element={<ONGs />} />
 					<Route path="/petsbyspecie/:param" element={<PetsBySpecie />} />
 					<Route path="/allpets" element={<AllPets />} />
+					<Route path="/users" element={
+						<RequireAuth>
+						<UserEdit />
+					</RequireAuth>
+					} />
 				</Routes>
 			</ScrollToTop>
 		</Router>
