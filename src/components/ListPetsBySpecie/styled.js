@@ -104,12 +104,12 @@ export const PetsContainer = styled(Container)`
 
 export const MatchIconDiv = styled.div`
 	background-color: #f76f34;
-	width: 50px;
-	height: 50px;
+	width: 40px !important;
+	height: 40px !important;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 5px solid #fff;
+	border: 4px solid #fff;
 	border-radius: 100%;
 	-webkit-clip-path: circle(50% at 50% 50%);
 	clip-path: circle(50% at 50% 50%);
@@ -125,6 +125,13 @@ export const MatchIconDiv = styled.div`
 	}
 `;
 
+export const GenderIconDiv = styled(MatchIconDiv)`
+	background-color: ${props => props.color};
+	border: none;
+	width: 35px !important;
+	height: 35px !important;
+`;
+
 export const GenderIconContainer = styled.div`
 	position: absolute;
 	top: 0%;
@@ -132,10 +139,6 @@ export const GenderIconContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-`;
-
-export const GenderIconDiv = styled(MatchIconDiv)`
-	background-color: ${props => props.color};
 `;
 
 export const FemaleGenderIcon = styled(BsGenderFemale)`
