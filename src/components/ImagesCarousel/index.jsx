@@ -21,7 +21,7 @@ const ImagesCarousel = () => {
 	};
 
 	const click = () => {
-		if (!isLogged()) {
+		if (isLogged()) {
 			alert('É necessário completar seu cadastro primeiro');
 		}
 	};
