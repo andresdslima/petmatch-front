@@ -5,7 +5,6 @@ import oneDog from '../../assets/oneDog.png';
 import wrappedCat from '../../assets/wrappedCat.png';
 import { useLocation } from 'react-router-dom';
 import * as S from './styled';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const ImagesCarousel = () => {
