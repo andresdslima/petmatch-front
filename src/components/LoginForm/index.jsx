@@ -31,10 +31,9 @@ export default function LoginForm() {
 		validationSchema,
 
 		onSubmit: async values => {
-			const data = await loginUser(values);
+			const response = await loginUser(values);
 
-			if (!data) {
-				alert('Usuário ou senha inválidos!');
+			if (response.status !== 200) {
 				return;
 			}
 
@@ -46,17 +45,19 @@ export default function LoginForm() {
 					dispatch(
 						signIn({
 							isLogged: true,
-							accessToken: data.token,
-							firstName: data.nome,
-							userStatus: data.userStatus,
-							permission: data.permissao,
-							id: data.id,
+							accessToken: response.data.token,
+							firstName: response.data.nome,
+							userStatus: response.data.userStatus,
+							permission: response.data.permissao,
+							id: response.data.id,
 						}),
 					),
 				),
 			);
 
-			api.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+			api.defaults.headers.common[
+				'Authorization'
+			] = `Bearer ${response.data.token}`;
 			navigate('/');
 		},
 	});

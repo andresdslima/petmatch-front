@@ -36,7 +36,7 @@ export const updateUser = async (id, user) => {
 export const loginUser = async user => {
 	try {
 		const response = await api.post('/login', user);
-		return response.data;
+		return response;
 	} catch (error) {
 		console.error(error);
 		alert('Erro ao efetuar login');

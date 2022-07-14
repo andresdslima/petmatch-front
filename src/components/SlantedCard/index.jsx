@@ -12,9 +12,9 @@ const SlantedCard = () => {
 					<S.CardTextContainer>
 						<S.Title>Parabéns pela sua adoção!</S.Title>
 						<S.Text>
-							Nós da PetMatch ficamos realizados quado uma adoção é realizada,
-							queríamos agradecer por nos escolher e desejamos toda felicidade
-							do mundo para você e seu novo pet!
+							Nós da PetMatch ficamos muito realizados quando uma adoção é
+							realizada! Gostaríamos de agradecer por nos escolher e desejamos
+							toda a felicidade do mundo para você e seu novo pet!
 						</S.Text>
 					</S.CardTextContainer>
 				</S.CardCenter>
