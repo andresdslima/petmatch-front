@@ -15,10 +15,20 @@ const validationSchema = Yup.object({
 });
 
 export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
-	const data = JSON.parse(localStorage.getItem('data'));
-	const user = JSON.parse(localStorage.getItem('user'));
 	const petId = parseInt(window.location.search.split('?')[1]);
+	const data = JSON.parse(localStorage.getItem('data'));
 	const dispatch = useDispatch();
+
+	const {
+		bairro,
+		cep,
+		cidade,
+		contato,
+		cpf,
+		logradouro,
+		numero_logradouro,
+		uf,
+	} = JSON.parse(localStorage.getItem('form'));
 
 	const formik = useFormik({
 		initialValues: {
@@ -41,10 +51,18 @@ export default function AdoptionStep4({ setStep, formValues, setFormValues }) {
 			setStep(5);
 			dispatch(countStep({ step: 5 }));
 			localStorage.removeItem('form');
-			localStorage.removeItem('user');
 
 			await createAdoption(petId);
-			await updateUser(data.payload.id, user);
+			await updateUser(data.payload.id, {
+				bairro,
+				cep,
+				cidade,
+				contato,
+				cpf,
+				logradouro,
+				numero_logradouro,
+				uf,
+			});
 		},
 	});
 

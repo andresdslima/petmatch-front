@@ -30,7 +30,7 @@ const usersSlice = createSlice({
 		},
 		storeUser(state, action) {
 			Object.assign(state, {
-				// ...state,
+				...state,
 				user: {
 					id: action.payload.id,
 					nome: action.payload.nome,
@@ -45,6 +45,10 @@ const usersSlice = createSlice({
 					cidade: action.payload.cidade,
 					uf: action.payload.uf,
 					sobre: action.payload.sobre,
+					email: action.payload.email,
+					estadoCivil: action.payload.estadoCivil,
+					rg: action.payload.rg,
+					profissao: action.payload.profissao,
 				},
 			});
 		},

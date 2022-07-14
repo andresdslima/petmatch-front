@@ -57,8 +57,6 @@ const UserEditForm = () => {
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-			console.log(formik.values.complemento);
-			console.log(formik.values.sobre);
 
 			const response = await updateUser(userId, {
 				cpf: `${values.cpf}`,
@@ -121,7 +119,7 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup> */}
 						<S.FormGroup>
-							<S.Label htmlFor='cpf'>CPF</S.Label>
+							<S.Label htmlFor="cpf">CPF</S.Label>
 							{formik.errors.cpf && (
 								<small>
 									<em>{formik.errors.cpf}</em>
@@ -137,7 +135,7 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='contato'>Contato</S.Label>
+							<S.Label htmlFor="contato">Contato</S.Label>
 							{formik.errors.contato && (
 								<small>
 									<em>{formik.errors.contato}</em>
@@ -154,7 +152,7 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='cep'>CEP</S.Label>
+							<S.Label htmlFor="cep">CEP</S.Label>
 							{formik.errors.cep && (
 								<small>
 									<em>{formik.errors.cep}</em>
@@ -171,7 +169,7 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='logradouro'>Logradouro</S.Label>
+							<S.Label htmlFor="logradouro">Logradouro</S.Label>
 							{formik.errors.logradouro && (
 								<small>
 									<em>{formik.errors.logradouro}</em>
@@ -188,7 +186,7 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='numero_logradouro'>Número</S.Label>
+							<S.Label htmlFor="numero_logradouro">Número</S.Label>
 							{formik.errors.numero_logradouro && (
 								<small>
 									<em>{formik.errors.numero_logradouro}</em>
@@ -205,22 +203,18 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='complemento'>Complemento</S.Label>
+							<S.Label htmlFor="complemento">Complemento</S.Label>
 							<S.FormItem
 								id="complemento"
 								name="complemento"
 								type="text"
 								placeholder="Opcional"
-								value={
-									formik.values.complemento !== ''
-										? formik.values.complemento
-										: null
-								}
+								value={formik.values.complemento}
 								onChange={formik.handleChange}
 							/>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='bairro'>Bairro</S.Label>
+							<S.Label htmlFor="bairro">Bairro</S.Label>
 							{formik.errors.bairro && (
 								<small>
 									<em>{formik.errors.bairro}</em>
@@ -291,7 +285,7 @@ const UserEditForm = () => {
 							</S.FormItemSelect>
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label htmlFor='uf'>Estado</S.Label>
+							<S.Label htmlFor="uf">Estado</S.Label>
 							{formik.errors.uf && (
 								<small>
 									<em>{formik.errors.uf}</em>
@@ -373,13 +367,13 @@ const UserEditForm = () => {
 							</S.FormGroup>
 						</S.FormGroup> */}
 						<S.TextareaContainer>
-							<S.Label htmlFor='sobre'>Sobre</S.Label>
+							<S.Label htmlFor="sobre">Sobre</S.Label>
 							<S.TextArea
 								id="sobre"
 								name="sobre"
 								type="text"
 								placeholder="Conte-nos mais sobre você"
-								value={formik.values.sobre !== '' ? formik.values.sobre : null}
+								value={formik.values.sobre}
 								required
 								onChange={formik.handleChange}
 							></S.TextArea>

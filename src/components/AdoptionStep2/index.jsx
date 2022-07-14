@@ -13,33 +13,34 @@ const validationSchema = Yup.object({
 	estadoCivil: Yup.string().required('*'),
 	profissao: Yup.string().required('*'),
 	bairro: Yup.string().min(3, 'Nome do bairro').required('*'),
-	complemento: Yup.string(),
 });
 
 export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 	const { register } = useForm();
 	const dispatch = useDispatch();
 	const formObject = JSON.parse(localStorage.getItem('form'));
-	const userObject = JSON.parse(localStorage.getItem('user'));
 	const userItem = useSelector(state => state.persistedReducer.user);
 
 	const formik = useFormik({
 		initialValues: {
-			cpf: `${formObject.cpf ?? ''}`,
+			cpf: `${userItem.cpf ?? ''}`,
 			rg: `${formObject.rg ?? ''}`,
-			estadoCivil: `${formObject.estadoCivil ?? ''}`,
-			profissao: `${formObject.profissao ?? ''}`,
-			bairro: `${formObject.bairro ?? ''}`,
-			complemento: `${formObject.complemento ?? ''}`,
+			estadoCivil: formObject.estadoCivil ?? '',
+			profissao: formObject.profissao ?? '',
+			bairro: userItem.bairro ?? '',
+			complemento: userItem.complemento ? userItem.complemento : null,
 		},
 
 		validationSchema,
 
 		onSubmit: values => {
-			const currentForm = Object.assign(formObject, { ...values });
-			const updatedUser = Object.assign(userObject, {
+			const currentForm = Object.assign(formObject, {
 				cpf: `${values.cpf}`,
+				rg: `${values.rg}`,
+				estadoCivil: values.estadoCivil,
+				profissao: values.profissao,
 				bairro: values.bairro,
+				complemento: values.complemento ? values.complemento : null,
 			});
 
 			setFormValues({
@@ -51,18 +52,6 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 			dispatch(countStep({ step: 3 }));
 
 			localStorage.setItem('form', JSON.stringify(currentForm));
-			localStorage.setItem('user', JSON.stringify(updatedUser));
-
-			if (values.complemento.length > 0) {
-				localStorage.setItem(
-					'user',
-					JSON.stringify(
-						Object.assign(updatedUser, {
-							complemento: values.complemento,
-						}),
-					),
-				);
-			}
 		},
 	});
 
@@ -189,17 +178,12 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 					<Col xs={12} sm={4}>
 						<Styled.InputContainer>
 							<Styled.Label htmlFor="complemento">Complemento</Styled.Label>
-							{formik.errors.complemento && (
-								<small>
-									<em>{formik.errors.complemento}</em>
-								</small>
-							)}
 							<Styled.SInput
 								type="text"
 								name="complemento"
 								{...register('complemento')}
 								id="complemento"
-								placeholder="Complemento do endereço"
+								placeholder="Opcional"
 								value={formik.values.complemento}
 								onChange={formik.handleChange}
 							/>

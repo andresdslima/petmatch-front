@@ -27,15 +27,17 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 
 	const formik = useFormik({
 		initialValues: {
-			nome: `${formObject ? formObject.nome : ''}`,
-			sobrenome: `${formObject ? formObject.sobrenome : ''}`,
-			email: `${formObject ? formObject.email : ''}`,
-			contato: `${formObject ? formObject.contato : ''}`,
-			cidade: `${formObject ? formObject.cidade : ''}`,
-			uf: `${formObject ? formObject.uf : ''}`,
-			cep: `${formObject ? formObject.cep : ''}`,
-			logradouro: `${formObject ? formObject.logradouro : ''}`,
-			numero_logradouro: `${formObject ? formObject.numero_logradouro : ''}`,
+			nome: userItem.nome ? userItem.nome : '',
+			sobrenome: userItem.sobrenome ? userItem.sobrenome : '',
+			email: userItem.email ? userItem.email : '',
+			contato: `${userItem.contato ? userItem.contato : ''}`,
+			cidade: userItem.cidade ? userItem.cidade : '',
+			uf: userItem.uf ? userItem.uf : '',
+			cep: `${userItem.cep ? userItem.cep : ''}`,
+			logradouro: userItem.logradouro ? userItem.logradouro : '',
+			numero_logradouro: `${
+				userItem.numero_logradouro ? userItem.numero_logradouro : ''
+			}`,
 		},
 
 		validationSchema,
@@ -46,28 +48,30 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 				...values,
 			});
 
-			setStep(2);
+			const form = {
+				...formValues,
+				nome: values.nome,
+				sobrenome: values.sobrenome,
+				email: values.email,
+				contato: `${values.contato}`,
+				cidade: values.cidade,
+				uf: values.uf,
+				cep: `${values.cep}`,
+				logradouro: values.logradouro,
+				numero_logradouro: `${values.numero_logradouro}`,
+			};
+
+			if (formObject) {
+				const currentForm = Object.assign(formObject, form);
+				localStorage.setItem('form', JSON.stringify(currentForm));
+				dispatch(countStep({ step: 2 }));
+				setStep(2);
+				return;
+			}
+
+			localStorage.setItem('form', JSON.stringify(form));
 			dispatch(countStep({ step: 2 }));
-
-			localStorage.setItem(
-				'form',
-				JSON.stringify({ ...formValues, ...values }),
-			);
-
-			localStorage.setItem(
-				'user',
-				JSON.stringify({
-					nome: values.nome,
-					sobrenome: values.sobrenome,
-					email: values.email,
-					contato: `${values.contato}`,
-					cidade: values.cidade,
-					uf: values.uf,
-					cep: `${values.cep}`,
-					logradouro: values.logradouro,
-					numero_logradouro: `${values.numero_logradouro}`,
-				}),
-			);
+			setStep(2);
 		},
 	});
 

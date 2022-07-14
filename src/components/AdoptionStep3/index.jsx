@@ -30,7 +30,7 @@ export default function AdoptionStep3({ setStep, formValues, setFormValues }) {
 
 	const formik = useFormik({
 		initialValues: {
-			enderecoAnimal: `${formObject.enderecoAnimal ?? ''}`,
+			enderecoAnimal: formObject.enderecoAnimal ?? '',
 		},
 
 		validationSchema,
