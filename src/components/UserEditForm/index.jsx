@@ -11,10 +11,12 @@ import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
 	cpf: Yup.string().min(11, 'CPF inválido').required('*'),
-	contato: Yup.string().min(11, 'Contato inválido (Digite DDD + número)').required('*'),
+	contato: Yup.string()
+		.min(11, 'Contato inválido (Digite DDD + número)')
+		.required('*'),
 	cidade: Yup.string().min(3, 'Escolha sua cidade').required('*'),
 	uf: Yup.string().min(2, 'Escolha seu estado').required('*'),
-	bairro: Yup.string().min(3, 'Digite seu bairro' ).required('*'),
+	bairro: Yup.string().min(3, 'Digite seu bairro').required('*'),
 	cep: Yup.string().min(8, 'CEP inválido').required('*'),
 	logradouro: Yup.string().min(6, 'Digite endereço completo').required('*'),
 	numero_logradouro: Yup.number().required('*'),
@@ -120,7 +122,7 @@ const UserEditForm = () => {
 						</S.FormGroup> */}
 						<S.FormGroup>
 							<S.Label>CPF</S.Label>
-							
+
 							<S.FormItem
 								id="cpf"
 								name="cpf"
@@ -131,10 +133,10 @@ const UserEditForm = () => {
 								disabled={userItem.cpf ? true : false}
 							/>
 							{formik.errors.cpf && (
-						<small>
-							<em>{formik.errors.cpf}</em>
-						</small>
-					)}
+								<small>
+									<em>{formik.errors.cpf}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label>Contato</S.Label>
@@ -147,11 +149,11 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-								{formik.errors.contato && (
-						<small>
-							<em>{formik.errors.contato}</em>
-						</small>
-					)}
+							{formik.errors.contato && (
+								<small>
+									<em>{formik.errors.contato}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label>CEP</S.Label>
@@ -165,10 +167,10 @@ const UserEditForm = () => {
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.cep && (
-						<small>
-							<em>{formik.errors.cep}</em>
-						</small>
-					)}
+								<small>
+									<em>{formik.errors.cep}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label>Logradouro</S.Label>
@@ -182,10 +184,10 @@ const UserEditForm = () => {
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.logradouro && (
-						<small>
-							<em>{formik.errors.logradouro}</em>
-						</small>
-					)}
+								<small>
+									<em>{formik.errors.logradouro}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label>Número</S.Label>
@@ -199,10 +201,10 @@ const UserEditForm = () => {
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.numero_logradouro && (
-						<small>
-							<em>{formik.errors.numero_logradouro}</em>
-						</small>
-					)}
+								<small>
+									<em>{formik.errors.numero_logradouro}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label>Complemento</S.Label>
@@ -216,10 +218,10 @@ const UserEditForm = () => {
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.complemento && (
-						<small>
-							<em>{formik.errors.complemento}</em>
-						</small>
-					)}
+								<small>
+									<em>{formik.errors.complemento}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label>Bairro</S.Label>
@@ -233,10 +235,10 @@ const UserEditForm = () => {
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.bairro && (
-						<small>
-							<em>{formik.errors.bairro}</em>
-						</small>
-					)}
+								<small>
+									<em>{formik.errors.bairro}</em>
+								</small>
+							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label htmlFor="cidade">Cidade</S.Label>
@@ -287,57 +289,57 @@ const UserEditForm = () => {
 								<S.SelectOption value="Vitória">Vitória</S.SelectOption>
 							</S.FormItemSelect>
 							{formik.errors.cidade && (
-						<small>
-							<em>{formik.errors.cidade}</em>
-						</small>
-					)}
-							</S.FormGroup>
-							<S.FormGroup>
-								<S.Label>Estado</S.Label>
-								<S.FormItemSelect
-									id="uf"
-									name="uf"
-									type="select"
-									value={formik.values.uf}
-									required
-									onChange={formik.handleChange}
-								>
-									<S.SelectOption value=""></S.SelectOption>
-									<S.SelectOption value="AC">AC</S.SelectOption>
-									<S.SelectOption value="AC">AC</S.SelectOption>
-									<S.SelectOption value="AL">AL</S.SelectOption>
-									<S.SelectOption value="AP">AP</S.SelectOption>
-									<S.SelectOption value="AM">AM</S.SelectOption>
-									<S.SelectOption value="BA">BA</S.SelectOption>
-									<S.SelectOption value="CE">CE</S.SelectOption>
-									<S.SelectOption value="DF">DF</S.SelectOption>
-									<S.SelectOption value="ES">ES</S.SelectOption>
-									<S.SelectOption value="GO">GO</S.SelectOption>
-									<S.SelectOption value="MA">MA</S.SelectOption>
-									<S.SelectOption value="MT">MT</S.SelectOption>
-									<S.SelectOption value="MS">MS</S.SelectOption>
-									<S.SelectOption value="MG">MG</S.SelectOption>
-									<S.SelectOption value="PA">PA</S.SelectOption>
-									<S.SelectOption value="PB">PB</S.SelectOption>
-									<S.SelectOption value="PR">PR</S.SelectOption>
-									<S.SelectOption value="PE">PE</S.SelectOption>
-									<S.SelectOption value="PI">PI</S.SelectOption>
-									<S.SelectOption value="RJ">RJ</S.SelectOption>
-									<S.SelectOption value="RN">RN</S.SelectOption>
-									<S.SelectOption value="RS">RS</S.SelectOption>
-									<S.SelectOption value="RO">RO</S.SelectOption>
-									<S.SelectOption value="RR">RR</S.SelectOption>
-									<S.SelectOption value="SC">SC</S.SelectOption>
-									<S.SelectOption value="SP">SP</S.SelectOption>
-									<S.SelectOption value="SE">SE</S.SelectOption>
-									<S.SelectOption value="TO">TO</S.SelectOption>
-								</S.FormItemSelect>
-								{formik.errors.uf && (
-						<small>
-							<em>{formik.errors.uf}</em>
-						</small>
-					)}
-							</S.FormGroup>
+								<small>
+									<em>{formik.errors.cidade}</em>
+								</small>
+							)}
+						</S.FormGroup>
+						<S.FormGroup>
+							<S.Label>Estado</S.Label>
+							<S.FormItemSelect
+								id="uf"
+								name="uf"
+								type="select"
+								value={formik.values.uf}
+								required
+								onChange={formik.handleChange}
+							>
+								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value="AC">AC</S.SelectOption>
+								<S.SelectOption value="AC">AC</S.SelectOption>
+								<S.SelectOption value="AL">AL</S.SelectOption>
+								<S.SelectOption value="AP">AP</S.SelectOption>
+								<S.SelectOption value="AM">AM</S.SelectOption>
+								<S.SelectOption value="BA">BA</S.SelectOption>
+								<S.SelectOption value="CE">CE</S.SelectOption>
+								<S.SelectOption value="DF">DF</S.SelectOption>
+								<S.SelectOption value="ES">ES</S.SelectOption>
+								<S.SelectOption value="GO">GO</S.SelectOption>
+								<S.SelectOption value="MA">MA</S.SelectOption>
+								<S.SelectOption value="MT">MT</S.SelectOption>
+								<S.SelectOption value="MS">MS</S.SelectOption>
+								<S.SelectOption value="MG">MG</S.SelectOption>
+								<S.SelectOption value="PA">PA</S.SelectOption>
+								<S.SelectOption value="PB">PB</S.SelectOption>
+								<S.SelectOption value="PR">PR</S.SelectOption>
+								<S.SelectOption value="PE">PE</S.SelectOption>
+								<S.SelectOption value="PI">PI</S.SelectOption>
+								<S.SelectOption value="RJ">RJ</S.SelectOption>
+								<S.SelectOption value="RN">RN</S.SelectOption>
+								<S.SelectOption value="RS">RS</S.SelectOption>
+								<S.SelectOption value="RO">RO</S.SelectOption>
+								<S.SelectOption value="RR">RR</S.SelectOption>
+								<S.SelectOption value="SC">SC</S.SelectOption>
+								<S.SelectOption value="SP">SP</S.SelectOption>
+								<S.SelectOption value="SE">SE</S.SelectOption>
+								<S.SelectOption value="TO">TO</S.SelectOption>
+							</S.FormItemSelect>
+							{formik.errors.uf && (
+								<small>
+									<em>{formik.errors.uf}</em>
+								</small>
+							)}
+						</S.FormGroup>
 						{/* <S.FormGroup>
 							<S.Label>Alterar email</S.Label>
 							<S.FormItem
@@ -383,12 +385,27 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							></S.TextArea>
-								{formik.errors.sobre && (
-						<small>
-							<em>{formik.errors.sobre}</em>
-						</small>
-					)}
+							{formik.errors.sobre && (
+								<small>
+									<em>{formik.errors.sobre}</em>
+								</small>
+							)}
 						</S.TextareaContainer>
+						{/* <Form.Group>
+							<S.Label>Imagem</S.Label>
+							<S.FormItem
+								id="petImage"
+								name="petImage"
+								type="file"
+								accept="image/*"
+								value={undefined}
+								onChange={event => handleChange(event)}
+								required
+							/>
+							<small>
+								<em>*Tamanho máximo 1Mb.</em>
+							</small>
+						</Form.Group> */}
 					</S.ContainerForm>
 					<S.ButtonContainer className="my-5">
 						<S.SearchButton variant="primary" type="submit">

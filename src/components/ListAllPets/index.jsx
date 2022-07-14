@@ -58,7 +58,7 @@ const ListAllPets = () => {
 				</small>
 				<br />
 				<small>
-					<em>**Faça seu login e busque aqui pelo seu Pet ideal!</em>
+					<em>**Faça seu login e busque pelo seu Pet ideal!</em>
 				</small>
 			</S.PetsContainer>
 		</>

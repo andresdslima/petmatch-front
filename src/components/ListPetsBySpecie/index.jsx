@@ -59,6 +59,13 @@ const ListPetsBySpecie = () => {
 						</S.Column>
 					))}
 				</S.RowContainer>
+				<small>
+					<em>*SRD: Sem Raça Definida</em>
+				</small>
+				<br />
+				<small>
+					<em>**Faça seu login e busque pelo seu Pet ideal!</em>
+				</small>
 			</S.PetsContainer>
 		</>
 	);
