@@ -50,13 +50,15 @@ const UserEditForm = () => {
 			bairro: userItem.bairro ? userItem.bairro : '',
 			cidade: userItem.cidade ? userItem.cidade : '',
 			uf: userItem.uf ? userItem.uf : '',
-			sobre: userItem.sobre ? userItem.sobre : '',
+			sobre: userItem.sobre ? userItem.sobre : null,
 		},
 
 		validationSchema,
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			console.log(formik.values.complemento);
+			console.log(formik.values.sobre);
 
 			const response = await updateUser(userId, {
 				cpf: `${values.cpf}`,
@@ -68,7 +70,7 @@ const UserEditForm = () => {
 				bairro: values.bairro,
 				cidade: values.cidade,
 				uf: values.uf,
-				sobre: values.sobre,
+				sobre: values.sobre ? values.sobre : null,
 			});
 
 			if (response.status !== 200) {
@@ -119,8 +121,12 @@ const UserEditForm = () => {
 							/>
 						</S.FormGroup> */}
 						<S.FormGroup>
-							<S.Label>CPF</S.Label>
-
+							<S.Label htmlFor='cpf'>CPF</S.Label>
+							{formik.errors.cpf && (
+								<small>
+									<em>{formik.errors.cpf}</em>
+								</small>
+							)}
 							<S.FormItem
 								id="cpf"
 								name="cpf"
@@ -129,14 +135,14 @@ const UserEditForm = () => {
 								value={formik.values.cpf}
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.cpf && (
-								<small>
-									<em>{formik.errors.cpf}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>Contato</S.Label>
+							<S.Label htmlFor='contato'>Contato</S.Label>
+							{formik.errors.contato && (
+								<small>
+									<em>{formik.errors.contato}</em>
+								</small>
+							)}
 							<S.FormItem
 								id="contato"
 								name="contato"
@@ -146,14 +152,14 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.contato && (
-								<small>
-									<em>{formik.errors.contato}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>CEP</S.Label>
+							<S.Label htmlFor='cep'>CEP</S.Label>
+							{formik.errors.cep && (
+								<small>
+									<em>{formik.errors.cep}</em>
+								</small>
+							)}
 							<S.FormItem
 								id="cep"
 								name="cep"
@@ -163,14 +169,14 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.cep && (
-								<small>
-									<em>{formik.errors.cep}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>Logradouro</S.Label>
+							<S.Label htmlFor='logradouro'>Logradouro</S.Label>
+							{formik.errors.logradouro && (
+								<small>
+									<em>{formik.errors.logradouro}</em>
+								</small>
+							)}
 							<S.FormItem
 								id="logradouro"
 								name="logradouro"
@@ -180,14 +186,14 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.logradouro && (
-								<small>
-									<em>{formik.errors.logradouro}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>Número</S.Label>
+							<S.Label htmlFor='numero_logradouro'>Número</S.Label>
+							{formik.errors.numero_logradouro && (
+								<small>
+									<em>{formik.errors.numero_logradouro}</em>
+								</small>
+							)}
 							<S.FormItem
 								id="numero_logradouro"
 								name="numero_logradouro"
@@ -197,14 +203,9 @@ const UserEditForm = () => {
 								value={formik.values.numero_logradouro}
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.numero_logradouro && (
-								<small>
-									<em>{formik.errors.numero_logradouro}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>Complemento</S.Label>
+							<S.Label htmlFor='complemento'>Complemento</S.Label>
 							<S.FormItem
 								id="complemento"
 								name="complemento"
@@ -217,14 +218,14 @@ const UserEditForm = () => {
 								}
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.complemento && (
-								<small>
-									<em>{formik.errors.complemento}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>Bairro</S.Label>
+							<S.Label htmlFor='bairro'>Bairro</S.Label>
+							{formik.errors.bairro && (
+								<small>
+									<em>{formik.errors.bairro}</em>
+								</small>
+							)}
 							<S.FormItem
 								id="bairro"
 								name="bairro"
@@ -234,14 +235,14 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-							{formik.errors.bairro && (
-								<small>
-									<em>{formik.errors.bairro}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
 							<S.Label htmlFor="cidade">Cidade</S.Label>
+							{formik.errors.cidade && (
+								<small>
+									<em>{formik.errors.cidade}</em>
+								</small>
+							)}
 							<S.FormItemSelect
 								id="cidade"
 								name="cidade"
@@ -288,14 +289,14 @@ const UserEditForm = () => {
 								<S.SelectOption value="Teresina">Teresina</S.SelectOption>
 								<S.SelectOption value="Vitória">Vitória</S.SelectOption>
 							</S.FormItemSelect>
-							{formik.errors.cidade && (
-								<small>
-									<em>{formik.errors.cidade}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						<S.FormGroup>
-							<S.Label>Estado</S.Label>
+							<S.Label htmlFor='uf'>Estado</S.Label>
+							{formik.errors.uf && (
+								<small>
+									<em>{formik.errors.uf}</em>
+								</small>
+							)}
 							<S.FormItemSelect
 								id="uf"
 								name="uf"
@@ -334,11 +335,6 @@ const UserEditForm = () => {
 								<S.SelectOption value="SE">SE</S.SelectOption>
 								<S.SelectOption value="TO">TO</S.SelectOption>
 							</S.FormItemSelect>
-							{formik.errors.uf && (
-								<small>
-									<em>{formik.errors.uf}</em>
-								</small>
-							)}
 						</S.FormGroup>
 						{/* <S.FormGroup>
 							<S.Label>Alterar email</S.Label>
@@ -377,19 +373,16 @@ const UserEditForm = () => {
 							</S.FormGroup>
 						</S.FormGroup> */}
 						<S.TextareaContainer>
-							<S.Label>Sobre</S.Label>
+							<S.Label htmlFor='sobre'>Sobre</S.Label>
 							<S.TextArea
 								id="sobre"
+								name="sobre"
+								type="text"
 								placeholder="Conte-nos mais sobre você"
-								value={formik.values.sobre}
+								value={formik.values.sobre !== '' ? formik.values.sobre : null}
 								required
 								onChange={formik.handleChange}
 							></S.TextArea>
-							{formik.errors.sobre && (
-								<small>
-									<em>{formik.errors.sobre}</em>
-								</small>
-							)}
 						</S.TextareaContainer>
 						{/* <Form.Group>
 							<S.Label>Imagem</S.Label>
