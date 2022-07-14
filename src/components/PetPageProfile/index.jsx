@@ -40,9 +40,9 @@ const PetPageProfile = () => {
 					<S.ContentText>
 						Dono(a): <S.ContentCardText>{pet.user ? pet.user.nome : ''}</S.ContentCardText>
 					</S.ContentText>
-					<S.ContentText>
+					{/* <S.ContentText>
 						Contato: <S.ContentCardText>{pet.user ? pet.user.contato : ''}</S.ContentCardText>
-					</S.ContentText>
+					</S.ContentText> */}
 				</S.CardBody>
 				<S.NamePet>
 					<S.NamePetText>{pet.nome}</S.NamePetText>
