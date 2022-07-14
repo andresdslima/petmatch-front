@@ -9,17 +9,16 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
-// const validationSchema = Yup.object({
-// 	nome: Yup.string().required('*'),
-// 	sobrenome: Yup.string().required('*'),
-// 	email: Yup.string().email('Email inválido').required('*'),
-// 	contato: Yup.string().min(11, '11 dígitos').required('*'),
-// 	cidade: Yup.string().min(3, 'Digite sua cidade').required('*'),
-// 	uf: Yup.string().min(2, 'Escolha seu estado').required('*'),
-// 	cep: Yup.string().min(8, '8 dígitos').required('*'),
-// 	logradouro: Yup.string().min(6, 'Endereço completo').required('*'),
-// 	numero_logradouro: Yup.number().required('*'),
-// });
+const validationSchema = Yup.object({
+	cpf: Yup.string().min(11, 'CPF inválido').required('*'),
+	contato: Yup.string().min(11, 'Contato inválido (Digite DDD + número)').required('*'),
+	cidade: Yup.string().min(3, 'Escolha sua cidade').required('*'),
+	uf: Yup.string().min(2, 'Escolha seu estado').required('*'),
+	bairro: Yup.string().min(3, 'Digite seu bairro' ).required('*'),
+	cep: Yup.string().min(8, 'CEP inválido').required('*'),
+	logradouro: Yup.string().min(6, 'Digite endereço completo').required('*'),
+	numero_logradouro: Yup.number().required('*'),
+});
 
 const UserEditForm = () => {
 	const userItem = useSelector(state => state.persistedReducer.user);
@@ -52,8 +51,7 @@ const UserEditForm = () => {
 			sobre: `${userItem.sobre ?? ''}`,
 		},
 
-		// validationSchema,
-		// Colocar a foto do usuario tbm
+		validationSchema,
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
@@ -91,7 +89,7 @@ const UserEditForm = () => {
 			<Container className="my-5">
 				<Form className="form" onSubmit={formik.handleSubmit}>
 					<S.ContainerForm className="text-start">
-						{/* <Form.Group>
+						{/* <S.FormGroup>
 							<S.Label>Nome</S.Label>
 							{formik.errors.nome && (
 								<small>
@@ -107,8 +105,8 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>Sobrenome</S.Label>
 							<S.FormItem
 								id="sobrenome"
@@ -119,9 +117,10 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group> */}
-						<Form.Group>
+						</S.FormGroup> */}
+						<S.FormGroup>
 							<S.Label>CPF</S.Label>
+							
 							<S.FormItem
 								id="cpf"
 								name="cpf"
@@ -131,8 +130,13 @@ const UserEditForm = () => {
 								onChange={formik.handleChange}
 								disabled={userItem.cpf ? true : false}
 							/>
-						</Form.Group>
-						<Form.Group>
+							{formik.errors.cpf && (
+						<small>
+							<em>{formik.errors.cpf}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>Contato</S.Label>
 							<S.FormItem
 								id="contato"
@@ -143,8 +147,13 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+								{formik.errors.contato && (
+						<small>
+							<em>{formik.errors.contato}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>CEP</S.Label>
 							<S.FormItem
 								id="cep"
@@ -155,8 +164,13 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+							{formik.errors.cep && (
+						<small>
+							<em>{formik.errors.cep}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>Logradouro</S.Label>
 							<S.FormItem
 								id="logradouro"
@@ -167,8 +181,13 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+							{formik.errors.logradouro && (
+						<small>
+							<em>{formik.errors.logradouro}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>Número</S.Label>
 							<S.FormItem
 								id="numero_logradouro"
@@ -179,8 +198,13 @@ const UserEditForm = () => {
 								value={formik.values.numero_logradouro}
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+							{formik.errors.numero_logradouro && (
+						<small>
+							<em>{formik.errors.numero_logradouro}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>Complemento</S.Label>
 							<S.FormItem
 								id="complemento"
@@ -191,8 +215,13 @@ const UserEditForm = () => {
 								value={formik.values.complemento}
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+							{formik.errors.complemento && (
+						<small>
+							<em>{formik.errors.complemento}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label>Bairro</S.Label>
 							<S.FormItem
 								id="bairro"
@@ -203,8 +232,13 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
-						<Form.Group>
+							{formik.errors.bairro && (
+						<small>
+							<em>{formik.errors.bairro}</em>
+						</small>
+					)}
+						</S.FormGroup>
+						<S.FormGroup>
 							<S.Label htmlFor="cidade">Cidade</S.Label>
 							<S.FormItemSelect
 								id="cidade"
@@ -252,7 +286,13 @@ const UserEditForm = () => {
 								<S.SelectOption value="Teresina">Teresina</S.SelectOption>
 								<S.SelectOption value="Vitória">Vitória</S.SelectOption>
 							</S.FormItemSelect>
-							<Form.Group>
+							{formik.errors.cidade && (
+						<small>
+							<em>{formik.errors.cidade}</em>
+						</small>
+					)}
+							</S.FormGroup>
+							<S.FormGroup>
 								<S.Label>Estado</S.Label>
 								<S.FormItemSelect
 									id="uf"
@@ -292,10 +332,14 @@ const UserEditForm = () => {
 									<S.SelectOption value="SE">SE</S.SelectOption>
 									<S.SelectOption value="TO">TO</S.SelectOption>
 								</S.FormItemSelect>
-							</Form.Group>
-						</Form.Group>
-						<Form.Group>
-							{/* <S.Label>Alterar email</S.Label>
+								{formik.errors.uf && (
+						<small>
+							<em>{formik.errors.uf}</em>
+						</small>
+					)}
+							</S.FormGroup>
+						{/* <S.FormGroup>
+							<S.Label>Alterar email</S.Label>
 							<S.FormItem
 								id="email"
 								name="email"
@@ -304,9 +348,9 @@ const UserEditForm = () => {
 								value={formik.values.email}
 								// required
 								onChange={formik.handleChange}
-							/> */}
-							<Form.Group>
-								{/* <S.Label>Alterar senha</S.Label>
+							/>
+							<S.FormGroup>
+								<S.Label>Alterar senha</S.Label>
 								<S.FormItem
 									id="senha"
 									name="senha"
@@ -315,9 +359,9 @@ const UserEditForm = () => {
 									value={formik.values.senha}
 									// required
 									onChange={formik.handleChange}
-								/> */}
-								<Form.Group>
-									{/* <S.Label>Confirmar senha</S.Label>
+								/>
+								<S.FormGroup>
+									<S.Label>Confirmar senha</S.Label>
 									<S.FormItem
 										id="confirmarSenha"
 										name="confirmarSenha"
@@ -326,10 +370,10 @@ const UserEditForm = () => {
 										value={formik.values.senha}
 										// required
 										onChange={formik.handleChange}
-									/> */}
-								</Form.Group>
-							</Form.Group>
-						</Form.Group>
+									/>
+								</S.FormGroup>
+							</S.FormGroup>
+						</S.FormGroup> */}
 						<S.TextareaContainer>
 							<S.Label>Sobre</S.Label>
 							<S.TextArea
@@ -339,6 +383,11 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							></S.TextArea>
+								{formik.errors.sobre && (
+						<small>
+							<em>{formik.errors.sobre}</em>
+						</small>
+					)}
 						</S.TextareaContainer>
 					</S.ContainerForm>
 					<S.ButtonContainer className="my-5">

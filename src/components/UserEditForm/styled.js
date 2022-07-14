@@ -20,12 +20,24 @@ export const ContainerForm = styled.div`
 	justify-content: space-between;
 	gap: 30px;
 
+	small {
+		color: #f00;
+		padding: 0;
+		margin: 0;
+		font-weight: 600;
+	}
+
 	@media only screen and (max-width: 500px) {
 		justify-content: center;
 		gap: 20px;
 		text-align: center !important;
 	}
 `;
+
+export const FormGroup = styled(Form.Group)`
+display: flex;
+flex-direction: column;
+`
 
 export const Label = styled(Form.Label)`
 	color: #141518;
