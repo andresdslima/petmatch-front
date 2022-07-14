@@ -1,21 +1,18 @@
 import { Container, Form } from 'react-bootstrap';
 import * as S from './styled';
 import { useFormik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addNewPet } from '../../store/modules/pets';
 import { storeUser } from '../../store/modules/users';
 import { postPets } from '../../services/mainAPI/pets';
 import { api } from '../../services/mainAPI/config';
 import { getUserById } from '../../services/mainAPI/users';
-import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const GiveForAdoptionForm = () => {
-	const userItem = useSelector(state => state.persistedReducer.user);
 	const data = JSON.parse(localStorage.getItem('data'));
 	const accessToken = data.payload.accessToken;
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	function handleChange(event) {
 		const file = event.target.files[0];
@@ -50,12 +47,6 @@ const GiveForAdoptionForm = () => {
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 			api.defaults.headers.common['Content-Type'] = 'multipart/form-data';
-
-			if (!userItem.cidade) {
-				alert('É necessário completar seu cadastro primeiro');
-				navigate(`/users`);
-				return;
-			}
 
 			const formData = new FormData();
 			formData.append('especie', values.especie);
