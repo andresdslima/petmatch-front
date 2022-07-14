@@ -61,8 +61,6 @@ const UserEditForm = () => {
 
 			const response = await updateUser(userId, {
 				cpf: `${values.cpf}`,
-				nome: values.nome,
-				sobrenome: values.sobrenome,
 				contato: `${values.contato}`,
 				cep: `${values.cep}`,
 				logradouro: values.logradouro,
@@ -92,13 +90,13 @@ const UserEditForm = () => {
 			<Container className="my-5">
 				<Form className="form" onSubmit={formik.handleSubmit}>
 					<S.ContainerForm className="text-start">
-						<Form.Group>
+						{/* <Form.Group>
 							<S.Label>Nome</S.Label>
-							{/* {formik.errors.nome && (
+							{formik.errors.nome && (
 								<small>
 									<em>{formik.errors.nome}</em>
 								</small>
-							)} */}
+							)}
 							<S.FormItem
 								id="nome"
 								name="nome"
@@ -120,7 +118,7 @@ const UserEditForm = () => {
 								required
 								onChange={formik.handleChange}
 							/>
-						</Form.Group>
+						</Form.Group> */}
 						<Form.Group>
 							<S.Label>CPF</S.Label>
 							<S.FormItem
@@ -296,7 +294,7 @@ const UserEditForm = () => {
 							</Form.Group>
 						</Form.Group>
 						<Form.Group>
-							<S.Label>Alterar email</S.Label>
+							{/* <S.Label>Alterar email</S.Label>
 							<S.FormItem
 								id="email"
 								name="email"
@@ -305,9 +303,9 @@ const UserEditForm = () => {
 								value={formik.values.email}
 								// required
 								onChange={formik.handleChange}
-							/>
+							/> */}
 							<Form.Group>
-								<S.Label>Alterar senha</S.Label>
+								{/* <S.Label>Alterar senha</S.Label>
 								<S.FormItem
 									id="senha"
 									name="senha"
@@ -316,9 +314,9 @@ const UserEditForm = () => {
 									value={formik.values.senha}
 									// required
 									onChange={formik.handleChange}
-								/>
+								/> */}
 								<Form.Group>
-									<S.Label>Confirmar senha</S.Label>
+									{/* <S.Label>Confirmar senha</S.Label>
 									<S.FormItem
 										id="confirmarSenha"
 										name="confirmarSenha"
@@ -327,7 +325,7 @@ const UserEditForm = () => {
 										value={formik.values.senha}
 										// required
 										onChange={formik.handleChange}
-									/>
+									/> */}
 								</Form.Group>
 							</Form.Group>
 						</Form.Group>
