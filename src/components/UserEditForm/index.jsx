@@ -53,6 +53,7 @@ const UserEditForm = () => {
 		},
 
 		// validationSchema,
+		// Colocar a foto do usuario tbm
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
