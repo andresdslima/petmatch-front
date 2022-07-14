@@ -63,8 +63,12 @@ const Header = () => {
 							</S.NavSignin>
 						) : (
 							<S.NavUser active={location.pathname} exact to="#">
+								<Link exact to="/users">
 								<S.UserIcon />
+								</Link>
+								<Link exact to="/users">
 								<S.UserName>{firstName()}</S.UserName>
+								</Link>
 								<S.ButtonSignOut onClick={() => logout()}>
 									<S.SignOut className="sign-out"></S.SignOut>
 								</S.ButtonSignOut>
