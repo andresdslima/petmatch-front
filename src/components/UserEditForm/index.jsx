@@ -11,14 +11,12 @@ import * as Yup from 'yup';
 
 const validationSchema = Yup.object({
 	cpf: Yup.string().min(11, 'CPF inválido').required('*'),
-	contato: Yup.string()
-		.min(11, 'Contato inválido (Digite DDD + número)')
-		.required('*'),
+	contato: Yup.string().min(11, 'Digite DDD + número').required('*'),
 	cidade: Yup.string().min(3, 'Escolha sua cidade').required('*'),
 	uf: Yup.string().min(2, 'Escolha seu estado').required('*'),
 	bairro: Yup.string().min(3, 'Digite seu bairro').required('*'),
 	cep: Yup.string().min(8, 'CEP inválido').required('*'),
-	logradouro: Yup.string().min(6, 'Digite endereço completo').required('*'),
+	logradouro: Yup.string().min(6, 'Digite seu endereço').required('*'),
 	numero_logradouro: Yup.number().required('*'),
 });
 
@@ -37,22 +35,22 @@ const UserEditForm = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			nome: `${userItem.nome ? userItem.nome : ''}`,
-			sobrenome: `${userItem.sobrenome ? userItem.sobrenome : ''}`,
+			nome: userItem.nome ? userItem.nome : '',
+			sobrenome: userItem.sobrenome ? userItem.sobrenome : '',
 			email: '',
 			senha: '',
 			cpf: `${userItem.cpf ? userItem.cpf : ''}`,
 			contato: `${userItem.contato ? userItem.contato : ''}`,
 			cep: `${userItem.cep ? userItem.cep : ''}`,
-			logradouro: `${userItem.logradouro ? userItem.logradouro : ''}`,
+			logradouro: userItem.logradouro ? userItem.logradouro : '',
 			numero_logradouro: `${
 				userItem.numero_logradouro ? userItem.numero_logradouro : ''
 			}`,
-			complemento: `${userItem.complemento ? userItem.complemento : ''}`,
-			bairro: `${userItem.bairro ? userItem.bairro : ''}`,
-			cidade: `${userItem.cidade ? userItem.cidade : ''}`,
-			uf: `${userItem.uf ? userItem.uf : ''}`,
-			sobre: `${userItem.sobre ? userItem.sobre : ''}`,
+			complemento: userItem.complemento ? userItem.complemento : null,
+			bairro: userItem.bairro ? userItem.bairro : '',
+			cidade: userItem.cidade ? userItem.cidade : '',
+			uf: userItem.uf ? userItem.uf : '',
+			sobre: userItem.sobre ? userItem.sobre : '',
 		},
 
 		validationSchema,
@@ -66,7 +64,7 @@ const UserEditForm = () => {
 				cep: `${values.cep}`,
 				logradouro: values.logradouro,
 				numero_logradouro: `${values.numero_logradouro}`,
-				complemento: values.complemento,
+				complemento: values.complemento ? values.complemento : null,
 				bairro: values.bairro,
 				cidade: values.cidade,
 				uf: values.uf,
@@ -130,7 +128,6 @@ const UserEditForm = () => {
 								placeholder="Ex: 12345678901"
 								value={formik.values.cpf}
 								onChange={formik.handleChange}
-								disabled={userItem.cpf ? true : false}
 							/>
 							{formik.errors.cpf && (
 								<small>
@@ -213,7 +210,11 @@ const UserEditForm = () => {
 								name="complemento"
 								type="text"
 								placeholder="Opcional"
-								value={formik.values.complemento}
+								value={
+									formik.values.complemento !== ''
+										? formik.values.complemento
+										: null
+								}
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.complemento && (

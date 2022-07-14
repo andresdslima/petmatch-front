@@ -86,7 +86,6 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								{...register('cpf')}
 								value={formik.values.cpf}
 								onChange={formik.handleChange}
-								disabled={userItem.cpf ? true : false}
 							/>
 						</Styled.InputContainer>
 					</Col>
