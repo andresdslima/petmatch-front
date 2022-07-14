@@ -37,28 +37,28 @@ const UserEditForm = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			nome: `${userItem.nome ?? ''}`,
-			sobrenome: `${userItem.sobrenome ?? ''}`,
+			nome: `${userItem.nome ? userItem.nome : ''}`,
+			sobrenome: `${userItem.sobrenome ? userItem.sobrenome : ''}`,
 			email: '',
 			senha: '',
-			cpf: `${userItem.cpf ?? ''}`,
-			contato: `${userItem.contato ?? ''}`,
-			cep: `${userItem.cep ?? ''}`,
-			logradouro: `${userItem.logradouro ?? ''}`,
-			numero_logradouro: `${userItem.numero_logradouro ?? ''}`,
-			complemento: `${userItem.complemento ?? ''}`,
-			bairro: `${userItem.bairro ?? ''}`,
-			cidade: `${userItem.cidade ?? ''}`,
-			uf: `${userItem.uf ?? ''}`,
-			sobre: `${userItem.sobre ?? ''}`,
+			cpf: `${userItem.cpf ? userItem.cpf : ''}`,
+			contato: `${userItem.contato ? userItem.contato : ''}`,
+			cep: `${userItem.cep ? userItem.cep : ''}`,
+			logradouro: `${userItem.logradouro ? userItem.logradouro : ''}`,
+			numero_logradouro: `${
+				userItem.numero_logradouro ? userItem.numero_logradouro : ''
+			}`,
+			complemento: `${userItem.complemento ? userItem.complemento : ''}`,
+			bairro: `${userItem.bairro ? userItem.bairro : ''}`,
+			cidade: `${userItem.cidade ? userItem.cidade : ''}`,
+			uf: `${userItem.uf ? userItem.uf : ''}`,
+			sobre: `${userItem.sobre ? userItem.sobre : ''}`,
 		},
 
 		validationSchema,
 
 		onSubmit: async values => {
 			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-
-			// Falta poder alterar o email e senha do usuario
 
 			const response = await updateUser(userId, {
 				cpf: `${values.cpf}`,
@@ -213,7 +213,6 @@ const UserEditForm = () => {
 								name="complemento"
 								type="text"
 								placeholder="Opcional"
-								required
 								value={formik.values.complemento}
 								onChange={formik.handleChange}
 							/>

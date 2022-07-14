@@ -21,7 +21,7 @@ const ImagesCarousel = () => {
 	};
 
 	const click = () => {
-		if (isLogged()) {
+		if (!isLogged()) {
 			alert('É necessário completar seu cadastro primeiro');
 		}
 	};
@@ -66,9 +66,15 @@ const ImagesCarousel = () => {
 				}
 			>
 				<S.ContainerButton>
-					<S.ButtonLink color={'#8D73E4'} exact to="/matches">
-						Quero Adotar
-					</S.ButtonLink>
+					{!userItem.cidade ? (
+						<S.ButtonLink color={'#8D73E4'} to="/users" onClick={click}>
+							Quero Adotar
+						</S.ButtonLink>
+					) : (
+						<S.ButtonLink color={'#8D73E4'} to="/matches">
+							Quero Adotar
+						</S.ButtonLink>
+					)}
 					{!userItem.cidade ? (
 						<S.ButtonLink color={'#F76F34'} to="/users" onClick={click}>
 							Quero Doar

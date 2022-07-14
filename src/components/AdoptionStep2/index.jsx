@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { Form, Col, Row } from 'react-bootstrap';
 import { countStep } from '../../store/modules/adoption';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const validationSchema = Yup.object({
 	cpf: Yup.string().min(11, '11 dígitos').required('*'),
@@ -21,6 +21,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 	const dispatch = useDispatch();
 	const formObject = JSON.parse(localStorage.getItem('form'));
 	const userObject = JSON.parse(localStorage.getItem('user'));
+	const userItem = useSelector(state => state.persistedReducer.user);
 
 	const formik = useFormik({
 		initialValues: {
@@ -85,7 +86,7 @@ export default function AdoptionStep2({ setStep, formValues, setFormValues }) {
 								{...register('cpf')}
 								value={formik.values.cpf}
 								onChange={formik.handleChange}
-								disabled={formObject.cpf ? true : false}
+								disabled={userItem.cpf ? true : false}
 							/>
 						</Styled.InputContainer>
 					</Col>

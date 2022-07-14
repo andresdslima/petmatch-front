@@ -3,7 +3,7 @@ import * as Styled from '../AdoptionForm/styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Col, Row } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { countStep } from '../../store/modules/adoption';
 
@@ -23,6 +23,7 @@ export default function AdoptionStep1({ setStep, formValues, setFormValues }) {
 	const { register } = useForm();
 	const dispatch = useDispatch();
 	const formObject = JSON.parse(localStorage.getItem('form'));
+	const userItem = useSelector(state => state.persistedReducer.user);
 
 	const formik = useFormik({
 		initialValues: {
