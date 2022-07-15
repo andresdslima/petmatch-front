@@ -4,7 +4,7 @@ const AboutUsSection = () => {
     return (
         <S.MainContainer>
             <S.HowItWorks>
-                <S.Titles>Como funciona o PetMatch?</S.Titles>
+                <S.Titles>Como funciona a PetMatch?</S.Titles>
                 <S.Paragraphs>A PetMatch tem o intuito de conectar uma pessoa adotando um pet com outra pessoa que queira doar, todo esse processo de maneira rápida, segura e muito assertiva, relacionando o pet através do nosso “match” inteligente, vinculando caracteristicas de ambos, contribuindo assim, para uma adoção mais assertiva.</S.Paragraphs>
             </S.HowItWorks>
             <S.HowItWorks>

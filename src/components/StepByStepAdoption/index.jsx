@@ -6,7 +6,7 @@ import * as S from './styled';
 const StepByStepAdoption = () => {
   return (
     <S.ContainerStepByStep className='text-center'>
-        <S.IntroductionText>Confira o passo a passo para a adoção no PetMatch!</S.IntroductionText>
+        <S.IntroductionText>Confira o passo a passo para a adoção com a PetMatch!</S.IntroductionText>
         <S.NumberOfSteps className='mt-3 mb-5'>
             <S.StepNumberOne>1</S.StepNumberOne>
             <S.StepNumberTwo>2</S.StepNumberTwo>

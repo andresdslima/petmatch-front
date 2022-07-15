@@ -25,7 +25,7 @@ export const createUser = async user => {
 export const updateUser = async (id, user) => {
 	try {
 		const response = await api.put(`/users/${id}`, user);
-		// alert('Perfil atualizado com sucesso!');
+		alert('Perfil atualizado com sucesso!');
 		return response;
 	} catch (error) {
 		console.error(error);
