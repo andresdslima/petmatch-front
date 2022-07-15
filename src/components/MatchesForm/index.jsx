@@ -19,11 +19,11 @@ const MatchesForm = () => {
 	const formik = useFormik({
 		initialValues: {
 			especie: '',
-			idade_max: 0,
+			idade_max: null,
 			sexo: '',
-			peso_max: 0,
+			peso_max: null,
 			porte: '',
-			tamanho_max: 0,
+			tamanho_max: null,
 			cor: '',
 			raca: '',
 			castrado: false,
@@ -65,12 +65,12 @@ const MatchesForm = () => {
 							<S.Label>Idade máxima</S.Label>
 							<S.FormItemSelect
 								id="idade_max"
-								type="number"
-								placeholder="Ex: 3"
+								name="idade_max"
+								type="select"
 								value={formik.values.idade}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value={null}></S.SelectOption>
 								<S.SelectOption value={1}>1 ano</S.SelectOption>
 								<S.SelectOption value={2}>2 anos</S.SelectOption>
 								<S.SelectOption value={3}>3 anos</S.SelectOption>
@@ -96,12 +96,12 @@ const MatchesForm = () => {
 							<S.Label>Peso máximo</S.Label>
 							<S.FormItemSelect
 								id="peso_max"
+								name="peso_max"
 								type="select"
-								placeholder="Ex: 10"
 								value={formik.values.peso}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value={null}></S.SelectOption>
 								<S.SelectOption value={2}>2kg</S.SelectOption>
 								<S.SelectOption value={5}>5kg</S.SelectOption>
 								<S.SelectOption value={10}>10kg</S.SelectOption>
@@ -132,11 +132,12 @@ const MatchesForm = () => {
 							<S.Label>Tamanho máximo</S.Label>
 							<S.FormItemSelect
 								id="tamanho_max"
+								name="tamanho_max"
 								type="select"
 								value={formik.values.tamanho}
 								onChange={formik.handleChange}
 							>
-								<S.SelectOption value=""></S.SelectOption>
+								<S.SelectOption value={null}></S.SelectOption>
 								<S.SelectOption value={20}>20 cm</S.SelectOption>
 								<S.SelectOption value={35}>35 cm</S.SelectOption>
 								<S.SelectOption value={50}>50 cm</S.SelectOption>

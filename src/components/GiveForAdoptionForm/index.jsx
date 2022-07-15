@@ -38,7 +38,7 @@ const GiveForAdoptionForm = () => {
 			raca: '',
 			castrado: false,
 			vacinado: false,
-			chip: '',
+			chip: null,
 			sobre: '',
 			petImage: undefined,
 			nome: '',
@@ -62,7 +62,7 @@ const GiveForAdoptionForm = () => {
 			formData.append('raca', values.raca);
 			formData.append('castrado', values.castrado);
 			formData.append('vacinado', values.vacinado);
-			formData.append('chip', values.chip);
+			formData.append('chip', values.chip ? values.chip : null);
 			formData.append('sobre', values.sobre);
 			formData.append('petImage', values.petImage, 'petImage.png');
 
@@ -70,7 +70,7 @@ const GiveForAdoptionForm = () => {
 
 			dispatch(addNewPet({ pets: data }));
 			formik.resetForm();
-			navigate('/')
+			navigate('/');
 			window.location.reload();
 		},
 	});
@@ -246,7 +246,7 @@ const GiveForAdoptionForm = () => {
 								type="text"
 								placeholder="Ex: D4J7X9"
 								value={formik.values.chip}
-								required
+								// required
 								onChange={formik.handleChange}
 							/>
 						</Form.Group>

@@ -24,13 +24,13 @@ export const calculateMatch = (objectForm, objectApi) => {
 		return counter;
 	}, 0);
 
-	if (objectForm.idade_max >= objectApi.idade) {
+	if (parseInt(objectForm.idade_max) >= objectApi.idade) {
 		count++;
 	}
-	if (objectForm.peso_max >= objectApi.peso) {
+	if (parseInt(objectForm.peso_max) >= objectApi.peso) {
 		count++;
 	}
-	if (objectForm.tamanho_max >= objectApi.tamanho) {
+	if (parseInt(objectForm.tamanho_max) >= objectApi.tamanho) {
 		count++;
 	}
 	if (objectForm.uf === objectApi.user.uf) {
