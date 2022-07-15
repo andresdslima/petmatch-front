@@ -10,7 +10,7 @@ const PeopleReview = () => {
             <S.PeopleReview>
                 <S.TalkingAbout>
                     <S.TalkingAboutTitle>O que estão falando sobre a PetMatch?</S.TalkingAboutTitle>
-                    <S.TalkingAboutText>Queremos ouvir sua opinião! conte pra gente como foi sua experiência e o resultado dela.</S.TalkingAboutText>
+                    <S.TalkingAboutText>Queremos ouvir a sua opinião! Conte pra gente como foi sua experiência e o resultado dela.</S.TalkingAboutText>
                 </S.TalkingAbout>
                 <S.PeopleOpinionContainer>
                     <S.PeopleOpinion>
@@ -20,7 +20,7 @@ const PeopleReview = () => {
                         <div>
                             <S.PersonInfo>
                                 <S.NameStatement>
-                                    <S.PersonName>Roseane A.</S.PersonName>
+                                    <S.PersonName>Roseane</S.PersonName>
                                     <S.Statement>Tutora da Savana</S.Statement>
                                 </S.NameStatement>
                                 <div className='starsReview'>
@@ -32,7 +32,7 @@ const PeopleReview = () => {
                                 </div>
                             </S.PersonInfo>
                             <S.Statement>
-                                <p>Adotar a savana foi a melhor decisão da minha vida! Não me vejo mais sem ela, Agradeço muito por todo processo com a PetMatch.</p>
+                                <p>Adotar a Savana foi a melhor decisão da minha vida. Não me vejo mais sem ela! Agradeço muito por todo o processo com a PetMatch!</p>
                             </S.Statement>
                         </div>
                     </S.PeopleOpinion>
@@ -43,7 +43,7 @@ const PeopleReview = () => {
                         <div className='opinionContent'>
                             <S.PersonInfo>
                                 <S.NameStatement>
-                                    <S.PersonName>Rogério S.</S.PersonName>
+                                    <S.PersonName>Rogério</S.PersonName>
                                     <S.Statement className='statement'>Tutor do Pluto</S.Statement>
                                 </S.NameStatement>
                                 <div className='starsReview'>
@@ -55,7 +55,7 @@ const PeopleReview = () => {
                                 </div>
                             </S.PersonInfo>
                             <S.Statement>
-                                <p>Pessoas, a PetMatch me fez ganhar meu melhor amigo, o Pluto é demais. Tudo foi muito rápido e prático. Obrigado PetMatch!</p>
+                                <p>A PetMatch me fez ganhar meu melhor amigo. O Pluto é demais! Tudo foi muito rápido e prático. Obrigado, PetMatch!</p>
                             </S.Statement>
                         </div>
                     </S.PeopleOpinion>
