@@ -71,6 +71,7 @@ const GiveForAdoptionForm = () => {
 			dispatch(addNewPet({ pets: data }));
 			formik.resetForm();
 			navigate('/')
+			window.location.reload();
 		},
 	});
 
