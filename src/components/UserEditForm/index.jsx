@@ -4,8 +4,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { storeUser } from '../../store/modules/users';
 import { api } from '../../services/mainAPI/config';
-import { getUserById, updateUser } from '../../services/mainAPI/users';
-import { useEffect } from 'react';
+import { updateUser } from '../../services/mainAPI/users';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -27,11 +26,6 @@ const UserEditForm = () => {
 	const accessToken = data.payload.accessToken;
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		getUserById(data.payload.id).then(user => dispatch(storeUser(user)));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	const formik = useFormik({
 		initialValues: {

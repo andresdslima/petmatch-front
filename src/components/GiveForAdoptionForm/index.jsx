@@ -8,10 +8,12 @@ import { postPets } from '../../services/mainAPI/pets';
 import { api } from '../../services/mainAPI/config';
 import { getUserById } from '../../services/mainAPI/users';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const GiveForAdoptionForm = () => {
 	const data = JSON.parse(localStorage.getItem('data'));
 	const accessToken = data.payload.accessToken;
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
 	function handleChange(event) {
@@ -68,6 +70,7 @@ const GiveForAdoptionForm = () => {
 
 			dispatch(addNewPet({ pets: data }));
 			formik.resetForm();
+			navigate('/')
 		},
 	});
 

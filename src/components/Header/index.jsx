@@ -3,7 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.svg';
 import * as S from './styled';
 import { useDispatch } from 'react-redux';
-import { signOut } from '../../store/modules/users';
+import { signOut, storeUser } from '../../store/modules/users';
+import { useEffect } from 'react';
+import { getUserById } from '../../services/mainAPI/users';
 
 const Header = () => {
 	// const isLogged = useSelector(state => state.persistedReducer.isLogged);
@@ -31,12 +33,18 @@ const Header = () => {
 		window.location.reload();
 	};
 
+	useEffect(() => {
+		if (data)
+			getUserById(data.payload.id).then(user => dispatch(storeUser(user)));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
 		<Navbar expand="lg mb-4">
 			<Container>
 				<Navbar.Brand className="m-0 py-3">
 					<Link exact to="/">
-					<S.LogoImage src={Logo} alt="PetMatch Logo"/>
+						<S.LogoImage src={Logo} alt="PetMatch Logo" />
 					</Link>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -64,10 +72,10 @@ const Header = () => {
 						) : (
 							<S.NavUser active={location.pathname} exact to="#">
 								<Link exact to="/users">
-								<S.UserIcon />
+									<S.UserIcon />
 								</Link>
 								<Link exact to="/users">
-								<S.UserName>{firstName()}</S.UserName>
+									<S.UserName>{firstName()}</S.UserName>
 								</Link>
 								<S.ButtonSignOut onClick={() => logout()}>
 									<S.SignOut className="sign-out"></S.SignOut>
