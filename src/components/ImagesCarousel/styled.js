@@ -15,7 +15,6 @@ export const ContainerCarousel = styled(Carousel)`
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: 100%;
 	box-sizing: border-box;
 
 	& .carousel-indicators {
@@ -44,8 +43,9 @@ export const ContainerCarousel = styled(Carousel)`
 	}
 
 	@media (max-width: 600px) {
+		width: 100vw;
 		margin-top: 0;
-		height: 30vw;
+		height: 50vw;
 	}
 `;
 
@@ -57,7 +57,8 @@ export const ImageCarousel = styled.img`
 		height: 25vw;
 	}
 	@media (max-width: 468px) {
-		height: 30vw;
+		height: 50vw;
+		object-fit: cover;
 	}
 `;
 
