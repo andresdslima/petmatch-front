@@ -30,6 +30,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 
 - HTML5
 - CSS3
+- Bootstrap
 - JavaScript
 - React.js
 - Redux Toolkit
