@@ -9,9 +9,9 @@ const ListAllPets = () => {
 	const petList = useSelector(state => state.petsSlice.pets);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		getPets().then(pets => dispatch(setPetList(pets)));
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	getPets().then(pets => dispatch(setPetList(pets)));
+	// }, [dispatch]);
 
 	return (
 		<>

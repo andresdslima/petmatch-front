@@ -15,9 +15,9 @@ const MatchMainContent = () => {
 
 	const fivePetsRandomList = randomList.slice(0, 5);
 
-	useEffect(() => {
-		getPets().then(pets => dispatch(setPetList(pets)));
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	getPets().then(pets => dispatch(setPetList(pets)));
+	// }, [dispatch]);
 
 	return (
 		<Container>
