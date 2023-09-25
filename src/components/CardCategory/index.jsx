@@ -43,7 +43,8 @@ const CardCategory = () => {
 				<S.TitleCategory>Categorias</S.TitleCategory>
 				<S.ContainerCardsCategory>
 					<Slider {...settings}>
-						<S.LinkContainer to="/petsbyspecie/Cachorro">
+						{/* <S.LinkContainer to="/petsbyspecie/Cachorro"> */}
+						<S.LinkContainer to="/">
 							<S.CardCategory>
 								<S.ContainerImgCategory>
 									<S.ImgCategory src={dogSmile} />
@@ -53,7 +54,8 @@ const CardCategory = () => {
 								</Card.Body>
 							</S.CardCategory>
 						</S.LinkContainer>
-						<S.LinkContainer to="/petsbyspecie/Gato">
+						{/* <S.LinkContainer to="/petsbyspecie/Gato"> */}
+						<S.LinkContainer to="/">
 							<S.CardCategory>
 								<S.ContainerImgCategory>
 									<S.ImgCategory src={catSerious} />
@@ -63,7 +65,8 @@ const CardCategory = () => {
 								</Card.Body>
 							</S.CardCategory>
 						</S.LinkContainer>
-						<S.LinkContainer to="/petsbyspecie/Ave">
+						{/* <S.LinkContainer to="/petsbyspecie/Ave"> */}
+						<S.LinkContainer to="/">
 							<S.CardCategory>
 								<S.ContainerImgCategory>
 									<S.ImgCategory src={birdModel} />
@@ -73,7 +76,8 @@ const CardCategory = () => {
 								</Card.Body>
 							</S.CardCategory>
 						</S.LinkContainer>
-						<S.LinkContainer to="/petsbyspecie/Réptil">
+						{/* <S.LinkContainer to="/petsbyspecie/Réptil"> */}
+						<S.LinkContainer to="/">
 							<S.CardCategory>
 								<S.ContainerImgCategory>
 									<S.ImgCategory src={reptiles} />
@@ -83,7 +87,8 @@ const CardCategory = () => {
 								</Card.Body>
 							</S.CardCategory>
 						</S.LinkContainer>
-						<S.LinkContainer to="/petsbyspecie/Peixe">
+						{/* <S.LinkContainer to="/petsbyspecie/Peixe"> */}
+						<S.LinkContainer to="/">
 							<S.CardCategory>
 								<S.ContainerImgCategory>
 									<S.ImgCategory src={Fish} />
