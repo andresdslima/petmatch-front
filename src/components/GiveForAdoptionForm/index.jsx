@@ -11,8 +11,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const GiveForAdoptionForm = () => {
-	const data = JSON.parse(localStorage.getItem('data'));
-	const accessToken = data.payload.accessToken;
+	// const data = JSON.parse(localStorage.getItem('data'));
+	// const accessToken = data.payload.accessToken;
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -21,10 +21,10 @@ const GiveForAdoptionForm = () => {
 		formik.setFieldValue('petImage', file);
 	}
 
-	useEffect(() => {
-		getUserById(data.payload.id).then(user => dispatch(storeUser(user)));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// useEffect(() => {
+	// 	getUserById(data.payload.id).then(user => dispatch(storeUser(user)));
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 
 	const formik = useFormik({
 		initialValues: {
@@ -47,7 +47,7 @@ const GiveForAdoptionForm = () => {
 		// validationSchema,
 
 		onSubmit: async values => {
-			api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+			// api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 			api.defaults.headers.common['Content-Type'] = 'multipart/form-data';
 
 			const formData = new FormData();
