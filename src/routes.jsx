@@ -30,29 +30,31 @@ export default function AppRoutes() {
 					<Route
 						path="/formularioaprovadofinal"
 						element={
-							<RequireAuth>
+							// <RequireAuth>
 								<FormularioAprovadoFinal />
-							</RequireAuth>
+							// </RequireAuth>
 						}
 					/>
 					<Route path="/sobre" element={<About />} />
-					<Route path="/matches" element={<RequireAuth>
-						<Matches />
-						</RequireAuth>} />
+					<Route path="/matches" element={
+						// <RequireAuth>
+							<Matches />
+						// </RequireAuth>
+					} />
 					<Route
 						path="/adoption"
 						element={
-							<RequireAuth>
+							// <RequireAuth>
 								<Adoption />
-							</RequireAuth>
+							// </RequireAuth>
 						}
 					/>
 					<Route
 						path="/giveforadoption"
 						element={
-							<RequireAuth>
+							// <RequireAuth>
 								<GiveForAdoption />
-							</RequireAuth>
+							// </RequireAuth>
 						}
 					/>
 					<Route path="/blog" element={<Blog />} />
@@ -60,9 +62,9 @@ export default function AppRoutes() {
 					<Route path="/petsbyspecie/:param" element={<PetsBySpecie />} />
 					<Route path="/allpets" element={<AllPets />} />
 					<Route path="/users" element={
-						<RequireAuth>
-						<UserEdit />
-					</RequireAuth>
+						// <RequireAuth>
+							<UserEdit />
+						// </RequireAuth>
 					} />
 				</Routes>
 			</ScrollToTop>
