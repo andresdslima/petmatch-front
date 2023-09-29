@@ -67,7 +67,8 @@ const ImagesCarousel = () => {
 			>
 				<S.ContainerButton>
 					{!userItem.cidade ? (
-						<S.ButtonLink color={'#8D73E4'} to="/users" onClick={click}>
+						// <S.ButtonLink color={'#8D73E4'} to="/users" onClick={click}>
+						<S.ButtonLink color={'#8D73E4'} to="/matches" onClick={click}>
 							Quero Adotar
 						</S.ButtonLink>
 					) : (
@@ -76,7 +77,8 @@ const ImagesCarousel = () => {
 						</S.ButtonLink>
 					)}
 					{!userItem.cidade ? (
-						<S.ButtonLink color={'#F76F34'} to="/users" onClick={click}>
+						// <S.ButtonLink color={'#F76F34'} to="/users" onClick={click}>
+						<S.ButtonLink color={'#F76F34'} to="/giveforadoption" onClick={click}>
 							Quero Doar
 						</S.ButtonLink>
 					) : (
