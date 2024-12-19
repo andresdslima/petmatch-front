@@ -1,0 +1,8 @@
+name: hello-world #Workflow's name (collection of Jobs)
+on: push #Triggering events
+jobs:
+  my-job: #Job's name (collection of Steps); Can chain multiple Jobs with ":needs"
+    runs-on: ubuntu-latest #Virtual machine (container)
+    steps:
+      - name: my-step #Step's name
+        run: echo "Hello World!" #Actions/commands
