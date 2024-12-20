@@ -17,15 +17,15 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Extract metadata (tags, labels) for Docker
-        id: meta
+        id: meta #Unique identifier
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: andresdslima/petmatch
+          images: andresdslima/petmatch #Docker Hub repo
       
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: .
-          push: true
+          context: . #Dockerfile's location
+          push: true #Push image to Docker Hub
           tags: ${{ steps.meta.outputs.tags }} #Tags from previous meta action
           labels: ${{ steps.meta.outputs.labels }} #Labels from previous meta action
